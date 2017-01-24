@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:HyperLink runat="server" ID="HyperLink1" PostBackUrl="~/Pages/Register.aspx" ViewStateMode="Enabled">Forgot your password?</asp:HyperLink>
+                            <asp:HyperLink runat="server" ID="HyperLink1" ViewStateMode="Enabled">Forgot your password?</asp:HyperLink>
                         </div>
                     </div>
                 </div>

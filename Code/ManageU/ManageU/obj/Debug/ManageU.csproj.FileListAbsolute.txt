@@ -155,3 +155,4 @@ C:\Users\anscmc\Desktop\Senior Design\ManageU\ManageU\Code\ManageU\ManageU\bin\M
 C:\Users\anscmc\Desktop\Senior Design\ManageU\ManageU\Code\ManageU\ManageU\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\anscmc\Desktop\Senior Design\ManageU\ManageU\Code\ManageU\ManageU\obj\Debug\ManageU.dll
 C:\Users\anscmc\Desktop\Senior Design\ManageU\ManageU\Code\ManageU\ManageU\obj\Debug\ManageU.pdb
+C:\Users\anscmc\Desktop\Senior Design\ManageU\ManageU\Code\ManageU\ManageU\obj\Debug\ManageU.csprojResolveAssemblyReference.cache
