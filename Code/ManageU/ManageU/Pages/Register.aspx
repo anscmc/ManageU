@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="ManageU.Pages.Register" Async="true" %>
+﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Masters/Landing.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="ManageU.Pages.Register" Async="true" %>
 
 <%--<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>--%>
 
@@ -22,11 +22,11 @@
 
                     <div class="form-group">
                     <div class="col-sm-6 col-sm-offset-3">
-                    <select class="selectpicker" ID="sport" style="color:black;">
+                    <select class="selectpicker" ID="sportType" style="color:black;" runat="server">
                         <option value="" selected disabled>Select Your Sport</option>
-                        <option>Mustard</option>
-                        <option>Ketchup</option>
-                        <option>Relish</option>
+                        <option value="Football">Football</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Volleyball">Volleyball</option>
                     </select>
 
                     </div>
@@ -50,7 +50,7 @@
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
                             <asp:TextBox runat="server" ID="pass2" TextMode="Password" placeholder="Re-Enter Password" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="pass2" CssClass="text-danger" ErrorMessage="Field is required." />
+                           <asp:RequiredFieldValidator runat="server" ControlToValidate="pass2" CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
                     </div>
 
@@ -77,14 +77,14 @@
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="university" TextMode="SingleLine" placeholder="University" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="university" CssClass="text-danger" ErrorMessage="Field is required." />
+                            <asp:TextBox runat="server" ID="univ" TextMode="SingleLine" placeholder="University" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="univ" CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:Button runat="server" Text="Register" CssClass="btn btn-default" PostBackUrl="~/Pages/Landing.aspx" width=125 style="display: block; margin: 0 auto;" ID="reg" />
+                            <asp:Button runat="server" Text="Register" onclick="registerButton_Click" CssClass="btn btn-default" width=125 style="display: block; margin: 0 auto;" ID="reg" />
                         </div>
                     </div>
 

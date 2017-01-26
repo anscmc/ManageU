@@ -210,14 +210,88 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pages\TeamProfile.aspx" />
+    <Content Include="prof\font\roboto\Roboto-Bold.eot" />
+    <Content Include="prof\font\roboto\Roboto-Bold.ttf" />
+    <Content Include="prof\font\roboto\Roboto-Bold.woff" />
+    <Content Include="prof\font\roboto\Roboto-Bold.woff2" />
+    <Content Include="prof\font\roboto\Roboto-Light.eot" />
+    <Content Include="prof\font\roboto\Roboto-Light.ttf" />
+    <Content Include="prof\font\roboto\Roboto-Light.woff" />
+    <Content Include="prof\font\roboto\Roboto-Light.woff2" />
+    <Content Include="prof\font\roboto\Roboto-Medium.eot" />
+    <Content Include="prof\font\roboto\Roboto-Medium.ttf" />
+    <Content Include="prof\font\roboto\Roboto-Medium.woff" />
+    <Content Include="prof\font\roboto\Roboto-Medium.woff2" />
+    <Content Include="prof\font\roboto\Roboto-Regular.eot" />
+    <Content Include="prof\font\roboto\Roboto-Regular.ttf" />
+    <Content Include="prof\font\roboto\Roboto-Regular.woff" />
+    <Content Include="prof\font\roboto\Roboto-Regular.woff2" />
+    <Content Include="prof\font\roboto\Roboto-Thin.eot" />
+    <Content Include="prof\font\roboto\Roboto-Thin.ttf" />
+    <Content Include="prof\font\roboto\Roboto-Thin.woff" />
+    <Content Include="prof\font\roboto\Roboto-Thin.woff2" />
+    <Content Include="prof\img\lightbox\Thumbs.db" />
+    <Content Include="prof\img\overlays\Thumbs.db" />
+    <Content Include="prof\img\swimteam.jpg" />
+    <Content Include="prof\sass\mdb.scss" />
+    <Content Include="prof\sass\mdb\free\data\_colors.scss" />
+    <Content Include="prof\sass\mdb\free\data\_mixins.scss" />
+    <Content Include="prof\sass\mdb\free\data\_prefixer.scss" />
+    <Content Include="prof\sass\mdb\free\data\_variables-b4.scss" />
+    <Content Include="prof\sass\mdb\free\data\_variables.scss" />
+    <Content Include="prof\sass\mdb\free\_animations.scss" />
+    <Content Include="prof\sass\mdb\free\_buttons.scss" />
+    <Content Include="prof\sass\mdb\free\_cards-basic.scss" />
+    <Content Include="prof\sass\mdb\free\_carousels-basic.scss" />
+    <Content Include="prof\sass\mdb\free\_footer.scss" />
+    <Content Include="prof\sass\mdb\free\_forms-basic.scss" />
+    <Content Include="prof\sass\mdb\free\_global.scss" />
+    <Content Include="prof\sass\mdb\free\_helpers.scss" />
+    <Content Include="prof\sass\mdb\free\_hover-effects.scss" />
+    <Content Include="prof\sass\mdb\free\_navbars.scss" />
+    <Content Include="prof\sass\mdb\free\_roboto.scss" />
+    <Content Include="prof\sass\mdb\free\_typography.scss" />
+    <Content Include="prof\sass\mdb\free\_waves.scss" />
+    <Content Include="Masters\TeamProfile.Master" />
+    <Content Include="Masters\Landing.Master" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pages\Landing.aspx" />
     <Content Include="Pages\Register.aspx" />
+    <Content Include="prof\css\bootstrap.css" />
+    <Content Include="prof\css\bootstrap.min.css" />
+    <Content Include="prof\css\mdb.css" />
+    <Content Include="prof\css\mdb.min.css" />
+    <Content Include="prof\css\style.css" />
+    <Content Include="prof\img\lightbox\default-skin.png" />
+    <Content Include="prof\img\lightbox\default-skin.svg" />
+    <Content Include="prof\img\lightbox\preloader.gif" />
+    <Content Include="prof\img\overlays\01.png" />
+    <Content Include="prof\img\overlays\02.png" />
+    <Content Include="prof\img\overlays\03.png" />
+    <Content Include="prof\img\overlays\04.png" />
+    <Content Include="prof\img\overlays\05.png" />
+    <Content Include="prof\img\overlays\06.png" />
+    <Content Include="prof\img\overlays\07.png" />
+    <Content Include="prof\img\overlays\08.png" />
+    <Content Include="prof\img\overlays\09.png" />
+    <Content Include="prof\js\bootstrap.js" />
+    <Content Include="prof\js\bootstrap.min.js" />
+    <Content Include="prof\js\jquery-2.2.3.js" />
+    <Content Include="prof\js\jquery-2.2.3.min.js" />
+    <Content Include="prof\js\jquery-3.1.1.js" />
+    <Content Include="prof\js\jquery-3.1.1.min.js" />
+    <Content Include="prof\js\mdb.js" />
+    <Content Include="prof\js\mdb.min.js" />
+    <Content Include="prof\js\tether.js" />
+    <Content Include="prof\js\tether.min.js" />
+    <Content Include="prof\sass\README.txt" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrapTP.css" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -248,14 +322,16 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Site.Master" />
+    <Content Include="Masters\Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Site.Mobile.Master" />
+    <Content Include="Masters\Site.Mobile.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -397,6 +473,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Masters\Landing.Master.cs">
+      <DependentUpon>Landing.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\Landing.Master.designer.cs">
+      <DependentUpon>Landing.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\TeamProfile.Master.cs">
+      <DependentUpon>TeamProfile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\TeamProfile.Master.designer.cs">
+      <DependentUpon>TeamProfile.Master</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Pages\Landing.aspx.cs">
       <DependentUpon>Landing.aspx</DependentUpon>
@@ -412,19 +502,26 @@
     <Compile Include="Pages\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TeamProfile.aspx.cs">
+      <DependentUpon>TeamProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TeamProfile.aspx.designer.cs">
+      <DependentUpon>TeamProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
+    <Compile Include="Masters\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
+    <Compile Include="Masters\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
+    <Compile Include="Masters\Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
+    <Compile Include="Masters\Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
