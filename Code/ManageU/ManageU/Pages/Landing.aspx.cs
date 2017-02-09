@@ -37,11 +37,29 @@ namespace ManageU.Pages
 
             objRS = objCmd.ExecuteReader();
 
-            if (objRS.HasRows)
+            if(objRS.HasRows)
             {
-                Response.Redirect("~/Pages/TeamProfile.aspx");
+                while (objRS.Read())
+                {
+                    if (objRS["userType"].ToString() == "player")
+                    {
+                        HttpContext.Current.Session["Username"] = Email.Text;
+                        HttpContext.Current.Session["UserType"] = objRS["userType"].ToString();
+                        Response.Redirect("TeamProfile.aspx");
+                    }
+                    else if (objRS["userType"].ToString() == "coach")
+                    {
+                        HttpContext.Current.Session["Username"] = Email.Text;
+                        HttpContext.Current.Session["UserType"] = objRS["userType"].ToString();
+                        Response.Redirect("TeamProfile.aspx");
+                    }
+
+                }
+
+
             }
-            else {
+            else
+            {
                 //call javascript function to show incorrect username or password
 
                 ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:loginError(); ", true);
