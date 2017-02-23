@@ -19,22 +19,109 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
+
 body {
-  margin-left: 0;
-  margin-right: 0;
+  /*margin-left: 0;
+  margin-right: 0;*/
+  margin:0;
+  background-image:url('b31.png');
+}
+
+/*@font-face {  
+  font-family: college ;  
+  src: url(~/fonts/college.ttf) format("truetype");  
+}  
+  
+.college { 
+    font-family: college;
+}*/ 
+
+.box {
+    /*background-color:rgba(186,105,0,.6);*/
+    background-color:white;
+}
+
+.box2{
+    background:rgba(0,140,186,.2);
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+  height: auto;
+  width: auto\9;
+}
+
+.infoDiv{
+    box-shadow: 0 0 10px #000;
+}
+.infoDiv:hover{
+    box-shadow: 0 0 20px #000;
+}
+
+.rosterCheckBox{
+    background-color:rgba(255,255,255,0);
+    /*padding:2px;*/
+    border-radius:5px;
+    height:29px;
+    width:30px;
+    line-height:28px;
+    text-align:center;
+    float:none;
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    padding:0;
+    font-family:'Microsoft Yahei';
+}
+
+/*.rosterCheckBox:hover{
+    box-shadow: 0 0 10px #008CBA;
+}*/
+
+.xButtonCSS{
+    background-color:white;
+    border:1px solid black;
+    border-radius:5px;
+    height:29px;
+    width:30px;
+    line-height:28px;
+    text-align:center;
+    float:none;
+    position:absolute;
+    padding:0;
+    font-family:'Microsoft Yahei';
+    margin: 0 auto;
+    /*top:50%;
+    left:50%*/
+    right:0px;
+    font-size:27px;
+    color:#008CBA;
+}
+
+.xButtonCSS:hover{
+    box-shadow: 0 0 10px #008CBA;
+}
+
+#footer{
+    /*position: fixed;*/ bottom:0;
 }
 
 
+.clearfix{
+    overflow:auto;
+}
+
     #wrapper { 
         position:absolute;
-        height:100%;
-        /*width:100%;*/
+        height:auto;
         margin-right:0px;
         margin-left:0px;
-        /* Change right property to see shadow: around 10px */
         right:0px;
         left:0px;
         top:7px;
+        z-index:-1001;
     }
 
    
@@ -43,18 +130,18 @@ body {
         height:auto;
         min-height:100%;
         width:100%;
-        z-index:1000;
+        z-index:-1000;
         /*max-width:750px;*/
         display:block;
         margin-left:0px;
-        margin-right:auto;
+        margin-right:0px;
         top:7px;
         /*border:1px solid black;*/
     }
 
-    .info{
-        font-size:x-large;
-        font-family:Calibri;
+    .info {
+        font-size: 1em;
+        font-family: 'Arial Rounded MT';
     }
 
  
@@ -1213,9 +1300,10 @@ img {
 .img-circle {
   border-radius: 50%;
 }
+
 hr {
-  margin-top: 21px;
-  margin-bottom: 21px;
+  margin-top:10px;
+  margin-bottom:10px;
   border: 0;
   border-top: 1px solid #dddddd;
 }
@@ -1292,8 +1380,8 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 21px;
-  margin-bottom: 10.5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 h1 small,
 .h1 small,
@@ -1654,8 +1742,8 @@ pre code {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 @media (min-width: 768px) {
   .container {
@@ -3104,7 +3192,8 @@ select[multiple].input-lg {
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #333333;
+  /*color: #333333;*/
+  box-shadow: 0 0 5px #008CBA;
   text-decoration: none;
 }
 .btn:active,
@@ -3139,9 +3228,10 @@ fieldset[disabled] a.btn {
   border-color: #8c8c8c;
 }
 .btn-default:hover {
-  color: #333333;
+  /*color: #333333;
   background-color: #cecece;
-  border-color: #adadad;
+  border-color: #adadad;*/
+  box-shadow: 0 0 5px #008CBA;
 }
 .btn-default:active,
 .btn-default.active,

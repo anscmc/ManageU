@@ -10,7 +10,7 @@
 namespace ManageU.Pages {
     
     
-    public partial class InvitePlayers {
+    public partial class Contact {
         
         /// <summary>
         /// emailAddresses control.
@@ -22,21 +22,30 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.TextBox emailAddresses;
         
         /// <summary>
-        /// userExistsErr control.
+        /// messageSubject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl userExistsErr;
+        protected global::System.Web.UI.WebControls.TextBox messageSubject;
         
         /// <summary>
-        /// inviteButton control.
+        /// messageBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button inviteButton;
+        protected global::System.Web.UI.WebControls.TextBox messageBody;
+        
+        /// <summary>
+        /// emailButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button emailButton;
     }
 }

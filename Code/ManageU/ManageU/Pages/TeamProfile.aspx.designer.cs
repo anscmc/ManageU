@@ -13,6 +13,15 @@ namespace ManageU.Pages {
     public partial class TeamProfile {
         
         /// <summary>
+        /// teamName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label teamName;
+        
+        /// <summary>
         /// editButton control.
         /// </summary>
         /// <remarks>
@@ -22,13 +31,22 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.Button editButton;
         
         /// <summary>
-        /// teamName control.
+        /// saveTeamInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamName;
+        protected global::System.Web.UI.WebControls.Button saveTeamInfo;
+        
+        /// <summary>
+        /// teamInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamInfo;
         
         /// <summary>
         /// division control.
@@ -38,15 +56,6 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label division;
-        
-        /// <summary>
-        /// conference control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label conference;
         
         /// <summary>
         /// wins control.
@@ -67,6 +76,24 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.Label losses;
         
         /// <summary>
+        /// location control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label location;
+        
+        /// <summary>
+        /// coachInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl coachInfo;
+        
+        /// <summary>
         /// headCoach control.
         /// </summary>
         /// <remarks>
@@ -85,13 +112,22 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.Label coachNumber;
         
         /// <summary>
-        /// location control.
+        /// coachEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label location;
+        protected global::System.Web.UI.WebControls.Label coachEmail;
+        
+        /// <summary>
+        /// linkInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linkInfo;
         
         /// <summary>
         /// schoolSite control.
@@ -121,6 +157,15 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.HyperLink calendarHyp;
         
         /// <summary>
+        /// editTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editTeam;
+        
+        /// <summary>
         /// division2 control.
         /// </summary>
         /// <remarks>
@@ -137,6 +182,24 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox conference2;
+        
+        /// <summary>
+        /// editCoach control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editCoach;
+        
+        /// <summary>
+        /// location2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox location2;
         
         /// <summary>
         /// wins2 control.
@@ -157,13 +220,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.TextBox losses2;
         
         /// <summary>
-        /// location2 control.
+        /// editLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox location2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editLink;
         
         /// <summary>
         /// schoolSite2 control.
@@ -182,5 +245,23 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox siteTeam2;
+        
+        /// <summary>
+        /// profilePicUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload profilePicUpload;
+        
+        /// <summary>
+        /// profilePicGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView profilePicGrid;
     }
 }

@@ -192,13 +192,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\b31.png" />
     <Content Include="Pages\ChangePassword.aspx" />
-    <Content Include="Pages\ChangePasswordSuccess.aspx" />
+    <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\InvitePlayers.aspx" />
     <Content Include="Pages\MyInfo.aspx" />
     <Content Include="Pages\Roster.aspx" />
+    <Content Include="Pages\Tasks.aspx" />
     <Content Include="Pages\TeamCalendar.aspx" />
     <Content Include="Pages\TeamProfile.aspx" />
+    <Content Include="Pages\CreateTask.aspx" />
     <Content Include="prof\font\roboto\Roboto-Bold.eot" />
     <Content Include="prof\font\roboto\Roboto-Bold.ttf" />
     <Content Include="prof\font\roboto\Roboto-Bold.woff" />
@@ -243,6 +246,7 @@
     <Content Include="prof\sass\mdb\free\_waves.scss" />
     <Content Include="Masters\TeamProfile.Master" />
     <Content Include="Masters\Landing.Master" />
+    <Content Include="fonts\college.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pages\Landing.aspx" />
     <Content Include="Pages\Register.aspx" />
@@ -276,6 +280,8 @@
     <Content Include="prof\sass\README.txt" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\b1.png" />
+    <Content Include="Scripts\b31.png" />
     <Content Include="Scripts\bootstrap.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -356,12 +362,12 @@
     <Compile Include="Pages\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ChangePasswordSuccess.aspx.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    <Compile Include="Pages\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\ChangePasswordSuccess.aspx.designer.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    <Compile Include="Pages\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvitePlayers.aspx.cs">
       <DependentUpon>InvitePlayers.aspx</DependentUpon>
@@ -398,6 +404,13 @@
     <Compile Include="Pages\Roster.aspx.designer.cs">
       <DependentUpon>Roster.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Tasks.aspx.cs">
+      <DependentUpon>Tasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Tasks.aspx.designer.cs">
+      <DependentUpon>Tasks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\TeamCalendar.aspx.cs">
       <DependentUpon>TeamCalendar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,6 +424,13 @@
     </Compile>
     <Compile Include="Pages\TeamProfile.aspx.designer.cs">
       <DependentUpon>TeamProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateTask.aspx.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateTask.aspx.designer.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Masters\Site.Master.cs">
@@ -438,6 +458,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

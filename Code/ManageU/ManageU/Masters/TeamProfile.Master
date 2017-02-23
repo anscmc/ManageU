@@ -4,6 +4,7 @@
 
 <html lang="en">
 <head runat="server">
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - ManageU</title>
@@ -11,7 +12,6 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -53,9 +53,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/Pages/Roster">Roster</a></li>
-                        <li><a runat="server" href="~/Pages/TeamProfile">Tasks</a></li>
-                        <li><a runat="server" href="~/Pages/TeamProfile">Contact</a></li>
                         <li><a runat="server" href="~/Pages/TeamCalendar">Calendar</a></li>
+                        <li><a runat="server" href="~/Pages/Tasks">Tasks</a></li>
+                        <li><a runat="server" href="~/Pages/Contact">Contact</a></li>
                         <li><a runat="server" href="~/Pages/InvitePlayers">Invite</a></li>
                         <li><a runat="server" href="~/Pages/MyInfo">My Info</a></li>
                         <li><a runat="server" href="~/Pages/ChangePassword">Change Password</a></li>
@@ -84,10 +84,7 @@
 
             </asp:ContentPlaceHolder>
 
-<%--                <hr />
-                <footer>
-                    <p>&copy; <%: DateTime.Now.Year %> - ManageU</p>
-                </footer>--%>
+           
         </div>
     </form>
 </body>

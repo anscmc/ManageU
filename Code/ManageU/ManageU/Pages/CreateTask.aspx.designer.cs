@@ -11,7 +11,7 @@ namespace ManageU.Pages
 {
 
 
-    public partial class ChangePasswordSuccess
+    public partial class WebForm1
     {
     }
 }

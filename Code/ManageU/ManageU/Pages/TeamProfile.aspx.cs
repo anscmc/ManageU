@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace ManageU.Pages
 {
@@ -13,26 +14,28 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadInfo();
+            editTeam.Visible = false;
+            editCoach.Visible = false;
+            editLink.Visible = false;
+            saveTeamInfo.Visible = false;
+
+            if (!IsPostBack)
+            {
+                loadInfo();
+            }
         }
 
-        protected void invitePlayersButton_Click(object sender, EventArgs e)
+        protected void editButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("InvitePlayers.aspx");
-        }
+            editButton.Visible = false;
+            saveTeamInfo.Visible = true;
+            teamInfo.Visible = false;
+            coachInfo.Visible = false;
+            linkInfo.Visible = false;
 
-        protected void goToRosterButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Roster.aspx");
-        }
-
-        protected void goToMyInfoButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("MyInfo.aspx");
-        }
-
-        protected void editButtonClick(object sender, EventArgs e)
-        {
+            editTeam.Visible = true;
+            editCoach.Visible = true;
+            editLink.Visible = true;
 
         }
 
@@ -60,7 +63,19 @@ namespace ManageU.Pages
             objCmd = new SqlCommand(strsql, objCon);
             objCmd.ExecuteNonQuery();
 
+            if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+            {
+                uploadPic();
+            }
+
+            teamInfo.Visible = true;
+            coachInfo.Visible =true;
+            linkInfo.Visible = true;
+            saveTeamInfo.Visible = false;
+            editButton.Visible = true;
+
             loadInfo();
+
 
         }
 
@@ -104,7 +119,7 @@ namespace ManageU.Pages
                 {
                     teamIDFromTable = Int32.Parse(objRS["teamID"].ToString());
                     HttpContext.Current.Session["TeamID"] = teamIDFromTable;
-                    strsql2 = "select * from TeamTable where teamId ='" + teamIDFromTable + "'";
+                    strsql2 = "select * from TeamTable where teamID ='" + teamIDFromTable + "'";
                     objCon2.Open();
 
                     objCmd2 = new SqlCommand(strsql2, objCon2);
@@ -114,15 +129,32 @@ namespace ManageU.Pages
                     {
                         while (objRS2.Read())
                         {
-                            teamName.InnerText = objRS2["university"].ToString() + " " + objRS2["sport"].ToString();
-                            division.Text = objRS2["division"].ToString();
-                            conference.Text = objRS2["conference"].ToString();
-                            wins.Text = objRS2["wins"].ToString();
+                            teamName.Text = objRS2["university"].ToString() + " " + objRS2["sport"].ToString();
+                            division.Text = objRS2["division"].ToString() + " | " + objRS2["conference"].ToString();
+                            conference2.Text = objRS2["conference"].ToString();
+                            wins.Text = "Record" + objRS2["wins"].ToString();
+                            wins2.Text = objRS2["wins"].ToString();
                             losses.Text = objRS2["losses"].ToString();
+                            losses2.Text = objRS2["losses"].ToString();
                             location.Text = objRS2["location"].ToString();
-                            schoolSite.Text = objRS2["schoolLink"].ToString();
-                            siteTeam.Text = objRS2["teamLink"].ToString();
-                            //***still have to get head coach & head coach phone number & email
+                            location2.Text = objRS2["location"].ToString();
+                            schoolSite.Attributes["href"] = objRS2["schoolLink"].ToString();
+                            schoolSite2.Text = objRS2["schoolLink"].ToString();
+                            siteTeam.Attributes["href"] = objRS2["teamLink"].ToString();
+                            siteTeam2.Text = objRS2["teamLink"].ToString();
+                            string[] filePaths = Directory.GetFiles(Server.MapPath("~/Images/"));
+                            List<ListItem> files = new List<ListItem>();
+                            foreach (string filePath in filePaths)
+                            {
+                                if (filePath == ("C:\\Users\\anscmc\\Desktop\\Senior Design\\ManageU\\ManageU\\Code\\ManageU\\ManageU\\Images" + objRS2["picPath"].ToString()))
+                                {
+                                    string fileName = Path.GetFileName(filePath);
+                                    files.Add(new ListItem(fileName, "Images/" + fileName));
+                                }
+
+                            }
+                            profilePicGrid.DataSource = files;
+                            profilePicGrid.DataBind();
                         }
                     }
 
@@ -140,9 +172,22 @@ namespace ManageU.Pages
                         {
                             headCoach.Text = objRS2["coachFName"].ToString() + " " + objRS2["coachLName"].ToString();
                             coachNumber.Text = objRS2["coachNumber"].ToString();
+                            coachEmail.Text = objRS2["coachEmail"].ToString();
                         }
                     }
 
+                    if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                    {
+                        division2.Style.Add("display", "block");
+                        conference2.Style.Add("display", "block");
+                        wins2.Style.Add("display", "block");
+                        losses2.Style.Add("display", "block");
+                        location2.Style.Add("display", "block");
+                        schoolSite2.Style.Add("display", "block");
+                        siteTeam2.Style.Add("display", "block");
+                        profilePicUpload.Style.Add("display", "block");
+                        saveTeamInfo.Style.Add("display", "block");
+                    }
                     objCmd2 = null;
                     objRS2.Close();
                     objCon2.Close();
@@ -152,6 +197,44 @@ namespace ManageU.Pages
             objCmd = null;
             objRS.Close();
             objCon.Close();
+
+
+        }
+
+        protected void uploadPic()
+        {
+            if (profilePicUpload.HasFile)
+            {
+                DateTime date = DateTime.Now;
+                string dateString = date.ToString("yyyyMMddHHmmssfff");
+                string fileName = dateString + ".jpg";
+
+                //upload path to database
+                string strsql = "";
+                SqlConnection objCon = default(SqlConnection);
+                SqlCommand objCmd = default(SqlCommand);
+                objCon = new SqlConnection();
+                objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
+
+                //Have to have set be actual values
+                strsql = "Update TeamTable set picPath='" + fileName + "' where teamID=" + HttpContext.Current.Session["TeamID"].ToString();
+
+                objCon.Open();
+
+                objCmd = new SqlCommand(strsql, objCon);
+                objCmd.ExecuteNonQuery();
+
+                objCmd = null;
+                objCon.Close();
+
+                //upload to folder   
+
+                //Path.GetFileName(profilePicUpload.PostedFile.FileName);
+                profilePicUpload.PostedFile.SaveAs(Server.MapPath("Images/") + fileName);
+                Response.Redirect(Request.Url.AbsoluteUri);
+
+
+            }
         }
     }
 }

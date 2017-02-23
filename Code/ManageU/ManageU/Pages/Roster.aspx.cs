@@ -1,17 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Web.UI.HtmlControls;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 
 namespace ManageU.Pages
 {
+    
+
     public partial class Roster : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                this.Session["emailList"] = "";
+                this.Session["sessionEmails"] = "";
+                load();
+            }
+        }
+
+        protected void load()
         {
             SqlConnection objCon = default(SqlConnection);
             SqlCommand objCmd = default(SqlCommand);
@@ -36,6 +46,11 @@ namespace ManageU.Pages
             string playerPos = "";
             string playerClass = "";
             string playerNum = "";
+            string playerEmail = "";
+            int labelIdNum = 0;
+            int checkboxIdNum = 0;
+            string emailString = "";
+
 
             objCon.Open();
             strsql = "select c.teamID from UserTable u join CoachTable c on c.userID = u.userID where u.userEmail = '" + coachUsername + "'";
@@ -56,19 +71,115 @@ namespace ManageU.Pages
                     {
                         while (objRS2.Read())
                         {
-                            //create divs with info
-                            //will just have to store these in the front end labels/textboxes
+
                             playerFName = objRS2["playerFName"].ToString();
                             playerLName = objRS2["playerLName"].ToString();
                             playerPos = objRS2["position"].ToString();
                             playerClass = objRS2["class"].ToString();
                             playerNum = objRS2["playerNumber"].ToString();
+                            playerEmail = objRS2["playerEmail"].ToString();
 
-                            Label1.InnerText = playerFName;
+                            
+                            labelIdNum = labelIdNum + 1;
+                            checkboxIdNum = checkboxIdNum + 1;
+
+                            Label lbl = new Label();
+                            lbl.Text = playerFName + " ";
+
+                            Label lb2 = new Label();
+                            lb2.Text = "Class: " + playerClass;
+
+                            Label lb3 = new Label();
+                            lb3.Text = "Position: " + playerPos;
+
+                            Label lb4 = new Label();
+                            lb4.Text = "#" + playerNum;
+
+                            Label lb5 = new Label();
+                            lb5.Text = playerEmail;
+                            this.Session["sessionEmails"] = this.Session["sessionEmails"] + lb5.Text.ToString()+ ";";
+                            emails.InnerText = this.Session["sessionEmails"].ToString();
+
+                            lb5.Attributes["id"] = "lbID" + labelIdNum.ToString() + ";";
+
+                            HtmlGenericControl xButton =
+                            new HtmlGenericControl("button");
+
+                            xButton.Attributes["type"] = "button";
+                            xButton.Attributes["ID"] = "xButton";
+                            xButton.Attributes["class"] = "xButtonCSS";
+                            xButton.Attributes["runat"] = "server";
+                            xButton.InnerText = "";
+                            xButton.Attributes["OnClientClick"] = "return false";
+                            xButton.Attributes["OnServerClick"] = "xButtonClick";
+                            //xButton.Attributes["OnClientClick"] = "xButtonClick";
+                            //xButton.Attributes.Add("clientclick", "return false");
+
+                            HtmlGenericControl infoDiv =
+                            new HtmlGenericControl("div");
+
+                            infoDiv.Attributes["id"] = "rosterContent";
+                            infoDiv.Attributes["class"] = "col-sm-4 infoDiv";
+                            infoDiv.Attributes["runat"] = "server";
+                            infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,0.6);height:225px;max-width:500px;margin: 0 auto;padding:10";
+
+                            infoDiv.Controls.Add(lbl);
+                            infoDiv.Controls.Add(lb4);
+                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<hr/>" });
+                            infoDiv.Controls.Add(lb2);
+                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            infoDiv.Controls.Add(lb3);
+                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<hr/>" });
+                            infoDiv.Controls.Add(lb5);
+
+                            HtmlGenericControl boxDiv =
+                            new HtmlGenericControl("div");
+
+                            boxDiv.Attributes["id"] = "rosterCheckBox" + checkboxIdNum.ToString();
+                            boxDiv.Attributes["class"] = "rosterCheckBox";
+                            boxDiv.Attributes["runat"] = "server";
+                            //boxDiv.Attributes["style"] = "background-color:rgb(255,255,255);padding:2px;border:1px solid black;border-radius:5px;height:20px;width:20px;line-height:20px;text-align:center;float:right;padding:0;box-shadow: 0 0 10px #000;font-family:'Microsoft Yahei';";
+
+                            //Label checkX = new Label();
+                            //checkX.ForeColor = System.Drawing.ColorTranslator.FromHtml("#008CBA");
+                            //checkX.Font.Size = 27;
+                            //checkX.Text = "X";
+                            //checkX.Visible = false;
+
+                            //CheckBox emailBox = new CheckBox();
+                            //emailBox.Attributes["id"] = "checkboxID" + checkboxIdNum.ToString();
+                            //emailBox.Attributes["runat"] = "server";
+                            //emailBox.Attributes["AutoPostBack"] = "True";
+                            //emailBox.Attributes["OnCheckedChanged"] = "selectAll";
+
+                            //if (selectAllBox.Checked == true)
+                            //{
+                            //    emailBox.Checked = true;
+                            //}
+                            //else
+                            //{
+                            //    emailBox.Checked = false;
+                            //}
+
+                            /*boxDiv.Controls.Add(emailBox);*/
+                            playerInfo.Controls.Add(infoDiv);
+                            infoDiv.Controls.Add(boxDiv);
+                            boxDiv.Controls.Add(xButton);
+                            //boxDiv.Controls.Add(checkX);
+                            //playerInfo.Controls.Add(boxDiv);
+
+                            //if (emailBox.Checked == true)
+                            //{
+                            //    emailString = emailString + playerEmail;
+                            //}
+                            //emails.InnerText = emailString;
                         }
 
                     }
                     objRS2.Close();
+
                 }
 
             }
@@ -80,6 +191,32 @@ namespace ManageU.Pages
             objCon.Close();
 
 
+        }
+        protected void selectAll(object sender, EventArgs e)
+        {
+            load();
+        }
+        protected void emailClick(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/Contact.aspx");
+        }
+
+        //protected void xButtonClick(object sender, EventArgs e)
+        //{
+        //    if(xCheck == 1)
+        //    {
+        //        xButton.InnerText = "X";
+        //        xCheck = 0;
+        //    }
+        //    else
+        //    {
+        //        xButton.InnerText = "";
+        //        xCheck = 1;
+        //    }
+        //}
+        protected void xButtonClick(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pages/TeamProfile.aspx");
         }
     }
 }
