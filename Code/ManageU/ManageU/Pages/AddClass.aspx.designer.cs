@@ -67,13 +67,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlSelect startHour;
         
         /// <summary>
-        /// Label1 control.
+        /// startMinute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect startMinute;
         
         /// <summary>
         /// amPMstart control.
@@ -103,13 +103,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlSelect endHour;
         
         /// <summary>
-        /// Label2 control.
+        /// endMinute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect endMinute;
         
         /// <summary>
         /// amPMend control.
