@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
 
-                            <label id="fNameLabel" runat="server">First Name</label>
+        <label id="fNameLabel" runat="server">First Name</label>
         <asp:TextBox ID="fName" runat="server" CssClass="form-control" width=250 style="display: block; margin: 0 auto;"></asp:TextBox>
         <label id="lNameLabel" runat="server">Last Name</label>
         <asp:TextBox ID="lName" runat="server" CssClass="form-control" width=250 style="display: block; margin: 0 auto;"></asp:TextBox>
@@ -24,7 +24,10 @@
         <label id="positionLabel" runat="server">Position</label>
         <asp:TextBox ID="position" runat="server" CssClass="form-control" width=250 style="display: block; margin: 0 auto;"></asp:TextBox>
         <label id="classLabel" runat="server">Class</label>
-        <asp:TextBox ID="pClass" runat="server" CssClass="form-control" width=250 style="display: block; margin: 0 auto;"></asp:TextBox>
+        <asp:TextBox ID="playerClass" runat="server" CssClass="form-control" width=250 style="display: block; margin: 0 auto;"></asp:TextBox>
+        <label id="playerNumLabel" runat="server">Number</label>
+        <asp:TextBox ID="playerNum" runat="server" CssClass="form-control" width=250 style="display: block; margin: 0 auto;"></asp:TextBox>
+
 
 
                         </div>
@@ -32,7 +35,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:Button runat="server" ID="saveInfoButton" Text="Save" onclick="saveInfoButton_Click" CssClass="btn btn-default" width=125 style="display: block; margin: 0 auto;"/>
+                            <asp:Button runat="server" ID="saveInfoButton" Text="Save" onclick="saveInfoButton_Click" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;text-align: center;border: 2px solid white;width:250px;"/>
                             <%--<label id="errLabel" style="color: Red; display: none;" runat="server">Unable to updated password. Please make sure you enter your correct email and password.</label>--%>
                         </div>
                     </div>

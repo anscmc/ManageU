@@ -77,6 +77,15 @@ namespace ManageU
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
+
+        protected void logOut_Click(object sender, EventArgs e)
+        {
+            HttpContext.Current.Session["UserType"] = "";
+            HttpContext.Current.Session["Username"] = "";
+            HttpContext.Current.Session["TeamID"] = "";
+        }
+
+
     }
 
 }

@@ -17,7 +17,6 @@
     <h2><%: Title %></h2>
     <hr/>
 
-        <label id="emails" runat="server"></label>
 
     <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
         <asp:Button runat="server" Text="Email Selected Players" AutoPostBack="false" OnClick="emailClick" CssClass="btn btn-default" 

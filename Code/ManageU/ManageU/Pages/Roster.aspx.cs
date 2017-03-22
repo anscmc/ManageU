@@ -13,6 +13,19 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (HttpContext.Current.Session["UserType"].ToString() == "player")
+            {
+
+            }
+            else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+            {
+
+            }
+            else
+            {
+                Response.Redirect("Landing.aspx");
+            }
+
             if (!IsPostBack)
             {
                 this.Session["emailList"] = "";
@@ -47,31 +60,20 @@ namespace ManageU.Pages
             string playerClass = "";
             string playerNum = "";
             string playerEmail = "";
-            int labelIdNum = 0;
+            int idNum = 0;
             int checkboxIdNum = 0;
             string emailString = "";
 
-
-            objCon.Open();
-            strsql = "select c.teamID from UserTable u join CoachTable c on c.userID = u.userID where u.userEmail = '" + coachUsername + "'";
-            objCmd = new SqlCommand(strsql, objCon);
-
-            objRS = objCmd.ExecuteReader();
-            if (objRS.HasRows)
-            {
-                while (objRS.Read())
-                {
-                    teamIDFromTable = Int32.Parse(objRS["teamID"].ToString());
                     //find all players associated with that team
                     objCon2.Open();
-                    strsql2 = "select * from PlayerTable where teamID='" + teamIDFromTable + "'";
+                    strsql2 = "select * from PlayerTable where teamID='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
                     objCmd2 = new SqlCommand(strsql2, objCon2);
                     objRS2 = objCmd2.ExecuteReader();
                     if (objRS2.HasRows)
                     {
                         while (objRS2.Read())
                         {
-
+                            //playerUserID = objRS2["userID"].ToString();
                             playerFName = objRS2["playerFName"].ToString();
                             playerLName = objRS2["playerLName"].ToString();
                             playerPos = objRS2["position"].ToString();
@@ -80,11 +82,14 @@ namespace ManageU.Pages
                             playerEmail = objRS2["playerEmail"].ToString();
 
                             
-                            labelIdNum = labelIdNum + 1;
+                            idNum = idNum + 1;
                             checkboxIdNum = checkboxIdNum + 1;
 
-                            Label lbl = new Label();
-                            lbl.Text = playerFName + " ";
+                            //hidden label = new label();
+                            //label.text = playerUserID dynamic id
+
+                            Label lb1 = new Label();
+                            lb1.Text = playerFName + " ";
 
                             Label lb2 = new Label();
                             lb2.Text = "Class: " + playerClass;
@@ -98,15 +103,21 @@ namespace ManageU.Pages
                             Label lb5 = new Label();
                             lb5.Text = playerEmail;
                             this.Session["sessionEmails"] = this.Session["sessionEmails"] + lb5.Text.ToString()+ ";";
-                            emails.InnerText = this.Session["sessionEmails"].ToString();
 
-                            lb5.Attributes["id"] = "lbID" + labelIdNum.ToString() + ";";
+                            Label lb6 = new Label();
+                            lb6.Text = "Hidden Text";
+                            lb6.ForeColor = System.Drawing.Color.White;
+                            /*emails.InnerText = this.Session["sessionEmails"].ToString();*/
+
+                            lb5.Attributes["id"] = "lbID" + idNum.ToString() + ";";
+                            lb1.Attributes["style"] = "padding:10px; bottom:10px;";
+                            lb5.Attributes["style"] = "margin-bottom:10px;";
 
                             HtmlGenericControl xButton =
                             new HtmlGenericControl("button");
 
                             xButton.Attributes["type"] = "button";
-                            xButton.Attributes["ID"] = "xButton";
+                            xButton.Attributes["ID"] = "xButton" + idNum.ToString() + ";";
                             xButton.Attributes["class"] = "xButtonCSS";
                             xButton.Attributes["runat"] = "server";
                             xButton.InnerText = "";
@@ -121,9 +132,13 @@ namespace ManageU.Pages
                             infoDiv.Attributes["id"] = "rosterContent";
                             infoDiv.Attributes["class"] = "col-sm-4 infoDiv";
                             infoDiv.Attributes["runat"] = "server";
-                            infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,0.6);height:225px;max-width:500px;margin: 0 auto;padding:10";
+                            //10px for padding not 10??? --------------->
+                            infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:225px;max-width:500px;margin: 0 auto;padding:10";
 
-                            infoDiv.Controls.Add(lbl);
+                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            infoDiv.Controls.Add(lb6);
+                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            infoDiv.Controls.Add(lb1);
                             infoDiv.Controls.Add(lb4);
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             infoDiv.Controls.Add(new Literal() { Text = "<hr/>" });
@@ -132,6 +147,9 @@ namespace ManageU.Pages
                             infoDiv.Controls.Add(lb3);
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             infoDiv.Controls.Add(new Literal() { Text = "<hr/>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            infoDiv.Controls.Add(lb6);
+                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             infoDiv.Controls.Add(lb5);
 
                             HtmlGenericControl boxDiv =
@@ -180,15 +198,10 @@ namespace ManageU.Pages
                     }
                     objRS2.Close();
 
-                }
 
-            }
 
-            objRS.Close();
-            objCmd = null;
             objCmd2 = null;
             objCon2.Close();
-            objCon.Close();
 
 
         }
@@ -214,6 +227,36 @@ namespace ManageU.Pages
         //        xCheck = 1;
         //    }
         //}
+        protected void deletePlayerButton_Click(object sender, EventArgs e)
+        {
+            //
+
+            string userID = "55";
+
+            string strsql = "";
+            SqlConnection objCon = default(SqlConnection);
+            SqlCommand objCmd = default(SqlCommand);
+            objCon = new SqlConnection();
+            objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
+
+            objCon.Open();
+            objCmd = new SqlCommand();
+            objCmd.Connection = objCon;
+
+            strsql = "delete from PlayerTable where userID='" + userID + "'";
+            objCmd = new SqlCommand(strsql, objCon);
+            objCmd.ExecuteNonQuery();
+
+            objCmd = null;
+
+            strsql = "delete from UserTable where userId='" + userID + "'";
+            objCmd = new SqlCommand(strsql, objCon);
+            objCmd.ExecuteNonQuery();
+
+            objCmd = null;
+            objCon.Close();
+        }
+
         protected void xButtonClick(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/TeamProfile.aspx");

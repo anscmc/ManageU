@@ -14,14 +14,21 @@
     </div>
     </div>--%>
 
-    <div style="margin: 0 auto; text-align: center; align">
+    <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
     <hr/>
 
-    <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
-        <asp:Button runat="server" Text="+ Create Task" OnClick="createTask" CssClass="btn btn-default" 
-            style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
-    </div>
+        <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
+            <asp:Button runat="server" Text="+ Create Task" OnClick="createTask" CssClass="btn btn-default" 
+                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
+        </div>
+        <div>
+            <br />
+        </div>
+        <div id="tasksDiv" class="col-sm-6 col-sm-offset-3" style="padding:0px" runat="server">
+
+        </div>
+    
     
     </div>
 

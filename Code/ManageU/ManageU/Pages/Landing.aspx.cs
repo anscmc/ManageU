@@ -14,7 +14,9 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HttpContext.Current.Session["UserType"] = "";
+            HttpContext.Current.Session["Username"] = "";
+            HttpContext.Current.Session["TeamID"] = "";
         }
 
         protected void loginButton_Click(object sender, EventArgs e)

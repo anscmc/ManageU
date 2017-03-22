@@ -7,13 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace ManageU.Pages
 {
-    public partial class TeamCalendar : System.Web.UI.Page
+    public partial class CreateMeeting : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            HttpContext.Current.Session["startHour"] = "";
+            HttpContext.Current.Session["startMinute"] = "";
+            HttpContext.Current.Session["amOrPM"] = "";
+
             if (HttpContext.Current.Session["UserType"].ToString() == "player")
             {
-
+                
             }
             else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
@@ -23,6 +27,16 @@ namespace ManageU.Pages
             {
                 Response.Redirect("Landing.aspx");
             }
+        }
+
+        protected void createMeeting(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void findTime(object sender, EventArgs e)
+        {
+            Response.Redirect("FindTime.aspx");
         }
     }
 }

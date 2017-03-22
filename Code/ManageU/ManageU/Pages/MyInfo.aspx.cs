@@ -15,7 +15,34 @@ namespace ManageU.Pages
         {
             if (!IsPostBack)
             {
-                loadInfo();
+                if (HttpContext.Current.Session["UserType"].ToString() == "player")
+                {
+                    numLabel.Visible = false;
+                    numLabel.Disabled = true;
+                    phoneNum.Visible = false;
+                    phoneNum.Enabled = false;
+                }
+                else if(HttpContext.Current.Session["UserType"].ToString() == "coach")
+                {
+                    positionLabel.Visible = false;
+                    positionLabel.Disabled = true;
+                    position.Visible = false;
+                    position.Enabled = false;
+                    classLabel.Visible = false;
+                    classLabel.Disabled = true;
+                    playerClass.Visible = false;
+                    playerClass.Enabled = false;
+                    playerNumLabel.Visible = false;
+                    playerNumLabel.Disabled = true;
+                    playerNum.Visible = false;
+                    playerNum.Enabled = false;
+                }
+                else
+                {
+                    Response.Redirect("Landing.aspx");
+                }
+
+                    loadInfo();
             }
         }
 
@@ -69,8 +96,8 @@ namespace ManageU.Pages
                                 fName.Text = objRS2["playerFName"].ToString();
                                 lName.Text = objRS2["playerLName"].ToString();
                                 position.Text = objRS2["position"].ToString();
-                                pClass.Text = objRS2["class"].ToString();
-                                phoneNum.Text = objRS2["playerNumber"].ToString();
+                                playerClass.Text = objRS2["class"].ToString();
+                                playerNum.Text = objRS2["playerNumber"].ToString();
                             }
                         }
 
@@ -115,7 +142,8 @@ namespace ManageU.Pages
             string lastName = lName.Text;
             string number = phoneNum.Text;
             string playerPosition = position.Text;
-            string playerClass = pClass.Text;
+            string pClass = playerClass.Text;
+            string pNum = playerNum.Text;
 
             int userIDFromTable;
 
@@ -153,7 +181,7 @@ namespace ManageU.Pages
                     if (HttpContext.Current.Session["UserType"].ToString() == "player")
                     {
                         //Update info in PlayerTable
-                        strsql = "Update PlayerTable set playerFName='" + firstName + "', playerLName='" + lastName + "', position='" + playerPosition + "', class='" + playerClass + "', playerNumber ='" + number + "' where userID= '" + userIDFromTable + "'";
+                        strsql = "Update PlayerTable set playerFName='" + firstName + "', playerLName='" + lastName + "', position='" + playerPosition + "', class='" + pClass + "', playerNumber ='" + pNum + "' where userID= '" + userIDFromTable + "'";
                         objCmd = new SqlCommand(strsql, objCon);
 
                         objCmd.ExecuteNonQuery();

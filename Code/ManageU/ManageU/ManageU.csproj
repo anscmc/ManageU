@@ -193,15 +193,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\b31.png" />
+    <Content Include="Pages\AddClass.aspx" />
     <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\Contact.aspx" />
+    <Content Include="Pages\CreateMeeting.aspx" />
+    <Content Include="Pages\FindTime.aspx" />
     <Content Include="Pages\InvitePlayers.aspx" />
     <Content Include="Pages\MyInfo.aspx" />
+    <Content Include="Pages\PlayerSchedule.aspx" />
     <Content Include="Pages\Roster.aspx" />
     <Content Include="Pages\Tasks.aspx" />
     <Content Include="Pages\TeamCalendar.aspx" />
     <Content Include="Pages\TeamProfile.aspx" />
     <Content Include="Pages\CreateTask.aspx" />
+    <Content Include="Pages\ViewMeeting.aspx" />
+    <Content Include="Pages\ViewTask.aspx" />
     <Content Include="prof\font\roboto\Roboto-Bold.eot" />
     <Content Include="prof\font\roboto\Roboto-Bold.ttf" />
     <Content Include="prof\font\roboto\Roboto-Bold.woff" />
@@ -285,6 +291,7 @@
     <Content Include="Scripts\bootstrap.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrapTC.css" />
     <Content Include="Scripts\bootstrapTP.css" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -355,6 +362,13 @@
       <DependentUpon>TeamProfile.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Pages\AddClass.aspx.cs">
+      <DependentUpon>AddClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddClass.aspx.designer.cs">
+      <DependentUpon>AddClass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -368,6 +382,20 @@
     </Compile>
     <Compile Include="Pages\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CreateMeeting.aspx.cs">
+      <DependentUpon>CreateMeeting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CreateMeeting.aspx.designer.cs">
+      <DependentUpon>CreateMeeting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FindTime.aspx.cs">
+      <DependentUpon>FindTime.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\FindTime.aspx.designer.cs">
+      <DependentUpon>FindTime.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\InvitePlayers.aspx.cs">
       <DependentUpon>InvitePlayers.aspx</DependentUpon>
@@ -389,6 +417,13 @@
     </Compile>
     <Compile Include="Pages\MyInfo.aspx.designer.cs">
       <DependentUpon>MyInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PlayerSchedule.aspx.cs">
+      <DependentUpon>PlayerSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PlayerSchedule.aspx.designer.cs">
+      <DependentUpon>PlayerSchedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -431,6 +466,20 @@
     </Compile>
     <Compile Include="Pages\CreateTask.aspx.designer.cs">
       <DependentUpon>CreateTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewMeeting.aspx.cs">
+      <DependentUpon>ViewMeeting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewMeeting.aspx.designer.cs">
+      <DependentUpon>ViewMeeting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewTask.aspx.cs">
+      <DependentUpon>ViewTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewTask.aspx.designer.cs">
+      <DependentUpon>ViewTask.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Masters\Site.Master.cs">

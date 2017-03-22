@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
     
     <div style="margin: 0 auto; text-align: center;">
-    <h2><%: Title %></h2>
+    <h2 style="margin-top:0px; padding-top:0px;"><%: Title %></h2>
     <hr />
 
     <div class="row">
@@ -21,20 +21,19 @@
                     </asp:PlaceHolder>
 
                     <div class="form-group">
-                    <div class="col-sm-6 col-sm-offset-3">
-                    <select class="selectpicker" ID="sportType" style="color:black;" runat="server">
-                        <option value="" selected disabled>Select Your Sport</option>
-                        <option value="Football">Football</option>
-                        <option value="Basketball">Basketball</option>
-                        <option value="Volleyball">Volleyball</option>
-                    </select>
-
-                    </div>
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <select class="selectpicker show-menu-arrow" ID="sportType" style="color:black;height:39px;width:250px;border-radius:5px;margin-bottom:20px;" runat="server">
+                                <option value="" selected disabled>Select Your Sport</option>
+                                <option value="Football">Football</option>
+                                <option value="Basketball">Basketball</option>
+                                <option value="Volleyball">Volleyball</option>
+                        </select>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="email" CssClass="form-control" width=250 placeholder="Email" TextMode="Email" style="display: block; margin: 0 auto;"/>
+                            <asp:TextBox runat="server" ID="email" CssClass="form-control inputBoxes" placeholder="Email" TextMode="Email" style="display: block; margin: 0 auto;"/>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="email"
                                 CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
@@ -42,49 +41,49 @@
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="pass1" TextMode="Password" placeholder="Password" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
+                            <asp:TextBox runat="server" ID="pass1" TextMode="Password" placeholder="Password" CssClass="form-control inputBoxes" style="display: block; margin: 0 auto;" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="pass1" CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="pass2" TextMode="Password" placeholder="Re-Enter Password" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
+                            <asp:TextBox runat="server" ID="pass2" TextMode="Password" placeholder="Re-Enter Password" CssClass="form-control inputBoxes" style="display: block; margin: 0 auto;" />
                            <asp:RequiredFieldValidator runat="server" ControlToValidate="pass2" CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="first" TextMode="SingleLine" placeholder="First Name" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
+                            <asp:TextBox runat="server" ID="first" TextMode="SingleLine" placeholder="First Name" CssClass="form-control inputBoxes" style="display: block; margin: 0 auto;" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="first" CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="last" TextMode="SingleLine" placeholder="Last Name" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
+                            <asp:TextBox runat="server" ID="last" TextMode="SingleLine" placeholder="Last Name" CssClass="form-control inputBoxes"  style="display: block; margin: 0 auto;" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="last" CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="phone" TextMode="Number" placeholder="Phone Number" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
+                            <asp:TextBox runat="server" ID="phone" TextMode="Number" placeholder="Phone Number" min="1000000000" max="9999999999" CssClass="form-control inputBoxes" style="display: block; margin: 0 auto;width:250px;height:39px;" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="phone" CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="univ" TextMode="SingleLine" placeholder="University" CssClass="form-control" width=250 style="display: block; margin: 0 auto;" />
+                            <asp:TextBox runat="server" ID="univ" TextMode="SingleLine" placeholder="University" CssClass="form-control inputBoxes" style="display: block; margin: 0 auto;" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="univ" CssClass="text-danger" ErrorMessage="Field is required." />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:Button runat="server" Text="Register" onclick="registerButton_Click" CssClass="btn btn-default" width=125 style="display: block; margin: 0 auto;" ID="reg" />
+                            <asp:Button runat="server" Text="Register" onclick="registerButton_Click" CssClass="btn btn-default" style="display: block; margin: 0 auto;width:250px;height:39px;" ID="reg" />
                         </div>
                     </div>
 

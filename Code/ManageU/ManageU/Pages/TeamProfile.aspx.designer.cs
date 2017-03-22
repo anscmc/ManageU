@@ -22,24 +22,6 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.Label teamName;
         
         /// <summary>
-        /// editButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button editButton;
-        
-        /// <summary>
-        /// saveTeamInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveTeamInfo;
-        
-        /// <summary>
         /// teamInfo control.
         /// </summary>
         /// <remarks>
@@ -56,6 +38,15 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label division;
+        
+        /// <summary>
+        /// conference control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label conference;
         
         /// <summary>
         /// wins control.
@@ -166,13 +157,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl editTeam;
         
         /// <summary>
-        /// division2 control.
+        /// divisionPicker control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox division2;
+        protected global::System.Web.UI.WebControls.TextBox divisionPicker;
         
         /// <summary>
         /// conference2 control.
@@ -263,5 +254,23 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView profilePicGrid;
+        
+        /// <summary>
+        /// editButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button editButton;
+        
+        /// <summary>
+        /// saveTeamInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button saveTeamInfo;
     }
 }

@@ -10,123 +10,96 @@
 namespace ManageU.Pages {
     
     
-    public partial class MyInfo {
+    public partial class CreateMeeting {
         
         /// <summary>
-        /// fNameLabel control.
+        /// find control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fNameLabel;
+        protected global::System.Web.UI.WebControls.Button find;
         
         /// <summary>
-        /// fName control.
+        /// meetingNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingNameLabel;
         
         /// <summary>
-        /// lNameLabel control.
+        /// meetingName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lNameLabel;
+        protected global::System.Web.UI.WebControls.TextBox meetingName;
         
         /// <summary>
-        /// lName control.
+        /// meetingDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingDateLabel;
         
         /// <summary>
-        /// numLabel control.
+        /// meetingTimeLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl numLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingTimeLabel;
         
         /// <summary>
-        /// phoneNum control.
+        /// meetingStartHour1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phoneNum;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingStartHour1;
         
         /// <summary>
-        /// positionLabel control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl positionLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
         
         /// <summary>
-        /// position control.
+        /// meetingStartMinute1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox position;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingStartMinute1;
         
         /// <summary>
-        /// classLabel control.
+        /// amPM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect amPM;
         
         /// <summary>
-        /// playerClass control.
+        /// createMeetingButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox playerClass;
-        
-        /// <summary>
-        /// playerNumLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl playerNumLabel;
-        
-        /// <summary>
-        /// playerNum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox playerNum;
-        
-        /// <summary>
-        /// saveInfoButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveInfoButton;
+        protected global::System.Web.UI.WebControls.Button createMeetingButton;
     }
 }

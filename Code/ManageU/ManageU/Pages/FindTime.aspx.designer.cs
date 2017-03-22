@@ -10,123 +10,168 @@
 namespace ManageU.Pages {
     
     
-    public partial class MyInfo {
+    public partial class FindTime {
         
         /// <summary>
-        /// fNameLabel control.
+        /// meetingLasting control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fNameLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingLasting;
         
         /// <summary>
-        /// fName control.
+        /// hours control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fName;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect hours;
         
         /// <summary>
-        /// lNameLabel control.
+        /// hoursLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lNameLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hoursLabel;
         
         /// <summary>
-        /// lName control.
+        /// minutes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lName;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect minutes;
         
         /// <summary>
-        /// numLabel control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl numLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label4;
         
         /// <summary>
-        /// phoneNum control.
+        /// meetingDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phoneNum;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingDateLabel;
         
         /// <summary>
-        /// positionLabel control.
+        /// days control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl positionLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl days;
         
         /// <summary>
-        /// position control.
+        /// between control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox position;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl between;
         
         /// <summary>
-        /// classLabel control.
+        /// meetingStartHour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect meetingStartHour;
         
         /// <summary>
-        /// playerClass control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox playerClass;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
         
         /// <summary>
-        /// playerNumLabel control.
+        /// meetingStartMinute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl playerNumLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect meetingStartMinute;
         
         /// <summary>
-        /// playerNum control.
+        /// amPMstart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox playerNum;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect amPMstart;
         
         /// <summary>
-        /// saveInfoButton control.
+        /// and control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveInfoButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl and;
+        
+        /// <summary>
+        /// meetingStartHour2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect meetingStartHour2;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
+        
+        /// <summary>
+        /// meetingStartMinute2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect meetingStartMinute2;
+        
+        /// <summary>
+        /// amPMend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect amPMend;
+        
+        /// <summary>
+        /// findMeetingTimes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button findMeetingTimes;
     }
 }

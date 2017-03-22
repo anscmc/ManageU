@@ -20,13 +20,29 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: white;
+    color: #008CBA;
+}
+
 
 body {
-  /*margin-left: 0;
-  margin-right: 0;*/
-  margin:0;
-  background-image:url('b31.png');
+  margin: 0;
+  /*background-image:url('b31.png');*/
+  background-color:#008CBA;
+  font-family:'Microsoft YaHei';
+  color:white;
+  font-size: 15px;
+  line-height: 1.4;
 }
+
+.inputBoxes{
+     height:39px !important;
+     width:250px !important;
+     border-radius:5px !important;
+}
+
+
 
 /*@font-face {  
   font-family: college ;  
@@ -46,6 +62,10 @@ body {
     background:rgba(0,140,186,.2);
 }
 
+blueFont{
+    color:#008CBA !important;
+}
+
 img {
   border: 0;
   max-width: 100%;
@@ -54,19 +74,24 @@ img {
 }
 
 .infoDiv{
-    box-shadow: 0 0 10px #000;
+    /*box-shadow: 0 0 10px #000;*/
+    border: 1px solid #008CBA;
+    color:#008CBA;
+    vertical-align: middle;
+    text-align:center;
 }
-.infoDiv:hover{
+/*.infoDiv:hover{
     box-shadow: 0 0 20px #000;
-}
+}*/
 
 .rosterCheckBox{
+    vertical-align: middle;
     background-color:rgba(255,255,255,0);
     /*padding:2px;*/
     border-radius:5px;
     height:29px;
     width:30px;
-    line-height:28px;
+    line-height:98px;
     text-align:center;
     float:none;
     position:absolute;
@@ -82,7 +107,7 @@ img {
 
 .xButtonCSS{
     background-color:white;
-    border:1px solid black;
+    border:2px solid #008CBA;
     border-radius:5px;
     height:29px;
     width:30px;
@@ -98,10 +123,41 @@ img {
     right:0px;
     font-size:27px;
     color:#008CBA;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
 .xButtonCSS:hover{
     box-shadow: 0 0 10px #008CBA;
+}
+
+.yButtonCSS{
+    background-color:white;
+    border:2px solid #008CBA;
+    border-radius:5px;
+    height:29px;
+    width:30px;
+    line-height:28px;
+    text-align:center;
+    float:none;
+    position:absolute;
+    padding:0;
+    font-family:'Microsoft Yahei';
+    margin: 0 auto;
+    /*top:50%;
+    left:50%*/
+    left:3px;
+    top:29px;
+    font-size:27px;
+    color:#008CBA;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.yButtonCSS:hover{
+    box-shadow: 0 0 10px #008CBA;
+    border: 2px solid #008CBA;
+    background-color:#008CBA;
 }
 
 #footer{
@@ -1238,13 +1294,13 @@ html {
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-body {
+/*body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.4;
   color: #222222;
-  background-color: #ffffff;
-}
+  /*background-color: #ffffff;*/
+}*/
 input,
 button,
 select,
@@ -2706,7 +2762,7 @@ output {
 }
 .form-control {
   display: block;
-  width: 100%;
+  width: 250px;
   height: 39px;
   padding: 8px 12px;
   font-size: 15px;
@@ -2715,7 +2771,7 @@ output {
   background-color: #ffffff;
   background-image: none;
   border: 1px solid #cccccc;
-  border-radius: 0;
+  border-radius: 5px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
@@ -3159,7 +3215,34 @@ select[multiple].input-lg {
     font-size: 12px;
   }
 }
+
 .btn {
+  display: block;
+  margin: 0 auto;
+  color:#008CBA;
+  background-color:white;
+  border-radius:5px;
+  /*display: inline-block;*/
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  /*border-radius: 0;*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*.btn {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -3179,7 +3262,7 @@ select[multiple].input-lg {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
+}*/
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
@@ -3195,6 +3278,11 @@ select[multiple].input-lg {
   /*color: #333333;*/
   box-shadow: 0 0 5px #008CBA;
   text-decoration: none;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  background-color: #008CBA;
+  color: white;
+  border: 2px solid white;
 }
 .btn:active,
 .btn.active {
@@ -3217,28 +3305,29 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
-  color: #333333;
+  /*color: #333333;
   background-color: #e7e7e7;
-  border-color: #cccccc;
+  border-color: #cccccc;*/
 }
 .btn-default:focus,
 .btn-default.focus {
-  color: #333333;
+  /*color: #333333;
   background-color: #cecece;
-  border-color: #8c8c8c;
+  border-color: #8c8c8c;*/
 }
 .btn-default:hover {
   /*color: #333333;
   background-color: #cecece;
   border-color: #adadad;*/
   box-shadow: 0 0 5px #008CBA;
+  /*border: 2px solid white;*/
 }
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: #333333;
+  /*color: #333333;
   background-color: #cecece;
-  border-color: #adadad;
+  border-color: #adadad;*/
 }
 .btn-default:active:hover,
 .btn-default.active:hover,
@@ -3249,9 +3338,9 @@ fieldset[disabled] a.btn {
 .btn-default:active.focus,
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn-default.focus {
-  color: #333333;
+  /*color: #333333;
   background-color: #bcbcbc;
-  border-color: #8c8c8c;
+  border-color: #8c8c8c;*/
 }
 .btn-default:active,
 .btn-default.active,
@@ -4389,8 +4478,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .container-fluid > .navbar-header,
 .container > .navbar-collapse,
 .container-fluid > .navbar-collapse {
-  margin-right: -15px;
-  margin-left: -15px;
+  /*margin-right: -15px;*/
+  /*margin-left: -15px;*/
 }
 @media (min-width: 768px) {
   .container > .navbar-header,
@@ -4670,11 +4759,15 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a {
   color: #ffffff;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #ffffff;
-  background-color: #272727;
+   -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  background-color: white;
+  color: #008CBA;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
@@ -4769,8 +4862,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
-  background-color: #006687;
+  background-color: white;
+  color: #008CBA;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
@@ -6979,6 +7072,11 @@ button.close {
 }
 .btn {
   padding: 8px 12px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    color: #008CBA;
+    background-color: white;
+    border:2px solid #008CBA;
 }
 .btn-lg {
   padding: 16px 20px;

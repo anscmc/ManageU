@@ -10,15 +10,15 @@
 namespace ManageU.Pages {
     
     
-    public partial class Tasks {
+    public partial class PlayerSchedule {
         
         /// <summary>
-        /// tasksDiv control.
+        /// classDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tasksDiv;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classDiv;
     }
 }

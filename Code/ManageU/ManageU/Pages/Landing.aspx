@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Masters/Landing.Master" AutoEventWireup="true" CodeBehind="Landing.aspx.cs" Inherits="ManageU.Pages.Landing" Async="true" %>
+﻿<%@ Page Title="ManageU" Language="C#" MasterPageFile="~/Masters/Landing.Master" AutoEventWireup="true" CodeBehind="Landing.aspx.cs" Inherits="ManageU.Pages.Landing" Async="true" %>
 
 <%--<%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>--%>
 
@@ -12,8 +12,9 @@
     </script>
     
     <div style="margin: 0 auto; text-align: center;">
-    <h2><%: Title %></h2>
+    <h1 style="padding-bottom:15px"><%: Title %></h1>
     <hr />
+    <h3 style="margin-top:20px; font-family:'Microsoft YaHei'">Log In</h3>
 
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
@@ -41,7 +42,7 @@
 
                     <div class="form-group">
                         <%--<div class="col-sm-6 col-sm-offset-3">--%>
-                            <asp:Button runat="server" Text="Log in" CssClass="btn btn-default" OnClick="loginButton_Click" width=125 style="display: block; margin: 0 auto;" ID="loginButton" />
+                            <asp:Button runat="server" Text="Log in" CssClass="btn btn-default" OnClick="loginButton_Click" width=125 style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white; border-radius:5px" ID="loginButton" />
                             <label id="loginErr" style="color: Red; display: none;">Invalid username or password. Please try again.</label>
                         </div>
                         </div>

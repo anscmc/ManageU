@@ -14,6 +14,19 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (HttpContext.Current.Session["UserType"].ToString() == "player")
+            {
+
+            }
+            else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+            {
+
+            }
+            else
+            {
+                Response.Redirect("Landing.aspx");
+            }
+
             editTeam.Visible = false;
             editCoach.Visible = false;
             editLink.Visible = false;
@@ -41,7 +54,7 @@ namespace ManageU.Pages
 
         protected void saveTeamInfoButton_Click(object sender, EventArgs e)
         {
-            string division = division2.Text;
+            string division = divisionPicker.Text;
             string conference = conference2.Text;
             string wins = wins2.Text;
             string losses = losses2.Text;
@@ -130,11 +143,14 @@ namespace ManageU.Pages
                         while (objRS2.Read())
                         {
                             teamName.Text = objRS2["university"].ToString() + " " + objRS2["sport"].ToString();
-                            division.Text = objRS2["division"].ToString() + " | " + objRS2["conference"].ToString();
+                            division.Text = objRS2["division"].ToString();
+                            //divisionPicker.InnerText = objRS2["division"].ToString();
+                            divisionPicker.Text = objRS2["division"].ToString();
+                            conference.Text = " || " + objRS2["conference"].ToString();
                             conference2.Text = objRS2["conference"].ToString();
-                            wins.Text = "Record" + objRS2["wins"].ToString();
+                            wins.Text = objRS2["wins"].ToString() + " Wins ";
                             wins2.Text = objRS2["wins"].ToString();
-                            losses.Text = objRS2["losses"].ToString();
+                            losses.Text = objRS2["losses"].ToString() + " Losses";
                             losses2.Text = objRS2["losses"].ToString();
                             location.Text = objRS2["location"].ToString();
                             location2.Text = objRS2["location"].ToString();
@@ -178,7 +194,7 @@ namespace ManageU.Pages
 
                     if (HttpContext.Current.Session["UserType"].ToString() == "coach")
                     {
-                        division2.Style.Add("display", "block");
+                        divisionPicker.Style.Add("display", "block");
                         conference2.Style.Add("display", "block");
                         wins2.Style.Add("display", "block");
                         losses2.Style.Add("display", "block");

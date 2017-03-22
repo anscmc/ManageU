@@ -40,11 +40,11 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <%--<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                     <a class="navbar-brand text-center center-block" runat="server" style="float:none" href="~/Pages/Landing">ManageU</a>
             </div>
-        </div>
+        </div>--%>
         <div class="container body-content">
 
             <%--This is where code from content page is--%>

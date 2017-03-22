@@ -10,123 +10,132 @@
 namespace ManageU.Pages {
     
     
-    public partial class MyInfo {
+    public partial class AddClass {
         
         /// <summary>
-        /// fNameLabel control.
+        /// classNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fNameLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classNameLabel;
         
         /// <summary>
-        /// fName control.
+        /// className control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fName;
+        protected global::System.Web.UI.WebControls.TextBox className;
         
         /// <summary>
-        /// lNameLabel control.
+        /// date1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lNameLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl date1;
         
         /// <summary>
-        /// lName control.
+        /// date2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl date2;
         
         /// <summary>
-        /// numLabel control.
+        /// between control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl numLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl between;
         
         /// <summary>
-        /// phoneNum control.
+        /// startHour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phoneNum;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect startHour;
         
         /// <summary>
-        /// positionLabel control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl positionLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
         
         /// <summary>
-        /// position control.
+        /// amPMstart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox position;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect amPMstart;
         
         /// <summary>
-        /// classLabel control.
+        /// and control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl and;
         
         /// <summary>
-        /// playerClass control.
+        /// endHour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox playerClass;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect endHour;
         
         /// <summary>
-        /// playerNumLabel control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl playerNumLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
         
         /// <summary>
-        /// playerNum control.
+        /// amPMend control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox playerNum;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect amPMend;
         
         /// <summary>
-        /// saveInfoButton control.
+        /// days control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button saveInfoButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl days;
+        
+        /// <summary>
+        /// addClass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addClass;
     }
 }
