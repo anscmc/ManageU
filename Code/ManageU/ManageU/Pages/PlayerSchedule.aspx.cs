@@ -63,7 +63,7 @@ namespace ManageU.Pages
         protected void deleteClass(object sender, EventArgs e) {
             //need to change these vars to grab from hidden fields
             int classID = 3;
-            int masterID = 5;
+            int masterID = 6;
 
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
