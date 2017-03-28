@@ -202,6 +202,7 @@
     <Content Include="Pages\MyInfo.aspx" />
     <Content Include="Pages\PlayerSchedule.aspx" />
     <Content Include="Pages\Roster.aspx" />
+    <Content Include="Pages\Sandbox.aspx" />
     <Content Include="Pages\Tasks.aspx" />
     <Content Include="Pages\TeamCalendar.aspx" />
     <Content Include="Pages\TeamProfile.aspx" />
@@ -445,6 +446,13 @@
     </Compile>
     <Compile Include="Pages\Roster.aspx.designer.cs">
       <DependentUpon>Roster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sandbox.aspx.cs">
+      <DependentUpon>Sandbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Sandbox.aspx.designer.cs">
+      <DependentUpon>Sandbox.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Tasks.aspx.cs">
       <DependentUpon>Tasks.aspx</DependentUpon>

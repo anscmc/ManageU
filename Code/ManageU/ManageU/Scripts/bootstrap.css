@@ -33,6 +33,55 @@ body {
   line-height: 1.4;
 }
 
+/* SANDBOX CSS START */
+
+    .row.no-gutters {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .row.no-gutters > [class^="col-"],
+    .row.no-gutters > [class*=" col-"] {
+    padding-right: 0;
+    padding-left: 0;
+    }
+
+    /* ViewTask  */
+
+    .taskDetails{
+        /*box-shadow: 0 0 10px #000;*/
+        border: 1px solid #008CBA;
+        color:#008CBA;
+        vertical-align: middle;
+        text-align:center;
+        background-color:rgba(255,255,255,1);
+        height:100px;
+        max-width:500px;
+        margin: 0 auto;
+    }
+    .classDetails{
+        /*box-shadow: 0 0 10px #000;*/
+        border: 1px solid #008CBA;
+        color:#008CBA;
+        vertical-align: middle;
+        text-align:center;
+        background-color:rgba(255,255,255,1);
+        height:100px;
+        max-width:500px;
+        margin: 0 auto;
+
+    }
+
+    /* PLAYER SCHEDULE */
+
+    .classDiv{
+        max-width:500px !important;
+        min-width:200px !important;
+        margin:0 auto !important;
+        overflow: hidden !important;
+    }
+
+/* SANDBOX CSS END */
+
 .h2{
     margin-top:8px;
 }

@@ -13,8 +13,8 @@
         </div>
 
 
-        <div class="calWrap">
-            <div class="container">
+        <div class="calWrap" style="max-width:450px !important;">
+            <div class="container"  style="max-width:450px !important;">
                 <div class="calRow">
                     <div class="square">
                         <div class="content">
