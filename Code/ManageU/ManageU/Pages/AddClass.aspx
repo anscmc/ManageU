@@ -19,10 +19,7 @@
                                 <label id="classNameLabel" runat="server">Class Name</label>
                                 <asp:TextBox ID="className" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;height:39px;"></asp:TextBox>
                                 <br />
-<%--                            </div>--%>
-                            <%--<br />--%>
 
-<%--                            <div class="form-group">--%>
                                 <label id="date1" runat="server" CssClass="form-control" style="display:block;">Start Date</label>
                                 <input type="date" id="startDate" name="startDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;margin-bottom:5px !important;">
                                 <label id="date2" runat="server" style="display:block;">End Date</label>
