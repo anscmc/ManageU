@@ -192,8 +192,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\b31.png" />
     <Content Include="Pages\AddClass.aspx" />
+    <Content Include="Pages\AvailableTimes.aspx" />
     <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\CreateMeeting.aspx" />
@@ -369,6 +369,13 @@
     <Compile Include="Pages\AddClass.aspx.designer.cs">
       <DependentUpon>AddClass.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AvailableTimes.aspx.cs">
+      <DependentUpon>AvailableTimes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AvailableTimes.aspx.designer.cs">
+      <DependentUpon>AvailableTimes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -507,6 +514,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

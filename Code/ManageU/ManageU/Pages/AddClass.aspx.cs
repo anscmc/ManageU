@@ -14,7 +14,18 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (HttpContext.Current.Session["UserType"].ToString() == "player")
+            {
 
+            }
+            else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+            {
+
+            }
+            else
+            {
+                Response.Redirect("Landing.aspx");
+            }
         }
 
         protected void addButtonClick(object sender, EventArgs e)
@@ -60,9 +71,9 @@ namespace ManageU.Pages
             int endHr;
             DateTime start;
             DateTime end;
-            DateTime classDate;
+            DateTime classDateEnd;
 
-            if (amPMstart.Value == "PM")
+            if (amPMstart.Value == "PM" && Int32.Parse(startHour.Value) > 12)
             {
                 startHr = Int32.Parse(startHour.Value) + 12;
             }
@@ -97,7 +108,7 @@ namespace ManageU.Pages
             objCmd = new SqlCommand();
             objCmd.Connection = objCon;
 
-            strsql = "insert into EventMasterTable (associatedID, eventName, eventType, eventStart, eventEnd, eventNotes, attReq, reoccur) OUTPUT inserted.eventID values (@player, @eName, @eType, @eStart, @eEnd, @eNotes, @eAtt, @ereoccur);";
+            strsql = "insert into EventMasterTable (associatedID, eventName, eventType, eventStart, eventEnd, reoccur) OUTPUT inserted.masterID values (@player, @eName, @eType, @eStart, @eEnd, @ereoccur);";
             objCmd = new SqlCommand(strsql, objCon);
 
             objCmd.Parameters.AddWithValue("player", HttpContext.Current.Session["UserID"].ToString());
@@ -105,18 +116,22 @@ namespace ManageU.Pages
             objCmd.Parameters.AddWithValue("eType", "class");
             //will never have a class start on one day and end on another
             objCmd.Parameters.AddWithValue("eStart", start);
-            objCmd.Parameters.AddWithValue("eEnd", start);
+            objCmd.Parameters.AddWithValue("eEnd", end);
             objCmd.Parameters.AddWithValue("eAtt", "N");
             objCmd.Parameters.AddWithValue("ereoccur", days);
 
             masterIDFromTable = (int)objCmd.ExecuteScalar();
 
             objCmd = null;
+            int i = 0;
             //store all repeating events in EventDetails
-            for (classDate = start; classDate <= end; classDate.AddDays(1)) {
+            for (DateTime classDate = start; classDate <= end; classDate = classDate.AddDays(1.0)) {
                 //if the day of the week is a day the class is on, add to table
+                classDateEnd = new DateTime(classDate.Year, classDate.Month, classDate.Day, end.Hour, end.Minute, end.Second);
+                i++;
                 if (days.Contains(classDate.DayOfWeek.ToString()))
                 {
+                    
                     objCmd = new SqlCommand();
                     objCmd.Connection = objCon;
 
@@ -127,11 +142,15 @@ namespace ManageU.Pages
                     objCmd.Parameters.AddWithValue("player", HttpContext.Current.Session["UserID"].ToString());
                     //will never have a class start on one day and end on another
                     objCmd.Parameters.AddWithValue("eStart", classDate);
-                    objCmd.Parameters.AddWithValue("eEnd", classDate);
+                    objCmd.Parameters.AddWithValue("eEnd", classDateEnd);
+
+                    objCmd.ExecuteNonQuery();
                 }
             }
 
             objCon.Close();
+
+            Response.Redirect("PlayerSchedule.aspx");
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ManageU.Pages
 {
-    public partial class ViewMeeting : System.Web.UI.Page
+    public partial class AvailableTimes : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,5 +24,10 @@ namespace ManageU.Pages
                 Response.Redirect("Landing.aspx");
             }
         }
-    }
+
+        protected void customButtonClick(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateMeeting.aspx");
+        }
+}
 }

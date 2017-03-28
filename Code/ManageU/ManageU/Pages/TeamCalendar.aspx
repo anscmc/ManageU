@@ -7,60 +7,242 @@
         <h2 ><%: Title %></h2>
         <hr />
 
-        <div class="container"">
-            <div class="row no-gutter seven-cols">
-                <div class="col-sm-1 calBox">Col 1</div>
-                <div class="col-sm-1 calBox">Col 2</div>
-                <div class="col-sm-1 calBox">Col 3</div>
-                <div class="col-sm-1 calBox">Col 4</div>
-                <div class="col-sm-1 calBox">Col 5</div>
-                <div class="col-sm-1 calBox">Col 6</div>
-                <div class="col-sm-1 calBox">Col 7</div>
-            </div>
-            <div class="row no-gutter seven-cols">
-                <div class="col-md-1 calBox">Col 1</div>
-                <div class="col-md-1 calBox">Col 2</div>
-                <div class="col-md-1 calBox">Col 3</div>
-                <div class="col-md-1 calBox">Col 4</div>
-                <div class="col-md-1 calBox">Col 5</div>
-                <div class="col-md-1 calBox">Col 6</div>
-                <div class="col-md-1 calBox">Col 7</div>
-            </div>
-            <div class="row seven-cols">
-                <div class="col-md-1 calBox">Col 1</div>
-                <div class="col-md-1 calBox">Col 2</div>
-                <div class="col-md-1 calBox">Col 3</div>
-                <div class="col-md-1 calBox">Col 4</div>
-                <div class="col-md-1 calBox">Col 5</div>
-                <div class="col-md-1 calBox">Col 6</div>
-                <div class="col-md-1 calBox">Col 7</div>
-            </div>
-            <div class="row seven-cols">
-                <div class="col-md-1 calBox">Col 1</div>
-                <div class="col-md-1 calBox">Col 2</div>
-                <div class="col-md-1 calBox">Col 3</div>
-                <div class="col-md-1 calBox">Col 4</div>
-                <div class="col-md-1 calBox">Col 5</div>
-                <div class="col-md-1 calBox">Col 6</div>
-                <div class="col-md-1 calBox">Col 7</div>
-            </div>
-            <div class="row seven-cols">
-                <div class="col-md-1 calBox">Col 1</div>
-                <div class="col-md-1 calBox">Col 2</div>
-                <div class="col-md-1 calBox">Col 3</div>
-                <div class="col-md-1 calBox">Col 4</div>
-                <div class="col-md-1 calBox">Col 5</div>
-                <div class="col-md-1 calBox">Col 6</div>
-                <div class="col-md-1 calBox">Col 7</div>
-            </div>
-            <div class="row seven-cols">
-                <div class="col-md-1 calBox">Col 1</div>
-                <div class="col-md-1 calBox">Col 2</div>
-                <div class="col-md-1 calBox">Col 3</div>
-                <div class="col-md-1 calBox">Col 4</div>
-                <div class="col-md-1 calBox">Col 5</div>
-                <div class="col-md-1 calBox">Col 6</div>
-                <div class="col-md-1 calBox">Col 7</div>
+        <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
+            <asp:Button runat="server" Text="+ Create Event" CssClass="btn btn-default" 
+                style="display: block; margin: 0 auto; margin-bottom:10px !important;text-align: center; color:#008CBA; background-color:white;" />
+        </div>
+
+
+        <div class="calWrap">
+            <div class="container">
+                <div class="calRow">
+                    <div class="square">
+                        <div class="content">
+                            sunday
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="calRow">
+                    <div class="square">
+                        <div class="content">
+                            sunday
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="calRow">
+                    <div class="square">
+                        <div class="content">
+                            sunday
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calRow">
+                    <div class="square">
+                        <div class="content">
+                            sunday
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calRow">
+                    <div class="square">
+                        <div class="content">
+                            sunday
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calRow">
+                    <div class="square">
+                        <div class="content">
+                            sunday
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div class="content">
+
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>

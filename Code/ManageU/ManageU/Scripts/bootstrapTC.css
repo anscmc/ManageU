@@ -22,6 +22,37 @@
     *width: 100%;
   }
 }*/
+.calWrap{
+    /*max-width:200px !important;*/
+}
+
+.square {
+  border:solid 1px white;
+  position: relative;
+  /*width: 14.285714285714285714285714285714%;*/
+  width: 14.285714285714285714285714285714%;
+  max-width:14.285714285714285714285714285714%;
+  box-sizing: border-box;
+  display: inline-block;
+  float:left;
+}
+
+.square:after {
+  content: "";
+  display: inline-block;
+  padding-bottom: 100%;
+  box-sizing: border-box;
+}
+
+.calRow{
+
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 
 .row.no-gutter {
   margin-left: 0 !important;

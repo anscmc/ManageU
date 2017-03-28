@@ -53,13 +53,48 @@ namespace ManageU.Pages
             objCmd = null;
             objRS.Close();
             objCon.Close();
-
         }
 
 
         protected void newClass(object sender, EventArgs e)
         {
             Response.Redirect("AddClass.aspx");
+        }
+        protected void deleteClass(object sender, EventArgs e) {
+            //need to change these vars to grab from hidden fields
+            int classID = 3;
+            int masterID = 5;
+
+            string strsql = "";
+            SqlConnection objCon = default(SqlConnection);
+            SqlCommand objCmd = default(SqlCommand);
+            objCon = new SqlConnection();
+            objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
+
+            objCon.Open();
+            objCmd = new SqlCommand();
+            objCmd.Connection = objCon;
+
+            //Delete class from database if want to delete all instances
+
+            strsql = "delete from EventMasterTable where masterID='" + masterID + "'";
+            objCmd = new SqlCommand(strsql, objCon);
+
+            objCmd.ExecuteNonQuery();
+
+            objCmd = null;
+
+            strsql = "delete from EventDetailsTable where masterID='" + masterID + "'";
+            objCmd = new SqlCommand(strsql, objCon);
+
+            objCmd.ExecuteNonQuery();
+
+            objCon.Close();
+
+        }
+
+        protected void editClass(object sender, EventArgs e) {
+            Response.Redirect("EditClass.aspx");
         }
     }
 }

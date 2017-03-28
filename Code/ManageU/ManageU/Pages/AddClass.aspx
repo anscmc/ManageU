@@ -47,7 +47,6 @@
                                         <option value="12">12</option>
                                 </select>
                                 <label  runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">:</label>
-                                <%--<input type="number" name="startMinute" runat="server" CssClass="form-control" min="0" max="59" style="display: inline; margin: 0 auto;text-align: center; width:50px;height:39px;border-radius:5px;">--%>
                                 <select class="selectpicker" ID="startMinute" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="00">00</option>
                                         <option value="01">01</option>

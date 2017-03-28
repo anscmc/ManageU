@@ -24,41 +24,49 @@
         </div>--%>
 
         <%--Labels--%>
-        <div id="teamInfo" runat="server" class="col-sm-4 box blueFont" style="text-align:center; height:175px;border:1px solid #008CBA; color:#008CBA;">
-            <%--<div class="col-sm-12" runat="server" style="border:1px solid black;box-shadow: 0 0 10px #000;height:100%;">--%>
-            <br />
-            <asp:Label class="info" id="division" runat="server" style="display: inline-block"></asp:Label>
+        <div id="teamInfo1">
 
-            <asp:Label class="info" id="conference" runat="server" style="display: inline-block"></asp:Label>
-            <br />
-            <br />
-            <asp:Label class="info" id="wins" runat="server"></asp:Label>
-            <asp:Label class="info" Text=" - " runat="server"></asp:Label>
-            <asp:Label class="info" id="losses" runat="server"></asp:Label>
-            <br />
-            <br />
-            <asp:Label class="info" id="location" runat="server"></asp:Label>
-        </div>
-        <div id="coachInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:175px;border:1px solid #008CBA;color:#008CBA;">
-            <br />
-            <asp:Label class="info" id="headCoach" runat="server" ></asp:Label>
-            <br />
-            <br />
-            <asp:Label class="info" id="coachNumber" runat="server"></asp:Label>
-            <br />
-            <br />
-            <asp:Label class="info" id="coachEmail" runat="server"></asp:Label>
-        </div>
-        <div id="linkInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:175px;border:1px solid #008CBA;">
-            <br />
-            <asp:HyperLink class="info" ID="schoolSite" runat="server">School Website</asp:HyperLink>
-            <br />
-            <br />
-            <asp:HyperLink class="info" ID="siteTeam" runat="server">Team Website</asp:HyperLink>
-            <br />
-            <br />
-            <asp:Hyperlink class="info" ID="calendarHyp" href="TeamCalendar.aspx" runat="server">Team Calendar</asp:Hyperlink>
-        </div>
+            <div id="teamDivision" runat="server" class="col-sm-4 box" style="display:inline-block;float:left;text-align:center; height:175px;border:1px solid #008CBA; color:#008CBA;width:25%">
+                <br />
+                <asp:Label class="info" id="division" runat="server" style="display: inline-block"></asp:Label>
+            </div>
+            <div id="teamConference" runat="server" class="col-sm-4 box" style="display:inline-block;float:left;text-align:center; height:175px;border:1px solid #008CBA; color:#008CBA;width:25%">
+                <br />
+                <asp:Label class="info" id="conference" runat="server" style="display: inline-block"></asp:Label>
+            </div>
+            <div id="teamRecord" runat="server" class="col-sm-4 box" style="display:inline-block;float:left;text-align:center; height:175px;border:1px solid #008CBA; color:#008CBA;width:25%">
+                <br />
+                <asp:Label class="info" id="wins" runat="server"></asp:Label>
+                <asp:Label class="info" Text=" - " runat="server"></asp:Label>
+                <asp:Label class="info" id="losses" runat="server"></asp:Label>
+            </div>
+            <div id="teamLocation" runat="server" class="col-sm-4 box" style="display:inline-block;float:left;text-align:center; height:175px;border:1px solid #008CBA; color:#008CBA;width:25%">
+                <br />
+                <asp:Label class="info" id="location" runat="server" style="display: inline-block"></asp:Label>
+            </div>
+
+            <div id="coachInfo" runat="server" class="col-sm-4 box" style="display:inline-block;float:left;text-align:center; height:175px;border:1px solid #008CBA;color:#008CBA;width:50%">
+                <br />
+                <asp:Label class="info" id="headCoach" runat="server" ></asp:Label>
+                <br />
+                <br />
+                <asp:Label class="info" id="coachNumber" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:Label class="info" id="coachEmail" runat="server"></asp:Label>
+            </div>
+            <div id="linkInfo" runat="server" class="col-sm-4 box" style="display:inline-block;float:left;text-align:center; height:175px;border:1px solid #008CBA;width:50%">
+                <br />
+                <asp:HyperLink class="info" ID="schoolSite" runat="server">School Website</asp:HyperLink>
+                <br />
+                <br />
+                <asp:HyperLink class="info" ID="siteTeam" runat="server">Team Website</asp:HyperLink>
+                <br />
+                <br />
+                <asp:Hyperlink class="info" ID="calendarHyp" href="TeamCalendar.aspx" runat="server">Team Calendar</asp:Hyperlink>
+            </div>
+            </div>
+        
 
         <%--Text Boxes--%>
         <div id="editTeam" runat="server" class="col-sm-4" style="text-align:center; height:auto;">
@@ -105,7 +113,7 @@
         <asp:Button ID="editButton" runat="server" OnClick="editButton_Click" Text="Edit Team Profile" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;"/>
         <asp:Button ID="saveTeamInfo" runat="server" OnClick="saveTeamInfoButton_Click" Text="Save Team Profile" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />
         </div>
-
+        <asp:Button ID="playerSched" runat="server" OnClick="playerSched_Click" Text="Sched" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />
         </div>
 
         <div>
