@@ -11,6 +11,8 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //comment to commit
+            //new comment
             if (HttpContext.Current.Session["UserType"].ToString() == "player")
             {
 
