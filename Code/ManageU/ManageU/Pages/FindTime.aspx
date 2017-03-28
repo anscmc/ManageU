@@ -20,23 +20,23 @@
                                 <br />
                                 <select class="selectpicker" ID="hours" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="0">0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
                                 </select>
                                 <label id="hoursLabel" runat="server" CssClass="form-control" style="display:inline">hours</label>
                                 <select class="selectpicker" ID="minutes" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
-                                        <option>0</option>
-                                        <option>15</option>
-                                        <option>30</option>
-                                        <option>45</option>
+                                        <option value="0">0</option>
+                                        <option value="15">15</option>
+                                        <option value="30">30</option>
+                                        <option value="45">45</option>
                                 </select>
                                 <label id="Label4" runat="server" CssClass="form-control" style="display:inline">minutes</label>
                             </div>
@@ -44,9 +44,9 @@
 
                             <div class="form-group">
                             <label id="meetingDateLabel" runat="server" CssClass="form-control" style="display:block;">Date Range</label>
-                                <input type="date" name="date1" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:140px;height:39px;border-radius:5px;">
+                                <input type="date" id="date1" name="date1" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:140px;height:39px;border-radius:5px;">
                                 <label id="days" runat="server" style="display:block;"> to </label>
-                                <input type="date" name="date2" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:140px;height:39px;border-radius:5px;">
+                                <input type="date" id="date2" name="date2" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:140px;height:39px;border-radius:5px;">
                                 <%--<input type="number" ID="nextDays" min="1" max="60" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:50px;height:39px;border-radius:5px;">--%>
                                 <%--<label id="days" runat="server" style="display:inline">days</label>--%>
                             </div>
@@ -86,7 +86,7 @@
 
                                 <label id="and" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">and</label>
                                 <br />
-                                <select class="selectpicker" ID="meetingStartHour2" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
+                                <select class="selectpicker" ID="meetingEndHour" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -102,7 +102,7 @@
                                 </select>
                                 <label id="Label2" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">:</label>
                                 <%--<input type="number" ID="meetingStartMinute1" min="0" max="59" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;width:50px;height:39px;border-radius:5px;">--%>
-                                <select class="selectpicker" ID="meetingStartMinute2" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
+                                <select class="selectpicker" ID="meetingEndMinute" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="00">00</option>
                                         <option value="15">15</option>
                                         <option value="30">30</option>
