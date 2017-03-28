@@ -60,47 +60,54 @@ namespace ManageU.Pages
         {
             while (objRS.Read())
             {
-                    //display tasks
+                    //if the player has already completed the task, do not show it
+                    if (objRS["completed"].ToString().Contains(HttpContext.Current.Session["UserID"].ToString()))
+                    {
 
-                    HtmlGenericControl yButton =
-                    new HtmlGenericControl("button");
+                    }
+                    //if the player did not complete the task yet, show it
+                    else {
+                        HtmlGenericControl yButton =
+                        new HtmlGenericControl("button");
 
-                    yButton.Attributes["type"] = "button";
-                    yButton.Attributes["ID"] = "yButton" + idNum.ToString() + ";";
-                    yButton.Attributes["class"] = "yButtonCSS";
-                    yButton.Attributes["runat"] = "server";
-                    yButton.InnerText = "";
-                    yButton.Attributes["OnClientClick"] = "return false";
-                    yButton.Attributes["OnServerClick"] = "xButtonClick";
+                        yButton.Attributes["type"] = "button";
+                        yButton.Attributes["ID"] = "yButton" + idNum.ToString() + ";";
+                        yButton.Attributes["class"] = "yButtonCSS";
+                        yButton.Attributes["runat"] = "server";
+                        yButton.InnerText = "";
+                        yButton.Attributes["OnClientClick"] = "return false";
+                        yButton.Attributes["OnServerClick"] = "xButtonClick";
 
-                    taskName = objRS["taskName"].ToString();
+                        taskName = objRS["taskName"].ToString();
 
-                    Label taskLabel = new Label();
-                    taskLabel.Text = taskName;
+                        Label taskLabel = new Label();
+                        taskLabel.Text = taskName;
 
-                    /*taskLabel.Attributes["style"] = "vertical-align:center;text-align:center;display:table-cell;"*/;
+                        /*taskLabel.Attributes["style"] = "vertical-align:center;text-align:center;display:table-cell;"*/
+                        ;
 
 
-                    HtmlGenericControl detailsButton = new HtmlGenericControl("button");
+                        HtmlGenericControl detailsButton = new HtmlGenericControl("button");
 
-                    detailsButton.Attributes["type"] = "button";
-                    detailsButton.Attributes["ID"] = "detailsButton" + idNum.ToString() + ";";
-                    detailsButton.Attributes["class"] = "btn btn-default";
-                    detailsButton.Attributes["style"] = "border: 2px solid #008CBA;margin-right:1px;";
-                    detailsButton.Attributes["OnClientClick"] = "detailsButtonClick";
-                    detailsButton.InnerText = "Details";
+                        detailsButton.Attributes["type"] = "button";
+                        detailsButton.Attributes["ID"] = "detailsButton" + idNum.ToString() + ";";
+                        detailsButton.Attributes["class"] = "btn btn-default";
+                        detailsButton.Attributes["style"] = "border: 2px solid #008CBA;margin-right:1px;";
+                        detailsButton.Attributes["OnClientClick"] = "detailsButtonClick";
+                        detailsButton.InnerText = "Details";
 
-                    HtmlGenericControl taskDiv =
-                            new HtmlGenericControl("div");
+                        HtmlGenericControl taskDiv =
+                                new HtmlGenericControl("div");
 
-                    taskDiv.Attributes["id"] = "taskContent" ;
-                    taskDiv.Attributes["class"] = "col-sm-4 infoDiv";
-                    taskDiv.Attributes["runat"] = "server";
-                    taskDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:100px;max-width:500px;margin: 0 auto;";
-                    taskDiv.Controls.Add(yButton);
-                    taskDiv.Controls.Add(taskLabel);
-                    taskDiv.Controls.Add(detailsButton);
-                    tasksDiv.Controls.Add(taskDiv);
+                        taskDiv.Attributes["id"] = "taskContent";
+                        taskDiv.Attributes["class"] = "col-sm-4 infoDiv";
+                        taskDiv.Attributes["runat"] = "server";
+                        taskDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:100px;max-width:500px;margin: 0 auto;";
+                        taskDiv.Controls.Add(yButton);
+                        taskDiv.Controls.Add(taskLabel);
+                        taskDiv.Controls.Add(detailsButton);
+                        tasksDiv.Controls.Add(taskDiv);
+                    }
 
                 }
         }
@@ -181,7 +188,54 @@ namespace ManageU.Pages
 
     }
 
-    protected void createTask(object sender, EventArgs e)
+    protected void completeTaskButton_Click(object sender, EventArgs e)
+    {
+            int taskIDFromVar = 1;
+            SqlConnection objCon = default(SqlConnection);
+            SqlConnection objCon2 = default(SqlConnection);
+            SqlCommand objCmd = default(SqlCommand);
+            SqlCommand objCmd2 = default(SqlCommand);
+            objCon = new SqlConnection();
+            objCon2 = new SqlConnection();
+            objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
+            objCon2.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
+            objCmd = new SqlCommand();
+            objCmd2 = new SqlCommand();
+            objCmd.Connection = objCon;
+            objCmd2.Connection = objCon2;
+            SqlDataReader objRS;
+            SqlDataReader objRS2;
+            string strsql = "";
+            string strsql2 = "";
+
+            //make sure task exists 
+            strsql = "select * from TaskTable where taskID ='" + taskIDFromVar + "'";
+            objCon.Open();
+            objCmd = new SqlCommand(strsql, objCon);
+
+            objRS = objCmd.ExecuteReader();
+            if (objRS.HasRows)
+            {
+                while (objRS.Read())
+                {
+                    //show player completed task in table (separated by semi colons)
+                    strsql2 = "update TaskTable set completed='" + objRS["completed"].ToString() + ";" + HttpContext.Current.Session["UserID"] + "'";
+                    objCon2.Open();
+
+                    objCmd2 = new SqlCommand(strsql2, objCon2);
+                    objCmd2.ExecuteNonQuery();
+
+                    objCmd2 = null;
+                    objCon2.Close();
+                }
+            }
+
+            objCmd = null;
+            objRS.Close();
+            objCon.Close();
+        }
+
+            protected void createTask(object sender, EventArgs e)
         {
             Response.Redirect("CreateTask.aspx");
         }

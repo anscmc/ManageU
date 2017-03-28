@@ -24,9 +24,9 @@
 
 <%--                            <div class="form-group">--%>
                                 <label id="date1" runat="server" CssClass="form-control" style="display:block;">Start Date</label>
-                                <input type="date" name="startDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;margin-bottom:5px !important;">
+                                <input type="date" id="startDate" name="startDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;margin-bottom:5px !important;">
                                 <label id="date2" runat="server" style="display:block;">End Date</label>
-                                <input type="date" name="endDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
+                                <input type="date" id="endDate" name="endDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
                             </div>
                             <br />
                             <div class="form-group">
@@ -205,31 +205,31 @@
 
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">Sun</label>
-                                        <input type="checkbox" name="chk_group[]" id="sun" style="display: table-row;width: 100%;" />         
+                                        <input type="checkbox" name="chk_group[]" id="sun" style="display: table-row;width: 100%;" runat="server" />         
                                     </div>
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">M</label>
-                                        <input type="checkbox" name="chk_group[]" id="mon" style="display: table-row;width: 100%;" />         
+                                        <input type="checkbox" name="chk_group[]" id="mon" style="display: table-row;width: 100%;" runat="server"/>         
                                     </div>
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">T</label>
-                                        <input type="checkbox" name="chk_group[]" id="tue" style="display: table-row;width: 100%;" />         
+                                        <input type="checkbox" name="chk_group[]" id="tue" style="display: table-row;width: 100%;" runat="server"/>         
                                     </div>
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">W</label>
-                                        <input type="checkbox" name="chk_group[]" id="wed" style="display: table-row;width: 100%;" />         
+                                        <input type="checkbox" name="chk_group[]" id="wed" style="display: table-row;width: 100%;" runat="server"/>         
                                     </div>
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">TH</label>
-                                        <input type="checkbox" name="chk_group[]" id="thu" style="display: table-row;width: 100%;" />         
+                                        <input type="checkbox" name="chk_group[]" id="thu" style="display: table-row;width: 100%;" runat="server"/>         
                                     </div>
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">F</label>
-                                        <input type="checkbox" name="chk_group[]" id="fri" style="display: table-row;width: 100%;" />         
+                                        <input type="checkbox" name="chk_group[]" id="fri" style="display: table-row;width: 100%;" runat="server" />         
                                     </div>
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">Sat</label>
-                                        <input type="checkbox" name="chk_group[]" id="sat" style="display: table-row;width: 100%;" />         
+                                        <input type="checkbox" name="chk_group[]" id="sat" style="display: table-row;width: 100%;" runat="server"/>         
                                     </div>
 
 
@@ -239,7 +239,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:Button runat="server" id="addClass" Text="Add to Schedule" OnClick="addButtonClick" CssClass="btn btn-default" style="display: block; margin: 0 auto;text-align: center; color:#008CBA; background-color:white; width:250px !important " />
+                            <asp:Button runat="server" id="addClass" Text="Add to Schedule" OnClick="addClass_Click" CssClass="btn btn-default" style="display: block; margin: 0 auto;text-align: center; color:#008CBA; background-color:white; width:250px !important " />
                         </div>
                     </div>
 

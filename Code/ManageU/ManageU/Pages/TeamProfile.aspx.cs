@@ -257,5 +257,9 @@ namespace ManageU.Pages
 
             }
         }
+
+        protected void playerSched_Click(object sender, EventArgs e) {
+            Response.Redirect("PlayerSchedule.aspx");
+        }
     }
 }
