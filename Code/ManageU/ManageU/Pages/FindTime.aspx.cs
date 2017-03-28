@@ -11,12 +11,23 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (HttpContext.Current.Session["UserType"].ToString() == "player")
+            {
 
+            }
+            else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+            {
+
+            }
+            else
+            {
+                Response.Redirect("Landing.aspx");
+            }
         }
 
         protected void findTimes(object sender, EventArgs e)
         {
-            Response.Redirect("createMeeting.aspx");
+            Response.Redirect("AvailableTimes.aspx");
         }
     }
 }

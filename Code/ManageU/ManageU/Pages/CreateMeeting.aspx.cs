@@ -31,7 +31,7 @@ namespace ManageU.Pages
 
         protected void createMeeting(object sender, EventArgs e)
         {
-
+            Response.Redirect("ViewMeeting.aspx");
         }
 
         protected void findTime(object sender, EventArgs e)

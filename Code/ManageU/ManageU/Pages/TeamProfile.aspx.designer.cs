@@ -22,13 +22,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.Label teamName;
         
         /// <summary>
-        /// teamInfo control.
+        /// teamDivision control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamInfo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamDivision;
         
         /// <summary>
         /// division control.
@@ -40,6 +40,15 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.Label division;
         
         /// <summary>
+        /// teamConference control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamConference;
+        
+        /// <summary>
         /// conference control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label conference;
+        
+        /// <summary>
+        /// teamRecord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamRecord;
         
         /// <summary>
         /// wins control.
@@ -65,6 +83,15 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label losses;
+        
+        /// <summary>
+        /// teamLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl teamLocation;
         
         /// <summary>
         /// location control.

@@ -14,8 +14,22 @@
                 <div class="form-horizontal">
 
                     <div class="form-group">
+                        <label id="meetingLasting" runat="server" CssClass="form-control"># of players</label>
+                        <br />
+                        <select class="selectpicker" ID="hours" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                        </select>
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:TextBox runat="server" ID="emailAddresses" TextMode="multiline" placeholder="Enter email address(es)" CssClass="form-control" style="display: block; margin: 0 auto;width:250px;height:275px;max-width:250px;max-height:275px"/>
+                            <asp:TextBox runat="server" ID="emailAddresses" placeholder="Email Address" CssClass="form-control" style="display: block; margin: 0 auto;width:250px;height:275px;max-width:250px;max-height:275px"/>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="emailAddresses" CssClass="text-danger" ErrorMessage="Field is required." />
                             <label id="userExistsErr" runat="server" style="color:red; display:none;">You have already invited one or more of the players</label>    
                         </div>

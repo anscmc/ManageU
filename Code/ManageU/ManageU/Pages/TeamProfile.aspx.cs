@@ -42,10 +42,12 @@ namespace ManageU.Pages
         {
             editButton.Visible = false;
             saveTeamInfo.Visible = true;
-            teamInfo.Visible = false;
+            teamDivision.Visible = false;
+            teamConference.Visible = false;
+            teamRecord.Visible = false;
+            teamLocation.Visible = false;
             coachInfo.Visible = false;
             linkInfo.Visible = false;
-
             editTeam.Visible = true;
             editCoach.Visible = true;
             editLink.Visible = true;
@@ -81,7 +83,10 @@ namespace ManageU.Pages
                 uploadPic();
             }
 
-            teamInfo.Visible = true;
+            teamDivision.Visible = true;
+            teamConference.Visible = true;
+            teamRecord.Visible = true;
+            teamLocation.Visible = true;
             coachInfo.Visible =true;
             linkInfo.Visible = true;
             saveTeamInfo.Visible = false;
@@ -146,7 +151,7 @@ namespace ManageU.Pages
                             division.Text = objRS2["division"].ToString();
                             //divisionPicker.InnerText = objRS2["division"].ToString();
                             divisionPicker.Text = objRS2["division"].ToString();
-                            conference.Text = " || " + objRS2["conference"].ToString();
+                            conference.Text = objRS2["conference"].ToString();
                             conference2.Text = objRS2["conference"].ToString();
                             wins.Text = objRS2["wins"].ToString() + " Wins ";
                             wins2.Text = objRS2["wins"].ToString();

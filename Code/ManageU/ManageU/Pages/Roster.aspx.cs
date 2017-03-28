@@ -123,10 +123,23 @@ namespace ManageU.Pages
                             xButton.InnerText = "";
                             xButton.Attributes["OnClientClick"] = "return false";
                             xButton.Attributes["OnServerClick"] = "xButtonClick";
+                    //xButton.Attributes["OnClientClick"] = "xButtonClick";
+                    //xButton.Attributes.Add("clientclick", "return false");
+
+                            HtmlGenericControl calButton =
+                                    new HtmlGenericControl("button");
+
+                            calButton.Attributes["type"] = "button";
+                            calButton.Attributes["ID"] = "calButton" + idNum.ToString() + ";";
+                            calButton.Attributes["class"] = "calButtonCSS";
+                            calButton.Attributes["runat"] = "server";
+                            calButton.InnerText = "";
+                            calButton.Attributes["OnClientClick"] = "return false";
+                            calButton.Attributes["OnServerClick"] = "xButtonClick";
                             //xButton.Attributes["OnClientClick"] = "xButtonClick";
                             //xButton.Attributes.Add("clientclick", "return false");
 
-                            HtmlGenericControl infoDiv =
+                    HtmlGenericControl infoDiv =
                             new HtmlGenericControl("div");
 
                             infoDiv.Attributes["id"] = "rosterContent";
@@ -185,6 +198,7 @@ namespace ManageU.Pages
                             playerInfo.Controls.Add(infoDiv);
                             infoDiv.Controls.Add(boxDiv);
                             boxDiv.Controls.Add(xButton);
+                            boxDiv.Controls.Add(calButton);
                             //boxDiv.Controls.Add(checkX);
                             //playerInfo.Controls.Add(boxDiv);
 
@@ -193,7 +207,7 @@ namespace ManageU.Pages
                             //    emailString = emailString + playerEmail;
                             //}
                             //emails.InnerText = emailString;
-                        }
+                }
 
                     }
                     objRS2.Close();
