@@ -211,13 +211,51 @@ namespace ManageU.Pages
             int blockCounter = 0;
 
             beginningTime = beginningTime.Replace(":", "");
-            beginningTime = beginningTime.Remove(4);
+            if (beginningTime.Length == 5)
+            {
+                beginningTime = beginningTime.Remove(3);
+            }
+            else
+            {
+                beginningTime = beginningTime.Remove(4);
+            }
             endingTime = endingTime.Replace(":", "");
-            endingTime = endingTime.Remove(4);
-            string beginHour = beginningTime.Substring(0, 2);
-            string beginMinute = beginningTime.Substring(2, 2);
-            string endHour = endingTime.Substring(0, 2);
-            string endMinute = endingTime.Substring(2, 2);
+            if(endingTime.Length == 5)
+            {
+                endingTime = endingTime.Remove(3);
+            }
+            else
+            {
+                endingTime = endingTime.Remove(4);
+            }
+
+            string beginHour;
+            string beginMinute;
+            if (beginningTime.Length == 3)
+            {
+                beginHour = beginningTime.Substring(0, 1);
+                beginMinute = beginningTime.Substring(1, 2);
+            }
+            else
+            {
+                beginHour = beginningTime.Substring(0, 2);
+                beginMinute = beginningTime.Substring(2, 2);
+            }
+
+
+            string endHour; 
+            string endMinute;
+            if(endingTime.Length == 3)
+            {
+                endHour = endingTime.Substring(0, 1);
+                endMinute = endingTime.Substring(1, 2);
+            }
+            else
+            {
+                endHour = endingTime.Substring(0, 2);
+                endMinute = endingTime.Substring(2, 2);
+            }
+            
             int startMin = Int32.Parse(beginMinute);
             int endMin = Int32.Parse(endMinute);
             string startQuarterIndex = "";
@@ -318,10 +356,17 @@ namespace ManageU.Pages
             startInterval = (int)((4 * startQuarterDouble) + 1);
             endInterval = (int)((4 * endQuarterDouble) + 1);
 
+            int indexHolder = startInterval - 1;
+
             for (int j = 0; j < gridArray.GetLength(0); j++)
             {
                 for (int k = startInterval; k < endInterval; k++)
                 {
+                    if(blockCounter == 0)
+                    {
+                        indexHolder++;
+                        k = indexHolder;
+                    }
                     //if a block is taken up, reset the block counter
                     if (gridArray[j, k] == 1)
                     {
@@ -335,7 +380,7 @@ namespace ManageU.Pages
                         {
                             //add the day and time to meeting options
                             //"day,startTime;day,endTime"
-                            meetingOptions.Add(j.ToString() + "," + (k - numOfIntervals + 1).ToString() + ";" + j.ToString() + "," + (k + 1).ToString());
+                            meetingOptions.Add(j.ToString() + "," + (indexHolder).ToString() + ";" + j.ToString() + "," + (k + 1).ToString());
                             //reset the counter
                             blockCounter = 0;
                         }
@@ -388,12 +433,30 @@ namespace ManageU.Pages
                 //convert startDate to dateTime
                 decimalTime = (Convert.ToDouble(startTime) - 1) / 4;
                 decString = String.Format("{0:0.00}", decimalTime);
-                hrTime = decString.Substring(0, 2);
-                minTime = decString.Substring(2, 3);
+                if(decString.Length == 4)
+                {
+                    hrTime = decString.Substring(0, 1);
+                }
+                else
+                {
+                    hrTime = decString.Substring(0, 2);
+                }
+                if(decString.Length == 4)
+                {
+                    minTime = decString.Substring(1, 3);
+                }
+                else
+                {
+                    minTime = decString.Substring(2, 3);
+                }
 
                 if (minTime == ".0")
                 {
                     minTime = ".00";
+                }
+                if (minTime == ".5")
+                {
+                    minTime = ".50";
                 }
 
                 //convert quarter decimal to 15 min intervals
@@ -415,9 +478,13 @@ namespace ManageU.Pages
                         break;
                 }
 
-                if (Int32.Parse(hrTime) > 13)
+                if (Int32.Parse(hrTime) > 12)
                 {
                     hrTime = (Int32.Parse(hrTime) - 12).ToString();
+                    ampm = "PM";
+                }
+                if (Int32.Parse(hrTime) == 12)
+                {
                     ampm = "PM";
                 }
 
@@ -428,12 +495,30 @@ namespace ManageU.Pages
                 //convert endDate to dateTime
                 decimalTime = (Convert.ToDouble(timeEnd) - 1) / 4;
                 decString = String.Format("{0:0.00}", decimalTime);
-                hrTime = decString.Substring(0, 2);
-                minTime = decString.Substring(2, 3);
+                if (decString.Length == 4)
+                {
+                    hrTime = decString.Substring(0, 1);
+                }
+                else
+                {
+                    hrTime = decString.Substring(0, 2);
+                }
+                if (decString.Length == 4)
+                {
+                    minTime = decString.Substring(1, 3);
+                }
+                else
+                {
+                    minTime = decString.Substring(2, 3);
+                }
 
                 if (minTime == ".0")
                 {
                     minTime = ".00";
+                }
+                if(minTime == ".5")
+                {
+                    minTime = ".50";
                 }
 
                 //convert quarter decimal to 15 min intervals
@@ -455,7 +540,7 @@ namespace ManageU.Pages
                         break;
                 }
 
-                if (Int32.Parse(hrTime) > 13)
+                if (Int32.Parse(hrTime) > 12)
                 {
                     hrTime = (Int32.Parse(hrTime) - 12).ToString();
                     ampm = "PM";
@@ -466,7 +551,7 @@ namespace ManageU.Pages
                 //use startDate and endDate for displaying meeting list (Add to session var array - Andrew you will have to create this session var)
             }
 
-                Response.Redirect("AvailableTimes.aspx");
+                //Response.Redirect("AvailableTimes.aspx");
         }
     }
 }
