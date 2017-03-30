@@ -554,6 +554,10 @@ namespace ManageU.Pages
 
                 HttpContext.Current.Session["AvailableTimes"] = timeOptions;
 
+                /*In Available Times Page this is how you get access to available times session (Page Load)
+                 List<string> times = new List<string>();
+                times = (List<string>)HttpContext.Current.Session["AvailableTimes"];*/
+
                 //use startDate and endDate for displaying meeting list (Add to session var array - Andrew you will have to create this session var)
             }
 
