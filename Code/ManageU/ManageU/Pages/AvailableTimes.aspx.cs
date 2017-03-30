@@ -11,13 +11,32 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Session["UserType"].ToString() == "player")
+            if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
+                List<string> times = new List<string>();
+                times = (List<string>)HttpContext.Current.Session["AvailableTimes"];
+                string[] startEnd;
+                string start;
+                string end;
+                string[] startSplit;
+                string startDate;
+                string startTime;
+                string[] endSplit;
+                string endDate;
+                string endTime;
+                for (int i = 0; i < times.Count; i++) {
+                    //loop through to display options
+                    startEnd = times.ElementAt(i).Split(';');
+                    start = startEnd.ElementAt(0);
+                    end = startEnd.ElementAt(1);
 
-            }
-            else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
-            {
-
+                    startSplit = start.Split(' ');
+                    startDate = startSplit.ElementAt(0);
+                    startTime = startSplit.ElementAt(1);
+                    endSplit = end.Split(' ');
+                    endDate = endSplit.ElementAt(0);
+                    endTime = endSplit.ElementAt(1);
+                }
             }
             else
             {
