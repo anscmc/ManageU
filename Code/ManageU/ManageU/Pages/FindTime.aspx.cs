@@ -548,6 +548,12 @@ namespace ManageU.Pages
 
                 endDate = endDay + " " + hrTime + ":" + minTime + " " + ampm;
 
+                List<string> timeOptions = new List<string>();
+
+                timeOptions.Add(startDate + ";" + endDate);
+
+                HttpContext.Current.Session["AvailableTimes"] = timeOptions;
+
                 //use startDate and endDate for displaying meeting list (Add to session var array - Andrew you will have to create this session var)
             }
 
