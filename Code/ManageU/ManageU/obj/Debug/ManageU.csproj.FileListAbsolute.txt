@@ -234,3 +234,4 @@ C:\Users\Jennifer\Desktop\ManageU\Code\ManageU\ManageU\bin\Microsoft.Owin.Securi
 C:\Users\Jennifer\Desktop\ManageU\Code\ManageU\ManageU\obj\Debug\ManageU.csprojResolveAssemblyReference.cache
 C:\Users\Jennifer\Desktop\ManageU\Code\ManageU\ManageU\obj\Debug\ManageU.dll
 C:\Users\Jennifer\Desktop\ManageU\Code\ManageU\ManageU\obj\Debug\ManageU.pdb
+C:\Users\anscmc\Desktop\Senior Design\ManageU\ManageU\Code\ManageU\ManageU\obj\Debug\ManageU.csprojResolveAssemblyReference.cache

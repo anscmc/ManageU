@@ -199,6 +199,7 @@
     <Content Include="Pages\CreateMeeting.aspx" />
     <Content Include="Pages\FindTime.aspx" />
     <Content Include="Pages\InvitePlayers.aspx" />
+    <Content Include="Pages\Lifts.aspx" />
     <Content Include="Pages\MyInfo.aspx" />
     <Content Include="Pages\PlayerSchedule.aspx" />
     <Content Include="Pages\Roster.aspx" />
@@ -418,6 +419,13 @@
     </Compile>
     <Compile Include="Pages\Landing.aspx.designer.cs">
       <DependentUpon>Landing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lifts.aspx.cs">
+      <DependentUpon>Lifts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Lifts.aspx.designer.cs">
+      <DependentUpon>Lifts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\MyInfo.aspx.cs">
       <DependentUpon>MyInfo.aspx</DependentUpon>
