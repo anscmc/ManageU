@@ -67,6 +67,15 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingDateLabel;
         
         /// <summary>
+        /// date1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date1;
+        
+        /// <summary>
         /// days control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl days;
+        
+        /// <summary>
+        /// date2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl date2;
         
         /// <summary>
         /// between control.
@@ -130,13 +148,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl and;
         
         /// <summary>
-        /// meetingStartHour2 control.
+        /// meetingEndHour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect meetingStartHour2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect meetingEndHour;
         
         /// <summary>
         /// Label2 control.
@@ -148,13 +166,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
         
         /// <summary>
-        /// meetingStartMinute2 control.
+        /// meetingEndMinute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect meetingStartMinute2;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect meetingEndMinute;
         
         /// <summary>
         /// amPMend control.
