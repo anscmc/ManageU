@@ -101,9 +101,36 @@ img {
     font-family:'Microsoft Yahei';
 }
 
+.calDiv{
+    vertical-align: middle;
+    background-color:rgba(255,255,255,0);
+    /*padding:2px;*/
+    border-radius:5px;
+    height:29px;
+    width:30px;
+    line-height:98px;
+    text-align:center;
+    float:none;
+    position:absolute;
+    top:10px;
+    left:10px;
+    padding:0;
+    font-family:'Microsoft Yahei';
+}
+
 /*.rosterCheckBox:hover{
     box-shadow: 0 0 10px #008CBA;
 }*/
+
+.rosterCheck{
+    line-height:28px;
+    text-align:center;
+    float:none;
+    position:absolute;
+    padding:0;
+    margin: 0 auto;
+    right:0px;
+}
 
 .xButtonCSS{
     background-color:white;
@@ -118,8 +145,6 @@ img {
     padding:0;
     font-family:'Microsoft Yahei';
     margin: 0 auto;
-    /*top:50%;
-    left:50%*/
     right:0px;
     font-size:27px;
     color:#008CBA;
@@ -132,7 +157,7 @@ img {
 }
 
 .calButtonCSS{
-    background-color:#008CBA;
+    background-color:white;
     border:2px solid #008CBA;
     border-radius:5px;
     height:29px;
@@ -144,10 +169,6 @@ img {
     padding:0;
     font-family:'Microsoft Yahei';
     margin: 0 auto;
-    margin-left:5px !important;
-    margin-top:5px !important;
-    /*top:50%;
-    left:50%*/
     right:0px;
     font-size:27px;
     color:#008CBA;

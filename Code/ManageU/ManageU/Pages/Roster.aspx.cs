@@ -13,6 +13,9 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            HttpContext.Current.Session["testEmail"] = "";
+
             if (HttpContext.Current.Session["UserType"].ToString() == "player")
             {
 
@@ -113,21 +116,26 @@ namespace ManageU.Pages
                             lb1.Attributes["style"] = "padding:10px; bottom:10px;";
                             lb5.Attributes["style"] = "margin-bottom:10px;";
 
-                            HtmlGenericControl xButton =
-                            new HtmlGenericControl("button");
+                            CheckBox emailCheck = new CheckBox();
+                            emailCheck.ID = "check" + idNum.ToString();
+                            emailCheck.InputAttributes.Add("class", "rosterCheck");
 
-                            xButton.Attributes["type"] = "button";
-                            xButton.Attributes["ID"] = "xButton" + idNum.ToString() + ";";
-                            xButton.Attributes["class"] = "xButtonCSS";
-                            xButton.Attributes["runat"] = "server";
-                            xButton.InnerText = "";
-                            xButton.Attributes["OnClientClick"] = "return false";
-                            xButton.Attributes["OnServerClick"] = "xButtonClick";
+                    //HtmlGenericControl xButton =
+                    //new HtmlGenericControl("button");
+
+                    //xButton.Attributes["type"] = "button";
+                    //xButton.Attributes["ID"] = "xButton" + idNum.ToString() + ";";
+                    //xButton.Attributes["class"] = "xButtonCSS";
+                    //xButton.Attributes["runat"] = "server";
+                    //xButton.InnerText = "";
+                    //xButton.Attributes["OnClientClick"] = "return false";
+                    //xButton.Attributes["OnServerClick"] = "xButtonClick";
+
                     //xButton.Attributes["OnClientClick"] = "xButtonClick";
                     //xButton.Attributes.Add("clientclick", "return false");
 
-                            HtmlGenericControl calButton =
-                                    new HtmlGenericControl("button");
+                    HtmlGenericControl calButton =
+                            new HtmlGenericControl("button");
 
                             calButton.Attributes["type"] = "button";
                             calButton.Attributes["ID"] = "calButton" + idNum.ToString() + ";";
@@ -139,7 +147,7 @@ namespace ManageU.Pages
                             //xButton.Attributes["OnClientClick"] = "xButtonClick";
                             //xButton.Attributes.Add("clientclick", "return false");
 
-                    HtmlGenericControl infoDiv =
+                            HtmlGenericControl infoDiv =
                             new HtmlGenericControl("div");
 
                             infoDiv.Attributes["id"] = "rosterContent";
@@ -171,34 +179,41 @@ namespace ManageU.Pages
                             boxDiv.Attributes["id"] = "rosterCheckBox" + checkboxIdNum.ToString();
                             boxDiv.Attributes["class"] = "rosterCheckBox";
                             boxDiv.Attributes["runat"] = "server";
-                            //boxDiv.Attributes["style"] = "background-color:rgb(255,255,255);padding:2px;border:1px solid black;border-radius:5px;height:20px;width:20px;line-height:20px;text-align:center;float:right;padding:0;box-shadow: 0 0 10px #000;font-family:'Microsoft Yahei';";
 
-                            //Label checkX = new Label();
-                            //checkX.ForeColor = System.Drawing.ColorTranslator.FromHtml("#008CBA");
-                            //checkX.Font.Size = 27;
-                            //checkX.Text = "X";
-                            //checkX.Visible = false;
+                            HtmlGenericControl boxDiv2 =
+                            new HtmlGenericControl("div");
 
-                            //CheckBox emailBox = new CheckBox();
-                            //emailBox.Attributes["id"] = "checkboxID" + checkboxIdNum.ToString();
-                            //emailBox.Attributes["runat"] = "server";
-                            //emailBox.Attributes["AutoPostBack"] = "True";
-                            //emailBox.Attributes["OnCheckedChanged"] = "selectAll";
+                            boxDiv2.Attributes["id"] = "calDiv" + checkboxIdNum.ToString();
+                            boxDiv2.Attributes["class"] = "calDiv";
+                            boxDiv2.Attributes["runat"] = "server";
+                    //boxDiv.Attributes["style"] = "background-color:rgb(255,255,255);padding:2px;border:1px solid black;border-radius:5px;height:20px;width:20px;line-height:20px;text-align:center;float:right;padding:0;box-shadow: 0 0 10px #000;font-family:'Microsoft Yahei';";
 
-                            //if (selectAllBox.Checked == true)
-                            //{
-                            //    emailBox.Checked = true;
-                            //}
-                            //else
-                            //{
-                            //    emailBox.Checked = false;
-                            //}
+                    //Label checkX = new Label();
+                    //checkX.ForeColor = System.Drawing.ColorTranslator.FromHtml("#008CBA");
+                    //checkX.Font.Size = 27;
+                    //checkX.Text = "X";
+                    //checkX.Visible = false;
 
-                            /*boxDiv.Controls.Add(emailBox);*/
+                    //CheckBox emailBox = new CheckBox();
+                    //emailBox.Attributes["id"] = "checkboxID" + checkboxIdNum.ToString();
+                    //emailBox.Attributes["runat"] = "server";
+                    //emailBox.Attributes["AutoPostBack"] = "True";
+                    //emailBox.Attributes["OnCheckedChanged"] = "selectAll";
+
+                    //if (selectAllBox.Checked == true)
+                    //{
+                    //    emailBox.Checked = true;
+                    //}
+                    //else
+                    //{
+                    //    emailBox.Checked = false;
+                    //}
+
+                    /*boxDiv.Controls.Add(emailBox);*/
                             playerInfo.Controls.Add(infoDiv);
                             infoDiv.Controls.Add(boxDiv);
-                            boxDiv.Controls.Add(xButton);
-                            boxDiv.Controls.Add(calButton);
+                            boxDiv.Controls.Add(emailCheck);
+                            //boxDiv2.Controls.Add(calButton);
                             //boxDiv.Controls.Add(checkX);
                             //playerInfo.Controls.Add(boxDiv);
 
