@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -12,8 +13,21 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int idInt = 0;
+            
+
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
+                idInt = idInt + 1;
+
+                String id = idInt.ToString();
+
+                Button divButton = new Button();
+                divButton.Attributes["style"] = "display:none;";
+                divButton.ID = "divBtn_" + id;
+                divButton.Text = id;
+                divButton.Click += divButton_Click;
+
                 int idCount = 0;
                 List<string> times = new List<string>();
                 times = (List<string>)HttpContext.Current.Session["AvailableTimes"];
@@ -44,8 +58,9 @@ namespace ManageU.Pages
                     HtmlGenericControl availableTime =
                     new HtmlGenericControl("div");
                     availableTime.Attributes["id"] = "availableTime" + idCount.ToString();
+                    availableTime.Attributes["runat"] = "server";
                     availableTime.Attributes["class"] = "availableTimeDiv";
-                    availableTime.Attributes["onclick"] = "selectedOnClick()";
+                    availableTime.Attributes.Add("onclick", "javascript:divClick(); return true;");
 
                     Label startDateLabel = new Label();
                     startDateLabel.Text = startDate;
@@ -74,9 +89,15 @@ namespace ManageU.Pages
             }
         }
 
+        protected void divButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateMeeting.aspx");
+        }
+
         protected void customButtonClick(object sender, EventArgs e)
         {
             Response.Redirect("CreateMeeting.aspx");
         }
-}
+
+    }
 }

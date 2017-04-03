@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="AvailableTimes.aspx.cs" Inherits="ManageU.Pages.AvailableTimes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+
  
 
     <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
@@ -14,11 +15,25 @@
                 style="display: block; margin: 0 auto; margin-bottom:10px !important;text-align: center; color:#008CBA; background-color:white;" />
         </div>
 
+        <asp:Button runat="server" ID="btnHidden" OnClick="divButton_Click" style="display:none;" />
+
         <div id="displayTimesDiv" runat="server">
 
 
         </div>
     
     </div>
+
+    <script>
+        function divClick()
+        { 
+            var btnHidden = $('#<%= btnHidden.ClientID %>');
+            if(btnHidden != null)
+            {
+                btnHidden.click();
+            }
+        }
+    </script>
+
 
 </asp:Content>
