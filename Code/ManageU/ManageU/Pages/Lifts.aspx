@@ -7,6 +7,7 @@
     <h2><%: Title %></h2>
     <hr/>
 
-        </div>
+
+    </div>
 
 </asp:Content>

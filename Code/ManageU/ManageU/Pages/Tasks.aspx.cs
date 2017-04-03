@@ -71,7 +71,8 @@ namespace ManageU.Pages
                         new HtmlGenericControl("button");
 
                         yButton.Attributes["type"] = "button";
-                        yButton.Attributes["ID"] = "yButton" + idNum.ToString() + ";";
+                        //yButton.Attributes["ID"] = "yButton" + idNum.ToString() + ";";
+                        yButton.Attributes["ID"] = "yButton" + idNum.ToString() ;
                         yButton.Attributes["class"] = "yButtonCSS";
                         yButton.Attributes["runat"] = "server";
                         yButton.InnerText = "";

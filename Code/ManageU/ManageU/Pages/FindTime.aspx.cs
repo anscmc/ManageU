@@ -561,7 +561,7 @@ namespace ManageU.Pages
                 //use startDate and endDate for displaying meeting list (Add to session var array - Andrew you will have to create this session var)
             }
 
-                //Response.Redirect("AvailableTimes.aspx");
+                Response.Redirect("AvailableTimes.aspx");
         }
     }
 }
