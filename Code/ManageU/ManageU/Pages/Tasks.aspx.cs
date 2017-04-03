@@ -15,14 +15,10 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Session["UserType"].ToString() == "player")
+            if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
                 //deleteTaskButton.Style.Add("display", "none");
                 //addTaskButton.Style.Add("display", "none");
-            }
-            else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
-            {
-
             }
             else
             {
