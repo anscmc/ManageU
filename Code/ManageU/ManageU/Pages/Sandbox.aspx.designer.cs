@@ -13,15 +13,6 @@ namespace ManageU.Pages {
     public partial class Sandbox {
         
         /// <summary>
-        /// Calendar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
-        
-        /// <summary>
         /// playerScheduleDiv control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl classTimes;
         
         /// <summary>
-        /// classsDets control.
+        /// classDets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classsDets;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classDets;
         
         /// <summary>
         /// classDates control.

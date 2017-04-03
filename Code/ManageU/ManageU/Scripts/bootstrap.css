@@ -80,7 +80,36 @@ body {
         overflow: hidden !important;
     }
 
+    .classTimes{
+        float:left;
+        width:25%;
+        border:1px solid white;
+        vertical-align:middle;
+        text-align:center;
+    }
+    .classDets{
+        float:left;
+        width:50%;
+        border:1px solid white;
+        vertical-align:middle;
+        text-align:center;
+    }
+    .classDates{
+        float:left;
+        width:25%;
+        border:1px solid white;
+        vertical-align:middle;
+        text-align:center;
+    }
+
 /* SANDBOX CSS END */
+
+    .availableTimeDiv{
+        border:1px solid white;
+    }
+    
+
+
 
 .h2{
     margin-top:8px;

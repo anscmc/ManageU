@@ -16,6 +16,13 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <script type="text/javascript">
+        function selectedTimeClick(element) {
+            alert(content.id);
+        }
+
+    </script>
+
 </head>
 <body>
     <form runat="server">
