@@ -7,16 +7,16 @@
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
     <hr/>
-        <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+
         <div id="playerScheduleDiv" class="col-sm-10 col-sm-offset-1" runat="server" style="padding:0px;margin:0 auto;">
-            <div class="class1 classDiv">
+            <div class="classDiv">
                     <div id="classTimes" class="col-sm-4" runat="server" style="float:left;width:25%;border:1px solid white;vertical-align:middle;text-align:center;">
                         <label id="classStartTime" >3:00</label>
                         <br />
                         <label id="classEndTime" >4:20</label>
 
                     </div>
-                    <div id="classsDets" class="col-sm-4" runat="server" style="float:left;width:50%;border:1px solid white;vertical-align:middle;text-align:center;">
+                    <div id="classDets" class="col-sm-4" runat="server" style="float:left;width:50%;border:1px solid white;vertical-align:middle;text-align:center;">
                         <label id="className" >Senior Design Lab</label>
                         <br />
                         <label id="classDays" > T TH</label>

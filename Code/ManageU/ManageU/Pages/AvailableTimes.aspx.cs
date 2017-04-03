@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace ManageU.Pages
@@ -13,6 +14,7 @@ namespace ManageU.Pages
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
+                int idCount = 0;
                 List<string> times = new List<string>();
                 times = (List<string>)HttpContext.Current.Session["AvailableTimes"];
                 string[] startEnd;
@@ -26,6 +28,8 @@ namespace ManageU.Pages
                 string endTime;
                 for (int i = 0; i < times.Count; i++) {
                     //loop through to display options
+
+                    idCount = idCount + 1;
                     startEnd = times.ElementAt(i).Split(';');
                     start = startEnd.ElementAt(0);
                     end = startEnd.ElementAt(1);
@@ -36,6 +40,32 @@ namespace ManageU.Pages
                     endSplit = end.Split(' ');
                     endDate = endSplit.ElementAt(0);
                     endTime = endSplit.ElementAt(1);
+
+                    HtmlGenericControl availableTime =
+                    new HtmlGenericControl("div");
+                    availableTime.Attributes["id"] = "availableTime" + idCount.ToString();
+                    availableTime.Attributes["class"] = "availableTimeDiv";
+                    availableTime.Attributes["onclick"] = "selectedOnClick()";
+
+                    Label startDateLabel = new Label();
+                    startDateLabel.Text = startDate;
+                    Label startTimeLabel = new Label();
+                    startTimeLabel.Text = startTime;
+                    Label endTimeLabel = new Label();
+                    endTimeLabel.Text = endTime;
+
+
+                    availableTime.Controls.Add(startDateLabel);
+                    availableTime.Controls.Add(new Literal() { Text = "<br/>" });
+                    availableTime.Controls.Add(startTimeLabel);
+                    availableTime.Controls.Add(new Literal() { Text = "<br/>" });
+                    availableTime.Controls.Add(endTimeLabel);
+
+                    displayTimesDiv.Controls.Add(availableTime);
+
+
+
+
                 }
             }
             else

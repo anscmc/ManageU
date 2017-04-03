@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.UI.HtmlControls;
 
 namespace ManageU.Pages
 {
@@ -26,6 +27,12 @@ namespace ManageU.Pages
 
         private void loadCalendar()
         {
+            String eventName = "";
+            String eventStart = "";
+            String eventEnd = "";
+
+            int idCount = 0;
+
             SqlConnection objCon = default(SqlConnection);
             SqlCommand objCmd = default(SqlCommand);
             objCon = new SqlConnection();
@@ -46,6 +53,68 @@ namespace ManageU.Pages
             {
                 while (objRS.Read())
                 {
+                    idCount = idCount + 1;
+                    eventName = objRS["eventName"].ToString();
+                    eventStart = objRS["eventStart"].ToString();
+                    eventEnd = objRS["eventEnd"].ToString();
+
+                    HtmlGenericControl singleClassDiv =
+                    new HtmlGenericControl("div");
+                    singleClassDiv.Attributes["id"] = "class" + idCount.ToString();
+                    singleClassDiv.Attributes["class"] = "classDiv";
+                    singleClassDiv.Attributes["runat"] = "server";
+                    classDiv.Controls.Add(singleClassDiv);
+
+
+                    HtmlGenericControl classTimes =
+                    new HtmlGenericControl("div");
+                    classTimes.Attributes["id"] = "classTimes" + idCount.ToString();
+                    classTimes.Attributes["class"] = "classTimes";
+                    classTimes.Attributes["runat"] = "server";
+
+                    Label startTimeLabel = new Label();
+                    startTimeLabel.Text = eventStart;
+                    Label endTimeLabel = new Label();
+                    endTimeLabel.Text = eventEnd;
+                    classTimes.Controls.Add(startTimeLabel);
+                    classTimes.Controls.Add(new Literal() { Text = "<br/>" });
+                    classTimes.Controls.Add(endTimeLabel);
+                    
+
+                    HtmlGenericControl classDetails =
+                    new HtmlGenericControl("div");
+                    classDetails.Attributes["id"] = "classDetails" + idCount.ToString();
+                    classDetails.Attributes["class"] = "classDets";
+                    classDetails.Attributes["runat"] = "server";
+
+                    Label classNameLabel = new Label();
+                    classNameLabel.Text = eventName;
+                    Label classDaysLabel = new Label();
+                    classDaysLabel.Text = "M W F";
+                    classDetails.Controls.Add(classNameLabel);
+                    classDetails.Controls.Add(new Literal() { Text = "<br/>" });
+                    classDetails.Controls.Add(classDaysLabel);
+
+
+                    HtmlGenericControl classDates =
+                    new HtmlGenericControl("div");
+                    classDates.Attributes["id"] = "classDates" + idCount.ToString();
+                    classDates.Attributes["class"] = "classDates";
+                    classDates.Attributes["runat"] = "server";
+
+                    Label startDateLabel = new Label();
+                    startDateLabel.Text = "1/1/2017";
+                    Label endDateLabel = new Label();
+                    endDateLabel.Text = "5/5/2017";
+                    classTimes.Controls.Add(startDateLabel);
+                    classTimes.Controls.Add(new Literal() { Text = "<br/>" });
+                    classTimes.Controls.Add(endDateLabel);
+
+                    singleClassDiv.Controls.Add(classTimes);
+                    singleClassDiv.Controls.Add(classDetails);
+                    singleClassDiv.Controls.Add(classDates);
+
+
                     //show the classes
                 }
             }
