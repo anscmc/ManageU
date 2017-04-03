@@ -15,7 +15,7 @@ namespace ManageU.Pages
         {
             //comment to commit
             //new comment
-            //test for pushing
+   
             if (HttpContext.Current.Session["UserType"].ToString() == "player")
             {
 
