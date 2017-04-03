@@ -134,7 +134,7 @@ namespace ManageU.Pages
                     //xButton.Attributes["OnClientClick"] = "xButtonClick";
                     //xButton.Attributes.Add("clientclick", "return false");
 
-                    HtmlGenericControl calButton =
+                            HtmlGenericControl calButton =
                             new HtmlGenericControl("button");
 
                             calButton.Attributes["type"] = "button";
@@ -155,6 +155,8 @@ namespace ManageU.Pages
                             infoDiv.Attributes["runat"] = "server";
                             //10px for padding not 10??? --------------->
                             infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:225px;max-width:500px;margin: 0 auto;padding:10";
+                            infoDiv.Attributes["onclick"] = "infoDivClick()";
+
 
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             infoDiv.Controls.Add(lb6);
@@ -241,6 +243,11 @@ namespace ManageU.Pages
         protected void emailClick(object sender, EventArgs e)
         {
             Response.Redirect("~/Pages/Contact.aspx");
+        }
+
+        protected void infoDivClick(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateMeeting.aspx");
         }
 
         //protected void xButtonClick(object sender, EventArgs e)
