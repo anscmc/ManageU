@@ -490,7 +490,7 @@ namespace ManageU.Pages
                     ampm = "PM";
                 }
 
-                startDate = startDay + " " + hrTime + ":" + minTime + " " + ampm;
+                startDate = startDay + "," + hrTime + ":" + minTime + " " + ampm;
 
                 ampm = "AM";
 
@@ -547,8 +547,12 @@ namespace ManageU.Pages
                     hrTime = (Int32.Parse(hrTime) - 12).ToString();
                     ampm = "PM";
                 }
+                if (Int32.Parse(hrTime) == 12)
+                {
+                    ampm = "PM";
+                }
 
-                endDate = endDay + " " + hrTime + ":" + minTime + " " + ampm;
+                endDate = endDay + "," + hrTime + ":" + minTime + " " + ampm;
 
                 
 

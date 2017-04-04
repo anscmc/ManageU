@@ -14,20 +14,20 @@ namespace ManageU.Pages
         Label startDateLabel;
         Label startTimeLabel;
         Label endTimeLabel;
+        List<Label> startDateList = new List<Label>();
+        List<Label> startTimeList = new List<Label>();
+        List<Label> endTimeList = new List<Label>();
+
         protected void Page_Init(object sender, EventArgs e)
         {
             loadAvailableTimes();
-
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-                if (!IsPostBack)
-                {
-                    
-                }
+
             }
             else
             {
@@ -69,10 +69,10 @@ namespace ManageU.Pages
                 start = startEnd.ElementAt(0);
                 end = startEnd.ElementAt(1);
 
-                startSplit = start.Split(' ');
+                startSplit = start.Split(',');
                 startDate = startSplit.ElementAt(0);
                 startTime = startSplit.ElementAt(1);
-                endSplit = end.Split(' ');
+                endSplit = end.Split(',');
                 endDate = endSplit.ElementAt(0);
                 endTime = endSplit.ElementAt(1);
 
@@ -87,14 +87,17 @@ namespace ManageU.Pages
                 startDateLabel.Text = startDate;
                 startDateLabel.Attributes["id"] = "startDateLabel" + idCount.ToString();
                 startDateLabel.Attributes["runat"] = "server";
+                startDateList.Add(startDateLabel);
                 startTimeLabel = new Label();
                 startTimeLabel.Attributes["id"] = "startTimeLabel" + idCount.ToString();
                 startTimeLabel.Attributes["runat"] = "server";
                 startTimeLabel.Text = startTime;
+                startTimeList.Add(startTimeLabel);
                 endTimeLabel = new Label();
                 endTimeLabel.Attributes["id"] = "endTimeLabel" + idCount.ToString();
                 endTimeLabel.Attributes["runat"] = "server";
                 endTimeLabel.Text = endTime;
+                endTimeList.Add(endTimeLabel);
 
                 availableTime.Controls.Add(startDateLabel);
                 availableTime.Controls.Add(new Literal() { Text = "<br/>" });
@@ -114,15 +117,18 @@ namespace ManageU.Pages
             string start = "startTimeLabel" + row;
             string end = "endTimeLabel" + row;
             string divID = "availableTime" + row;
+            int startcount = startDateList.Count();
+            int startTimecount = startTimeList.Count();
+            int endTimeCount = endTimeList.Count();
             //HtmlGenericControl div = this.Master.FindControl("MainContent").FindControl("displayTimesDiv") as HtmlGenericControl;
             //Label test = this.Master.FindControl("MainContent").FindControl("displayTimesDiv").FindControl("myLabel") as Label;
             //HtmlControl div2 = this.Master.FindControl("MainContent").FindControl("displayTimesDiv").FindControl("availableTime1") as HtmlControl;
             //Label dateLabel = this.Master.FindControl("MainContent").FindControl("displayTimesDiv").FindControl(divID).FindControl(date) as Label;
             //Label startLabel = (Label)displayTimesDiv.FindControl(start);
             //Label endLabel = (Label)displayTimesDiv.FindControl(end);
-            string dateText = startDateLabel.Text;
-            string startText = startTimeLabel.Text;
-            string endText = endTimeLabel.Text;
+            string dateText = startDateList.ElementAt(Int32.Parse(row) - 1).Text;
+            string startText = startTimeList.ElementAt(Int32.Parse(row) - 1).Text;
+            string endText = endTimeList.ElementAt(Int32.Parse(row) - 1).Text;
             HttpContext.Current.Session["ChosenMeeting"] = dateText + ";" + startText + ";" + endText;
             Response.Redirect("CreateMeeting.aspx");
         }
