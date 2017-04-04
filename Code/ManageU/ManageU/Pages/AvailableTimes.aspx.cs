@@ -11,76 +11,22 @@ namespace ManageU.Pages
 {
     public partial class AvailableTimes : System.Web.UI.Page
     {
+        Label startDateLabel;
+        Label startTimeLabel;
+        Label endTimeLabel;
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            loadAvailableTimes();
+
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            int idInt = 0;
-            
-
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-                idInt = idInt + 1;
-
-                String id = idInt.ToString();
-
-                Button divButton = new Button();
-                divButton.Attributes["style"] = "display:none;";
-                divButton.ID = "divBtn_" + id;
-                divButton.Text = id;
-                divButton.Click += divButton_Click;
-
-                int idCount = 0;
-                List<string> times = new List<string>();
-                times = (List<string>)HttpContext.Current.Session["AvailableTimes"];
-                string[] startEnd;
-                string start;
-                string end;
-                string[] startSplit;
-                string startDate;
-                string startTime;
-                string[] endSplit;
-                string endDate;
-                string endTime;
-                for (int i = 0; i < times.Count; i++) {
-                    //loop through to display options
-
-                    idCount = idCount + 1;
-                    startEnd = times.ElementAt(i).Split(';');
-                    start = startEnd.ElementAt(0);
-                    end = startEnd.ElementAt(1);
-
-                    startSplit = start.Split(' ');
-                    startDate = startSplit.ElementAt(0);
-                    startTime = startSplit.ElementAt(1);
-                    endSplit = end.Split(' ');
-                    endDate = endSplit.ElementAt(0);
-                    endTime = endSplit.ElementAt(1);
-
-                    HtmlGenericControl availableTime =
-                    new HtmlGenericControl("div");
-                    availableTime.Attributes["id"] = "availableTime" + idCount.ToString();
-                    availableTime.Attributes["runat"] = "server";
-                    availableTime.Attributes["class"] = "availableTimeDiv";
-                    availableTime.Attributes.Add("onclick", "javascript:divClick(); return true;");
-
-                    Label startDateLabel = new Label();
-                    startDateLabel.Text = startDate;
-                    Label startTimeLabel = new Label();
-                    startTimeLabel.Text = startTime;
-                    Label endTimeLabel = new Label();
-                    endTimeLabel.Text = endTime;
-
-
-                    availableTime.Controls.Add(startDateLabel);
-                    availableTime.Controls.Add(new Literal() { Text = "<br/>" });
-                    availableTime.Controls.Add(startTimeLabel);
-                    availableTime.Controls.Add(new Literal() { Text = "<br/>" });
-                    availableTime.Controls.Add(endTimeLabel);
-
-                    displayTimesDiv.Controls.Add(availableTime);
-
-
-
-
+                if (!IsPostBack)
+                {
+                    
                 }
             }
             else
@@ -88,9 +34,96 @@ namespace ManageU.Pages
                 Response.Redirect("Landing.aspx");
             }
         }
+        
+
+        protected void loadAvailableTimes() {
+            int idInt = 0;
+            idInt = idInt + 1;
+
+            String id = idInt.ToString();
+
+            Button divButton = new Button();
+            divButton.Attributes["style"] = "display:none;";
+            divButton.ID = "divBtn_" + id;
+            divButton.Text = id;
+            divButton.Click += divButton_Click;
+
+            int idCount = 0;
+            List<string> times = new List<string>();
+            times = (List<string>)HttpContext.Current.Session["AvailableTimes"];
+            string[] startEnd;
+            string start;
+            string end;
+            string[] startSplit;
+            string startDate;
+            string startTime;
+            string[] endSplit;
+            string endDate;
+            string endTime;
+            for (int i = 0; i < times.Count; i++)
+            {
+                //loop through to display options
+
+                idCount = idCount + 1;
+                startEnd = times.ElementAt(i).Split(';');
+                start = startEnd.ElementAt(0);
+                end = startEnd.ElementAt(1);
+
+                startSplit = start.Split(' ');
+                startDate = startSplit.ElementAt(0);
+                startTime = startSplit.ElementAt(1);
+                endSplit = end.Split(' ');
+                endDate = endSplit.ElementAt(0);
+                endTime = endSplit.ElementAt(1);
+
+                HtmlGenericControl availableTime =
+                new HtmlGenericControl("div");
+                availableTime.Attributes["id"] = "availableTime" + idCount.ToString();
+                availableTime.Attributes["runat"] = "server";
+                availableTime.Attributes["class"] = "availableTimeDiv";
+                availableTime.Attributes.Add("onclick", "javascript:divClick(" + idCount.ToString() + "); return true;");
+
+                startDateLabel = new Label();
+                startDateLabel.Text = startDate;
+                startDateLabel.Attributes["id"] = "startDateLabel" + idCount.ToString();
+                startDateLabel.Attributes["runat"] = "server";
+                startTimeLabel = new Label();
+                startTimeLabel.Attributes["id"] = "startTimeLabel" + idCount.ToString();
+                startTimeLabel.Attributes["runat"] = "server";
+                startTimeLabel.Text = startTime;
+                endTimeLabel = new Label();
+                endTimeLabel.Attributes["id"] = "endTimeLabel" + idCount.ToString();
+                endTimeLabel.Attributes["runat"] = "server";
+                endTimeLabel.Text = endTime;
+
+                availableTime.Controls.Add(startDateLabel);
+                availableTime.Controls.Add(new Literal() { Text = "<br/>" });
+                availableTime.Controls.Add(startTimeLabel);
+                availableTime.Controls.Add(new Literal() { Text = "<br/>" });
+                availableTime.Controls.Add(endTimeLabel);
+
+                displayTimesDiv.Controls.Add(availableTime);
+
+            }
+        }
 
         protected void divButton_Click(object sender, EventArgs e)
         {
+            string row = hidden.Value;
+            string date = "startDateLabel" + row;
+            string start = "startTimeLabel" + row;
+            string end = "endTimeLabel" + row;
+            string divID = "availableTime" + row;
+            //HtmlGenericControl div = this.Master.FindControl("MainContent").FindControl("displayTimesDiv") as HtmlGenericControl;
+            //Label test = this.Master.FindControl("MainContent").FindControl("displayTimesDiv").FindControl("myLabel") as Label;
+            //HtmlControl div2 = this.Master.FindControl("MainContent").FindControl("displayTimesDiv").FindControl("availableTime1") as HtmlControl;
+            //Label dateLabel = this.Master.FindControl("MainContent").FindControl("displayTimesDiv").FindControl(divID).FindControl(date) as Label;
+            //Label startLabel = (Label)displayTimesDiv.FindControl(start);
+            //Label endLabel = (Label)displayTimesDiv.FindControl(end);
+            string dateText = startDateLabel.Text;
+            string startText = startTimeLabel.Text;
+            string endText = endTimeLabel.Text;
+            HttpContext.Current.Session["ChosenMeeting"] = dateText + ";" + startText + ";" + endText;
             Response.Redirect("CreateMeeting.aspx");
         }
 
