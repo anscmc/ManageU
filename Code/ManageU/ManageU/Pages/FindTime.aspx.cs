@@ -15,6 +15,7 @@ namespace ManageU.Pages
         {
             //comment to commit
             //new comment
+   
             if (HttpContext.Current.Session["UserType"].ToString() == "player")
             {
 
@@ -203,7 +204,7 @@ namespace ManageU.Pages
 
             if (endAMPM == "PM" && Int32.Parse(searchEndHour) < 12)
             {
-                searchEndHour = (Int32.Parse(searchStartHour) + 12).ToString();
+                searchEndHour = (Int32.Parse(searchEndHour) + 12).ToString();
             }
 
             string beginningTime = searchStartHour + ":" + searchStartMin + ":00";
@@ -404,6 +405,7 @@ namespace ManageU.Pages
             double decimalTime = 0.0;
             string decString = "";
             string ampm = "AM";
+            List<string> timeOptions = new List<string>();
 
             for (int m = 0; m < meetingOptions.Count; m++)
             {
@@ -488,7 +490,7 @@ namespace ManageU.Pages
                     ampm = "PM";
                 }
 
-                startDate = startDay + " " + hrTime + ":" + minTime + " " + ampm;
+                startDate = startDay + "," + hrTime + ":" + minTime + " " + ampm;
 
                 ampm = "AM";
 
@@ -545,23 +547,23 @@ namespace ManageU.Pages
                     hrTime = (Int32.Parse(hrTime) - 12).ToString();
                     ampm = "PM";
                 }
+                if (Int32.Parse(hrTime) == 12)
+                {
+                    ampm = "PM";
+                }
 
-                endDate = endDay + " " + hrTime + ":" + minTime + " " + ampm;
+                endDate = endDay + "," + hrTime + ":" + minTime + " " + ampm;
 
-                List<string> timeOptions = new List<string>();
+                
 
                 timeOptions.Add(startDate + ";" + endDate);
 
-                HttpContext.Current.Session["AvailableTimes"] = timeOptions;
-
-                /*In Available Times Page this is how you get access to available times session (Page Load)
-                 List<string> times = new List<string>();
-                times = (List<string>)HttpContext.Current.Session["AvailableTimes"];*/
-
-                //use startDate and endDate for displaying meeting list (Add to session var array - Andrew you will have to create this session var)
+             
             }
 
-                Response.Redirect("AvailableTimes.aspx");
+            HttpContext.Current.Session["AvailableTimes"] = timeOptions;
+
+            Response.Redirect("AvailableTimes.aspx");
         }
     }
 }

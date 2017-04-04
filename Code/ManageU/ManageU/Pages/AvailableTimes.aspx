@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="AvailableTimes.aspx.cs" Inherits="ManageU.Pages.AvailableTimes" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="AvailableTimesContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
  
@@ -16,23 +16,27 @@
         </div>
 
         <asp:Button runat="server" ID="btnHidden" OnClick="divButton_Click" style="display:none;" />
+        <asp:HiddenField ID="hidden" runat="server" />
 
         <div id="displayTimesDiv" runat="server">
-
+            <asp:Label runat="server" ID="myLabel">This is a test</asp:Label>
 
         </div>
     
     </div>
 
-    <script>
-        function divClick()
+    <script type="text/javascript">
+        function divClick(row)
         { 
             var btnHidden = $('#<%= btnHidden.ClientID %>');
+
             if(btnHidden != null)
             {
+                document.getElementById('<%=hidden.ClientID %>').value = row;
                 btnHidden.click();
             }
         }
+
     </script>
 
 
