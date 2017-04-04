@@ -16,6 +16,7 @@
         </div>
     </div>
 
+
         <%--<div class="col-sm-12" style="display: block; margin: 0 auto; text-align:center">
             <br />
             <asp:Button ID="editButton" runat="server" OnClick="editButton_Click"  Text="Edit Team Profile" CssClass="btn btn-default" style="display:block;margin: 0 auto;"/>
