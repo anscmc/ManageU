@@ -16,8 +16,8 @@
 
 
 
-                            <label id="meetingNameLabel" runat="server">Event Name</label>
-                            <asp:TextBox ID="meetingName" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;color:black;"></asp:TextBox>
+                            <label id="eventNameLabel" runat="server">Event Name</label>
+                            <asp:TextBox ID="EventName" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;color:black;"></asp:TextBox>
                             <br />
                             <label id="Label5" runat="server">Event Type</label>
                             <br />
@@ -62,12 +62,14 @@
                             <br />
                             <select class="selectpicker" ID="repeatPicker" runat="server" CssClass="form-control" style="width:250px;display:inline; margin: 0 auto;text-align: center;height:39px; color:black;width:250px;border-radius:5px;">
                                     <option value="Never">Never</option>
-                                    <option value="Every Day">Every Day</option>
-                                    <option value="Every Week">Every Week</option>
+                                    <option value="Daily">Daily</option>
+                                    <option value="Weekly">Weekly</option>
                             </select>
                             <br />
-                            
-                            
+                            <label id="Label2" runat="server">Until</label>
+                            <br />
+                            <input type="date" name="repeatUntilDate" id="repeatUntilDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
+                            <br />
                             <label for="male" style="display:inline;text-align:center;">Attendance Required</label>
                             <input type="checkbox" name="chk_group[]" id="required" style="display: inline;" runat="server" />         
                              <br />

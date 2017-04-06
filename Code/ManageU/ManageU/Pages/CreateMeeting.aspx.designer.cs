@@ -13,22 +13,22 @@ namespace ManageU.Pages {
     public partial class CreateMeeting {
         
         /// <summary>
-        /// meetingNameLabel control.
+        /// eventNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingNameLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventNameLabel;
         
         /// <summary>
-        /// meetingName control.
+        /// EventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox meetingName;
+        protected global::System.Web.UI.WebControls.TextBox EventName;
         
         /// <summary>
         /// Label5 control.
@@ -191,6 +191,24 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect repeatPicker;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
+        
+        /// <summary>
+        /// repeatUntilDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl repeatUntilDate;
         
         /// <summary>
         /// required control.
