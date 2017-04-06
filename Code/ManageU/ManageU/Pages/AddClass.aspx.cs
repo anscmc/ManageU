@@ -14,11 +14,7 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Session["UserType"].ToString() == "player")
-            {
-
-            }
-            else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+            if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
 
             }
@@ -26,11 +22,6 @@ namespace ManageU.Pages
             {
                 Response.Redirect("Landing.aspx");
             }
-        }
-
-        protected void addButtonClick(object sender, EventArgs e)
-        {
-            Response.Redirect("PlayerSchedule.aspx");
         }
 
         protected void addClass_Click(object sender, EventArgs e)
@@ -66,7 +57,6 @@ namespace ManageU.Pages
             }
             string name = className.Text;
             //has to be in the format '20170305 02:01:10 PM'
-            //will have to change the next two lines when know what pickers have so can convert to correct format
             int startHr;
             int endHr;
             DateTime start;
