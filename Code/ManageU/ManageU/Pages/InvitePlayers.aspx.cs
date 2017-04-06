@@ -30,6 +30,11 @@ namespace ManageU.Pages
             }
         }
 
+        protected void changeEmails(object sender, EventArgs e)
+        {
+            int numEmails = Int32.Parse(hidden.Value);
+        }
+
         protected void inviteButton_Click(object sender, EventArgs e)
         {
             string emails = emailAddresses.Text;

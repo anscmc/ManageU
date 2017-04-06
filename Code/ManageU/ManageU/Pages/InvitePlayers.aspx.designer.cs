@@ -13,6 +13,15 @@ namespace ManageU.Pages {
     public partial class InvitePlayers {
         
         /// <summary>
+        /// numEmailsButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button numEmailsButton;
+        
+        /// <summary>
         /// meetingLasting control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button inviteButton;
+        
+        /// <summary>
+        /// hidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidden;
     }
 }

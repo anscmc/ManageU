@@ -153,10 +153,11 @@ namespace ManageU.Pages
                             divisionPicker.Text = objRS2["division"].ToString();
                             conference.Text = objRS2["conference"].ToString();
                             conference2.Text = objRS2["conference"].ToString();
-                            wins.Text = objRS2["wins"].ToString() + " Wins ";
+                            wins.Text = objRS2["wins"].ToString();
                             wins2.Text = objRS2["wins"].ToString();
-                            losses.Text = objRS2["losses"].ToString() + " Losses";
+                            losses.Text = objRS2["losses"].ToString();
                             losses2.Text = objRS2["losses"].ToString();
+                            record.Text = objRS2["wins"].ToString() + "-" + objRS2["losses"].ToString();
                             location.Text = objRS2["location"].ToString();
                             location2.Text = objRS2["location"].ToString();
                             schoolSite.Attributes["href"] = objRS2["schoolLink"].ToString();

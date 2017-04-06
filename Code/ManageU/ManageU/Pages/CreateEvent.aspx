@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="CreateMeeting.aspx.cs" Inherits="ManageU.Pages.CreateMeeting" %>
+﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="CreateEvent.aspx.cs" Inherits="ManageU.Pages.CreateMeeting" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
 
