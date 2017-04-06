@@ -13,15 +13,6 @@ namespace ManageU.Pages {
     public partial class CreateMeeting {
         
         /// <summary>
-        /// find control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button find;
-        
-        /// <summary>
         /// meetingNameLabel control.
         /// </summary>
         /// <remarks>
@@ -58,58 +49,58 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlSelect eventType;
         
         /// <summary>
-        /// meetingDateLabel control.
+        /// eventStartDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingDateLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventStartDateLabel;
         
         /// <summary>
-        /// meetingStartDate control.
+        /// eventStartDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingStartDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartDate;
         
         /// <summary>
-        /// Label2 control.
+        /// eventEndDateLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventEndDateLabel;
         
         /// <summary>
-        /// meetinEndDate control.
+        /// eventEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetinEndDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndDate;
         
         /// <summary>
-        /// meetingTimeLabel control.
+        /// eventStartTimeLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl meetingTimeLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventStartTimeLabel;
         
         /// <summary>
-        /// meetingStartHour control.
+        /// eventStartHour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingStartHour;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartHour;
         
         /// <summary>
         /// Label1 control.
@@ -121,22 +112,22 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
         
         /// <summary>
-        /// meetingStartMinute control.
+        /// eventStartMinute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingStartMinute;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartMinute;
         
         /// <summary>
-        /// amPM control.
+        /// beginAmPM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect amPM;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect beginAmPM;
         
         /// <summary>
         /// Label3 control.
@@ -148,13 +139,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label3;
         
         /// <summary>
-        /// meetingEndHour control.
+        /// eventEndHour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingEndHour;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndHour;
         
         /// <summary>
         /// Label4 control.
@@ -166,22 +157,22 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label4;
         
         /// <summary>
-        /// meetingEndMinute control.
+        /// eventEndMinute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingEndMinute;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndMinute;
         
         /// <summary>
-        /// Select1 control.
+        /// endingAmPm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Select1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect endingAmPm;
         
         /// <summary>
         /// Label6 control.
@@ -211,21 +202,21 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox required;
         
         /// <summary>
-        /// meetingDes control.
+        /// eventDes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox meetingDes;
+        protected global::System.Web.UI.WebControls.TextBox eventDes;
         
         /// <summary>
-        /// createMeetingButton control.
+        /// createEventButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createMeetingButton;
+        protected global::System.Web.UI.WebControls.Button createEventButton;
     }
 }
