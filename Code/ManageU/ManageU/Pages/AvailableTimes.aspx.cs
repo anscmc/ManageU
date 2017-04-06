@@ -136,7 +136,7 @@ namespace ManageU.Pages
 
         protected void customButtonClick(object sender, EventArgs e)
         {
-            Response.Redirect("CreateMeeting.aspx");
+            Response.Redirect("CreateEvent.aspx");
         }
 
     }

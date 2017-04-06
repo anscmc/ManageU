@@ -15,7 +15,13 @@ namespace ManageU.Pages
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-                loadCalendar();
+                if (!IsPostBack)
+                {
+                    DateTime localDate = DateTime.Now;
+                    monthLabel.InnerText = localDate.Month.ToString();
+                } 
+                    loadCalendar();
+                
             }
           
             else
@@ -26,6 +32,9 @@ namespace ManageU.Pages
 
         private void loadCalendar()
         {
+            
+            
+
             SqlConnection objCon = default(SqlConnection);
             SqlConnection objCon2 = default(SqlConnection);
             SqlCommand objCmd = default(SqlCommand);
@@ -85,5 +94,19 @@ namespace ManageU.Pages
             HttpContext.Current.Session["eventID"] = 2;
             Response.Redirect("ViewTeamEvent.aspx");
         }
+
+        protected void nextMonth(object sender, EventArgs e)
+        {
+            // Not todays date, label date
+            DateTime localDate = DateTime.Now;
+            monthLabel.InnerText = (localDate.Month + 1).ToString();
+        }
+        protected void lastMonth(object sender, EventArgs e)
+        {
+            DateTime localDate = DateTime.Now;
+            monthLabel.InnerText = (localDate.Month - 1).ToString();
+            //Response.Redirect("TeamCalendar.aspx");
+        }
+
     }
 }

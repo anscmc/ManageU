@@ -197,7 +197,7 @@
     <Content Include="Pages\AvailableTimes.aspx" />
     <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\Contact.aspx" />
-    <Content Include="Pages\CreateMeeting.aspx" />
+    <Content Include="Pages\CreateEvent.aspx" />
     <Content Include="Pages\FindTime.aspx" />
     <Content Include="Pages\InvitePlayers.aspx" />
     <Content Include="Pages\Lifts.aspx" />
@@ -256,6 +256,7 @@
     <Content Include="Masters\TeamProfile.Master" />
     <Content Include="Masters\Landing.Master" />
     <Content Include="fonts\college.ttf" />
+    <Content Include="fonts\Freshman.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pages\Landing.aspx" />
     <Content Include="Pages\Register.aspx" />
@@ -400,12 +401,12 @@
     <Compile Include="Pages\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CreateMeeting.aspx.cs">
-      <DependentUpon>CreateMeeting.aspx</DependentUpon>
+    <Compile Include="Pages\CreateEvent.aspx.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\CreateMeeting.aspx.designer.cs">
-      <DependentUpon>CreateMeeting.aspx</DependentUpon>
+    <Compile Include="Pages\CreateEvent.aspx.designer.cs">
+      <DependentUpon>CreateEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FindTime.aspx.cs">
       <DependentUpon>FindTime.aspx</DependentUpon>

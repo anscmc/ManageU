@@ -8,6 +8,8 @@
     <h2><%: Title %></h2>
     <hr />
 
+        <asp:Button ID="numEmailsButton" runat="server" OnClick="changeEmails" style="display:none;" />
+
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
             <section id="loginForm">
@@ -17,7 +19,7 @@
                         
                         <div class="col-sm-6 col-sm-offset-3">
                             <label id="meetingLasting" runat="server" CssClass="form-control"># of players</label>
-                            <select class="selectpicker" ID="hours" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;margin-bottom:10px !important;">
+                            <select class="selectpicker" ID="hours" runat="server"  CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;margin-bottom:10px !important;">
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -47,5 +49,19 @@
         </div>
     </div>
     </div>
+
+    <asp:HiddenField ID="hidden" runat="server" />
+    <script type="text/javascript">
+        $(function() {
+            $('.selectpicker').on('change', function(){
+                var selected = $(this).find("option:selected").val();
+                document.getElementById('<%=hidden.ClientID %>').value = selected;
+                var emailsButton = $('#<%= numEmailsButton.ClientID %>');
+                emailsButton.click();
+            });
+        });
+    </script>
+
+    
 
 </asp:Content>

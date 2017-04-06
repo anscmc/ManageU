@@ -14,6 +14,11 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 
+@font-face {
+    font-family: collegeFont;
+    src: url(~/fonts/Freshman.ttf);
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -40,6 +45,36 @@ body {
      height:39px !important;
      width:250px !important;
      border-radius:5px !important;
+}
+
+.square {
+  border:solid 1px #008CBA;
+  position: relative;
+  /*width: 14.285714285714285714285714285714%;*/
+  width: 25%;
+  max-width: 25%;
+  box-sizing: border-box;
+  /*display: inline-block;*/
+  float:left;
+  background-color:white;
+  font-family:collegeFont !important;
+  padding:0px;
+}
+
+.square:after {
+  content: "";
+  display: inline-block;
+  padding-bottom: 100%;
+  box-sizing: border-box;
+}
+
+.content {
+  position: absolute;
+  width: auto;
+  height: auto;
+  font-family:collegeFont !important;
+  align-content:center;
+  text-align:center;
 }
 
 
@@ -246,7 +281,10 @@ img {
 
     .info {
         font-size: 1em;
-        font-family: 'Arial Rounded MT';
+        /*display: inline-block;*/
+        bottom:0px;
+        margin-bottom:0px;
+        /*font-family: 'Arial Rounded MT';*/
     }
 
  
@@ -4529,6 +4567,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .container-fluid > .navbar-collapse {
   /*margin-right: -15px;*/
   /*margin-left: -15px;*/
+  box-shadow: 0 0 5px #000;
 }
 @media (min-width: 768px) {
   .container > .navbar-header,
