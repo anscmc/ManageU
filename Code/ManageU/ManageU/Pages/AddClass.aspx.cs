@@ -24,11 +24,6 @@ namespace ManageU.Pages
             }
         }
 
-        protected void addButtonClick(object sender, EventArgs e)
-        {
-            Response.Redirect("PlayerSchedule.aspx");
-        }
-
         protected void addClass_Click(object sender, EventArgs e)
         {
             string strsql = "";

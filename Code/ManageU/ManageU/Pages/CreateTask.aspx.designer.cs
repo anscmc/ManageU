@@ -58,31 +58,22 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl taskTimeDue;
         
         /// <summary>
-        /// meetingStartHour1 control.
+        /// hour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingStartHour1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect hour;
         
         /// <summary>
-        /// Label1 control.
+        /// minute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
-        
-        /// <summary>
-        /// meetingStartMinute1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl meetingStartMinute1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect minute;
         
         /// <summary>
         /// amPM control.

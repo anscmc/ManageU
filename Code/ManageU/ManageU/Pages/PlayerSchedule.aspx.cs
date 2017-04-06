@@ -30,6 +30,7 @@ namespace ManageU.Pages
             String eventName = "";
             String eventStart = "";
             String eventEnd = "";
+            string daysClassHeld = "";
 
             int idCount = 0;
 
@@ -90,7 +91,35 @@ namespace ManageU.Pages
                     Label classNameLabel = new Label();
                     classNameLabel.Text = eventName;
                     Label classDaysLabel = new Label();
-                    classDaysLabel.Text = "M W F";
+                    if (objRS["reoccur"].ToString().Contains("Sunday"))
+                    {
+                        daysClassHeld = daysClassHeld + "Sun ";
+                    }
+                    else if (objRS["reoccur"].ToString().Contains("Monday"))
+                    {
+                        daysClassHeld = daysClassHeld + "M ";
+                    }
+                    else if (objRS["reoccur"].ToString().Contains("Tuesday"))
+                    {
+                        daysClassHeld = daysClassHeld + "T ";
+                    }
+                    else if (objRS["reoccur"].ToString().Contains("Wednesday"))
+                    {
+                        daysClassHeld = daysClassHeld + "W ";
+                    }
+                    else if (objRS["reoccur"].ToString().Contains("Thursday"))
+                    {
+                        daysClassHeld = daysClassHeld + "TH ";
+                    }
+                    else if (objRS["reoccur"].ToString().Contains("Friday"))
+                    {
+                        daysClassHeld = daysClassHeld + "F ";
+                    }
+                    else if (objRS["reoccur"].ToString().Contains("Saturday"))
+                    {
+                        daysClassHeld = daysClassHeld + "Sat ";
+                    }
+                    classDaysLabel.Text = daysClassHeld;
                     classDetails.Controls.Add(classNameLabel);
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
                     classDetails.Controls.Add(classDaysLabel);
@@ -131,8 +160,8 @@ namespace ManageU.Pages
         }
         protected void deleteClass(object sender, EventArgs e) {
             //need to change these vars to grab from hidden fields
-            int classID = 3;
-            int masterID = 6;
+            int classID = 7;
+            int masterID = 11;
 
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);

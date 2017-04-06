@@ -32,7 +32,24 @@ namespace ManageU.Pages
             string strsql = "";
             string name = taskName.Text;
             string date = dueDate2.ToString();
-            string time = meetingStartHour1.ToString() + ":" + meetingStartMinute1.ToString();
+            DateTime taskDueDateTime;
+            string time;
+            int hr;
+            string min;
+
+            if (amPM.Value == "PM" && Int32.Parse(hour.Value) > 12)
+            {
+                hr = Int32.Parse(hour.Value) + 12;
+            }
+            else
+            {
+                hr = Int32.Parse(hour.Value);
+            }
+
+            time = hr + ":" + minute.Value + ":00 ";
+
+            taskDueDateTime = DateTime.Parse(date + " " + time);
+
             string desc = taskDes.Text;
             string email = "";
 

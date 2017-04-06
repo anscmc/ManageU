@@ -10,7 +10,7 @@
         <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
             <asp:Button runat="server" Text="+ Add Class" OnClick="newClass" CssClass="btn btn-default" 
                 style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
-             <asp:Button runat="server" Text="x Delete" OnClick="deleteClass" CssClass="btn btn-default" 
+             <asp:Button runat="server" Text="x Delete" OnClick="deleteClass" onclientclick="deleteOptions();" CssClass="btn btn-default" 
                 style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
             <asp:Button runat="server" Text="Edit" OnClick="editClass" CssClass="btn btn-default" 
                 style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
@@ -23,5 +23,16 @@
         </div>
 
     </div>
+
+    <asp:HiddenField ID="deleteHiddenField" runat="server" />
+
+    <script type="text/javascript">
+        function deleteOptions() {
+
+            if (!confirm('Are you sure you want to delete?')) { return false; }
+        }
+        
+
+    </script>
 
 </asp:Content>
