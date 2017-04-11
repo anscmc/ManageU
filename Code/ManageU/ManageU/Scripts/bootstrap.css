@@ -1278,7 +1278,7 @@ hr {
   margin-top: 21px;
   margin-bottom: 21px;
   border: 0;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid white;
 }
 .sr-only {
   position: absolute;
@@ -4332,7 +4332,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   -webkit-overflow-scrolling: touch;
 }
 .navbar-collapse.in {
-  overflow-y: auto;
+  overflow-y: visible;
 }
 @media (min-width: 768px) {
   .navbar-collapse {
@@ -4359,7 +4359,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-fixed-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
-  max-height: 340px;
+  max-height: none;
 }
 @media (max-device-width: 480px) and (orientation: landscape) {
   .navbar-fixed-top .navbar-collapse,
@@ -4779,6 +4779,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
   border-color: #007196;
+  border-bottom:1px solid black;
 }
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,

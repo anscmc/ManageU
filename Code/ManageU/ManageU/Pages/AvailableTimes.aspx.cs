@@ -84,19 +84,27 @@ namespace ManageU.Pages
                 availableTime.Attributes.Add("onclick", "javascript:divClick(" + idCount.ToString() + "); return true;");
 
                 startDateLabel = new Label();
+
                 startDateLabel.Text = startDate;
                 startDateLabel.Attributes["id"] = "startDateLabel" + idCount.ToString();
                 startDateLabel.Attributes["runat"] = "server";
+
                 startDateList.Add(startDateLabel);
+
                 startTimeLabel = new Label();
+
                 startTimeLabel.Attributes["id"] = "startTimeLabel" + idCount.ToString();
                 startTimeLabel.Attributes["runat"] = "server";
                 startTimeLabel.Text = startTime;
+
                 startTimeList.Add(startTimeLabel);
+
                 endTimeLabel = new Label();
+
                 endTimeLabel.Attributes["id"] = "endTimeLabel" + idCount.ToString();
                 endTimeLabel.Attributes["runat"] = "server";
                 endTimeLabel.Text = endTime;
+
                 endTimeList.Add(endTimeLabel);
 
                 availableTime.Controls.Add(startDateLabel);
@@ -113,13 +121,6 @@ namespace ManageU.Pages
         protected void divButton_Click(object sender, EventArgs e)
         {
             string row = hidden.Value;
-            string date = "startDateLabel" + row;
-            string start = "startTimeLabel" + row;
-            string end = "endTimeLabel" + row;
-            string divID = "availableTime" + row;
-            int startcount = startDateList.Count();
-            int startTimecount = startTimeList.Count();
-            int endTimeCount = endTimeList.Count();
             //HtmlGenericControl div = this.Master.FindControl("MainContent").FindControl("displayTimesDiv") as HtmlGenericControl;
             //Label test = this.Master.FindControl("MainContent").FindControl("displayTimesDiv").FindControl("myLabel") as Label;
             //HtmlControl div2 = this.Master.FindControl("MainContent").FindControl("displayTimesDiv").FindControl("availableTime1") as HtmlControl;

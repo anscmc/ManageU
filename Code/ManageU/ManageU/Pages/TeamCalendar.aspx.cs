@@ -88,6 +88,11 @@ namespace ManageU.Pages
             objCon.Close();
         }
 
+        protected void createEvent(object sender, EventArgs e)
+        {
+            Response.Redirect("FindTime.aspx");
+        }
+
         protected void teamEventDetailsButton_Click(object sender, EventArgs e)
         {
             //will have to get this from the one that is clicked (sender)

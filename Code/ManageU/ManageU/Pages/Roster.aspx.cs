@@ -119,6 +119,7 @@ namespace ManageU.Pages
                             CheckBox emailCheck = new CheckBox();
                             emailCheck.ID = "check" + idNum.ToString();
                             emailCheck.InputAttributes.Add("class", "rosterCheck");
+                            emailCheck.Text = playerEmail;
 
                     //HtmlGenericControl xButton =
                     //new HtmlGenericControl("button");
@@ -153,12 +154,15 @@ namespace ManageU.Pages
                             infoDiv.Attributes["id"] = "rosterContent";
                             infoDiv.Attributes["class"] = "col-sm-4 infoDiv";
                             infoDiv.Attributes["runat"] = "server";
-                            //10px for padding not 10??? --------------->
-                            infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:225px;max-width:500px;margin: 0 auto;padding:10";
+                            infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:225px;max-width:500px;margin: 0 auto;";
                             infoDiv.Attributes["onclick"] = "infoDivClick()";
+                            
 
-
-                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        
+                            infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-calendar' aria-hidden='true' runat='server' style='color:black; font-size:20px; padding-right:20px;'></i>" });
+                            infoDiv.Controls.Add(lb1);
+                            infoDiv.Controls.Add(lb4);
+                            infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-minus-circle' aria-hidden='true' style='font-size:20px;color:black'></i>" });
                             infoDiv.Controls.Add(lb6);
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             infoDiv.Controls.Add(lb1);

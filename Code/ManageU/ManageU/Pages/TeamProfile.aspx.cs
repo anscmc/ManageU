@@ -45,7 +45,7 @@ namespace ManageU.Pages
             teamDivision.Visible = false;
             teamConference.Visible = false;
             teamRecord.Visible = false;
-            teamLocation.Visible = false;
+            //teamLocation.Visible = false;
             coachInfo.Visible = false;
             linkInfo.Visible = false;
             editTeam.Visible = true;
@@ -56,6 +56,7 @@ namespace ManageU.Pages
 
         protected void saveTeamInfoButton_Click(object sender, EventArgs e)
         {
+            //int numEmails = Int32.Parse(hidden.Value);
             string division = divisionPicker.Text;
             string conference = conference2.Text;
             string wins = wins2.Text;
@@ -86,7 +87,7 @@ namespace ManageU.Pages
             teamDivision.Visible = true;
             teamConference.Visible = true;
             teamRecord.Visible = true;
-            teamLocation.Visible = true;
+            //teamLocation.Visible = true;
             coachInfo.Visible =true;
             linkInfo.Visible = true;
             saveTeamInfo.Visible = false;
@@ -259,8 +260,8 @@ namespace ManageU.Pages
             }
         }
 
-        protected void playerSched_Click(object sender, EventArgs e) {
-            Response.Redirect("PlayerSchedule.aspx");
-        }
+        //protected void playerSched_Click(object sender, EventArgs e) {
+        //    Response.Redirect("PlayerSchedule.aspx");
+        //}
     }
 }

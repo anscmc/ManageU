@@ -44,7 +44,10 @@ namespace ManageU.Pages
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
                 //if coming from available meeting times page fill in the fields
-                if(HttpContext.Current.Session["FromFindTimes"].ToString() == "Y")
+                if (HttpContext.Current.Session["FromFindTimes"] == null) {
+
+                }
+                else if (HttpContext.Current.Session["FromFindTimes"].ToString() == "Y")
                 {
                     meetingInfo = HttpContext.Current.Session["ChosenMeeting"].ToString();
                     meetingSplit = meetingInfo.Split(';');
@@ -55,11 +58,11 @@ namespace ManageU.Pages
                     day = dateSplit[1];
                     year = dateSplit[2];
 
-                    if(month.Length == 1)
+                    if (month.Length == 1)
                     {
                         month = "0" + month;
                     }
-                    if(day.Length == 1)
+                    if (day.Length == 1)
                     {
                         day = "0" + day;
                     }
