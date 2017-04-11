@@ -11,49 +11,62 @@
         <asp:Button ID="lastMonthButton" runat="server" style="display:none;" OnClick="lastMonth" />
 
         <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
-            <asp:Button runat="server" Text="+ Create Event" CssClass="btn btn-default" 
+            <asp:Button runat="server" Text="+ Create Event" CssClass="btn btn-default" OnClick="createEvent"
                 style="display: block; margin: 0 auto; margin-bottom:10px !important;text-align: center; color:#008CBA; background-color:white;" />
         </div>
 
-        <label id="monthLabel" runat="server"></label>
+        <%--<i class="fa fa-long-arrow-left" aria-hidden="true" runat="server" onclick="lastMonth();"></i>
+        <label id="monthLabel" runat="server" style="padding-left:30px; padding-right:30px;"></label>
+        <i class="fa fa-long-arrow-right" runat="server" onclick="nextMonth();" aria-hidden="true"></i>--%>
+
         <div class="calWrap" style="max-width:450px !important;">
             <div class="container"  style="max-width:450px !important;">
                 <div class="calRow">
                     <div class="topCalRow">
                         <div class="content">
-                            <i class="fa fa-long-arrow-left" aria-hidden="true" onclick="lastMonth();"></i>
+                            <label runat="server" style="margin-top:10%;"></label>
                             <br />
-                            <label style="bottom:0px !important; margin-bottom:0px !important;">sun</label>
+                            <label>sun</label>
                         </div>
                     </div>
                     <div class="topCalRow">
                         <div class="content">
+                            <i class="fa fa-long-arrow-left" aria-hidden="true" runat="server" onclick="lastMonth();" style="margin-top:10%"></i>
+                            <br />
                             <label>mon</label>
                         </div>
                     </div>
                     <div class="topCalRow">
                         <div class="content">
+                            <label runat="server" style="margin-top:10%;"></label>
+                            <br />
                             <label>tues</label>
                         </div>
                     </div>
                     <div class="topCalRow">
                         <div class="content">
+                            <label id="monthLabel" runat="server" style="margin-top:10%;margin-bottom:0px !important;"></label>
+                            <br />
                             <label>wed</label>
                         </div>
                     </div>
                     <div class="topCalRow">
                         <div class="content">
+                            <label runat="server" style="margin-top:10%;"></label>
+                            <br />
                             <label>thur</label>
                         </div>
                     </div>
                     <div class="topCalRow">
                         <div class="content">
+                            <i class="fa fa-long-arrow-right" runat="server" onclick="nextMonth();" aria-hidden="true" style="margin-top:10%"></i>
+                            <br />
                             <label>fri</label>
                         </div>
                     </div>
                     <div class="topCalRow">
                         <div class="content">
-                            <i class="fa fa-long-arrow-right" onclick="nextMonth();" aria-hidden="true"></i>
+                            <label runat="server" style="margin-top:10%;"></label>
                             <br />
                             <label>sat</label>
                         </div>
@@ -61,37 +74,37 @@
                 </div>
                 <div class="calRow">
                     <div class="square">
-                        <div class="content">
+                        <div id="day1" runat="server" class="content">
                             
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day2" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day3" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day4" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day5" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day6" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day7" runat="server" class="content">
 
                         </div>
                     </div>
@@ -99,75 +112,80 @@
             
                 <div class="calRow">
                     <div class="square">
-                        <div class="content">
+                        <div id="day8" runat="server" class="content">
                             
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day9" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day10" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day11" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day12" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day13" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
-
+                        <div id="day14" runat="server" class="content">
+                            <i class="fa fa-circle" aria-hidden="true" style="color:blue; font-size:10px;"></i>
+                            <i class="fa fa-circle" aria-hidden="true" style="color:red;font-size:20px;"></i>
+                            <i class="fa fa-circle" aria-hidden="true" style="color:green"></i>
+                            <i class="fa fa-circle" aria-hidden="true" style="color:blue"></i>
+                            <i class="fa fa-circle" aria-hidden="true" style="color:red"></i>
+                            <i class="fa fa-circle" aria-hidden="true" style="color:green"></i>
                         </div>
                     </div>
                 </div>
             
                 <div class="calRow">
                     <div class="square">
-                        <div class="content">
+                        <div id="day15" runat="server" class="content">
                             
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day16" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day17" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day18" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day19" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day20" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day21" runat="server" class="content">
 
                         </div>
                     </div>
@@ -175,37 +193,37 @@
 
                 <div class="calRow">
                     <div class="square">
-                        <div class="content">
+                        <div id="day22" runat="server" class="content">
                             
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day23" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day24" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day25" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day26" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day27" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day28" runat="server" class="content">
 
                         </div>
                     </div>
@@ -213,75 +231,75 @@
 
                 <div class="calRow">
                     <div class="square">
-                        <div class="content">
+                        <div id="day29" runat="server" class="content">
                             
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day30" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day31" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day32" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day33" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day34" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day35" runat="server" class="content">
 
                         </div>
                     </div>
                 </div>
 
-                <div class="calRow">
+                <div id="bottomRow" class="calRow">
                     <div class="square">
-                        <div class="content">
+                        <div id="day36" runat="server" class="content">
                             
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day37" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day38" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day39" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day40" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day41" runat="server" class="content">
 
                         </div>
                     </div>
                     <div class="square">
-                        <div class="content">
+                        <div id="day42" class="content">
 
                         </div>
                     </div>

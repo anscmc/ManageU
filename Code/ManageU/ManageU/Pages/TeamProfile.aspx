@@ -4,6 +4,7 @@
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 
     <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
+
     <div id="wrapper">
 
     <div id="a" class="panels">
@@ -12,54 +13,47 @@
         <img runat="server" src="~/prof/img/swimteam.jpg" />
     </div>
 
-        <%--Labels--%>
         <div id="teamInfo1">
-            <div class="container">
-                <div id="teamDivision" runat="server" class="col-sm-4 square" style="display:inline-block;float:left;text-align:center;border:1px solid #008CBA; color:#008CBA;">
-                    <%--<div class="content">--%>
-                        <asp:Label class="info" id="division" runat="server"></asp:Label>
-                    <%--</div>--%>
+            <div class="container" style="margin-top:10px;">
+                <div id="teamDivision" runat="server" class="col-sm-4 square" style="float:left;text-align:center; color:white; padding:0px !important;background-color:transparent;">
+                        <asp:Label CssClass="info" runat="server">Division</asp:Label>
+                        <br />
+                        <asp:Label class="info" id="division" runat="server" style="font-size:40px;" ></asp:Label>
                 </div>
-                <div id="teamConference" runat="server" class="col-sm-4 square" style="display:inline-block;float:left;text-align:center;border:1px solid #008CBA; color:#008CBA;">
-                    <%--<div class="content">--%>
-                        <asp:Label class="info" id="conference" runat="server"></asp:Label>
-                    <%--</div>--%>
+                <div id="teamConference" runat="server" class="col-sm-4 square" style="float:left;text-align:center;color:white; padding:0px !important;background-color:transparent;">
+                        <asp:Label CssClass="info" runat="server">Conference</asp:Label>
+                        <br />
+                        <asp:Label class="info" id="conference" runat="server" style="font-size:40px;"></asp:Label>
                 </div>
-                <div id="teamRecord" runat="server" class="col-sm-4 square" style="display:inline-block;float:left;text-align:center;border:1px solid #008CBA; color:#008CBA;">
-                    <%--<div class="content">--%>
+                <div id="teamRecord" runat="server" class="col-sm-4 square" style="float:left;text-align:center; color:white; padding:0px !important;background-color:transparent;">
+                        <asp:Label CssClass="info" runat="server">Record</asp:Label>
+                        <br />
                         <asp:Label id="wins" runat="server" style="display:none"></asp:Label>
                         <asp:Label id="losses" runat="server" style="display:none"></asp:Label>
-                        <asp:Label class="info" ID="record" runat="server"></asp:Label>
-                    <%--</div>--%>
-                </div>
-                <div id="teamLocation" runat="server" class="col-sm-4 square" style="display:inline-block;float:left;text-align:center;border:1px solid #008CBA; color:#008CBA;">
-                    <%--<div class="content">--%>
-                        <asp:Label class="info" id="location" runat="server"></asp:Label>
-                    <%--</div>--%>
+                        <asp:Label class="info" ID="record" runat="server" style="font-size:40px;" ></asp:Label>
                 </div>
             </div>
-
-            <div id="coachInfo" runat="server" class="col-sm-4 box" style="display:inline-block;float:left;text-align:center; height:175px;border:1px solid #008CBA;color:#008CBA;width:50%">
+            <hr style="margin-bottom:15px !important;" />
+            <div id="coachInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:auto;color:white;width:100%;background-color:transparent;">
+                <asp:Label class="info" id="headCoach" runat="server" style="padding-top:12px;" ></asp:Label>
                 <br />
-                <asp:Label class="info" id="headCoach" runat="server" ></asp:Label>
-                <br />
+                <asp:Label class="info" id="location" runat="server"></asp:Label>
                 <br />
                 <asp:Label class="info" id="coachNumber" runat="server"></asp:Label>
                 <br />
-                <br />
                 <asp:Label class="info" id="coachEmail" runat="server"></asp:Label>
             </div>
-            <div id="linkInfo" runat="server" class="col-sm-4 box" style="display:inline-block;float:left;text-align:center; height:175px;border:1px solid #008CBA;width:50%">
+            <hr style="margin-top:15px !important" />
+            <div id="linkInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:auto;border:1px solid #008CBA;width:100%;background-color:transparent;">
+                
+                <i class="fa fa-calendar" aria-hidden="true" runat="server" style="color:white;font-size:20px;padding-right:20px;"></i>
+                <asp:HyperLink class="info" ID="schoolSite" runat="server" style="font-size:1em !important;color:white !important;padding-right:10px;text-decoration:underline;">School Website</asp:HyperLink>
+                <asp:HyperLink class="info" ID="siteTeam" runat="server" style="font-size:1em !important;color:white !important;text-decoration:underline">Team Website</asp:HyperLink>
                 <br />
-                <asp:HyperLink class="info" ID="schoolSite" runat="server" style="font-size:1em !important">School Website</asp:HyperLink>
-                <br />
-                <br />
-                <asp:HyperLink class="info" ID="siteTeam" runat="server" style="font-size:1em !important">Team Website</asp:HyperLink>
-                <br />
-                <br />
-                <asp:Hyperlink class="info" ID="calendarHyp" href="TeamCalendar.aspx" runat="server" style="font-size:1em !important">Team Calendar</asp:Hyperlink>
+
             </div>
             </div>
+
         
 
         <%--Text Boxes--%>
@@ -76,7 +70,7 @@
             </select>--%>
             
             <asp:Label runat="server" style="margin: 0 auto">Conference</asp:Label>
-            <asp:TextBox ID="conference2" runat="server" CssClass="form-control inputBoxes" style="text-align:center;display: block; margin: 0 auto"></asp:TextBox>
+            <asp:TextBox ID="conference2" runat="server" MaxLength="5" CssClass="form-control inputBoxes" style="text-align:center;display: block; margin: 0 auto"></asp:TextBox>
         </div>
         <div id="editCoach" runat="server" class="col-sm-4" style="text-align:center; height:auto;">
             <asp:Label runat="server" style="margin: 0 auto">Location</asp:Label>
@@ -104,10 +98,10 @@
         </div>
 
         <div style="margin-top:5px;margin-bottom:5px;">
-        <asp:Button ID="editButton" runat="server" OnClick="editButton_Click" Text="Edit Team Profile" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;"/>
-        <asp:Button ID="saveTeamInfo" runat="server" OnClick="saveTeamInfoButton_Click" Text="Save Team Profile" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />
+        <asp:Button ID="editButton" runat="server" OnClick="editButton_Click" Text="Edit Team Profile" CssClass="btn btn-default" style="display: block; margin: 0 auto;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;"/>
+        <asp:Button ID="saveTeamInfo" runat="server" OnClick="saveTeamInfoButton_Click" Text="Save Team Profile" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:1px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />
         </div>
-        <asp:Button ID="playerSched" runat="server" OnClick="playerSched_Click" Text="Sched" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />
+        <%--<asp:Button ID="playerSched" runat="server" OnClick="playerSched_Click" Text="Sched" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />--%>
         </div>
 
         <div>
@@ -123,7 +117,6 @@
 
     </div>
 
- 
 
 </asp:Content>
 

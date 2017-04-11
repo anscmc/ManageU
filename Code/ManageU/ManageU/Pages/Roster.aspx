@@ -13,9 +13,9 @@
         }
     </script>--%>
     
-    <div style="margin: 0 auto; text-align: center; align">
+    <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
-    <hr/>
+    <hr />
 
 
     <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
