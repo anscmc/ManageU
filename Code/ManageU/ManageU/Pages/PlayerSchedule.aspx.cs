@@ -12,6 +12,7 @@ namespace ManageU.Pages
 {
     public partial class PlayerSchedule : System.Web.UI.Page
     {
+        List<string> classInfo = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
@@ -42,7 +43,9 @@ namespace ManageU.Pages
             objCmd.Connection = objCon;
             SqlDataReader objRS;
             string strsql = "";
-
+            string mID = "";
+            string assocID = "";
+            string eventT = "";
 
             strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
             objCon.Open();
@@ -55,10 +58,15 @@ namespace ManageU.Pages
                 while (objRS.Read())
                 {
                     idCount = idCount + 1;
+                    //get all of event's data to store in session for delete and edit usages
+                    mID = objRS["masterID"].ToString();
+                    assocID = objRS["associatedID"].ToString();
                     eventName = objRS["eventName"].ToString();
+                    eventT = objRS["eventType"].ToString();
                     eventStart = objRS["eventStart"].ToString();
                     eventEnd = objRS["eventEnd"].ToString();
 
+                    //create front end
                     HtmlGenericControl singleClassDiv =
                     new HtmlGenericControl("div");
                     singleClassDiv.Attributes["id"] = "class" + idCount.ToString();
@@ -119,6 +127,12 @@ namespace ManageU.Pages
                     {
                         daysClassHeld = daysClassHeld + "Sat ";
                     }
+
+
+                    //save event info in session
+                    classInfo.Add(mID + "-" + assocID + "-" + eventName + "-" + eventT + "-" + eventStart + "-" + eventEnd + "-" + daysClassHeld);
+                    HttpContext.Current.Session["ClassesInfo"] = classInfo;
+
                     classDaysLabel.Text = daysClassHeld;
                     classDetails.Controls.Add(classNameLabel);
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
@@ -193,6 +207,8 @@ namespace ManageU.Pages
 
         protected void editClass(object sender, EventArgs e) {
             Response.Redirect("EditClass.aspx");
+            //***Will have to set this correctly once front end finished***
+            HttpContext.Current.Session["ClassToEdit"] = 1;
         }
     }
 }
