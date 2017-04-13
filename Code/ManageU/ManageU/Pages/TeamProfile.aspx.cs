@@ -100,45 +100,15 @@ namespace ManageU.Pages
 
         public void loadInfo()
         {
-            SqlConnection objCon = default(SqlConnection);
             SqlConnection objCon2 = default(SqlConnection);
-            SqlCommand objCmd = default(SqlCommand);
             SqlCommand objCmd2 = default(SqlCommand);
-            objCon = new SqlConnection();
             objCon2 = new SqlConnection();
-            objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
             objCon2.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
-            objCmd = new SqlCommand();
             objCmd2 = new SqlCommand();
-            objCmd.Connection = objCon;
             objCmd2.Connection = objCon2;
-            SqlDataReader objRS;
             SqlDataReader objRS2;
-            string strsql = "";
             string strsql2 = "";
-            int teamIDFromTable;
-
-            //if a coach is logged in
-            if (HttpContext.Current.Session["UserType"].ToString() == "coach")
-            {
-                strsql = "select c.teamID from UserTable u join CoachTable c on c.userID = u.userID where u.userEmail = '" + HttpContext.Current.Session["Username"] + "'";
-            }
-            //if a player is logged in
-            else
-            {
-                strsql = "select p.teamID from UserTable u join PlayerTable p on p.userID = u.userID where u.userEmail = '" + HttpContext.Current.Session["Username"] + "'";
-            }
-            objCon.Open();
-            objCmd = new SqlCommand(strsql, objCon);
-
-            objRS = objCmd.ExecuteReader();
-            if (objRS.HasRows)
-            {
-                while (objRS.Read())
-                {
-                    teamIDFromTable = Int32.Parse(objRS["teamID"].ToString());
-                    HttpContext.Current.Session["TeamID"] = teamIDFromTable;
-                    strsql2 = "select * from TeamTable where teamID ='" + teamIDFromTable + "'";
+                    strsql2 = "select * from TeamTable where teamID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
                     objCon2.Open();
 
                     objCmd2 = new SqlCommand(strsql2, objCon2);
@@ -184,7 +154,7 @@ namespace ManageU.Pages
                     objCmd2 = null;
                     objRS2.Close();
 
-                    strsql2 = "select * from CoachTable where teamId ='" + teamIDFromTable + "'";
+                    strsql2 = "select * from CoachTable where teamId ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
 
                     objCmd2 = new SqlCommand(strsql2, objCon2);
 
@@ -201,25 +171,20 @@ namespace ManageU.Pages
 
                     if (HttpContext.Current.Session["UserType"].ToString() == "coach")
                     {
-                        divisionPicker.Style.Add("display", "block");
-                        conference2.Style.Add("display", "block");
-                        wins2.Style.Add("display", "block");
-                        losses2.Style.Add("display", "block");
-                        location2.Style.Add("display", "block");
-                        schoolSite2.Style.Add("display", "block");
-                        siteTeam2.Style.Add("display", "block");
-                        profilePicUpload.Style.Add("display", "block");
-                        saveTeamInfo.Style.Add("display", "block");
+                //divisionPicker.Style.Add("display", "block");
+                //conference2.Style.Add("display", "block");
+                //wins2.Style.Add("display", "block");
+                //losses2.Style.Add("display", "block");
+                //location2.Style.Add("display", "block");
+                //schoolSite2.Style.Add("display", "block");
+                //siteTeam2.Style.Add("display", "block");
+                //profilePicUpload.Style.Add("display", "block");
+                //saveTeamInfo.Style.Add("display", "block");
+                editButton.Style.Add("display", "block");
                     }
                     objCmd2 = null;
                     objRS2.Close();
                     objCon2.Close();
-                }
-            }
-
-            objCmd = null;
-            objRS.Close();
-            objCon.Close();
 
 
         }
@@ -258,6 +223,11 @@ namespace ManageU.Pages
 
 
             }
+        }
+
+        protected void playerSchedule_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PlayerSchedule.aspx");
         }
 
         //protected void playerSched_Click(object sender, EventArgs e) {

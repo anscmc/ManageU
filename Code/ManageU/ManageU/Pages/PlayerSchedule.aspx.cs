@@ -103,27 +103,27 @@ namespace ManageU.Pages
                     {
                         daysClassHeld = daysClassHeld + "Sun ";
                     }
-                    else if (objRS["reoccur"].ToString().Contains("Monday"))
+                    if (objRS["reoccur"].ToString().Contains("Monday"))
                     {
                         daysClassHeld = daysClassHeld + "M ";
                     }
-                    else if (objRS["reoccur"].ToString().Contains("Tuesday"))
+                    if (objRS["reoccur"].ToString().Contains("Tuesday"))
                     {
-                        daysClassHeld = daysClassHeld + "T ";
+                        daysClassHeld = daysClassHeld + "Tue ";
                     }
-                    else if (objRS["reoccur"].ToString().Contains("Wednesday"))
+                    if (objRS["reoccur"].ToString().Contains("Wednesday"))
                     {
                         daysClassHeld = daysClassHeld + "W ";
                     }
-                    else if (objRS["reoccur"].ToString().Contains("Thursday"))
+                    if (objRS["reoccur"].ToString().Contains("Thursday"))
                     {
-                        daysClassHeld = daysClassHeld + "TH ";
+                        daysClassHeld = daysClassHeld + "Th ";
                     }
-                    else if (objRS["reoccur"].ToString().Contains("Friday"))
+                    if (objRS["reoccur"].ToString().Contains("Friday"))
                     {
                         daysClassHeld = daysClassHeld + "F ";
                     }
-                    else if (objRS["reoccur"].ToString().Contains("Saturday"))
+                    if (objRS["reoccur"].ToString().Contains("Saturday"))
                     {
                         daysClassHeld = daysClassHeld + "Sat ";
                     }
@@ -208,9 +208,10 @@ namespace ManageU.Pages
 
         protected void editClass(object sender, EventArgs e)
         {
+            HttpContext.Current.Session["ClassToEdit"] = 1;
             Response.Redirect("EditClass.aspx");
             //***Will have to set this correctly once front end finished***
-            HttpContext.Current.Session["ClassToEdit"] = 1;
+            
         }
     }
 }
