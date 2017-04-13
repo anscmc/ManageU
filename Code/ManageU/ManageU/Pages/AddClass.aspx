@@ -30,7 +30,7 @@
                             </div>
                             <br />
                             <div class="form-group">
-                                <label id="between" runat="server" CssClass="form-control">Start Date</label>
+                                <label id="between" runat="server" CssClass="form-control">Start Time</label>
                                 <br />
                                 <select class="selectpicker" ID="startHour" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="1">1</option>
@@ -116,7 +116,7 @@
                                 
                                 <br />
 
-                                <label id="and" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">End Date</label>
+                                <label id="and" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">End Time</label>
                                 <br />
                                 <select class="selectpicker" ID="endHour" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="1">1</option>

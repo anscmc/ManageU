@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace ManageU.Pages
 {
@@ -34,17 +36,93 @@ namespace ManageU.Pages
             string mID = splitInfo[0];
             string assocID = splitInfo[1];
             string eventName = splitInfo[2];
+            className.Text = eventName;
             string eventT = splitInfo[3];
+            string[] startSplit;
+            string sDate;
+            string[] sDateSplit;
+            string sYear;
+            string sMonth;
+            string sDay;
+            string sTime;
+            string[] sTimeSplit;
+            string sHour;
+            string sMinute;
+            string sampm;
+            string[] endSplit;
+            string eDate;
+            string[] eDateSplit;
+            string eYear;
+            string eMonth;
+            string eDay;
+            string eTime;
+            string[] eTimeSplit;
+            string eHour;
+            string eMinute;
+            string eampm;
 
             //have to split up into date and time
             string eventStart = splitInfo[4];
-
+            startSplit = eventStart.Split(' ');
+            sDate = startSplit[0];
+            sTime = startSplit[1];
+            sTimeSplit = sTime.Split(':');
+            sHour = sTimeSplit[0];
+            sMinute = sTimeSplit[1];
+            sampm = startSplit[2];
             //have to split up into date and time
             string eventEnd = splitInfo[5];
+            endSplit = eventEnd.Split(' ');
+            eDate = endSplit[0];
+            eTime = endSplit[1];
+            eTimeSplit = eTime.Split(':');
+            eHour = eTimeSplit[0];
+            eMinute = eTimeSplit[1];
+            eampm = endSplit[2];
+            
+            sDateSplit = sDate.Split('/');
+            sMonth = sDateSplit[0];
+            sDay = sDateSplit[1];
+            sYear = sDateSplit[2];
+
+            if (sMonth.Length == 1)
+            {
+                sMonth = "0" + sMonth;
+            }
+            if (sDay.Length == 1)
+            {
+                sDay = "0" + sDay;
+            }
+
+            sDate = sYear + "-" + sMonth + "-" + sDay;
+            startDate.Value = sDate;
+
+            eDateSplit = eDate.Split('/');
+            eMonth = eDateSplit[0];
+            eDay = eDateSplit[1];
+            eYear = eDateSplit[2];
+
+            if (eMonth.Length == 1)
+            {
+                eMonth = "0" + eMonth;
+            }
+            if (eDay.Length == 1)
+            {
+                eDay = "0" + sDay;
+            }
+
+            eDate = eYear + "-" + eMonth + "-" + eDay;
+            endDate.Value = eDate;
+
+            startHour.Value = sHour;
+            startMinute.Value = sMinute;
+            amPMstart.Value = sampm;
+
+            endHour.Value = eHour;
+            endMinute.Value = eMinute;
+            amPMend.Value = eampm;
 
             string daysClassHeld = splitInfo[6];
-
-            className.Text = eventName;
 
             if (daysClassHeld.Contains("Sun")) {
                 sun.Checked = true;
@@ -78,7 +156,11 @@ namespace ManageU.Pages
 
         protected void saveClass_Click(object sender, EventArgs e)
         {
-
+            string strsql = "";
+            SqlConnection objCon = default(SqlConnection);
+            SqlCommand objCmd = default(SqlCommand);
+            objCon = new SqlConnection();
+            objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
         }
     }
 }
