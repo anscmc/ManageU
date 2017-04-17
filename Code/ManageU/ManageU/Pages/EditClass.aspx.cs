@@ -11,6 +11,7 @@ namespace ManageU.Pages
 {
     public partial class EditClass : System.Web.UI.Page
     {
+        string mID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +34,7 @@ namespace ManageU.Pages
             string infoInString = classInfo.ElementAt(classToEdit - 1);
             string[] splitInfo = infoInString.Split('-');
 
-            string mID = splitInfo[0];
+            mID = splitInfo[0];
             string assocID = splitInfo[1];
             string eventName = splitInfo[2];
             className.Text = eventName;
@@ -161,6 +162,7 @@ namespace ManageU.Pages
             SqlCommand objCmd = default(SqlCommand);
             objCon = new SqlConnection();
             objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
+
         }
     }
 }
