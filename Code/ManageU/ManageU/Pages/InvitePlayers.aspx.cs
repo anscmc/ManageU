@@ -29,6 +29,7 @@ namespace ManageU.Pages
 
         protected void inviteButton_Click(object sender, EventArgs e)
         {
+            userExistsErr.InnerText = "You have already invited the following players: ";
             //loop here with incrementing id's (store id count in session from index change function?
             int num = Int32.Parse(numPlayersHidden.Value);
             string successfullyAdded = ""; 
@@ -232,9 +233,10 @@ namespace ManageU.Pages
                     }
 
                     hiddenSuccess.Value = "You have successfully invited the following players: " + successfullyAdded;
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "SuccessFunction", "alertSuccess()", true);
                 }
 
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "SuccessFunction", "alertSuccess()", true);
+                
             }
 
 
