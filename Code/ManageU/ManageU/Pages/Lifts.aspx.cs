@@ -13,5 +13,10 @@ namespace ManageU.Pages
         {
 
         }
+
+        protected void createLiftButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AddLift.aspx");
+        }
     }
 }

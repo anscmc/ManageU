@@ -7,6 +7,7 @@
     <h2><%: Title %></h2>
     <hr/>
 
+        <asp:Button runat="server" ID="createLiftButton" Text="Add" onclick="createLiftButton_Click" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;text-align: center;border: 2px solid white;width:250px;"/>
 
     </div>
 
