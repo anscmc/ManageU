@@ -18,19 +18,19 @@
                 <div id="teamDivision" runat="server" class="col-sm-4 square" style="float:left;text-align:center; color:white; padding:0px !important;background-color:transparent;">
                         <asp:Label CssClass="info" runat="server">Division</asp:Label>
                         <br />
-                        <asp:Label class="info" id="division" runat="server" style="font-size:40px;" ></asp:Label>
+                        <asp:Label class="info" id="division" runat="server" style="font-size:40px;font-weight:bold;color:#ba0047;" ></asp:Label>
                 </div>
                 <div id="teamConference" runat="server" class="col-sm-4 square" style="float:left;text-align:center;color:white; padding:0px !important;background-color:transparent;">
                         <asp:Label CssClass="info" runat="server">Conference</asp:Label>
                         <br />
-                        <asp:Label class="info" id="conference" runat="server" style="font-size:40px;"></asp:Label>
+                        <asp:Label class="info" id="conference" runat="server" style="font-size:40px;font-weight:bold;color:#ba9800;"></asp:Label>
                 </div>
                 <div id="teamRecord" runat="server" class="col-sm-4 square" style="float:left;text-align:center; color:white; padding:0px !important;background-color:transparent;">
                         <asp:Label CssClass="info" runat="server">Record</asp:Label>
                         <br />
                         <asp:Label id="wins" runat="server" style="display:none"></asp:Label>
                         <asp:Label id="losses" runat="server" style="display:none"></asp:Label>
-                        <asp:Label class="info" ID="record" runat="server" style="font-size:40px;" ></asp:Label>
+                        <asp:Label class="info" ID="record" runat="server" style="font-size:40px;font-weight:bold;color:#ba9800;" ></asp:Label>
                 </div>
             </div>
             <hr style="margin-bottom:15px !important;" />

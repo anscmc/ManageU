@@ -31,7 +31,7 @@
                     </div>
                     <div class="topCalRow">
                         <div class="content">
-                            <i class="fa fa-long-arrow-left" aria-hidden="true" runat="server" onclick="lastMonth();" style="margin-top:10%"></i>
+                            <i class="fa fa-long-arrow-left" aria-hidden="true" runat="server" onclick="lastMonth();" style="margin-top:10%;font-size:30px;"></i>
                             <br />
                             <label>mon</label>
                         </div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="topCalRow">
                         <div class="content">
-                            <label id="monthLabel" runat="server" style="margin-top:10%;margin-bottom:0px !important;"></label>
+                            <label id="monthLabel" runat="server" style="margin-top:10%;margin-bottom:0px !important;font-size:16px;"></label>
                             <br />
                             <label>wed</label>
                         </div>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="topCalRow">
                         <div class="content">
-                            <i class="fa fa-long-arrow-right" runat="server" onclick="nextMonth();" aria-hidden="true" style="margin-top:10%"></i>
+                            <i class="fa fa-long-arrow-right" runat="server" onclick="nextMonth();" aria-hidden="true" style="margin-top:10%;font-size:30px;"></i>
                             <br />
                             <label>fri</label>
                         </div>
@@ -74,8 +74,8 @@
                 </div>
                 <div class="calRow">
                     <div class="square">
-                        <div id="day1" runat="server" class="content">
-                            
+                        <div id="day1" runat="server" class="content" onclick="showLeftPanel()">
+                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
                         </div>
                     </div>
                     <div class="square">
@@ -123,12 +123,12 @@
                     </div>
                     <div class="square">
                         <div id="day10" runat="server" class="content">
-
+                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day11" runat="server" class="content">
-
+                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
                         </div>
                     </div>
                     <div class="square">
@@ -143,12 +143,7 @@
                     </div>
                     <div class="square">
                         <div id="day14" runat="server" class="content">
-                            <i class="fa fa-circle" aria-hidden="true" style="color:blue; font-size:10px;"></i>
-                            <i class="fa fa-circle" aria-hidden="true" style="color:red;font-size:20px;"></i>
-                            <i class="fa fa-circle" aria-hidden="true" style="color:green"></i>
-                            <i class="fa fa-circle" aria-hidden="true" style="color:blue"></i>
-                            <i class="fa fa-circle" aria-hidden="true" style="color:red"></i>
-                            <i class="fa fa-circle" aria-hidden="true" style="color:green"></i>
+                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
                         </div>
                     </div>
                 </div>
@@ -166,17 +161,17 @@
                     </div>
                     <div class="square">
                         <div id="day17" runat="server" class="content">
-
+                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day18" runat="server" class="content">
-
+                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day19" runat="server" class="content">
-
+                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
                         </div>
                     </div>
                     <div class="square">
@@ -224,7 +219,7 @@
                     </div>
                     <div class="square">
                         <div id="day28" runat="server" class="content">
-
+                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
                         </div>
                     </div>
                 </div>
@@ -267,7 +262,11 @@
                     </div>
                 </div>
 
-                <div id="bottomRow" class="calRow">
+                <div id="left-panel">
+                    [&gt;]()
+                </div>
+
+                <%--<div id="bottomRow" class="calRow">
                     <div class="square">
                         <div id="day36" runat="server" class="content">
                             
@@ -303,7 +302,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div>--%>
                 
             </div>
         </div>
@@ -323,6 +322,21 @@
 
                 nextMonthButton.click();
             
+        }
+
+        function showLeftPanel() {
+            var elem = document.getElementById("left-panel");
+            if (elem.classList) {
+                elem.classList.toggle("show");
+            } else {
+                var classes = elem.className;
+                if (classes.indexOf("show") >= 0) {
+                    elem.className = classes.replace("show", "");
+                } else {
+                    elem.className = classes + " show";
+                }
+                console.log(elem.className);
+            }
         }
 
     </script>

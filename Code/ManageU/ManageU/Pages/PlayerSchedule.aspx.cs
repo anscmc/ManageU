@@ -89,6 +89,8 @@ namespace ManageU.Pages
                     classTimes.Controls.Add(new Literal() { Text = "<br/>" });
                     classTimes.Controls.Add(endTimeLabel);
 
+                    
+
 
                     HtmlGenericControl classDetails =
                     new HtmlGenericControl("div");
@@ -137,7 +139,9 @@ namespace ManageU.Pages
                     classDetails.Controls.Add(classNameLabel);
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
                     classDetails.Controls.Add(classDaysLabel);
-
+                    classDetails.Controls.Add(new Literal() { Text = "<br/>" });
+                    classDetails.Controls.Add(new Literal() { Text = "<i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i>" });
+                    classDetails.Controls.Add(new Literal() { Text = "<i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i>" });
 
                     HtmlGenericControl classDates =
                     new HtmlGenericControl("div");
@@ -146,12 +150,20 @@ namespace ManageU.Pages
                     classDates.Attributes["runat"] = "server";
 
                     Label startDateLabel = new Label();
-                    startDateLabel.Text = "1/1/2017";
+                    startDateLabel.Text = eventStart;
                     Label endDateLabel = new Label();
-                    endDateLabel.Text = "5/5/2017";
-                    classTimes.Controls.Add(startDateLabel);
-                    classTimes.Controls.Add(new Literal() { Text = "<br/>" });
-                    classTimes.Controls.Add(endDateLabel);
+                    endDateLabel.Text = eventEnd;
+                    classDates.Controls.Add(startDateLabel);
+                    classDates.Controls.Add(new Literal() { Text = "<br/>" });
+                    classDates.Controls.Add(endDateLabel);
+
+                    //Label startDateLabel = new Label();
+                    //startDateLabel.Text = "1/1/2017";
+                    //Label endDateLabel = new Label();
+                    //endDateLabel.Text = "5/5/2017";
+                    //classTimes.Controls.Add(startDateLabel);
+                    //classTimes.Controls.Add(new Literal() { Text = "<br/>" });
+                    //classTimes.Controls.Add(endDateLabel);
 
                     singleClassDiv.Controls.Add(classTimes);
                     singleClassDiv.Controls.Add(classDetails);
