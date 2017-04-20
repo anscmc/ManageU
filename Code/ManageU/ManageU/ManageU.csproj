@@ -197,6 +197,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Pages\AddClass.aspx" />
+    <Content Include="Pages\AddLift.aspx" />
     <Content Include="Pages\Attendance.aspx" />
     <Content Include="Pages\AvailableTimes.aspx" />
     <Content Include="Pages\ChangePassword.aspx" />
@@ -377,6 +378,13 @@
     </Compile>
     <Compile Include="Pages\AddClass.aspx.designer.cs">
       <DependentUpon>AddClass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddLift.aspx.cs">
+      <DependentUpon>AddLift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AddLift.aspx.designer.cs">
+      <DependentUpon>AddLift.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Attendance.aspx.cs">
       <DependentUpon>Attendance.aspx</DependentUpon>
