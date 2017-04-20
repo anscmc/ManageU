@@ -30,7 +30,7 @@
                             </div>
                             <br />
                             <div class="form-group">
-                                <label id="between" runat="server" CssClass="form-control">Start Date</label>
+                                <label id="between" runat="server" CssClass="form-control">Start Time</label>
                                 <br />
                                 <select class="selectpicker" ID="startHour" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="1">1</option>
@@ -116,7 +116,7 @@
                                 
                                 <br />
 
-                                <label id="and" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">End Date</label>
+                                <label id="and" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">End Time</label>
                                 <br />
                                 <select class="selectpicker" ID="endHour" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="1">1</option>
@@ -239,7 +239,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:Button runat="server" id="addClass" Text="Add to Schedule" OnClick="addClass_Click" CssClass="btn btn-default" style="display: block; margin: 0 auto;text-align: center; color:#008CBA; background-color:white; width:250px !important " />
+                            <asp:Button runat="server" id="saveClass" Text="Save" OnClick="saveClass_Click" CssClass="btn btn-default" style="display: block; margin: 0 auto;text-align: center; color:#008CBA; background-color:white; width:250px !important " />
                         </div>
                     </div>
 

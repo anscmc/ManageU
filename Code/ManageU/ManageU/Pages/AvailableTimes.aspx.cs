@@ -132,7 +132,7 @@ namespace ManageU.Pages
             string endText = endTimeList.ElementAt(Int32.Parse(row) - 1).Text;
             HttpContext.Current.Session["ChosenMeeting"] = dateText + ";" + startText + ";" + endText;
             HttpContext.Current.Session["FromFindTimes"] = "Y";
-            Response.Redirect("CreateMeeting.aspx");
+            Response.Redirect("CreateEvent.aspx");
         }
 
         protected void customButtonClick(object sender, EventArgs e)
