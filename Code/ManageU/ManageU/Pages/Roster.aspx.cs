@@ -95,10 +95,10 @@ namespace ManageU.Pages
                             lb1.Text = playerFName + " ";
 
                             Label lb2 = new Label();
-                            lb2.Text = "Class: " + playerClass;
+                            lb2.Text = playerClass;
 
                             Label lb3 = new Label();
-                            lb3.Text = "Position: " + playerPos;
+                            lb3.Text = playerPos;
 
                             Label lb4 = new Label();
                             lb4.Text = "#" + playerNum;
@@ -113,13 +113,12 @@ namespace ManageU.Pages
                             /*emails.InnerText = this.Session["sessionEmails"].ToString();*/
 
                             lb5.Attributes["id"] = "lbID" + idNum.ToString() + ";";
-                            lb1.Attributes["style"] = "padding:10px; bottom:10px;";
                             lb5.Attributes["style"] = "margin-bottom:10px;";
 
                             CheckBox emailCheck = new CheckBox();
                             emailCheck.ID = "check" + idNum.ToString();
                             emailCheck.InputAttributes.Add("class", "rosterCheck");
-                            emailCheck.Text = playerEmail;
+                            emailCheck.Text = "Add " + playerEmail + " to email list";
 
                     //HtmlGenericControl xButton =
                     //new HtmlGenericControl("button");
@@ -154,30 +153,34 @@ namespace ManageU.Pages
                             infoDiv.Attributes["id"] = "rosterContent";
                             infoDiv.Attributes["class"] = "col-sm-4 infoDiv";
                             infoDiv.Attributes["runat"] = "server";
-                            infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:225px;max-width:500px;margin: 0 auto;";
-                            infoDiv.Attributes["onclick"] = "infoDivClick()";
-                            
+                            infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:auto;max-width:500px;margin: 0 auto;";
 
-                        
-                            infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-calendar' aria-hidden='true' runat='server' style='color:black; font-size:20px; padding-right:20px;'></i>" });
-                            infoDiv.Controls.Add(lb1);
-                            infoDiv.Controls.Add(lb4);
-                            infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-minus-circle' aria-hidden='true' style='font-size:20px;color:black'></i>" });
-                            infoDiv.Controls.Add(lb6);
+
+
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<a href='TeamCalendar.aspx'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
                             infoDiv.Controls.Add(lb1);
+                            infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;padding:5px;'></i>" });
                             infoDiv.Controls.Add(lb4);
+                            infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i>" });
+                            //infoDiv.Controls.Add(lb6);
+                            //infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            //infoDiv.Controls.Add(lb1);
+                            //infoDiv.Controls.Add(lb4);
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            infoDiv.Controls.Add(new Literal() { Text = "<hr/>" });
+                            //infoDiv.Controls.Add(new Literal() { Text = "<hr/>" });
                             infoDiv.Controls.Add(lb2);
-                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;padding:5px;'></i>" });
+                            //infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             infoDiv.Controls.Add(lb3);
+                            //infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            //infoDiv.Controls.Add(new Literal() { Text = "<hr/>" });
+                            
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            infoDiv.Controls.Add(new Literal() { Text = "<hr/>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<span class='icon-bar' style='background-color:#ba9800 !important;width:75%;z-index:1000;'></span>" });
+                            //infoDiv.Controls.Add(lb6);
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            infoDiv.Controls.Add(lb6);
-                            infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            infoDiv.Controls.Add(lb5);
+                            //infoDiv.Controls.Add(lb5);
 
                             HtmlGenericControl boxDiv =
                             new HtmlGenericControl("div");
@@ -217,8 +220,8 @@ namespace ManageU.Pages
 
                     /*boxDiv.Controls.Add(emailBox);*/
                             playerInfo.Controls.Add(infoDiv);
-                            infoDiv.Controls.Add(boxDiv);
-                            boxDiv.Controls.Add(emailCheck);
+                            //infoDiv.Controls.Add(boxDiv);
+                            infoDiv.Controls.Add(emailCheck);
                             //boxDiv2.Controls.Add(calButton);
                             //boxDiv.Controls.Add(checkX);
                             //playerInfo.Controls.Add(boxDiv);

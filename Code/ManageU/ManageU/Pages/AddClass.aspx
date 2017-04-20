@@ -203,6 +203,7 @@
                                 <label id="days" runat="server">Days</label>
                                 <br />
 
+                                <div id="wrapper" style="text-align: center"> 
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">Sun</label>
                                         <input type="checkbox" name="chk_group[]" id="sun" style="display: table-row;width: 100%;" runat="server" />         
@@ -231,7 +232,7 @@
                                         <label for="male" style="display:table-row">Sat</label>
                                         <input type="checkbox" name="chk_group[]" id="sat" style="display: table-row;width: 100%;" runat="server"/>         
                                     </div>
-
+                                </div>
 
                             </div>
                         </div>
