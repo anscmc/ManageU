@@ -18,14 +18,9 @@ namespace ManageU.Pages
             {
                 if (!IsPostBack)
                 {
-                    HttpContext.Current.Session["first"] = "first";
-
-                    if (HttpContext.Current.Session["first"].ToString() == "first")
-                    {
-
-
                         DateTime localDate = DateTime.Now;
                         HttpContext.Current.Session["monthNum"] = localDate.Month.ToString();
+                    HttpContext.Current.Session["currYear"] = localDate.Year.ToString();
 
                         int monthInt = localDate.Month;
 
@@ -68,7 +63,6 @@ namespace ManageU.Pages
                                 monthLabel.InnerText = "December";
                                 break;
                         }
-                    }
                     
                 } 
                     loadCalendar();
@@ -104,7 +98,8 @@ namespace ManageU.Pages
             string strsql2 = "";
 
             //get all the event info first
-            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
+            //do we want to include eventEnd in this as well???
+            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
             objCon.Open();
             objCmd = new SqlCommand(strsql, objCon);
 
@@ -114,7 +109,7 @@ namespace ManageU.Pages
                 while (objRS.Read())
                 {
                     //get all dates of the event
-                    strsql2 = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
+                    strsql2 = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
                     objCon2.Open();
 
                     objCmd2 = new SqlCommand(strsql2, objCon2);
@@ -153,13 +148,13 @@ namespace ManageU.Pages
 
         protected void nextMonth(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["first"] = "notfirst";
             string monthString = HttpContext.Current.Session["monthNum"].ToString();
             switch (monthString)
             {
                 case "12":
                     monthLabel.InnerText = "January";
                     HttpContext.Current.Session["monthNum"] = "1";
+                    HttpContext.Current.Session["currYear"] = (Int32.Parse(HttpContext.Current.Session["currYear"].ToString()) + 1).ToString();
                     break;
                 case "1":
                     monthLabel.InnerText = "February";
@@ -263,6 +258,7 @@ namespace ManageU.Pages
                 case "1":
                     monthLabel.InnerText = "December";
                     HttpContext.Current.Session["monthNum"] = "12";
+                    HttpContext.Current.Session["currYear"] = (Int32.Parse(HttpContext.Current.Session["currYear"].ToString()) - 1).ToString();
                     break;
             }
         }
