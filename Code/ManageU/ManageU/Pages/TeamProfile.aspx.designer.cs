@@ -181,7 +181,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox divisionPicker;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect divisionPicker;
         
         /// <summary>
         /// conference2 control.
@@ -202,13 +202,22 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl editCoach;
         
         /// <summary>
-        /// location2 control.
+        /// city2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox location2;
+        protected global::System.Web.UI.WebControls.TextBox city2;
+        
+        /// <summary>
+        /// state2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect state2;
         
         /// <summary>
         /// wins2 control.
@@ -290,6 +299,15 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button saveTeamInfo;
+        
+        /// <summary>
+        /// cancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancel;
         
         /// <summary>
         /// playerSchedule control.

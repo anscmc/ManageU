@@ -59,22 +59,75 @@
         <%--Text Boxes--%>
         <div id="editTeam" runat="server" class="col-sm-4" style="text-align:center; height:auto;">
             <asp:Label runat="server" style="margin: 0 auto">Division</asp:Label>
-            <asp:TextBox ID="divisionPicker" runat="server" CssClass="form-control inputBoxes" width=250 style="text-align:center;display: block; margin: 0 auto"></asp:TextBox>
+          
             
-            <%--<select class="selectpicker" ID="divisionPicker" runat="server" CssClass="form-control" style="display:block; margin: 0 auto;text-align: center; color:black;width:250px;height:39px;border-radius:5px;">
-                <option>I-A</option>
-                <option>I-AA</option>
-                <option>II</option>
-                <option>III</option>
-                <option>NAIA</option>
-            </select>--%>
+            <select class="selectpicker" ID="divisionPicker" runat="server" CssClass="form-control" style="display:block; margin: 0 auto;text-align: center; color:black;width:250px;height:39px;border-radius:5px;">
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="NAIA">NAIA</option>
+            </select>
             
             <asp:Label runat="server" style="margin: 0 auto">Conference</asp:Label>
             <asp:TextBox ID="conference2" runat="server" MaxLength="5" CssClass="form-control inputBoxes" style="text-align:center;display: block; margin: 0 auto"></asp:TextBox>
         </div>
         <div id="editCoach" runat="server" class="col-sm-4" style="text-align:center; height:auto;">
-            <asp:Label runat="server" style="margin: 0 auto">Location</asp:Label>
-            <asp:TextBox ID="location2" runat="server" CssClass="form-control inputBoxes" style="text-align:center;display: block; margin: 0 auto;border:1px solid black;"></asp:TextBox>
+            <asp:Label runat="server" style="margin: 0 auto">City</asp:Label>
+            <asp:TextBox ID="city2" runat="server" CssClass="form-control inputBoxes" style="text-align:center;display: block; margin: 0 auto;border:1px solid black;"></asp:TextBox>
+            <asp:Label runat="server" style="margin: 0 auto">State</asp:Label>
+            <select ID="state2" runat="server" CssClass="form-control" style="display:block; margin: 0 auto;text-align: center; color:black;width:250px;height:39px;border-radius:5px;">
+	            <option value="AL">Alabama</option>
+	            <option value="AK">Alaska</option>
+	            <option value="AZ">Arizona</option>
+	            <option value="AR">Arkansas</option>
+	            <option value="CA">California</option>
+	            <option value="CO">Colorado</option>
+	            <option value="CT">Connecticut</option>
+	            <option value="DE">Delaware</option>
+	            <option value="DC">District Of Columbia</option>
+	            <option value="FL">Florida</option>
+	            <option value="GA">Georgia</option>
+	            <option value="HI">Hawaii</option>
+	            <option value="ID">Idaho</option>
+	            <option value="IL">Illinois</option>
+	            <option value="IN">Indiana</option>
+	            <option value="IA">Iowa</option>
+	            <option value="KS">Kansas</option>
+	            <option value="KY">Kentucky</option>
+	            <option value="LA">Louisiana</option>
+	            <option value="ME">Maine</option>
+	            <option value="MD">Maryland</option>
+	            <option value="MA">Massachusetts</option>
+	            <option value="MI">Michigan</option>
+	            <option value="MN">Minnesota</option>
+	            <option value="MS">Mississippi</option>
+	            <option value="MO">Missouri</option>
+	            <option value="MT">Montana</option>
+	            <option value="NE">Nebraska</option>
+	            <option value="NV">Nevada</option>
+	            <option value="NH">New Hampshire</option>
+	            <option value="NJ">New Jersey</option>
+	            <option value="NM">New Mexico</option>
+	            <option value="NY">New York</option>
+	            <option value="NC">North Carolina</option>
+	            <option value="ND">North Dakota</option>
+	            <option value="OH">Ohio</option>
+	            <option value="OK">Oklahoma</option>
+	            <option value="OR">Oregon</option>
+	            <option value="PA">Pennsylvania</option>
+	            <option value="RI">Rhode Island</option>
+	            <option value="SC">South Carolina</option>
+	            <option value="SD">South Dakota</option>
+	            <option value="TN">Tennessee</option>
+	            <option value="TX">Texas</option>
+	            <option value="UT">Utah</option>
+	            <option value="VT">Vermont</option>
+	            <option value="VA">Virginia</option>
+	            <option value="WA">Washington</option>
+	            <option value="WV">West Virginia</option>
+	            <option value="WI">Wisconsin</option>
+	            <option value="WY">Wyoming</option>
+</select>
             <asp:Label runat="server" style="margin: 0 auto">Wins</asp:Label>
             <asp:TextBox ID="wins2" runat="server" CssClass="form-control inputBoxes" style="text-align:center;display: block; margin: 0 auto"></asp:TextBox>
             <asp:Label runat="server" style="margin: 0 auto">Losses</asp:Label>
@@ -99,7 +152,8 @@
 
         <div style="margin-top:5px;margin-bottom:5px;">
         <asp:Button ID="editButton" runat="server" OnClick="editButton_Click" Text="Edit Team Profile" CssClass="btn btn-default" style="display: none; margin: 0 auto;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;"/>
-        <asp:Button ID="saveTeamInfo" runat="server" OnClick="saveTeamInfoButton_Click" Text="Save Team Profile" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:1px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />
+        <asp:Button ID="saveTeamInfo" runat="server" OnClick="saveTeamInfoButton_Click" Text="Save" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:1px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />
+        <asp:Button ID="cancel" runat="server" OnClick="cancel_Click" Text="Cancel" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:1px;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;height:39px;" />
         </div>
 
         <asp:Button ID="playerSchedule" runat="server" OnClick="playerSchedule_Click" Text="Schedule" CssClass="btn btn-default" style="display: block; margin: 0 auto;margin-top:10px !important;text-align: center;border: 2px solid white;width:95%;max-width:400px;"/>

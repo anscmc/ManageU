@@ -1,0 +1,25 @@
+CREATE TABLE TeamTable(
+	teamID int identity(1000000,1) primary key not null,
+	university varchar(50) not null,
+	sport varchar(50) not null,
+	division varchar(5),
+	conference varchar(5),
+	wins int,
+	losses int,
+	city varchar(50),
+	state varchar(2),
+	schoolLink varchar(100),
+	teamLink varchar(100),
+	picPath varchar(50)
+)
+
+CREATE TABLE CoachTable(
+	coachID int identity(1,1) primary key not null,
+	userID int not null,
+	teamID int not null,
+	coachEmail varchar(50),
+	coachFName varchar(50),
+	coachLName varchar(50),
+	coachNumber int
+)
+
