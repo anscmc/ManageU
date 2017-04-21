@@ -47,6 +47,11 @@ namespace ManageU.Pages
             string assocID = "";
             string eventT = "";
 
+            string[] startSplit;
+            string[] endSplit;
+
+
+
             strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
             objCon.Open();
 
@@ -57,6 +62,7 @@ namespace ManageU.Pages
             {
                 while (objRS.Read())
                 {
+                    daysClassHeld = "";
                     idCount = idCount + 1;
                     //get all of event's data to store in session for delete and edit usages
                     mID = objRS["masterID"].ToString();
@@ -65,6 +71,9 @@ namespace ManageU.Pages
                     eventT = objRS["eventType"].ToString();
                     eventStart = objRS["eventStart"].ToString();
                     eventEnd = objRS["eventEnd"].ToString();
+
+                    startSplit = eventStart.Split(' ');
+                    endSplit = eventEnd.Split(' ');
 
                     //create front end
                     HtmlGenericControl singleClassDiv =
@@ -82,15 +91,12 @@ namespace ManageU.Pages
                     classTimes.Attributes["runat"] = "server";
 
                     Label startTimeLabel = new Label();
-                    startTimeLabel.Text = eventStart;
+                    startTimeLabel.Text = (startSplit[1] +  "  " + startSplit[2]).Replace(":00 ", "");
                     Label endTimeLabel = new Label();
-                    endTimeLabel.Text = eventEnd;
+                    endTimeLabel.Text = (endSplit[1] + "  " + endSplit[2]).Replace(":00 ", "");
                     classTimes.Controls.Add(startTimeLabel);
                     classTimes.Controls.Add(new Literal() { Text = "<br/>" });
                     classTimes.Controls.Add(endTimeLabel);
-
-                    
-
 
                     HtmlGenericControl classDetails =
                     new HtmlGenericControl("div");
@@ -150,9 +156,9 @@ namespace ManageU.Pages
                     classDates.Attributes["runat"] = "server";
 
                     Label startDateLabel = new Label();
-                    startDateLabel.Text = eventStart;
+                    startDateLabel.Text = startSplit[0];
                     Label endDateLabel = new Label();
-                    endDateLabel.Text = eventEnd;
+                    endDateLabel.Text = endSplit[0];
                     classDates.Controls.Add(startDateLabel);
                     classDates.Controls.Add(new Literal() { Text = "<br/>" });
                     classDates.Controls.Add(endDateLabel);
