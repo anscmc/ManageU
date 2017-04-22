@@ -163,6 +163,10 @@ namespace ManageU.Pages
                     classDates.Controls.Add(new Literal() { Text = "<br/>" });
                     classDates.Controls.Add(endDateLabel);
 
+                    HiddenField idHidden = new HiddenField();
+                    idHidden.ID = "hidden" + idCount.ToString();
+                    idHidden.Value = mID;
+
                     //Label startDateLabel = new Label();
                     //startDateLabel.Text = "1/1/2017";
                     //Label endDateLabel = new Label();
@@ -174,6 +178,7 @@ namespace ManageU.Pages
                     singleClassDiv.Controls.Add(classTimes);
                     singleClassDiv.Controls.Add(classDetails);
                     singleClassDiv.Controls.Add(classDates);
+                    singleClassDiv.Controls.Add(idHidden);
 
 
                     //show the classes
