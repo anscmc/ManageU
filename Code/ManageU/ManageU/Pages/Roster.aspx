@@ -38,5 +38,14 @@
     </div>
     </div>
 
+    <script type="text/javascript">
+        function deletePlayer() {
+            // click hidden button after "Are you sure" message to call C# method
+
+            if (!confirm('Are you sure you want to delete this player?')) { return false; }
+            }
+        
+
+    </script>
 
 </asp:Content>

@@ -27,10 +27,14 @@
     <asp:HiddenField ID="deleteHiddenField" runat="server" />
 
     <script type="text/javascript">
-        function deleteOptions() {
+        function deleteClass() {
 
-            if (!confirm('Are you sure you want to delete?')) { return false; }
+            if (!confirm('Are you sure you want to delete this class from your schedule?')) { return false; }
         }
+        function editClass() {
+            if (!confirm('Are you sure you want to edit this class?')) { return false;}
+        }
+
         
 
     </script>

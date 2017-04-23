@@ -61,6 +61,8 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/Pages/TeamProfile">Team Profile</a></li>
+                        <li><a runat="server" href="~/Pages/PlayerSchedule">My Schedule</a></li>
                         <li><a runat="server" href="~/Pages/Roster">Roster</a></li>
                         <li><a runat="server" href="~/Pages/TeamCalendar">Calendar</a></li>
                         <li><a runat="server" href="~/Pages/Tasks">Tasks</a></li>
