@@ -158,11 +158,11 @@ namespace ManageU.Pages
 
 
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            infoDiv.Controls.Add(new Literal() { Text = "<a href='TeamCalendar.aspx'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<a href='PlayerSchedule.aspx'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
                             infoDiv.Controls.Add(lb1);
                             infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;padding:5px;'></i>" });
                             infoDiv.Controls.Add(lb4);
-                            infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer()'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
                             //infoDiv.Controls.Add(lb6);
                             //infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             //infoDiv.Controls.Add(lb1);

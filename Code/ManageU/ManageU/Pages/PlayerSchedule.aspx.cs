@@ -140,8 +140,8 @@ namespace ManageU.Pages
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
                     classDetails.Controls.Add(classDaysLabel);
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
-                    classDetails.Controls.Add(new Literal() { Text = "<i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i>" });
-                    classDetails.Controls.Add(new Literal() { Text = "<i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i>" });
+                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass()'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass()'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
 
                     HtmlGenericControl classDates =
                     new HtmlGenericControl("div");
