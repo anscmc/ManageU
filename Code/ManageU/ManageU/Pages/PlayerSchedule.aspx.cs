@@ -51,7 +51,7 @@ namespace ManageU.Pages
             string[] startSplit;
             string[] endSplit;
 
-
+            classDiv.InnerHtml = "";
 
             strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
             objCon.Open();
@@ -200,7 +200,7 @@ namespace ManageU.Pages
         protected void deletePlayerClass(object sender, EventArgs e)
         {
             //need to change these vars to grab from hidden fields
-            string masterID = deleteHiddenField.Value;
+            string masterID = masterIDs.ElementAt(Int32.Parse(deleteHiddenField.Value)-1);
 
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
@@ -227,6 +227,8 @@ namespace ManageU.Pages
             objCmd.ExecuteNonQuery();
 
             objCon.Close();
+
+            loadCalendar();
 
         }
 

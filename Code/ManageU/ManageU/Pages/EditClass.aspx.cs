@@ -255,7 +255,7 @@ namespace ManageU.Pages
             {
                 startHr = Int32.Parse(startHour.Value);
             }
-            if (amPMend.Value == "PM" && Int32.Parse(startHour.Value) < 12)
+            if (amPMend.Value == "PM" && Int32.Parse(endHour.Value) < 12)
             {
                 endHr = Int32.Parse(endHour.Value) + 12;
             }
