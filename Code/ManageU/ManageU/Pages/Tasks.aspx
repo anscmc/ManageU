@@ -32,4 +32,21 @@
     
     </div>
 
+    <script type="text/javascript">
+        function deleteTask() {
+
+            if (!confirm('Are you sure you want to delete this task?')) { return false; }
+        }
+        function editTask() {
+            if (!confirm('edit click')) { return false; }
+        }
+
+        function taskDetails() {
+            if (!confirm('details click')) { return false; }
+        }
+
+        
+
+    </script>
+
 </asp:Content>

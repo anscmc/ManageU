@@ -89,9 +89,15 @@ namespace ManageU.Pages
                         detailsButton.Attributes["type"] = "button";
                         detailsButton.Attributes["ID"] = "detailsButton" + idNum.ToString() + ";";
                         detailsButton.Attributes["class"] = "btn btn-default";
-                        detailsButton.Attributes["style"] = "border: 2px solid #008CBA;margin-right:1px;";
+                        detailsButton.Attributes["style"] = "display:none;border: 2px solid #008CBA;margin-right:1px;";
                         detailsButton.Attributes["OnClientClick"] = "detailsButtonClick";
                         detailsButton.InnerText = "Details";
+
+                        CheckBox completeCheck = new CheckBox();
+                        completeCheck.ID = "check" + idNum.ToString();
+                        completeCheck.InputAttributes.Add("class", "rosterCheck");
+                        completeCheck.Attributes["Style"] = "margin-bottom:5px;bottom:5px;";
+                        completeCheck.Text = "I completed this task";
 
                         HtmlGenericControl taskDiv =
                                 new HtmlGenericControl("div");
@@ -100,9 +106,15 @@ namespace ManageU.Pages
                         taskDiv.Attributes["class"] = "col-sm-4 infoDiv";
                         taskDiv.Attributes["runat"] = "server";
                         taskDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:100px;max-width:500px;margin: 0 auto;";
-                        taskDiv.Controls.Add(yButton);
+
                         taskDiv.Controls.Add(taskLabel);
-                        taskDiv.Controls.Add(detailsButton);
+                        taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        taskDiv.Controls.Add(completeCheck);
+                        taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return deleteTask()'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                        taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return editTask()'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:black;'></i></a>" });
+                        taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return taskDetails()'><i class='fa fa-chevron-right' aria-hidden='true' style='float:right;top:50%;font-size:30px;color:black;'></i></a>" });
+                        //taskDiv.Controls.Add(detailsButton);
                         tasksDiv.Controls.Add(taskDiv);
                     }
 
