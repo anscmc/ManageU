@@ -1,9 +1,12 @@
 ﻿using System;
-using System.Web.UI.HtmlControls;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.UI.HtmlControls;
 
 namespace ManageU.Pages
 {
@@ -11,6 +14,7 @@ namespace ManageU.Pages
 
     public partial class Roster : System.Web.UI.Page
     {
+        List<string> playerIDs = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -77,6 +81,7 @@ namespace ManageU.Pages
                         while (objRS2.Read())
                         {
                             //playerUserID = objRS2["userID"].ToString();
+                            playerIDs.Add(objRS2["userID"].ToString());
                             playerFName = objRS2["playerFName"].ToString();
                             playerLName = objRS2["playerLName"].ToString();
                             playerPos = objRS2["position"].ToString();
@@ -162,7 +167,7 @@ namespace ManageU.Pages
                             infoDiv.Controls.Add(lb1);
                             infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;padding:5px;'></i>" });
                             infoDiv.Controls.Add(lb4);
-                            infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer()'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer(" + idNum.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
                             //infoDiv.Controls.Add(lb6);
                             //infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             //infoDiv.Controls.Add(lb1);
@@ -270,11 +275,10 @@ namespace ManageU.Pages
         //        xCheck = 1;
         //    }
         //}
-        protected void deletePlayerButton_Click(object sender, EventArgs e)
-        {
-            //
 
-            string userID = "55";
+        protected void deleteP()
+        {
+            string userID = deleteHiddenField.Value;
 
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);

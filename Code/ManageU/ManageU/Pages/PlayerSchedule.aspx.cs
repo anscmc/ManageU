@@ -13,6 +13,7 @@ namespace ManageU.Pages
     public partial class PlayerSchedule : System.Web.UI.Page
     {
         List<string> classInfo = new List<string>();
+        List<string> masterIDs = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
@@ -146,8 +147,8 @@ namespace ManageU.Pages
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
                     classDetails.Controls.Add(classDaysLabel);
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
-                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass()'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
-                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass()'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() +")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
 
                     HtmlGenericControl classDates =
                     new HtmlGenericControl("div");
@@ -166,6 +167,7 @@ namespace ManageU.Pages
                     HiddenField idHidden = new HiddenField();
                     idHidden.ID = "hidden" + idCount.ToString();
                     idHidden.Value = mID;
+                    masterIDs.Add(mID);
 
                     //Label startDateLabel = new Label();
                     //startDateLabel.Text = "1/1/2017";
@@ -195,11 +197,10 @@ namespace ManageU.Pages
         {
             Response.Redirect("AddClass.aspx");
         }
-        protected void deleteClass(object sender, EventArgs e)
+        protected void deletePlayerClass(object sender, EventArgs e)
         {
             //need to change these vars to grab from hidden fields
-            int classID = 7;
-            int masterID = 11;
+            string masterID = deleteHiddenField.Value;
 
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
@@ -229,11 +230,10 @@ namespace ManageU.Pages
 
         }
 
-        protected void editClass(object sender, EventArgs e)
+        protected void editPlayerClass(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["ClassToEdit"] = 1;
+            HttpContext.Current.Session["ClassToEdit"] = Int32.Parse(editHiddenField.Value);
             Response.Redirect("EditClass.aspx");
-            //***Will have to set this correctly once front end finished***
             
         }
     }

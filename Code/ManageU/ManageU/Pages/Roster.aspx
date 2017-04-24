@@ -36,14 +36,27 @@
                 </div>
             </section>
     </div>
+        <asp:HiddenField ID="deleteHiddenField" runat="server" />
+
+    <asp:Button runat="server" ID="hiddenDelete" Text="" OnClick="deleteP" CssClass="btn btn-default" 
+                style="display: none;" />
     </div>
 
     <script type="text/javascript">
-        function deletePlayer() {
+        function deletePlayer(row) {
             // click hidden button after "Are you sure" message to call C# method
 
             if (!confirm('Are you sure you want to delete this player?')) { return false; }
+            else {
+                var btnHidden = $('#<%= hiddenDelete.ClientID %>');
+
+                if (btnHidden != null) {
+                    document.getElementById('<%=deleteHiddenField.ClientID %>').value = row;
+                    btnHidden.click();
+                }
             }
+        }
+        
         
 
     </script>
