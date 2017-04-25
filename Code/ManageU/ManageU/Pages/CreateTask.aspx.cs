@@ -31,13 +31,13 @@ namespace ManageU.Pages
         {
             string strsql = "";
             string name = taskName.Text;
-            string date = dueDate2.ToString();
+            string date = dueDate2.Value.ToString();
             DateTime taskDueDateTime;
             string time;
             int hr;
             string min;
 
-            if (amPM.Value == "PM" && Int32.Parse(hour.Value) > 12)
+            if (amPM.Value == "PM" && Int32.Parse(hour.Value) < 12)
             {
                 hr = Int32.Parse(hour.Value) + 12;
             }

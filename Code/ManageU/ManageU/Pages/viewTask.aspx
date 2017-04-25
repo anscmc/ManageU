@@ -7,7 +7,13 @@
     <h2><%: Title %></h2>
     <hr/>
     
-    
+    <label id="name" runat="server"></label>
+        <br />
+        <label id="duedate" runat="server"></label>
+        <br />
+        <label id="duetime" runat="server"></label>
+        <br />
+        <label id="desc" runat="server"></label>
     </div>
 
 </asp:Content>

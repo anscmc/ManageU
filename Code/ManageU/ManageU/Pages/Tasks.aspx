@@ -29,20 +29,46 @@
 
         </div>
     
-    
+        <asp:HiddenField ID="deleteHiddenField" runat="server" />
+        <asp:HiddenField ID="editHiddenField" runat="server" />
+        <asp:HiddenField ID="detailsHiddenField" runat="server" />
+
+        <asp:Button runat="server" ID="hiddenDelete" Text="" OnClick="deleteT" CssClass="btn btn-default" style="display:none;" />
+        <asp:Button runat="server" ID="hiddenEdit" Text="" OnClick="editT" CssClass="btn btn-default" style="display:none;" />
+        <asp:Button runat="server" ID="hiddenDetails" Text="" OnClick="detailsT" CssClass="btn btn-default" 
+                style="display: none;" />
+
     </div>
 
     <script type="text/javascript">
-        function deleteTask() {
+        function deleteTask(row) {
 
             if (!confirm('Are you sure you want to delete this task?')) { return false; }
+            else {
+                var btnHidden = $('#<%= hiddenDelete.ClientID %>');
+
+                if (btnHidden != null) {
+                    document.getElementById('<%=deleteHiddenField.ClientID %>').value = row;
+                    btnHidden.click();
+                }
+            }
         }
-        function editTask() {
-            if (!confirm('edit click')) { return false; }
+        function editTask(row) {
+            var btnHidden = $('#<%= hiddenEdit.ClientID %>');
+
+            if (btnHidden != null) {
+                document.getElementById('<%=editHiddenField.ClientID %>').value = row;
+                    btnHidden.click();
+                }
         }
 
-        function taskDetails() {
-            if (!confirm('details click')) { return false; }
+        function taskDetails(row) {
+            var btnHidden = $('#<%= hiddenDetails.ClientID %>');
+
+            if (btnHidden != null) {
+                document.getElementById('<%=detailsHiddenField.ClientID %>').value = row;
+                    btnHidden.click();
+                }
         }
 
         
