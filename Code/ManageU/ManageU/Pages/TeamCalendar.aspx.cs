@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.UI.HtmlControls;
 
 namespace ManageU.Pages
 {
@@ -68,6 +69,7 @@ namespace ManageU.Pages
                                 monthLabel.InnerText = "December";
                                 break;
                         }
+                        HttpContext.Current.Session["monthSesh"] = monthLabel.InnerText.ToString();
                     }
                     
                 } 
@@ -83,7 +85,9 @@ namespace ManageU.Pages
 
         private void loadCalendar()
         {
-            
+            string eventNameString = "";
+            string eventStartString = "";
+            string eventEndString = "";
             
 
             SqlConnection objCon = default(SqlConnection);
@@ -102,6 +106,7 @@ namespace ManageU.Pages
             SqlDataReader objRS2;
             string strsql = "";
             string strsql2 = "";
+
 
             //get all the event info first
             strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
@@ -124,7 +129,22 @@ namespace ManageU.Pages
                     {
                         while (objRS2.Read())
                         {
-                            //show the events (using what is in objRS (event details) AND objRS2 (event dates))
+                            //eventStartString = objRS2["eventStart"].ToString();
+
+                            //Label eventStart = new Label();
+                            //eventStart.Text = eventStartString;
+
+                            //HtmlGenericControl eventDiv =
+                            //new HtmlGenericControl("div");
+
+                            //eventDiv.Attributes["id"] = "eventDiv";
+                            //eventDiv.Attributes["class"] = "col-sm-4 infoDiv";
+                            //eventDiv.Attributes["runat"] = "server";
+                            //eventDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:100px;max-width:500px;margin: 0 auto;";
+
+                            //eventDiv.Controls.Add(eventStart);
+                            //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            //leftpanel.Controls.Add(eventDiv);
                         }
                     }
 
@@ -137,6 +157,24 @@ namespace ManageU.Pages
             objCmd = null;
             objRS.Close();
             objCon.Close();
+
+            
+
+            //Label eventStart = new Label();
+            //eventStart.Text = "01/01/2018 12:00:00 AM";
+
+            //HtmlGenericControl eventDiv =
+            //new HtmlGenericControl("div");
+
+            //eventDiv.Attributes["id"] = "eventDiv";
+            //eventDiv.Attributes["class"] = "col-sm-4 infoDiv";
+            //eventDiv.Attributes["runat"] = "server";
+            //eventDiv.Attributes["style"] = "width:100%;height:100px;background-color:white;color:white;border: 2px solid #ba9800;margin-top:10px;";
+            //eventDiv.Attributes["onclick"] = "showRightPanel()";
+
+            //eventDiv.Controls.Add(eventStart);
+            //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+            //leftpanel.Controls.Add(eventDiv);
         }
 
         protected void createEvent(object sender, EventArgs e)
