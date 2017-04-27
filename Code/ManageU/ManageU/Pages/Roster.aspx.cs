@@ -22,11 +22,11 @@ namespace ManageU.Pages
 
             if (HttpContext.Current.Session["UserType"].ToString() == "player")
             {
-
+                load();
             }
             else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-
+                load();
             }
             else
             {
@@ -37,7 +37,7 @@ namespace ManageU.Pages
             {
                 this.Session["emailList"] = "";
                 this.Session["sessionEmails"] = "";
-                load();
+                
             }
         }
 
@@ -163,7 +163,7 @@ namespace ManageU.Pages
 
 
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            infoDiv.Controls.Add(new Literal() { Text = "<a href='PlayerSchedule.aspx'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
+                            infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return playerClasses()'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
                             infoDiv.Controls.Add(lb1);
                             infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;padding:5px;'></i>" });
                             infoDiv.Controls.Add(lb4);
@@ -276,9 +276,10 @@ namespace ManageU.Pages
         //    }
         //}
 
-        protected void deleteP()
+        protected void deleteP(object sender, EventArgs e)
         {
-            string userID = deleteHiddenField.Value;
+            
+            string userID = playerIDs.ElementAt(Int32.Parse(deleteHiddenField.Value) - 1);
 
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
@@ -302,6 +303,8 @@ namespace ManageU.Pages
 
             objCmd = null;
             objCon.Close();
+
+            load();
         }
 
         protected void xButtonClick(object sender, EventArgs e)

@@ -96,7 +96,7 @@ namespace ManageU.Pages
                         dueTime = objRS["timeDue"].ToString();
                         description = objRS["taskDesc"].ToString();
 
-                        taskInfo.Add(taskName + "-" + dueDate + "-" + dueTime + "-" + description);
+                        taskInfo.Add(taskID + "-" + taskName + "-" + dueDate + "-" + dueTime + "-" + description);
                         HttpContext.Current.Session["TasksInfo"] = taskInfo;
                         taskIDs.Add(taskID);
 
@@ -225,7 +225,8 @@ namespace ManageU.Pages
 
         protected void editT(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["TaskToEdit"] = Int32.Parse(editHiddenField.Value);
+            HttpContext.Current.Session["FromView"] = "all";
+            HttpContext.Current.Session["TaskToEdit"] = Int32.Parse(editHiddenField.Value) - 1;
             Response.Redirect("EditTask.aspx");
         }
 
