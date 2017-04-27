@@ -24,15 +24,16 @@
 }*/
 .leftpanel {
   width: 100%;
-  height: 480px;
-  border: 2px solid black;
+  height: 85%;
+  border: 1px solid black;
   background-color: #008CBA;
   position: fixed;
-  bottom: -480px;
+  bottom: -85%;
   padding: 5px;
   -webkit-transition: all 0.3s ease-in-out;
   -webkit-box-shadow: 0 0 10px black;
   box-shadow: 0 0 10px black;
+  z-index:2000;
 }
 /*#left-panel {
   width: 300px;
@@ -49,6 +50,9 @@
     box-shadow: 0 0 10px black;
 }*/
 
+.testCal td, .testCal th{
+    padding:3px;
+}
 
 .leftpanel:hover {
   /*left: -250px;*/
@@ -75,15 +79,16 @@
 
 #rightpanel {
   width: 100%;
-  height: 480px;
+  height: 85%;
   border: 2px solid black;
   background-color: #008CBA;
   position: fixed;
-  bottom: -480px;
+  bottom: -85%;
   padding: 5px;
   -webkit-transition: all 0.3s ease-in-out;
   -webkit-box-shadow: 0 0 10px black;
   box-shadow: 0 0 10px black;
+  z-index:2001;
 }
 
 #rightpanel:hover {
@@ -121,6 +126,26 @@
 
 .calWrap{
     /*max-width:200px !important;*/
+}
+
+.square3 {
+  border:solid 1px #008CBA;
+  background-color:white;
+  position: relative;
+  /*width: 14.285714285714285714285714285714%;*/
+  width: 100%;
+  max-width:500px;
+  box-sizing: border-box;
+  display: inline-block;
+  float:left;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.square3:after {
+  content: "";
+  display: inline-block;
+  padding-bottom: 100%;
+  box-sizing: border-box;
 }
 
 .square2 {
@@ -628,7 +653,13 @@ table {
 td,
 th {
   padding: 0;
+  border: 1px solid #008CBA;
+  text-align:left;
+  vertical-align:top;
+  color:#008CBA;
+  
 }
+
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,
@@ -1535,7 +1566,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #008cba;
+  color: #008cba !important;
   text-decoration: none;
 }
 a:hover,
@@ -5073,7 +5104,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   border-color: #006687;
 }
 .navbar-inverse .navbar-brand {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
@@ -5084,7 +5115,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ffffff;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {

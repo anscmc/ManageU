@@ -6,7 +6,11 @@
     <div style="margin: 0 auto; text-align: center;">
         <h2 ><%: Title %></h2>
         <hr />
-
+        <label id="firstDayName" runat="server" style="display:none;font-size:16px;"></label>
+        <label id="lastDayNum" runat="server" style="display:none;font-size:16px;"></label>
+        <label id="dayOneLabel" runat="server" style="display:none;font-size:16px;"></label>
+        <label id="monthYear" runat="server" style="display:none;font-size:16px;"></label>
+        <label id="monthMonth" runat="server" style="display:none;font-size:16px;"></label>
         <asp:Button ID="nextMonthButton" runat="server" style="display:none;" OnClick="nextMonth" />
         <asp:Button ID="lastMonthButton" runat="server" style="display:none;" OnClick="lastMonth" />
 
@@ -157,37 +161,37 @@
                 <div class="calRow">
                     <div class="square">
                         <div id="day8" runat="server" class="content">
-                            
+                            <label id="label8" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day9" runat="server" class="content">
-
+                            <label id="label9" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day10" runat="server" class="content">
-                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
+                            <label id="label10" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day11" runat="server" class="content">
-                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
+                            <label id="label11" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day12" runat="server" class="content">
-
+                            <label id="label12" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day13" runat="server" class="content">
-
+                            <label id="label13" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day14" runat="server" class="content">
-                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
+                            <label id="label14" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                 </div>
@@ -195,37 +199,37 @@
                 <div class="calRow">
                     <div class="square">
                         <div id="day15" runat="server" class="content">
-                            
+                            <label id="label15" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day16" runat="server" class="content">
-
+                            <label id="label16" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day17" runat="server" class="content">
-                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
+                            <label id="label17" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day18" runat="server" class="content">
-                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
+                            <label id="label18" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day19" runat="server" class="content">
-                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
+                            <label id="label19" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day20" runat="server" class="content">
-
+                            <label id="label20" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day21" runat="server" class="content">
-
+                            <label id="label21" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                 </div>
@@ -233,37 +237,37 @@
                 <div class="calRow">
                     <div class="square">
                         <div id="day22" runat="server" class="content">
-                            
+                            <label id="label22" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day23" runat="server" class="content">
-
+                            <label id="label23" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day24" runat="server" class="content">
-
+                            <label id="label24" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day25" runat="server" class="content">
-
+                            <label id="label25" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day26" runat="server" class="content">
-
+                            <label id="label26" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day27" runat="server" class="content">
-
+                            <label id="label27" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day28" runat="server" class="content">
-                            <i class="fa fa-circle" aria-hidden="true" style="color:#ba9800;font-size:25px;margin-top:30%;"></i>
+                            <label id="label28" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                 </div>
@@ -271,37 +275,74 @@
                 <div class="calRow">
                     <div class="square">
                         <div id="day29" runat="server" class="content">
-                            
+                            <label id="label29" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day30" runat="server" class="content">
-
+                            <label id="label30" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day31" runat="server" class="content">
-
+                            <label id="label31" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day32" runat="server" class="content">
-
+                            <label id="label32" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day33" runat="server" class="content">
-
+                            <label id="label33" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day34" runat="server" class="content">
-
+                            <label id="label34" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                     <div class="square">
                         <div id="day35" runat="server" class="content">
-
+                            <label id="label35" style="float:left;margin-left:5px;"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="calRow">
+                    <div class="square">
+                        <div id="day36" runat="server" class="content">
+                            <label id="label36" style="float:left;margin-left:5px;"></label>
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div id="day37" runat="server" class="content">
+                            <label id="label37" style="float:left;margin-left:5px;"></label>
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div id="day38" runat="server" class="content">
+                            <label id="label38" style="float:left;margin-left:5px;"></label>
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div id="day39" runat="server" class="content">
+                            <label id="label39" style="float:left;margin-left:5px;"></label>
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div id="day40" runat="server" class="content">
+                            <label id="label40" style="float:left;margin-left:5px;"></label>
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div id="day41" runat="server" class="content">
+                            <label id="label41" style="float:left;margin-left:5px;"></label>
+                        </div>
+                    </div>
+                    <div class="square">
+                        <div id="day42" runat="server" class="content">
+                            <label id="label42" style="float:left;margin-left:5px;"></label>
                         </div>
                     </div>
                 </div>
@@ -430,20 +471,50 @@
 
         //})();
         var month = $('#<%=monthLabel.ClientID%>').html();
+        var firstDay = $('#<%=firstDayName.ClientID%>').html();
+        var lastDay = $('#<%=lastDayNum.ClientID%>').html();
         var labels = $('label[id^="label"]').hide();
+
         i = 0;
         i2 = 1;
+        i3 = parseInt(lastDay);
+
+        switch (firstDay) {
+            case "Sunday":
+                i = 0;
+                break;
+            case "Monday":
+                i = 1;
+                break;
+            case "Tuesday":
+                i = 2;
+                break;
+            case "Wednesday":
+                i = 3;
+                break;
+            case "Thursday":
+                i = 4;
+                break;
+            case "Friday":
+                i = 5;
+                break;
+            case "Saturday":
+                i = 6;
+                break;
+
+        }
 
         (function cycle() {
 
-
-
+            if (i2 > i3) return;
             labels.eq(i).text(i2);
-            labels.eq(i).append("<div style='float:right;height:auto;width:50%;margin:0 auto;'><i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;'></i></div>")
+            //labels.eq(i).append("<div style='float:right;height:auto;width:50%;margin:0 auto;'><i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;'></i></div>")
             labels.eq(i).show(0, cycle);
 
             i = ++i;
-            i2 = ++i2;
+            i2 = i2 + 1;
+
+            
 
         })();
 

@@ -26,6 +26,22 @@ namespace ManageU.Pages
 
 
                         DateTime localDate = DateTime.Now;
+                        var thisMonth = localDate.Month;
+                        var thisYear = localDate.Year;
+                        monthMonth.InnerText = thisMonth.ToString();
+                        monthYear.InnerText = thisYear.ToString();
+
+
+                        //firstDayName.InnerText = localDate.DayOfWeek.ToString();
+                        var firstDayOfMonth = new DateTime(localDate.Year, localDate.Month, 1);
+                        HttpContext.Current.Session["currentMonth"] = firstDayOfMonth;
+                        var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+                        var firstDay = firstDayOfMonth.DayOfWeek.ToString();
+                        var lastDay = lastDayOfMonth.Day.ToString();
+                        firstDayName.InnerText = firstDay.ToString();
+                        lastDayNum.InnerText = lastDay.ToString();
+                        dayOneLabel.InnerText = firstDayOfMonth.ToString();
+                        
                         HttpContext.Current.Session["monthNum"] = localDate.Month.ToString();
 
                         int monthInt = localDate.Month;
@@ -191,13 +207,16 @@ namespace ManageU.Pages
 
         protected void nextMonth(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["first"] = "notfirst";
+
+            var currentDateVar = dayOneLabel.ToString();
+            
             string monthString = HttpContext.Current.Session["monthNum"].ToString();
             switch (monthString)
             {
                 case "12":
                     monthLabel.InnerText = "January";
                     HttpContext.Current.Session["monthNum"] = "1";
+                    
                     break;
                 case "1":
                     monthLabel.InnerText = "February";
@@ -214,6 +233,8 @@ namespace ManageU.Pages
                 case "4":
                     monthLabel.InnerText = "May";
                     HttpContext.Current.Session["monthNum"] = "5";
+
+
                     break;
                 case "5":
                     monthLabel.InnerText = "June";

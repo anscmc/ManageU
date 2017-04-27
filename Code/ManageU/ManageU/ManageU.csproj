@@ -196,6 +196,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\stadium.jpg" />
     <Content Include="Pages\AddClass.aspx" />
     <Content Include="Pages\AddLift.aspx" />
     <Content Include="Pages\Attendance.aspx" />
@@ -215,6 +216,7 @@
     <Content Include="Pages\TeamCalendar.aspx" />
     <Content Include="Pages\TeamProfile.aspx" />
     <Content Include="Pages\CreateTask.aspx" />
+    <Content Include="Pages\TestCal.aspx" />
     <Content Include="Pages\ViewMeeting.aspx" />
     <Content Include="Pages\ViewTask.aspx" />
     <Content Include="prof\font\roboto\Roboto-Bold.eot" />
@@ -519,6 +521,13 @@
     <Compile Include="Pages\CreateTask.aspx.designer.cs">
       <DependentUpon>CreateTask.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TestCal.aspx.cs">
+      <DependentUpon>TestCal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TestCal.aspx.designer.cs">
+      <DependentUpon>TestCal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ViewMeeting.aspx.cs">
       <DependentUpon>ViewMeeting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -559,7 +568,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
