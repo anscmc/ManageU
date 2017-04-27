@@ -25,14 +25,18 @@ namespace ManageU.Pages
                 string[] splitInfo = infoInString.Split('-');
 
                 tID = splitInfo[0];
+
+                if (HttpContext.Current.Session["UserType"].ToString() == "player")
+                {
+                    deleteTask.Style.Add("display", "none");
+                    editTask.Style.Add("display", "none");
+                }
+
                 if (!IsPostBack)
                 {
                     populateTaskInfo();
                 }
-                if (HttpContext.Current.Session["UserType"].ToString() == "coach")
-                {
-                    //show the delete and edit buttons
-                }
+                
             }
             else
             {

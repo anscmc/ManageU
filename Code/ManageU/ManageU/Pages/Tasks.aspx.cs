@@ -19,13 +19,7 @@ namespace ManageU.Pages
         {
             
 
-            if (HttpContext.Current.Session["UserType"].ToString() == "player")
-            {
-                //deleteTaskButton.Style.Add("display", "none");
-                //addTaskButton.Style.Add("display", "none");
-                loadTasks();
-            }
-            else if(HttpContext.Current.Session["UserType"].ToString() == "coach")
+            if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
                 loadTasks();
             }
@@ -107,21 +101,6 @@ namespace ManageU.Pages
                         ;
 
 
-                        HtmlGenericControl detailsButton = new HtmlGenericControl("button");
-
-                        detailsButton.Attributes["type"] = "button";
-                        detailsButton.Attributes["ID"] = "detailsButton" + idNum.ToString() + ";";
-                        detailsButton.Attributes["class"] = "btn btn-default";
-                        detailsButton.Attributes["style"] = "display:none;border: 2px solid #008CBA;margin-right:1px;";
-                        detailsButton.Attributes["OnClientClick"] = "detailsButtonClick";
-                        detailsButton.InnerText = "Details";
-
-                        CheckBox completeCheck = new CheckBox();
-                        completeCheck.ID = "check" + idNum.ToString();
-                        completeCheck.InputAttributes.Add("class", "rosterCheck");
-                        completeCheck.Attributes["Style"] = "margin-bottom:5px;bottom:5px;";
-                        completeCheck.Text = "I completed this task";
-
                         HtmlGenericControl taskDiv =
                                 new HtmlGenericControl("div");
 
@@ -132,12 +111,25 @@ namespace ManageU.Pages
 
                         taskDiv.Controls.Add(taskLabel);
                         taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                        taskDiv.Controls.Add(completeCheck);
-                        taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                        taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return deleteTask(" + idNum.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
-                        taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return editTask(" + idNum.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:black;'></i></a>" });
+
+                        if (HttpContext.Current.Session["UserType"].ToString() == "player")
+                        {
+                            CheckBox completeCheck = new CheckBox();
+                            completeCheck.ID = "check" + idNum.ToString();
+                            completeCheck.InputAttributes.Add("class", "rosterCheck");
+                            completeCheck.Attributes["Style"] = "margin-bottom:5px;bottom:5px;";
+                            completeCheck.Text = "I completed this task";
+                            taskDiv.Controls.Add(completeCheck);
+                        }
+
+                        if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                        {
+                            taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return deleteTask(" + idNum.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                            taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return editTask(" + idNum.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:black;'></i></a>" });
+                        }
                         taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return taskDetails(" + idNum.ToString() + ")'><i class='fa fa-chevron-right' aria-hidden='true' style='float:right;top:50%;font-size:30px;color:black;'></i></a>" });
-                        //taskDiv.Controls.Add(detailsButton);
+
                         tasksDiv.Controls.Add(taskDiv);
 
                         
