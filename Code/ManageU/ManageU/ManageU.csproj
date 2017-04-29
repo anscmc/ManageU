@@ -217,7 +217,7 @@
     <Content Include="Pages\TeamProfile.aspx" />
     <Content Include="Pages\CreateTask.aspx" />
     <Content Include="Pages\TestCal.aspx" />
-    <Content Include="Pages\ViewMeeting.aspx" />
+    <Content Include="Pages\ViewEvent.aspx" />
     <Content Include="Pages\ViewTask.aspx" />
     <Content Include="prof\font\roboto\Roboto-Bold.eot" />
     <Content Include="prof\font\roboto\Roboto-Bold.ttf" />
@@ -528,12 +528,12 @@
     <Compile Include="Pages\TestCal.aspx.designer.cs">
       <DependentUpon>TestCal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ViewMeeting.aspx.cs">
-      <DependentUpon>ViewMeeting.aspx</DependentUpon>
+    <Compile Include="Pages\ViewEvent.aspx.cs">
+      <DependentUpon>ViewEvent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\ViewMeeting.aspx.designer.cs">
-      <DependentUpon>ViewMeeting.aspx</DependentUpon>
+    <Compile Include="Pages\ViewEvent.aspx.designer.cs">
+      <DependentUpon>ViewEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ViewTask.aspx.cs">
       <DependentUpon>ViewTask.aspx</DependentUpon>

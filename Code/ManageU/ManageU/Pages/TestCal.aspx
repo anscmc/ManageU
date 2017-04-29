@@ -13,8 +13,8 @@
             <asp:Calendar ID="Calendar1" class="testCal" runat="server"></asp:Calendar>
         </div>--%>
 
-                <div style="height:auto;width:100%">
-                    <div class="container"  style="max-width:450px !important;">
+                <div style="height:auto;width:100%;z-index:1500;">
+                    <div class="container"  style="width:100%;margin-right:0px;margin-left:0px;">
                     <div class="square2" style="background-color:#008CBA !important;color:white;z-index:1000;">
                         <div id="Div2" runat="server" class="content">
                             
@@ -57,14 +57,14 @@
                         </div>
                     </div>
 
-                <div id="leftpanel" class="leftpanel">
+                <div id="leftpanel" runat="server" class="leftpanel">
                     <div id="downArrow" onclick="showLeftPanel()" style="height:auto;width:100%;margin-top:0px;font-size:20px;">
                         <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </div>
 
-                    <div id="eventBasic" onclick="showInfo()" style="color:black;">
+                    <%--<div id="eventBasic" onclick="showInfo()" runat="server" class="eventBasic" style="color:black;">
                         event - click to see info
-                    </div>
+                    </div>--%>
                 </div>
                 <div id="rightpanel" >
                    <div id="leftArrow" onclick="showRightPanel()" style="height:auto;width:100%;margin-top:0px;font-size:20px;">
@@ -149,7 +149,8 @@
             //    }
             //}
 
-            var elem = document.getElementById("leftpanel");
+            var elem = document.getElementById("MainContent_leftpanel");
+            <%--var elem = $('#<%= leftpanel.ClientID %>');--%>
             if (elem.classList) {
                 elem.classList.toggle("show");
             } else {
@@ -165,7 +166,8 @@
         }
 
         function showInfo() {
-            alert('show event info');
+            //alert('show event info');
+            window.location.replace("ViewEvent.aspx");
         }
 
         function showRightPanel() {

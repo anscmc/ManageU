@@ -195,7 +195,7 @@ namespace ManageU.Pages
 
         protected void createEvent(object sender, EventArgs e)
         {
-            Response.Redirect("FindTime.aspx");
+            Response.Redirect("CreateEvent.aspx");
         }
 
         protected void teamEventDetailsButton_Click(object sender, EventArgs e)

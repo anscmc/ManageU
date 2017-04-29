@@ -41,6 +41,12 @@ body {
   line-height: 1.4;
 }
 
+.detailsDiv{
+    text-align:center;
+    vertical-align:middle;
+    display:table-cell;
+}
+
 .inputBoxes{
      height:39px !important;
      width:250px !important;
@@ -4987,7 +4993,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
   border-color: #007196;
-  border-bottom:1px solid black;
+  /*border-bottom:1px solid black;*/
   max-height:none;
   overflow:auto;
   height:auto;
