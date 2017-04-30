@@ -31,6 +31,15 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.Button lastMonthButton;
         
         /// <summary>
+        /// container2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl container2;
+        
+        /// <summary>
         /// Div2 control.
         /// </summary>
         /// <remarks>
@@ -101,15 +110,6 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div8;
-        
-        /// <summary>
-        /// leftpanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl leftpanel;
         
         /// <summary>
         /// Div1 control.

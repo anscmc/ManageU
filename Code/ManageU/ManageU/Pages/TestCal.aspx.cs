@@ -81,6 +81,9 @@ namespace ManageU.Pages
             string eventStartString = "";
             string eventEndString = "";
 
+            int idCount = 0;
+            string idString = "";
+
 
             SqlConnection objCon = default(SqlConnection);
             SqlConnection objCon2 = default(SqlConnection);
@@ -99,6 +102,21 @@ namespace ManageU.Pages
             string strsql = "";
             string strsql2 = "";
 
+            HtmlGenericControl leftpanel =
+                                new HtmlGenericControl("div");
+            leftpanel.Attributes["id"] = "leftpanel";
+            leftpanel.Attributes["class"] = "leftpanel";
+            leftpanel.Attributes["runat"] = "server";
+
+            HtmlGenericControl divArrow =
+                                new HtmlGenericControl("div");
+            divArrow.Attributes["id"] = "downArrow";
+            divArrow.Attributes["onclick"] = "showLeftPanel()";
+            divArrow.Attributes["style"] = "height:auto;width:100%;margin-top:0px;font-size:20px;";
+            divArrow.Attributes["runat"] = "server";
+            divArrow.Controls.Add(new Literal() { Text = "<i class='fa fa-chevron-down' aria-hidden='true'></i>" });
+
+            leftpanel.Controls.Add(divArrow);
 
             //get all the event info first
             strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
@@ -124,6 +142,8 @@ namespace ManageU.Pages
                             eventStartString = objRS2["eventStart"].ToString();
                             eventIdString = objRS2["masterID"].ToString();
 
+                            string eventDay = eventStartString.Split('/', '/')[1];
+
                             Label eventMasterID = new Label();
                             eventMasterID.Text = eventIdString;
 
@@ -134,8 +154,9 @@ namespace ManageU.Pages
 
                             HtmlGenericControl eventDiv =
                             new HtmlGenericControl("div");
-
-                            eventDiv.Attributes["id"] = "eventDiv";
+                            idCount = idCount + 1;
+                            idString = idCount.ToString();
+                            eventDiv.Attributes["id"] = "eventBasic" + idString + eventDay;
                             eventDiv.Attributes["class"] = "eventBasic";
                             eventDiv.Attributes["onclick"] = "showInfo()";
                             eventDiv.Attributes["runat"] = "server";
@@ -143,8 +164,11 @@ namespace ManageU.Pages
 
                             eventDiv.Controls.Add(eventStart);
                             eventDiv.Controls.Add(eventMasterID);
+                            
                             //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            
                             leftpanel.Controls.Add(eventDiv);
+                            container2.Controls.Add(leftpanel);
                         }
                     }
 
