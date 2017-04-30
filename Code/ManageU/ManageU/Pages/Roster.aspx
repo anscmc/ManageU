@@ -7,11 +7,6 @@
 
     <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
 
-    <%--<script type="text/javascript">
-        xButtonClick=function(){
-               
-        }
-    </script>--%>
     
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
@@ -22,8 +17,7 @@
         <asp:Button runat="server" Text="Email Selected Players" AutoPostBack="false" OnClick="emailClick" CssClass="btn btn-default" 
             style="display: block; margin: 0 auto; text-align: center;" />
         <%--<br />--%>
-        <asp:CheckBox id="selectAllBox" Text="Select All Players" runat="server" 
-            OnCheckedChanged="selectAll" AutoPostBack="True" />
+        <asp:CheckBox id="selectAllBox" Text="Select All Players" runat="server" onclick="checkAllCheckboxes()" />
     </div>
     <div class="row" style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
             <section id="loginForm">
@@ -67,6 +61,13 @@
                 document.getElementById('<%=calHiddenField.ClientID %>').value = row;
                     btnHidden.click();
                 }
+        }
+
+        function checkAllCheckboxes() {
+            var checkboxArray = document.getElementsByClassName("rosterCheck");
+            for (var i = 0; i < checkboxArray.length; i++) {
+                checkboxArray[i].checked = true;
+            }
         }
         
         

@@ -15,6 +15,8 @@ namespace ManageU.Pages
     public partial class Roster : System.Web.UI.Page
     {
         List<string> playerIDs = new List<string>();
+        List<string> playerEmails = new List<string>();
+        List<CheckBox> checkboxes = new List<CheckBox>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -88,6 +90,7 @@ namespace ManageU.Pages
                             playerClass = objRS2["class"].ToString();
                             playerNum = objRS2["playerNumber"].ToString();
                             playerEmail = objRS2["playerEmail"].ToString();
+                            playerEmails.Add(playerEmail);
 
                             
                             idNum = idNum + 1;
@@ -124,6 +127,7 @@ namespace ManageU.Pages
                             emailCheck.ID = "check" + idNum.ToString();
                             emailCheck.InputAttributes.Add("class", "rosterCheck");
                             emailCheck.Text = "Add " + playerEmail + " to email list";
+                    checkboxes.Add(emailCheck);
 
                     //HtmlGenericControl xButton =
                     //new HtmlGenericControl("button");
@@ -139,7 +143,7 @@ namespace ManageU.Pages
                     //xButton.Attributes["OnClientClick"] = "xButtonClick";
                     //xButton.Attributes.Add("clientclick", "return false");
 
-                            HtmlGenericControl calButton =
+                    HtmlGenericControl calButton =
                             new HtmlGenericControl("button");
 
                             calButton.Attributes["type"] = "button";
@@ -258,6 +262,28 @@ namespace ManageU.Pages
         }
         protected void emailClick(object sender, EventArgs e)
         {
+            string playersToEmail = "";
+
+            for(int i = 0; i < checkboxes.Count; i++)
+            {
+                if (checkboxes[i].Checked)
+                {
+                    if (playersToEmail == "")
+                    {
+                        playersToEmail = playerEmails.ElementAt(i);
+                    }
+                    else
+                    {
+                        playersToEmail = playersToEmail + "," + playerEmails.ElementAt(i);
+                    }
+                }
+                
+            }
+            
+         
+
+            HttpContext.Current.Session["RosterEmailAddresses"] = playersToEmail;
+            HttpContext.Current.Session["FromRosterToContact"] = "y";
             Response.Redirect("~/Pages/Contact.aspx");
         }
 
