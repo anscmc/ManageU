@@ -97,7 +97,7 @@ namespace ManageU.Pages
                             //label.text = playerUserID dynamic id
 
                             Label lb1 = new Label();
-                            lb1.Text = playerFName + " ";
+                            lb1.Text = playerFName + " " + playerLName;
 
                             Label lb2 = new Label();
                             lb2.Text = playerClass;
@@ -163,11 +163,15 @@ namespace ManageU.Pages
 
 
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return playerClasses()'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
+                            if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                            {
+                                infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return playerClasses(" + idNum.ToString() + ")'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
+                                infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer(" + idNum.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
+                            }
                             infoDiv.Controls.Add(lb1);
                             infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;padding:5px;'></i>" });
                             infoDiv.Controls.Add(lb4);
-                            infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer(" + idNum.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
+                            
                             //infoDiv.Controls.Add(lb6);
                             //infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             //infoDiv.Controls.Add(lb1);
@@ -275,6 +279,14 @@ namespace ManageU.Pages
         //        xCheck = 1;
         //    }
         //}
+
+        protected void playerSched(object sender, EventArgs e)
+        {
+            string userID = playerIDs.ElementAt(Int32.Parse(calHiddenField.Value) - 1);
+            HttpContext.Current.Session["PlayerIDForSched"] = userID;
+            HttpContext.Current.Session["FromRoster"] = "y";
+            Response.Redirect("PlayerSchedule.aspx");
+        }
 
         protected void deleteP(object sender, EventArgs e)
         {

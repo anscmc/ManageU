@@ -37,8 +37,11 @@
             </section>
     </div>
         <asp:HiddenField ID="deleteHiddenField" runat="server" />
+        <asp:HiddenField ID="calHiddenField" runat="server" />
 
     <asp:Button runat="server" ID="hiddenDelete" Text="" OnClick="deleteP" CssClass="btn btn-default" 
+                style="display: none;" />
+        <asp:Button runat="server" ID="hiddenCal" Text="" OnClick="playerSched" CssClass="btn btn-default" 
                 style="display: none;" />
     </div>
 
@@ -55,6 +58,15 @@
                     btnHidden.click();
                 }
             }
+        }
+
+        function playerClasses(row) {
+            var btnHidden = $('#<%= hiddenCal.ClientID %>');
+
+            if (btnHidden != null) {
+                document.getElementById('<%=calHiddenField.ClientID %>').value = row;
+                    btnHidden.click();
+                }
         }
         
         

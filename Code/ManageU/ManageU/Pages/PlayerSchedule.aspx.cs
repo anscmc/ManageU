@@ -27,6 +27,11 @@ namespace ManageU.Pages
             }
         }
 
+        protected void Page_Unload(object sender, EventArgs e)
+        {
+            //HttpContext.Current.Session["FromRoster"] = null;
+        }
+
         private void loadCalendar()
         {
             String eventName = "";
@@ -53,7 +58,17 @@ namespace ManageU.Pages
 
             classDiv.InnerHtml = "";
 
-            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
+                //if coach viewing it
+                if (HttpContext.Current.Session["FromRoster"].ToString() == "y")
+                {
+                    strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["PlayerIDForSched"].ToString() + "'";
+                }
+                //if the player (owner) is viewing it
+                else
+                {
+                    strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
+                }
+
             objCon.Open();
 
             objCmd = new SqlCommand(strsql, objCon);
@@ -147,8 +162,27 @@ namespace ManageU.Pages
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
                     classDetails.Controls.Add(classDaysLabel);
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
-                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() +")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
-                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+                    if (HttpContext.Current.Session["FromRoster"] != null)
+                    {
+                        //owner looking at own schedule
+                        if (HttpContext.Current.Session["PlayerIDForSched"].ToString() == HttpContext.Current.Session["UserID"].ToString())
+                        {
+                            classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                            classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    //haven't gone to roster page, so owner is viewing schedule
+                    else
+                    {
+                        classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                        classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+
+                    }
 
                     HtmlGenericControl classDates =
                     new HtmlGenericControl("div");
