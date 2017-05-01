@@ -12,6 +12,7 @@ namespace ManageU.Pages
 {
     public partial class TestCal : System.Web.UI.Page
     {
+        List<string> eventsInfo = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
@@ -19,10 +20,14 @@ namespace ManageU.Pages
                 if (!IsPostBack)
                 {
                     Calendar2.ShowNextPrevMonth = false;
-                    Calendar2.SelectedDate = DateTime.Now;
+                    DateTime localDate = DateTime.Now;
+                    Calendar2.SelectedDate = localDate;
                     Calendar2.VisibleDate = Calendar2.SelectedDate;
                     DateTime curMonth = Calendar2.SelectedDate;
                     //monthLabel.InnerText = curMonth.Month.ToString();
+
+                    HttpContext.Current.Session["monthNum"] = localDate.Month.ToString();
+                    HttpContext.Current.Session["currYear"] = localDate.Year.ToString();
 
                     int monthInt = curMonth.Month;
 
@@ -80,6 +85,12 @@ namespace ManageU.Pages
             string eventNameString = "";
             string eventStartString = "";
             string eventEndString = "";
+            string attending = "";
+            string notAttending = "";
+            string type;
+            string reoccuring;
+            string att;
+            string descr;
             
 
             int idCount = 0;
@@ -103,7 +114,6 @@ namespace ManageU.Pages
             SqlDataReader objRS;
             SqlDataReader objRS2;
             string strsql = "";
-            string strsql2 = "";
 
             HtmlGenericControl leftpanel =
                                 new HtmlGenericControl("div");
@@ -121,8 +131,8 @@ namespace ManageU.Pages
 
             leftpanel.Controls.Add(divArrow);
 
-            //get all the event info first
-            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
+            //get all the event info for the month first
+            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
             objCon.Open();
             objCmd = new SqlCommand(strsql, objCon);
 
@@ -131,11 +141,18 @@ namespace ManageU.Pages
             {
                 while (objRS.Read())
                 {
+                    eventNameString = objRS["eventName"].ToString();
+                    attending = objRS["attendees"].ToString();
+                    notAttending = objRS["notattending"].ToString();
+                    type = objRS["eventType"].ToString();
+                    reoccuring = objRS["reoccur"].ToString();
+                    att = objRS["attReq"].ToString();
+                    descr = objRS["eventNotes"].ToString();
                     //get all dates of the event
-                    strsql2 = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
+                    strsql = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
                     objCon2.Open();
 
-                    objCmd2 = new SqlCommand(strsql2, objCon2);
+                    objCmd2 = new SqlCommand(strsql, objCon2);
 
                     objRS2 = objCmd2.ExecuteReader();
                     if (objRS2.HasRows)
@@ -145,17 +162,49 @@ namespace ManageU.Pages
                             cycle = cycle + 1;
                             while (objRS2.Read())
                             {
+                                idCount = idCount + 1;
+                                idString = idCount.ToString();
+
                                 eventStartString = objRS2["eventStart"].ToString();
                                 eventIdString = objRS2["masterID"].ToString();
+<<<<<<< HEAD
                                 //eventNameString = objRS2["eventName"].ToString();
                                 eventNameString = "Event Name";
+=======
+                                eventEndString = objRS2["eventEnd"].ToString();
+
+
+                                eventsInfo.Add(eventIdString + ";" + eventNameString + ";" + type + ";" + eventStartString + ";" + eventEndString + ";" + attending + ";" + notAttending + ";" + reoccuring + ";" + att + ";" + descr);
+
+                                HttpContext.Current.Session["TeamEventInfo"] = eventsInfo;
+>>>>>>> 95b6e814cf356e46df7da92a160a9ef659c3fe6a
 
                                 string eventDay = eventStartString.Split('/', '/')[1];
 
                                 Label eventMasterID = new Label();
                                 eventMasterID.Text = eventIdString;
-
+                                eventMasterID.ID = "master" + idString;
                                 eventMasterID.Attributes["style"] = "display:none;";
+
+                                Label end = new Label();
+                                end.Text = eventEndString;
+                                end.ID = "end" + idString;
+                                end.Attributes["style"] = "display:none;";
+
+                                Label attend = new Label();
+                                attend.Text = attending;
+                                attend.ID = "attend" + idString;
+                                attend.Attributes["style"] = "display:none;";
+
+                                Label notattend = new Label();
+                                notattend.Text = notAttending;
+                                notattend.ID = "noattend" + idString;
+                                notattend.Attributes["style"] = "display:none;";
+
+                                Label eType = new Label();
+                                eType.Text = type;
+                                eType.ID = "type" + idString;
+                                eType.Attributes["style"] = "display:none;";
 
                                 Label eventStart = new Label();
                                 eventStart.Text = eventStartString;
@@ -164,11 +213,10 @@ namespace ManageU.Pages
 
                                 HtmlGenericControl eventDiv =
                                 new HtmlGenericControl("div");
-                                idCount = idCount + 1;
-                                idString = idCount.ToString();
+                                
                                 eventDiv.Attributes["id"] = "eventBasic" + idString + "x" + eventDay + "x";
                                 eventDiv.Attributes["class"] = "eventBasic";
-                                eventDiv.Attributes["onclick"] = "showInfo()";
+                                eventDiv.Attributes["onclick"] = "showInfo(" + idString +")";
                                 eventDiv.Attributes["runat"] = "server";
                                 eventDiv.Attributes["style"] = "color:black;";
 
@@ -183,7 +231,16 @@ namespace ManageU.Pages
                                 eventDiv.Controls.Add(eventStart);
                                 eventDiv.Controls.Add(eventMasterID);
                                 eventDiv.Controls.Add(eventDayLabel);
+<<<<<<< HEAD
                                 eventDiv.Controls.Add(new Literal() { Text = "<a><i class='fa fa-chevron-right' aria-hidden='true' style='float:right;top:50%;font-size:30px;color:black;z-index:1000;'></i></a>" });
+=======
+                                eventDiv.Controls.Add(eventMasterID);
+                                eventDiv.Controls.Add(end);
+                                eventDiv.Controls.Add(eType);
+                                eventDiv.Controls.Add(attend);
+                                eventDiv.Controls.Add(notattend);
+
+>>>>>>> 95b6e814cf356e46df7da92a160a9ef659c3fe6a
                                 //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
 
                                 leftpanel.Controls.Add(eventDiv);
@@ -236,45 +293,57 @@ namespace ManageU.Pages
             DateTime curMonth = Calendar2.SelectedDate;
             //monthLabel.InnerText = curMonth.Month.ToString();
 
-            int monthInt = curMonth.Month;
-
-            switch (monthInt)
+            string monthString = HttpContext.Current.Session["monthNum"].ToString();
+            switch (monthString)
             {
-                case 1:
+                case "12":
                     monthLabel.InnerText = "January";
+                    HttpContext.Current.Session["monthNum"] = "1";
+                    HttpContext.Current.Session["currYear"] = (Int32.Parse(HttpContext.Current.Session["currYear"].ToString()) + 1).ToString();
                     break;
-                case 2:
+                case "1":
                     monthLabel.InnerText = "February";
+                    HttpContext.Current.Session["monthNum"] = "2";
                     break;
-                case 3:
+                case "2":
                     monthLabel.InnerText = "March";
+                    HttpContext.Current.Session["monthNum"] = "3";
                     break;
-                case 4:
+                case "3":
                     monthLabel.InnerText = "April";
+                    HttpContext.Current.Session["monthNum"] = "4";
                     break;
-                case 5:
+                case "4":
                     monthLabel.InnerText = "May";
+                    HttpContext.Current.Session["monthNum"] = "5";
                     break;
-                case 6:
+                case "5":
                     monthLabel.InnerText = "June";
+                    HttpContext.Current.Session["monthNum"] = "6";
                     break;
-                case 7:
+                case "6":
                     monthLabel.InnerText = "July";
+                    HttpContext.Current.Session["monthNum"] = "7";
                     break;
-                case 8:
+                case "7":
                     monthLabel.InnerText = "August";
+                    HttpContext.Current.Session["monthNum"] = "8";
                     break;
-                case 9:
+                case "8":
                     monthLabel.InnerText = "September";
+                    HttpContext.Current.Session["monthNum"] = "9";
                     break;
-                case 10:
+                case "9":
                     monthLabel.InnerText = "October";
+                    HttpContext.Current.Session["monthNum"] = "10";
                     break;
-                case 11:
+                case "10":
                     monthLabel.InnerText = "November";
+                    HttpContext.Current.Session["monthNum"] = "11";
                     break;
-                case 12:
+                case "11":
                     monthLabel.InnerText = "December";
+                    HttpContext.Current.Session["monthNum"] = "12";
                     break;
             }
         }
@@ -286,47 +355,65 @@ namespace ManageU.Pages
             DateTime curMonth = Calendar2.SelectedDate;
             //monthLabel.InnerText = curMonth.Month.ToString();
 
-            int monthInt = curMonth.Month;
-
-            switch (monthInt)
+            string monthString = HttpContext.Current.Session["monthNum"].ToString();
+            switch (monthString)
             {
-                case 1:
+                case "2":
                     monthLabel.InnerText = "January";
+                    HttpContext.Current.Session["monthNum"] = "1";
                     break;
-                case 2:
+                case "3":
                     monthLabel.InnerText = "February";
+                    HttpContext.Current.Session["monthNum"] = "2";
                     break;
-                case 3:
+                case "4":
                     monthLabel.InnerText = "March";
+                    HttpContext.Current.Session["monthNum"] = "3";
                     break;
-                case 4:
+                case "5":
                     monthLabel.InnerText = "April";
+                    HttpContext.Current.Session["monthNum"] = "4";
                     break;
-                case 5:
+                case "6":
                     monthLabel.InnerText = "May";
+                    HttpContext.Current.Session["monthNum"] = "5";
                     break;
-                case 6:
+                case "7":
                     monthLabel.InnerText = "June";
+                    HttpContext.Current.Session["monthNum"] = "6";
                     break;
-                case 7:
+                case "8":
                     monthLabel.InnerText = "July";
+                    HttpContext.Current.Session["monthNum"] = "7";
                     break;
-                case 8:
+                case "9":
                     monthLabel.InnerText = "August";
+                    HttpContext.Current.Session["monthNum"] = "8";
                     break;
-                case 9:
+                case "10":
                     monthLabel.InnerText = "September";
+                    HttpContext.Current.Session["monthNum"] = "9";
                     break;
-                case 10:
+                case "11":
                     monthLabel.InnerText = "October";
+                    HttpContext.Current.Session["monthNum"] = "10";
                     break;
-                case 11:
+                case "12":
                     monthLabel.InnerText = "November";
+                    HttpContext.Current.Session["monthNum"] = "11";
                     break;
-                case 12:
+                case "1":
                     monthLabel.InnerText = "December";
+                    HttpContext.Current.Session["monthNum"] = "12";
+                    HttpContext.Current.Session["currYear"] = (Int32.Parse(HttpContext.Current.Session["currYear"].ToString()) - 1).ToString();
                     break;
             }
+        }
+
+        protected void hiddenView_Click(object sender, EventArgs e)
+        {
+            HttpContext.Current.Session["TeamEventRowToView"] = Int32.Parse(viewHiddenField.Value) - 1;
+            Response.Redirect("ViewEvent.aspx");
         }
     }
 }

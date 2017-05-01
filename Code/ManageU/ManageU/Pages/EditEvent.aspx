@@ -1,6 +1,7 @@
-﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="CreateEvent.aspx.cs" Inherits="ManageU.Pages.CreateMeeting" %>
+﻿<%@ Page Title="Edit Event" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="EditEvent.aspx.cs" Inherits="ManageU.Pages.EditEvent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
+
+    <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
 
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
@@ -17,7 +18,7 @@
 
 
                             <label id="eventNameLabel" runat="server">Event Name</label>
-                            <asp:TextBox ID="EventName" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;color:black;"></asp:TextBox>
+                            <asp:TextBox ID="eventName" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;color:black;"></asp:TextBox>
                             <br />
                             <label id="Label5" runat="server">Event Type</label>
                             <br />
@@ -30,15 +31,16 @@
                             <br />
                             <label id="eventStartDateLabel" runat="server">Start Date</label>
 
-                            <input type="date" name="eventStartDate" id="eventStartDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;color:black !important;">
+                            <input type="date" name="eventStartDate" id="eventStartDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
 
                             <label id="eventEndDateLabel" runat="server">End Date</label>
                             <br />
-                            <input type="date" name="eventEndDate" id="eventEndDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;color:black !important;">
+                            <input type="date" name="eventEndDate" id="eventEndDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
 
                             <label id="eventStartTimeLabel" runat="server"> Start Time</label>
                             <br />
-                            <select ID="eventStartHour" class="selectpicker" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">                                        <option value="1">1</option>
+                            <select ID="eventStartHour" class="selectpicker" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
+                                        <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -52,7 +54,7 @@
                                         <option value="12">12</option>
                                 </select>
                             <label id="Label1" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">:</label>
-                                    <select class="selectpicker" ID="eventStartMinute" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
+<select class="selectpicker" ID="eventStartMinute" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
                                         <option value="00">00</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -113,15 +115,15 @@
                                         <option value="57">57</option>
                                         <option value="58">58</option>
                                         <option value="59">59</option>
-                                </select>                            
-                            <select class="selectpicker" ID="beginAmPM" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;height:39px; color:black;width:50px;border-radius:5px;">
+                                </select>                            <select class="selectpicker" ID="beginAmPM" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;height:39px; color:black;width:50px;border-radius:5px;">
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
                             </select>
                             <br />
                             <label id="Label3" runat="server"> End Time</label>
                             <br />
-<select class="selectpicker" ID="eventEndHour" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">                                        <option value="1">1</option>
+<select ID="eventEndHour" class="selectpicker" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
+                                        <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -224,7 +226,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:Button ID="createEventButton" Text="Create" OnClick="createEventButton_Click" CssClass="btn btn-default" style="width:250px; max-height:200px; display:block; margin:0 auto; margin-top:10px; margin-bottom:10px; text-align:center; color:#008CBA; background-color:white; padding-left:25px; padding-right:25px;" runat="server"/>
+                            <asp:Button ID="editEventButton" Text="Save" OnClick="editEventButton_Click" CssClass="btn btn-default" style="width:250px; max-height:200px; display:block; margin:0 auto; margin-top:10px; margin-bottom:10px; text-align:center; color:#008CBA; background-color:white; padding-left:25px; padding-right:25px;" runat="server"/>
                             <asp:Button ID="cancel" Text="Cancel" OnClick="cancel_Click" CssClass="btn btn-default" style="width:250px; max-height:200px; display:block; margin:0 auto; margin-top:10px; margin-bottom:10px; text-align:center; color:#008CBA; background-color:white; padding-left:25px; padding-right:25px;" runat="server"/>
                             <%--<label id="errLabel" style="color: Red; display: none;" runat="server">Unable to updated password. Please make sure you enter your correct email and password.</label>--%>
                         </div>

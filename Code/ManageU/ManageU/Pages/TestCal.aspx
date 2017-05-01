@@ -97,7 +97,8 @@
         <div id="divClick" class="content" onclick="showLeftPanel()" style="display:none;">
         </div>
         
-        
+        <asp:Button runat="server" ID="hiddenView" Text="" CssClass="btn btn-default" OnClick="hiddenView_Click" style="display: none;" />
+        <asp:HiddenField ID="viewHiddenField" runat="server" />
     </div>
 
     <%--<asp:Calendar ID="Calendar1" CssClass="cal" runat="server"></asp:Calendar>--%>
@@ -223,8 +224,12 @@
             
         }
 
-        function showInfo() {
-            window.location.replace("ViewEvent.aspx");
+        function showInfo(row) {
+            var showButton = $('#<%= hiddenView.ClientID %>');
+            if (showButton != null) {
+                document.getElementById('<%=viewHiddenField.ClientID %>').value = row;
+                showButton.click();
+            }
         }
 
         function goHome() {

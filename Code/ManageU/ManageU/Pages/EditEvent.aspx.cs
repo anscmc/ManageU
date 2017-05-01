@@ -1,104 +1,89 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net.Mail;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace ManageU.Pages
 {
-    public partial class CreateMeeting : System.Web.UI.Page
+    public partial class EditEvent : System.Web.UI.Page
     {
+        List<string> eventsInfo = new List<string>();
+        string mID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["startHour"] = "";
-            HttpContext.Current.Session["startMinute"] = "";
-            HttpContext.Current.Session["amOrPM"] = "";
-            string meetingInfo;
-            string[] meetingSplit;
-            string date;
-            string dateToEnter;
-            string[] dateSplit;
-            string month;
-            string day;
-            string year;
-            string start;
-            string[] startSplit;
-            string startTime;
-            string startAmPm;
-            string[] startTimeSplit;
-            string startHr;
-            string startMin;
-            string end;
-            string[] endSplit;
-            string endTime;
-            string endAmPm;
-            string[] endTimeSplit;
-            string endHr;
-            string endMin;
-
-
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-                //if coming from available meeting times page fill in the fields
-                if (HttpContext.Current.Session["FromFindTimes"] == null) {
-
-                }
-                else if (HttpContext.Current.Session["FromFindTimes"].ToString() == "Y")
+                eventsInfo = (List<string>)HttpContext.Current.Session["TeamEventInfo"];
+                int eventToView = Int32.Parse(HttpContext.Current.Session["TeamEventRowToView"].ToString());
+                string[] infoSplit = eventsInfo.ElementAt(eventToView).Split(';');
+                mID = infoSplit[0];
+                if (!IsPostBack)
                 {
-                    meetingInfo = HttpContext.Current.Session["ChosenMeeting"].ToString();
-                    meetingSplit = meetingInfo.Split(';');
-
-                    date = meetingSplit[0];
-                    dateSplit = date.Split('/');
-                    month = dateSplit[0];
-                    day = dateSplit[1];
-                    year = dateSplit[2];
-
-                    if (month.Length == 1)
+                    
+                    mID = infoSplit[0];
+                    string[] startSplit = infoSplit[3].Split(' ');
+                    string[] sDate = startSplit[0].Split('/');
+                    if (sDate[0].Length == 1)
                     {
-                        month = "0" + month;
+                        sDate[0] = "0" + sDate[0];
                     }
-                    if (day.Length == 1)
+                    if (sDate[1].Length == 1)
                     {
-                        day = "0" + day;
+                        sDate[1] = "0" + sDate[1];
                     }
+                    string startD = sDate[2] + "-" + sDate[0] + "-" + sDate[1];
+                    string[] endSplit = infoSplit[4].Split(' ');
+                    string[] eDate = endSplit[0].Split('/');
+                    if (eDate[0].Length == 1)
+                    {
+                        eDate[0] = "0" + eDate[0];
+                    }
+                    if (eDate[1].Length == 1)
+                    {
+                        eDate[1] = "0" + eDate[1];
+                    }
+                    string endD = eDate[2] + "-" + eDate[0] + "-" + eDate[1];
+                    eventStartDate.Value = startD;
+                    eventEndDate.Value = endD;
+                    string[] sTimeSplit = startSplit[1].Split(' ');
+                    string sTimeS = sTimeSplit[0];
+                    string[] sTimeSSplit = sTimeS.Split(':');
+                    string sTimeAmPm = startSplit[2];
+                    string hrS = sTimeSSplit[0];
+                    string minS = sTimeSSplit[1];
+                    string amPmS = startSplit[2];
+                    string[] eTimeSplit = endSplit[1].Split(' ');
+                    string eTimeE = eTimeSplit[0];
+                    string[] eTimeSSplit = eTimeE.Split(':');
+                    string hrE = eTimeSSplit[0];
+                    string minE = eTimeSSplit[1];
+                    string amPmE = endSplit[2];
 
-                    dateToEnter = year + "-" + month + "-" + day;
-                    eventStartDate.Value = dateToEnter;
-                    eventEndDate.Value = dateToEnter;
+                    eventStartHour.Value = hrS;
+                    eventStartMinute.Value = minS;
+                    beginAmPM.Value = amPmS;
 
-                    start = meetingSplit[1];
-                    end = meetingSplit[2];
+                    eventEndHour.Value = hrE;
+                    eventEndMinute.Value = minE;
+                    endingAmPm.Value = amPmE;
 
-                    startSplit = start.Split(' ');
-                    startTime = startSplit[0];
-                    startAmPm = startSplit[1];
-                    startTimeSplit = startTime.Split(':');
-                    startHr = startTimeSplit[0];
-                    startMin = startTimeSplit[1];
-
-                    endSplit = end.Split(' ');
-                    endTime = endSplit[0];
-                    endAmPm = endSplit[1];
-                    endTimeSplit = endTime.Split(':');
-                    endHr = endTimeSplit[0];
-                    endMin = endTimeSplit[1];
-
-                    eventType.Value = "Meeting";
-
-                    eventStartHour.Value = startHr;
-                    eventStartMinute.Value = startMin;
-                    beginAmPM.Value = startAmPm;
-
-                    eventEndHour.Value = endHr;
-                    eventEndMinute.Value = endMin;
-                    endingAmPm.Value = endAmPm;
-
-
+                    mID = infoSplit[0];
+                    eventName.Text = infoSplit[1];
+                    eventType.Value = infoSplit[2];
+                    eventStartDate.Value = startD;
+                    eventEndDate.Value = endD;
+                    repeatPicker.Value = infoSplit[7];
+                    if (infoSplit[8] == "Y")
+                    {
+                        required.Checked = true;
+                    }
+                    eventDes.Text = infoSplit[9];
                 }
             }
             else
@@ -107,9 +92,51 @@ namespace ManageU.Pages
             }
         }
 
-        public void createEventButton_Click(object sender, EventArgs e) {
+        protected void cancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewEvent.aspx");
+        }
+
+        protected void editEventButton_Click(object sender, EventArgs e)
+        {
+            deleteEvent();
+            createEvent();
+            Response.Redirect("TestCal.aspx");
+        }
+
+        protected void deleteEvent()
+        {
             string strsql = "";
-            string name = EventName.Text;
+            SqlConnection objCon = default(SqlConnection);
+            SqlCommand objCmd = default(SqlCommand);
+            objCon = new SqlConnection();
+            objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
+
+            objCon.Open();
+            objCmd = new SqlCommand();
+            objCmd.Connection = objCon;
+
+            //Delete class from database if want to delete all instances
+
+            strsql = "delete from EventMasterTable where masterID='" + mID + "'";
+            objCmd = new SqlCommand(strsql, objCon);
+
+            objCmd.ExecuteNonQuery();
+
+            objCmd = null;
+
+            strsql = "delete from EventDetailsTable where masterID='" + mID + "'";
+            objCmd = new SqlCommand(strsql, objCon);
+
+            objCmd.ExecuteNonQuery();
+
+            objCon.Close();
+        }
+
+        public void createEvent()
+        {
+            string strsql = "";
+            string name = eventName.Text;
             string type = eventType.Value;
             //has to be in the format '20170305 02:01:10 PM'
             //will have to change the next two lines when know what pickers have so can convert to correct format
@@ -134,7 +161,7 @@ namespace ManageU.Pages
                 attendanceReq = "N";
             }
 
-            if(beginAmPM.Value == "AM" && Int32.Parse(eventStartHour.Value) == 12)
+            if (beginAmPM.Value == "AM" && Int32.Parse(eventStartHour.Value) == 12)
             {
                 startHr = Int32.Parse(eventStartHour.Value) - 12;
             }
@@ -210,7 +237,7 @@ namespace ManageU.Pages
                     objCmd = new SqlCommand();
                     objCmd.Connection = objCon;
 
-                    
+
 
                     strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd);";
                     objCmd = new SqlCommand(strsql, objCon);
@@ -224,14 +251,14 @@ namespace ManageU.Pages
                     end = end.AddDays(7.0);
                 }
             }
-            else if(repeatPicker.Value == "Daily")
+            else if (repeatPicker.Value == "Daily")
             {
                 for (DateTime eventDate = start; eventDate <= until; eventDate = eventDate.AddDays(1.0))
                 {
                     objCmd = new SqlCommand();
                     objCmd.Connection = objCon;
 
-                    
+
 
                     strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd);";
                     objCmd = new SqlCommand(strsql, objCon);
@@ -286,14 +313,14 @@ namespace ManageU.Pages
                     client.Credentials = new System.Net.NetworkCredential("manageuapp@gmail.com", "Seniordes2017");
                     client.Host = "smtp.gmail.com";
                     client.EnableSsl = true;
-                    mail.Subject = "ManageU Team Event Added";
+                    mail.Subject = "ManageU Team Event Updated";
                     if (attendanceReq == "Y")
                     {
-                        mail.Body = "A " + eventType.Value + " has been added to your team calendar. Your coach is requiring attendance for this event.";
+                        mail.Body = "A " + eventType.Value + " has been edited. Your coach is requiring attendance for this event.";
                     }
                     else
                     {
-                        mail.Body = "A " + eventType.Value + " has been added to your team calendar";
+                        mail.Body = "A " + eventType.Value + " has been edited.";
                     }
 
                     mail.IsBodyHtml = true;
@@ -305,11 +332,6 @@ namespace ManageU.Pages
             objRS.Close();
             objCon.Close();
 
-            Response.Redirect("TestCal.aspx");
-        }
-
-        protected void cancel_Click(object sender, EventArgs e)
-        {
             Response.Redirect("TestCal.aspx");
         }
     }

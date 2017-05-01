@@ -10,7 +10,7 @@
 namespace ManageU.Pages {
     
     
-    public partial class CreateMeeting {
+    public partial class EditEvent {
         
         /// <summary>
         /// eventNameLabel control.
@@ -22,13 +22,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventNameLabel;
         
         /// <summary>
-        /// EventName control.
+        /// eventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EventName;
+        protected global::System.Web.UI.WebControls.TextBox eventName;
         
         /// <summary>
         /// Label5 control.
@@ -220,13 +220,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.TextBox eventDes;
         
         /// <summary>
-        /// createEventButton control.
+        /// editEventButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createEventButton;
+        protected global::System.Web.UI.WebControls.Button editEventButton;
         
         /// <summary>
         /// cancel control.
