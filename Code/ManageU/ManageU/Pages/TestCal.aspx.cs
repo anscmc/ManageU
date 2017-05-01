@@ -136,7 +136,7 @@ namespace ManageU.Pages
                 while (objRS.Read())
                 {
                     //get all dates of the event
-                    strsql2 = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
+                    strsql = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
                     objCon2.Open();
 
                     objCmd2 = new SqlCommand(strsql2, objCon2);
