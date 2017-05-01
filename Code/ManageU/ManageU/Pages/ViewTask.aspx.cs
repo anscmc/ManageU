@@ -56,14 +56,9 @@ namespace ManageU.Pages
             string taskName = splitInfo[1];
             string taskDate = splitInfo[3] + "/" + splitInfo[4] + "/" + splitInfo[2];
             string taskTime = splitInfo[5];
-            string[] timeSplit = taskTime.Split(':');
+            string[] timeSplit = taskTime.Split(' ');
             string hour = timeSplit[0];
-            string ampm = "AM";
-            if(Int32.Parse(hour) > 12)
-            {
-                hour = (Int32.Parse(hour) - 12).ToString();
-                ampm = "PM";
-            }
+            string ampm = timeSplit[2];
             string minute = timeSplit[1];
             
             string taskDescription = splitInfo[6];

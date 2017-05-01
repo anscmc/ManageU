@@ -50,14 +50,10 @@ namespace ManageU.Pages
             string taskDate = splitInfo[2] + "-" + splitInfo[3] + "-" + splitInfo[4];
             dueDate2.Value = taskDate;
             string taskTime = splitInfo[5];
-            string[] timeSplit = taskTime.Split(':');
+            string[] timeSplit = taskTime.Split(' ');
             string hr = timeSplit[0];
-            string tAmPm = "AM";
-            if (Int32.Parse(hr) > 12)
-            {
-                hr = (Int32.Parse(hr) - 12).ToString();
-                tAmPm= "PM";
-            }
+            string tAmPm = timeSplit[2];
+
             string min = timeSplit[1];
 
             hour.Value = hr;
@@ -86,7 +82,11 @@ namespace ManageU.Pages
             string tDate = dueDate2.Value;
             string tTime;
             string hr = hour.Value;
-            if(Int32.Parse(hr) < 12 && amPM.Value == "PM")
+            if (Int32.Parse(hr) == 12 && amPM.Value == "AM")
+            {
+                hr = (Int32.Parse(hour.Value) - 12).ToString();
+            }
+            else if(Int32.Parse(hr) < 12 && amPM.Value == "PM")
             {
                 hr = (Int32.Parse(hr) + 12).ToString();
             }

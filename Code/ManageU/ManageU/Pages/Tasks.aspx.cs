@@ -90,6 +90,26 @@ namespace ManageU.Pages
                         dueTime = objRS["timeDue"].ToString();
                         description = objRS["taskDesc"].ToString();
 
+                        string[] timeSplit = dueTime.Split(':');
+                        string dueHour = timeSplit[0];
+                        string dueampm = "AM";
+                        if(dueHour == "0")
+                        {
+                            dueHour = (Int32.Parse(dueHour) + 12).ToString();
+                        }
+                        else if(Int32.Parse(dueHour) == 12)
+                        {
+                            dueampm = "PM";
+                        }
+                        else if(Int32.Parse(dueHour) > 12)
+                        {
+                            dueHour = (Int32.Parse(dueHour) - 12).ToString();
+                            dueampm = "PM";
+                        }
+                        string dueMinute = timeSplit[1];
+
+                        dueTime = dueHour + " " + dueMinute + " " + dueampm;
+
                         taskInfo.Add(taskID + "-" + taskName + "-" + dueDate + "-" + dueTime + "-" + description);
                         HttpContext.Current.Session["TasksInfo"] = taskInfo;
                         taskIDs.Add(taskID);
