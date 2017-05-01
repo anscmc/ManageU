@@ -420,7 +420,6 @@
     </Compile>
     <Compile Include="Pages\EditClass.aspx.cs">
       <DependentUpon>EditClass.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\EditClass.aspx.designer.cs">
       <DependentUpon>EditClass.aspx</DependentUpon>
