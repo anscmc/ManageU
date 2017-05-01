@@ -17,6 +17,26 @@ namespace ManageU.Pages
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
+                if (HttpContext.Current.Session["UserType"].ToString() == "player")
+                {
+                    System.Web.UI.HtmlControls.HtmlGenericControl hide1 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("meetings");
+
+                    hide1.Style.Add("display", "none");
+                    System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
+
+                    hide2.Style.Add("display", "none");
+                }
+                else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                {
+                    //editButton.Style.Add("display", "block");
+                    System.Web.UI.HtmlControls.HtmlGenericControl hide = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("mySched");
+                    hide.Style.Add("display", "none");
+
+                }
+                else
+                {
+                    Response.Redirect("Landing.aspx");
+                }
                 if (!IsPostBack)
                 {
                     Calendar2.ShowNextPrevMonth = false;
@@ -167,17 +187,17 @@ namespace ManageU.Pages
 
                                 eventStartString = objRS2["eventStart"].ToString();
                                 eventIdString = objRS2["masterID"].ToString();
-<<<<<<< HEAD
+
                                 //eventNameString = objRS2["eventName"].ToString();
                                 eventNameString = "Event Name";
-=======
+
                                 eventEndString = objRS2["eventEnd"].ToString();
 
 
                                 eventsInfo.Add(eventIdString + ";" + eventNameString + ";" + type + ";" + eventStartString + ";" + eventEndString + ";" + attending + ";" + notAttending + ";" + reoccuring + ";" + att + ";" + descr);
 
                                 HttpContext.Current.Session["TeamEventInfo"] = eventsInfo;
->>>>>>> 95b6e814cf356e46df7da92a160a9ef659c3fe6a
+
 
                                 string eventDay = eventStartString.Split('/', '/')[1];
 
@@ -231,16 +251,16 @@ namespace ManageU.Pages
                                 eventDiv.Controls.Add(eventStart);
                                 eventDiv.Controls.Add(eventMasterID);
                                 eventDiv.Controls.Add(eventDayLabel);
-<<<<<<< HEAD
+
                                 eventDiv.Controls.Add(new Literal() { Text = "<a><i class='fa fa-chevron-right' aria-hidden='true' style='float:right;top:50%;font-size:30px;color:black;z-index:1000;'></i></a>" });
-=======
+
                                 eventDiv.Controls.Add(eventMasterID);
                                 eventDiv.Controls.Add(end);
                                 eventDiv.Controls.Add(eType);
                                 eventDiv.Controls.Add(attend);
                                 eventDiv.Controls.Add(notattend);
 
->>>>>>> 95b6e814cf356e46df7da92a160a9ef659c3fe6a
+
                                 //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
 
                                 leftpanel.Controls.Add(eventDiv);

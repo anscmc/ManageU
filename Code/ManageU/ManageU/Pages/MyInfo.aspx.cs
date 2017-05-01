@@ -17,6 +17,26 @@ namespace ManageU.Pages
             {
                 if (HttpContext.Current.Session["UserType"].ToString() == "player")
                 {
+                    if (HttpContext.Current.Session["UserType"].ToString() == "player")
+                    {
+                        System.Web.UI.HtmlControls.HtmlGenericControl hide1 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("meetings");
+
+                        hide1.Style.Add("display", "none");
+                        System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
+
+                        hide2.Style.Add("display", "none");
+                    }
+                    else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                    {
+                        //editButton.Style.Add("display", "block");
+                        System.Web.UI.HtmlControls.HtmlGenericControl hide = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("mySched");
+                        hide.Style.Add("display", "none");
+
+                    }
+                    else
+                    {
+                        Response.Redirect("Landing.aspx");
+                    }
                     numLabel.Visible = false;
                     numLabel.Disabled = true;
                     phoneNum.Visible = false;
@@ -24,6 +44,26 @@ namespace ManageU.Pages
                 }
                 else if(HttpContext.Current.Session["UserType"].ToString() == "coach")
                 {
+                    if (HttpContext.Current.Session["UserType"].ToString() == "player")
+                    {
+                        System.Web.UI.HtmlControls.HtmlGenericControl hide1 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("meetings");
+
+                        hide1.Style.Add("display", "none");
+                        System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
+
+                        hide2.Style.Add("display", "none");
+                    }
+                    else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                    {
+                        //editButton.Style.Add("display", "block");
+                        System.Web.UI.HtmlControls.HtmlGenericControl hide = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("mySched");
+                        hide.Style.Add("display", "none");
+
+                    }
+                    else
+                    {
+                        Response.Redirect("Landing.aspx");
+                    }
                     positionLabel.Visible = false;
                     positionLabel.Disabled = true;
                     position.Visible = false;
