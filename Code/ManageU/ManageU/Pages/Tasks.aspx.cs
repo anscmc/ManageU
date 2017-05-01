@@ -247,7 +247,7 @@ namespace ManageU.Pages
         {
             //add user ID to completed
             string row = completeHiddenField.Value;
-            string id = taskIDs.ElementAt(Int32.Parse(row));
+            string id = taskIDs.ElementAt(Int32.Parse(row) - 1);
             string completeIds = "";
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
@@ -256,6 +256,7 @@ namespace ManageU.Pages
             objCon = new SqlConnection();
             objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
 
+            objCon.Open();
             strsql = "Select * from TaskTable where taskID='" + id + "';";
             objCmd = new SqlCommand(strsql, objCon);
 
@@ -265,16 +266,17 @@ namespace ManageU.Pages
             {
                 while (objRS.Read())
                 {
-                    completeIds = objRS["complete"].ToString();
+                    completeIds = objRS["completed"].ToString();
                     
                 }
                 objCmd = null;
-                strsql = "Update TaskTable set completed='" + completeIds + "," + HttpContext.Current.Session["UserID"].ToString() + "' where taskID='" + id + "'";
+                strsql = "Update TaskTable set completed='" + completeIds +  HttpContext.Current.Session["UserID"].ToString() + "," + "' where taskID='" + id + "'";
+                objRS.Close();
                 objCmd = new SqlCommand(strsql, objCon);
                 objCmd.ExecuteNonQuery();
             }
 
-            objRS.Close();
+           
             objCmd = null;
             objCon.Close();
                     loadTasks();
