@@ -18,13 +18,6 @@ namespace ManageU.Pages
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-                List<string> classInfo = new List<string>();
-                classInfo = (List<string>)HttpContext.Current.Session["ClassesInfo"];
-                int classToEdit = Int32.Parse(HttpContext.Current.Session["ClassToEdit"].ToString());
-                string infoInString = classInfo.ElementAt(classToEdit - 1);
-                string[] splitInfo = infoInString.Split('-');
-
-                mID = splitInfo[0];
                 if (! IsPostBack)
                 {
                     populateClassInfo();
@@ -247,7 +240,7 @@ namespace ManageU.Pages
             DateTime end;
             DateTime classDateEnd;
 
-            if (amPMstart.Value == "PM" && Int32.Parse(startHour.Value) > 12)
+            if (amPMstart.Value == "PM" && Int32.Parse(startHour.Value) < 12)
             {
                 startHr = Int32.Parse(startHour.Value) + 12;
             }
@@ -255,7 +248,7 @@ namespace ManageU.Pages
             {
                 startHr = Int32.Parse(startHour.Value);
             }
-            if (amPMend.Value == "PM")
+            if (amPMend.Value == "PM" && Int32.Parse(endHour.Value) < 12)
             {
                 endHr = Int32.Parse(endHour.Value) + 12;
             }
@@ -327,6 +320,11 @@ namespace ManageU.Pages
 
             objCon.Close();
 
+            Response.Redirect("PlayerSchedule.aspx");
+        }
+
+        protected void cancel_Click(object sender, EventArgs e)
+        {
             Response.Redirect("PlayerSchedule.aspx");
         }
     }

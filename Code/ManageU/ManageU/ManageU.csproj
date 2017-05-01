@@ -205,9 +205,11 @@
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\CreateEvent.aspx" />
     <Content Include="Pages\EditClass.aspx" />
+    <Content Include="Pages\EditTask.aspx" />
     <Content Include="Pages\FindTime.aspx" />
     <Content Include="Pages\InvitePlayers.aspx" />
     <Content Include="Pages\Lifts.aspx" />
+    <Content Include="Pages\LiftSpecifics.aspx" />
     <Content Include="Pages\MyInfo.aspx" />
     <Content Include="Pages\PlayerSchedule.aspx" />
     <Content Include="Pages\Roster.aspx" />
@@ -428,6 +430,13 @@
     <Compile Include="Pages\EditClass.aspx.designer.cs">
       <DependentUpon>EditClass.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EditTask.aspx.cs">
+      <DependentUpon>EditTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditTask.aspx.designer.cs">
+      <DependentUpon>EditTask.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FindTime.aspx.cs">
       <DependentUpon>FindTime.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -455,6 +464,13 @@
     </Compile>
     <Compile Include="Pages\Lifts.aspx.designer.cs">
       <DependentUpon>Lifts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LiftSpecifics.aspx.cs">
+      <DependentUpon>LiftSpecifics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LiftSpecifics.aspx.designer.cs">
+      <DependentUpon>LiftSpecifics.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\MyInfo.aspx.cs">
       <DependentUpon>MyInfo.aspx</DependentUpon>

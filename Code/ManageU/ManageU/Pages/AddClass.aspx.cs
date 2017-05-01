@@ -63,14 +63,14 @@ namespace ManageU.Pages
             DateTime end;
             DateTime classDateEnd;
 
-            if (amPMstart.Value == "PM" && Int32.Parse(startHour.Value) > 12)
+            if (amPMstart.Value == "PM" && Int32.Parse(startHour.Value) < 12)
             {
                 startHr = Int32.Parse(startHour.Value) + 12;
             }
             else {
                 startHr = Int32.Parse(startHour.Value);
             }
-            if (amPMend.Value == "PM")
+            if (amPMend.Value == "PM" && Int32.Parse(endHour.Value) < 12)
             {
                 endHr = Int32.Parse(endHour.Value) + 12;
             }
@@ -140,6 +140,11 @@ namespace ManageU.Pages
 
             objCon.Close();
 
+            Response.Redirect("PlayerSchedule.aspx");
+        }
+
+        protected void cancel_Click(object sender, EventArgs e)
+        {
             Response.Redirect("PlayerSchedule.aspx");
         }
     }

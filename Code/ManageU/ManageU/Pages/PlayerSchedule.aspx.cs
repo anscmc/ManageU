@@ -13,6 +13,7 @@ namespace ManageU.Pages
     public partial class PlayerSchedule : System.Web.UI.Page
     {
         List<string> classInfo = new List<string>();
+        List<string> masterIDs = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
@@ -24,6 +25,11 @@ namespace ManageU.Pages
             {
                 Response.Redirect("Landing.aspx");
             }
+        }
+
+        protected void Page_Unload(object sender, EventArgs e)
+        {
+            //HttpContext.Current.Session["FromRoster"] = null;
         }
 
         private void loadCalendar()
@@ -47,7 +53,22 @@ namespace ManageU.Pages
             string assocID = "";
             string eventT = "";
 
-            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
+            string[] startSplit;
+            string[] endSplit;
+
+            classDiv.InnerHtml = "";
+
+                //if coach viewing it
+                if (HttpContext.Current.Session["FromRoster"].ToString() == "y")
+                {
+                    strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["PlayerIDForSched"].ToString() + "'";
+                }
+                //if the player (owner) is viewing it
+                else
+                {
+                    strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
+                }
+
             objCon.Open();
 
             objCmd = new SqlCommand(strsql, objCon);
@@ -57,6 +78,7 @@ namespace ManageU.Pages
             {
                 while (objRS.Read())
                 {
+                    daysClassHeld = "";
                     idCount = idCount + 1;
                     //get all of event's data to store in session for delete and edit usages
                     mID = objRS["masterID"].ToString();
@@ -65,6 +87,9 @@ namespace ManageU.Pages
                     eventT = objRS["eventType"].ToString();
                     eventStart = objRS["eventStart"].ToString();
                     eventEnd = objRS["eventEnd"].ToString();
+
+                    startSplit = eventStart.Split(' ');
+                    endSplit = eventEnd.Split(' ');
 
                     //create front end
                     HtmlGenericControl singleClassDiv =
@@ -82,15 +107,12 @@ namespace ManageU.Pages
                     classTimes.Attributes["runat"] = "server";
 
                     Label startTimeLabel = new Label();
-                    startTimeLabel.Text = eventStart;
+                    startTimeLabel.Text = (startSplit[1] +  "  " + startSplit[2]).Replace(":00 ", "");
                     Label endTimeLabel = new Label();
-                    endTimeLabel.Text = eventEnd;
+                    endTimeLabel.Text = (endSplit[1] + "  " + endSplit[2]).Replace(":00 ", "");
                     classTimes.Controls.Add(startTimeLabel);
                     classTimes.Controls.Add(new Literal() { Text = "<br/>" });
                     classTimes.Controls.Add(endTimeLabel);
-
-                    
-
 
                     HtmlGenericControl classDetails =
                     new HtmlGenericControl("div");
@@ -140,8 +162,27 @@ namespace ManageU.Pages
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
                     classDetails.Controls.Add(classDaysLabel);
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
-                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass()'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
-                    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass()'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+                    if (HttpContext.Current.Session["FromRoster"] != null)
+                    {
+                        //owner looking at own schedule
+                        if (HttpContext.Current.Session["PlayerIDForSched"].ToString() == HttpContext.Current.Session["UserID"].ToString())
+                        {
+                            classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                            classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    //haven't gone to roster page, so owner is viewing schedule
+                    else
+                    {
+                        classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                        classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+
+                    }
 
                     HtmlGenericControl classDates =
                     new HtmlGenericControl("div");
@@ -150,12 +191,17 @@ namespace ManageU.Pages
                     classDates.Attributes["runat"] = "server";
 
                     Label startDateLabel = new Label();
-                    startDateLabel.Text = eventStart;
+                    startDateLabel.Text = startSplit[0];
                     Label endDateLabel = new Label();
-                    endDateLabel.Text = eventEnd;
+                    endDateLabel.Text = endSplit[0];
                     classDates.Controls.Add(startDateLabel);
                     classDates.Controls.Add(new Literal() { Text = "<br/>" });
                     classDates.Controls.Add(endDateLabel);
+
+                    HiddenField idHidden = new HiddenField();
+                    idHidden.ID = "hidden" + idCount.ToString();
+                    idHidden.Value = mID;
+                    masterIDs.Add(mID);
 
                     //Label startDateLabel = new Label();
                     //startDateLabel.Text = "1/1/2017";
@@ -168,6 +214,7 @@ namespace ManageU.Pages
                     singleClassDiv.Controls.Add(classTimes);
                     singleClassDiv.Controls.Add(classDetails);
                     singleClassDiv.Controls.Add(classDates);
+                    singleClassDiv.Controls.Add(idHidden);
 
 
                     //show the classes
@@ -184,11 +231,10 @@ namespace ManageU.Pages
         {
             Response.Redirect("AddClass.aspx");
         }
-        protected void deleteClass(object sender, EventArgs e)
+        protected void deletePlayerClass(object sender, EventArgs e)
         {
             //need to change these vars to grab from hidden fields
-            int classID = 7;
-            int masterID = 11;
+            string masterID = masterIDs.ElementAt(Int32.Parse(deleteHiddenField.Value)-1);
 
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
@@ -216,13 +262,14 @@ namespace ManageU.Pages
 
             objCon.Close();
 
+            loadCalendar();
+
         }
 
-        protected void editClass(object sender, EventArgs e)
+        protected void editPlayerClass(object sender, EventArgs e)
         {
-            HttpContext.Current.Session["ClassToEdit"] = 1;
+            HttpContext.Current.Session["ClassToEdit"] = Int32.Parse(editHiddenField.Value);
             Response.Redirect("EditClass.aspx");
-            //***Will have to set this correctly once front end finished***
             
         }
     }

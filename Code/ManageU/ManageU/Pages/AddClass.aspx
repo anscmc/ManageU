@@ -241,6 +241,7 @@
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
                             <asp:Button runat="server" id="addClass" Text="Add to Schedule" OnClick="addClass_Click" CssClass="btn btn-default" style="display: block; margin: 0 auto;text-align: center; color:#008CBA; background-color:white; width:250px !important " />
+                            <asp:Button runat="server" id="cancel" Text="Cancel" OnClick="cancel_Click" CssClass="btn btn-default" style="display: block; margin: 0 auto;text-align: center; color:#008CBA; background-color:white; width:250px !important " />
                         </div>
                     </div>
 

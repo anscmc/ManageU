@@ -10,10 +10,6 @@
         <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
             <asp:Button runat="server" Text="+ Add Class" OnClick="newClass" CssClass="btn btn-default" 
                 style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
-             <asp:Button runat="server" Text="x Delete" OnClick="deleteClass" onclientclick="deleteOptions();" CssClass="btn btn-default" 
-                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
-            <asp:Button runat="server" Text="Edit" OnClick="editClass" CssClass="btn btn-default" 
-                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
         </div>
         <div>
             <br />
@@ -25,14 +21,34 @@
     </div>
 
     <asp:HiddenField ID="deleteHiddenField" runat="server" />
+    <asp:HiddenField ID="editHiddenField" runat="server" />
+
+    <asp:Button runat="server" ID="hiddenDelete" Text="" OnClick="deletePlayerClass" CssClass="btn btn-default" 
+                style="display: none;" />
+
+    <asp:Button runat="server" ID="hiddenEdit" Text="" OnClick="editPlayerClass" CssClass="btn btn-default" 
+                style="display: none;" />
 
     <script type="text/javascript">
-        function deleteClass() {
+        function deleteClass(row) {
 
             if (!confirm('Are you sure you want to delete this class from your schedule?')) { return false; }
+            else {
+                var btnHidden = $('#<%= hiddenDelete.ClientID %>');
+
+                if (btnHidden != null) {
+                    document.getElementById('<%=deleteHiddenField.ClientID %>').value = row;
+                    btnHidden.click();
+                }
+            }
         }
-        function editClass() {
-            if (!confirm('Are you sure you want to edit this class?')) { return false;}
+        function editClass(row) {
+            var btnHidden = $('#<%= hiddenEdit.ClientID %>');
+
+            if (btnHidden != null) {
+                document.getElementById('<%=editHiddenField.ClientID %>').value = row;
+                    btnHidden.click();
+                }
         }
 
         

@@ -24,9 +24,35 @@
                         <div class="col-sm-6 col-sm-offset-3">
                             <select class="selectpicker show-menu-arrow" ID="sportType" style="color:black;height:39px;width:250px;border-radius:5px;margin-bottom:20px;" runat="server">
                                 <option value="" selected disabled>Select Your Sport</option>
+                                <option value="Baseball">Baseball</option>
+                                <option value="Basketball - Men's">Basketball - Men's</option>
+                                <option value="Basketball - Women's">Basketball - Women's</option>
+                                <option value="Cross Country - Men's">Cross Country - Men's</option>
+                                <option value="Cross Country - Women's">Cross Country - Women's</option>
+                                <option value="Field Hockey">Field Hockey</option>
                                 <option value="Football">Football</option>
-                                <option value="Basketball">Basketball</option>
-                                <option value="Volleyball">Volleyball</option>
+                                <option value="Golf - Men's">Golf - Men's</option>
+                                <option value="Golf - Women's">Golf - Women's</option>
+                                <option value="Ice Hockey - Men's">Ice Hockey - Men's</option>
+                                <option value="Ice Hockey - Women's">Ice Hockey - Women's</option>
+                                <option value="Lacrosse - Men's">Lacrosse - Men's</option>
+                                <option value="Lacrosse - Women's">Lacrosse - Women's</option>
+                                <option value="Soccer - Men's">Soccer - Men's</option>
+                                <option value="Soccer - Women's">Soccer - Women's</option>
+                                <option value="Softball">Softball</option>
+                                <option value="Swimming - Men's">Swimming - Men's</option>
+                                <option value="Swimming - Women's">Swimming - Women's</option>
+                                <option value="Tennis - Men's">Tennis - Men's</option>
+                                <option value="Tennis - Women's">Tennis - Women's</option>
+                                <option value="Track & Field(Indoor) - Men's">Track & Field(Indoor) - Men's</option>
+                                <option value="Track & Field(Indoor) - Women's">Track & Field(Indoor) - Women's</option>
+                                <option value="Track & Field(Outdoor) - Men's">Track & Field(Outdoor) - Men's</option>
+                                <option value="Track & Field(Outdoor) - Women's">Track & Field(Outdoor) - Women's</option>
+                                <option value="Volleyball - Men's">Volleyball - Men's</option>
+                                <option value="Volleyball - Women's">Volleyball - Women's</option>
+                                <option value="Water Polo - Men's">Water Polo - Men's</option>
+                                <option value="Water Polo - Women's">Water Polo - Women's</option>
+                                <option value="Wrestling">Wrestling</option>
                         </select>
                         </div>
                     </div>

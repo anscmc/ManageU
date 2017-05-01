@@ -24,7 +24,6 @@ namespace ManageU.Pages
         {
             //lift1.Style.Add("display", "block");
             HttpContext.Current.Session["NumLifts"] = Int32.Parse(HttpContext.Current.Session["NumLifts"].ToString()) + 1;
-            createLiftDivs();
         }
 
         protected void createLiftDivs()
@@ -86,7 +85,31 @@ namespace ManageU.Pages
 
         protected void addLiftButton_Click(object sender, EventArgs e)
         {
+            string[] idSplit = liftIDsHidden.Value.Split(',');
+            string[] nameSplit = liftNamesHidden.Value.Split(',');
+            string[] setSplit = liftSetsHidden.Value.Split(',');
+            string[] repSplit = liftRepsHidden.Value.Split(',');
+            string liftID;
+            string liftName;
+            string liftSets;
+            string liftReps;
 
+            for(int i = 0; i < idSplit.Length; i++)
+            {
+                if (idSplit[i] == "")
+                {
+
+                }
+                else
+                {
+                    liftID = idSplit[i];
+                    liftName = nameSplit[i];
+                    liftSets = setSplit[i];
+                    liftReps = repSplit[i];
+
+                    //have to find the elements with these ids to get their values
+                }
+            }
         }
     }
 }

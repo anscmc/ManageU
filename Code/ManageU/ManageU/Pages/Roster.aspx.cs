@@ -1,9 +1,12 @@
 ﻿using System;
-using System.Web.UI.HtmlControls;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.UI.HtmlControls;
 
 namespace ManageU.Pages
 {
@@ -11,6 +14,9 @@ namespace ManageU.Pages
 
     public partial class Roster : System.Web.UI.Page
     {
+        List<string> playerIDs = new List<string>();
+        List<string> playerEmails = new List<string>();
+        List<CheckBox> checkboxes = new List<CheckBox>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,11 +24,11 @@ namespace ManageU.Pages
 
             if (HttpContext.Current.Session["UserType"].ToString() == "player")
             {
-
+                load();
             }
             else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-
+                load();
             }
             else
             {
@@ -33,7 +39,7 @@ namespace ManageU.Pages
             {
                 this.Session["emailList"] = "";
                 this.Session["sessionEmails"] = "";
-                load();
+                
             }
         }
 
@@ -77,12 +83,14 @@ namespace ManageU.Pages
                         while (objRS2.Read())
                         {
                             //playerUserID = objRS2["userID"].ToString();
+                            playerIDs.Add(objRS2["userID"].ToString());
                             playerFName = objRS2["playerFName"].ToString();
                             playerLName = objRS2["playerLName"].ToString();
                             playerPos = objRS2["position"].ToString();
                             playerClass = objRS2["class"].ToString();
                             playerNum = objRS2["playerNumber"].ToString();
                             playerEmail = objRS2["playerEmail"].ToString();
+                            playerEmails.Add(playerEmail);
 
                             
                             idNum = idNum + 1;
@@ -92,7 +100,7 @@ namespace ManageU.Pages
                             //label.text = playerUserID dynamic id
 
                             Label lb1 = new Label();
-                            lb1.Text = playerFName + " ";
+                            lb1.Text = playerFName + " " + playerLName;
 
                             Label lb2 = new Label();
                             lb2.Text = playerClass;
@@ -119,6 +127,7 @@ namespace ManageU.Pages
                             emailCheck.ID = "check" + idNum.ToString();
                             emailCheck.InputAttributes.Add("class", "rosterCheck");
                             emailCheck.Text = "Add " + playerEmail + " to email list";
+                    checkboxes.Add(emailCheck);
 
                     //HtmlGenericControl xButton =
                     //new HtmlGenericControl("button");
@@ -134,7 +143,7 @@ namespace ManageU.Pages
                     //xButton.Attributes["OnClientClick"] = "xButtonClick";
                     //xButton.Attributes.Add("clientclick", "return false");
 
-                            HtmlGenericControl calButton =
+                    HtmlGenericControl calButton =
                             new HtmlGenericControl("button");
 
                             calButton.Attributes["type"] = "button";
@@ -158,11 +167,15 @@ namespace ManageU.Pages
 
 
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            infoDiv.Controls.Add(new Literal() { Text = "<a href='PlayerSchedule.aspx'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
+                            if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                            {
+                                infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return playerClasses(" + idNum.ToString() + ")'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
+                                infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer(" + idNum.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
+                            }
                             infoDiv.Controls.Add(lb1);
                             infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;padding:5px;'></i>" });
                             infoDiv.Controls.Add(lb4);
-                            infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer()'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
+                            
                             //infoDiv.Controls.Add(lb6);
                             //infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             //infoDiv.Controls.Add(lb1);
@@ -249,6 +262,28 @@ namespace ManageU.Pages
         }
         protected void emailClick(object sender, EventArgs e)
         {
+            string playersToEmail = "";
+
+            for(int i = 0; i < checkboxes.Count; i++)
+            {
+                if (checkboxes[i].Checked)
+                {
+                    if (playersToEmail == "")
+                    {
+                        playersToEmail = playerEmails.ElementAt(i);
+                    }
+                    else
+                    {
+                        playersToEmail = playersToEmail + "," + playerEmails.ElementAt(i);
+                    }
+                }
+                
+            }
+            
+         
+
+            HttpContext.Current.Session["RosterEmailAddresses"] = playersToEmail;
+            HttpContext.Current.Session["FromRosterToContact"] = "y";
             Response.Redirect("~/Pages/Contact.aspx");
         }
 
@@ -270,11 +305,19 @@ namespace ManageU.Pages
         //        xCheck = 1;
         //    }
         //}
-        protected void deletePlayerButton_Click(object sender, EventArgs e)
-        {
-            //
 
-            string userID = "55";
+        protected void playerSched(object sender, EventArgs e)
+        {
+            string userID = playerIDs.ElementAt(Int32.Parse(calHiddenField.Value) - 1);
+            HttpContext.Current.Session["PlayerIDForSched"] = userID;
+            HttpContext.Current.Session["FromRoster"] = "y";
+            Response.Redirect("PlayerSchedule.aspx");
+        }
+
+        protected void deleteP(object sender, EventArgs e)
+        {
+            
+            string userID = playerIDs.ElementAt(Int32.Parse(deleteHiddenField.Value) - 1);
 
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
@@ -298,6 +341,8 @@ namespace ManageU.Pages
 
             objCmd = null;
             objCon.Close();
+
+            load();
         }
 
         protected void xButtonClick(object sender, EventArgs e)

@@ -31,19 +31,19 @@ namespace ManageU.Pages
         {
             string strsql = "";
             string name = taskName.Text;
-            string date = dueDate2.ToString();
+            string date = dueDate2.Value.ToString();
             DateTime taskDueDateTime;
             string time;
-            int hr;
+            int hr= Int32.Parse(hour.Value);
             string min;
 
-            if (amPM.Value == "PM" && Int32.Parse(hour.Value) > 12)
+            if(Int32.Parse(hour.Value) == 12 && amPM.Value == "AM")
+            {
+                hr = hr - 12;
+            }
+            else if (amPM.Value == "PM" && Int32.Parse(hour.Value) < 12)
             {
                 hr = Int32.Parse(hour.Value) + 12;
-            }
-            else
-            {
-                hr = Int32.Parse(hour.Value);
             }
 
             time = hr + ":" + minute.Value + ":00 ";

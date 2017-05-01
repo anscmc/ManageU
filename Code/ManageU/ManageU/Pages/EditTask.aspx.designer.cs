@@ -10,87 +10,114 @@
 namespace ManageU.Pages {
     
     
-    public partial class AddLift {
+    public partial class EditTask {
         
         /// <summary>
-        /// liftNameLabel control.
+        /// taskNameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liftNameLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl taskNameLabel;
         
         /// <summary>
-        /// liftName control.
+        /// taskName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox liftName;
+        protected global::System.Web.UI.WebControls.TextBox taskName;
         
         /// <summary>
-        /// newLiftButton control.
+        /// taskDueDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button newLiftButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl taskDueDate;
         
         /// <summary>
-        /// newlyAddedLifts control.
+        /// dueDate2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl newlyAddedLifts;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dueDate2;
         
         /// <summary>
-        /// addLiftButton control.
+        /// taskTimeDue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addLiftButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl taskTimeDue;
         
         /// <summary>
-        /// liftIDsHidden control.
+        /// hour control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField liftIDsHidden;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect hour;
         
         /// <summary>
-        /// liftNamesHidden control.
+        /// minute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField liftNamesHidden;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect minute;
         
         /// <summary>
-        /// liftSetsHidden control.
+        /// amPM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField liftSetsHidden;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect amPM;
         
         /// <summary>
-        /// liftRepsHidden control.
+        /// taskDesLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField liftRepsHidden;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl taskDesLabel;
+        
+        /// <summary>
+        /// taskDes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox taskDes;
+        
+        /// <summary>
+        /// saveTaskButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button saveTaskButton;
+        
+        /// <summary>
+        /// cancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancel;
     }
 }
