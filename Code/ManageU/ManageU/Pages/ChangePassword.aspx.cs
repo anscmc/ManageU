@@ -73,7 +73,7 @@ namespace ManageU.Pages
                 objCmd.ExecuteNonQuery();
                 objCmd = null;
                 objCon.Close();
-                Response.Redirect("~/Pages/TeamProfile.aspx");
+                Response.Redirect("~/Pages/Landing.aspx");
             }
 
             else {

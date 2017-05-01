@@ -13,6 +13,15 @@ namespace ManageU.Pages {
     public partial class PlayerSchedule {
         
         /// <summary>
+        /// add control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button add;
+        
+        /// <summary>
         /// classDiv control.
         /// </summary>
         /// <remarks>

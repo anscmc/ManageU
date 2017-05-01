@@ -49,6 +49,15 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.WebControls.HiddenField detailsHiddenField;
         
         /// <summary>
+        /// completeHiddenField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField completeHiddenField;
+        
+        /// <summary>
         /// hiddenDelete control.
         /// </summary>
         /// <remarks>
@@ -74,5 +83,14 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button hiddenDetails;
+        
+        /// <summary>
+        /// hiddenComplete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button hiddenComplete;
     }
 }

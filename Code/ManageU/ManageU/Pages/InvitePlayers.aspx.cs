@@ -231,7 +231,7 @@ namespace ManageU.Pages
                         client.Host = "smtp.gmail.com";
                         client.EnableSsl = true;
                         mail.Subject = "ManageU Invitation";
-                        mail.Body = "You have been invited by " + coachUsername + " to join ManageU. Your username is: " + uEmail + " and your temporary password is: " + password + " Click <a href=\"http://localhost:57074/ChangePassword.aspx\">here</a> to change your password and log into the app";
+                        mail.Body = "You have been invited by " + coachUsername + " to join ManageU. Your username is: " + uEmail + " and your temporary password is: " + password + " Click <a href=\"http://localhost:6572/Pages/ChangePassword.aspx\">here</a> to change your password and log into the app";
                         mail.IsBodyHtml = true;
                         client.Send(mail);
 
@@ -241,7 +241,7 @@ namespace ManageU.Pages
                     }
                     else
                     {
-                        successfullyAdded = ", " + uEmail;
+                        successfullyAdded = successfullyAdded + ", " + uEmail;
                     }
 
                     hiddenSuccess.Value = "You have successfully invited the following players: " + successfullyAdded;

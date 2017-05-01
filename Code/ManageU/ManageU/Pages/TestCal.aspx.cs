@@ -90,8 +90,9 @@ namespace ManageU.Pages
                             monthLabel.InnerText = "December";
                             break;
                     }
+                    loadCalendar();
                 }
-                loadCalendar();
+                
             }
             else
             {
@@ -107,10 +108,10 @@ namespace ManageU.Pages
             string eventEndString = "";
             string attending = "";
             string notAttending = "";
-            string type;
-            string reoccuring;
-            string att;
-            string descr;
+            string type = "";
+            string reoccuring = "";
+            string att = "";
+            string descr = "";
             
 
             int idCount = 0;
@@ -168,8 +169,13 @@ namespace ManageU.Pages
                     reoccuring = objRS["reoccur"].ToString();
                     att = objRS["attReq"].ToString();
                     descr = objRS["eventNotes"].ToString();
-                    //get all dates of the event
-                    strsql = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
+                }
+            }
+            objCmd = null;
+            objRS.Close();
+            objCon.Close();
+            //get all dates of the event
+            strsql = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
                     objCon2.Open();
 
                     objCmd2 = new SqlCommand(strsql, objCon2);
@@ -267,17 +273,15 @@ namespace ManageU.Pages
                                 container2.Controls.Add(leftpanel);
                             }
                         }
-                    }
+                    
 
                     objCmd2 = null;
                     objRS2.Close();
                     objCon2.Close();
-                }
+                
             }
 
-            objCmd = null;
-            objRS.Close();
-            objCon.Close();
+            
 
 
 

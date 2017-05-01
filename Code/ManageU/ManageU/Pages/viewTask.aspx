@@ -21,6 +21,8 @@
         <label id="Label4" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Description</label>
         <br />
         <label id="desc" runat="server"></label>
+        <br />
+        <label id="complete" runat="server"></label>
     </div>
     <hr/>
     <asp:Button ID="deleteTask" runat="server" Text="Delete" OnClick="deleteTask_Click" CssClass="btn btn-default" 

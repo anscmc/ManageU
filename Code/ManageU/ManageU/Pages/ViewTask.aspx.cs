@@ -83,7 +83,7 @@ namespace ManageU.Pages
             string minute = timeSplit[1];
             
             string taskDescription = splitInfo[6];
-
+            complete.InnerText = splitInfo[7];
             name.InnerText = taskName;
             duedate.InnerText = taskDate;
             duetime.InnerText = hour + ":" + minute + " " + ampm;
