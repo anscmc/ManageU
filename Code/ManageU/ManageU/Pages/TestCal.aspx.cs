@@ -12,6 +12,7 @@ namespace ManageU.Pages
 {
     public partial class TestCal : System.Web.UI.Page
     {
+        List<string> eventsInfo = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
@@ -84,6 +85,12 @@ namespace ManageU.Pages
             string eventNameString = "";
             string eventStartString = "";
             string eventEndString = "";
+            string attending = "";
+            string notAttending = "";
+            string type;
+            string reoccuring;
+            string att;
+            string descr;
             
 
             int idCount = 0;
@@ -107,7 +114,6 @@ namespace ManageU.Pages
             SqlDataReader objRS;
             SqlDataReader objRS2;
             string strsql = "";
-            string strsql2 = "";
 
             HtmlGenericControl leftpanel =
                                 new HtmlGenericControl("div");
@@ -135,11 +141,18 @@ namespace ManageU.Pages
             {
                 while (objRS.Read())
                 {
+                    eventNameString = objRS["eventName"].ToString();
+                    attending = objRS["attendees"].ToString();
+                    notAttending = objRS["notattending"].ToString();
+                    type = objRS["eventType"].ToString();
+                    reoccuring = objRS["reoccur"].ToString();
+                    att = objRS["attReq"].ToString();
+                    descr = objRS["eventNotes"].ToString();
                     //get all dates of the event
                     strsql = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
                     objCon2.Open();
 
-                    objCmd2 = new SqlCommand(strsql2, objCon2);
+                    objCmd2 = new SqlCommand(strsql, objCon2);
 
                     objRS2 = objCmd2.ExecuteReader();
                     if (objRS2.HasRows)
@@ -149,26 +162,54 @@ namespace ManageU.Pages
                             cycle = cycle + 1;
                             while (objRS2.Read())
                             {
+                                idCount = idCount + 1;
+                                idString = idCount.ToString();
+
                                 eventStartString = objRS2["eventStart"].ToString();
                                 eventIdString = objRS2["masterID"].ToString();
+                                eventEndString = objRS2["eventEnd"].ToString();
+
+
+                                eventsInfo.Add(eventIdString + ";" + eventNameString + ";" + type + ";" + eventStartString + ";" + eventEndString + ";" + attending + ";" + notAttending + ";" + reoccuring + ";" + att + ";" + descr);
+
+                                HttpContext.Current.Session["TeamEventInfo"] = eventsInfo;
 
                                 string eventDay = eventStartString.Split('/', '/')[1];
 
                                 Label eventMasterID = new Label();
                                 eventMasterID.Text = eventIdString;
-
+                                eventMasterID.ID = "master" + idString;
                                 eventMasterID.Attributes["style"] = "display:none;";
+
+                                Label end = new Label();
+                                end.Text = eventEndString;
+                                end.ID = "end" + idString;
+                                end.Attributes["style"] = "display:none;";
+
+                                Label attend = new Label();
+                                attend.Text = attending;
+                                attend.ID = "attend" + idString;
+                                attend.Attributes["style"] = "display:none;";
+
+                                Label notattend = new Label();
+                                notattend.Text = notAttending;
+                                notattend.ID = "noattend" + idString;
+                                notattend.Attributes["style"] = "display:none;";
+
+                                Label eType = new Label();
+                                eType.Text = type;
+                                eType.ID = "type" + idString;
+                                eType.Attributes["style"] = "display:none;";
 
                                 Label eventStart = new Label();
                                 eventStart.Text = eventStartString;
 
                                 HtmlGenericControl eventDiv =
                                 new HtmlGenericControl("div");
-                                idCount = idCount + 1;
-                                idString = idCount.ToString();
+                                
                                 eventDiv.Attributes["id"] = "eventBasic" + idString + "x" + eventDay + "x";
                                 eventDiv.Attributes["class"] = "eventBasic";
-                                eventDiv.Attributes["onclick"] = "showInfo()";
+                                eventDiv.Attributes["onclick"] = "showInfo(" + idString +")";
                                 eventDiv.Attributes["runat"] = "server";
                                 eventDiv.Attributes["style"] = "color:black;";
 
@@ -180,6 +221,11 @@ namespace ManageU.Pages
                                 eventDiv.Controls.Add(eventStart);
                                 eventDiv.Controls.Add(eventMasterID);
                                 eventDiv.Controls.Add(eventDayLabel);
+                                eventDiv.Controls.Add(eventMasterID);
+                                eventDiv.Controls.Add(end);
+                                eventDiv.Controls.Add(eType);
+                                eventDiv.Controls.Add(attend);
+                                eventDiv.Controls.Add(notattend);
 
                                 //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
 
@@ -348,6 +394,12 @@ namespace ManageU.Pages
                     HttpContext.Current.Session["currYear"] = (Int32.Parse(HttpContext.Current.Session["currYear"].ToString()) - 1).ToString();
                     break;
             }
+        }
+
+        protected void hiddenView_Click(object sender, EventArgs e)
+        {
+            HttpContext.Current.Session["TeamEventRowToView"] = Int32.Parse(viewHiddenField.Value) - 1;
+            Response.Redirect("ViewEvent.aspx");
         }
     }
 }

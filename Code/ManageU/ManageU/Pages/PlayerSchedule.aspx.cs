@@ -57,7 +57,7 @@ namespace ManageU.Pages
             string[] endSplit;
 
             classDiv.InnerHtml = "";
-
+            if (HttpContext.Current.Session["FromRoster"] != null){
                 //if coach viewing it
                 if (HttpContext.Current.Session["FromRoster"].ToString() == "y")
                 {
@@ -68,6 +68,11 @@ namespace ManageU.Pages
                 {
                     strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
                 }
+            }
+            else
+            {
+                strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["UserID"].ToString() + "'";
+            }
 
             objCon.Open();
 

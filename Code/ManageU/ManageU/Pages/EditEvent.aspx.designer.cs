@@ -22,13 +22,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventNameLabel;
         
         /// <summary>
-        /// EventName control.
+        /// eventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EventName;
+        protected global::System.Web.UI.WebControls.TextBox eventName;
         
         /// <summary>
         /// Label5 control.
@@ -100,7 +100,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartHour;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect eventStartHour;
         
         /// <summary>
         /// Label1 control.
@@ -118,7 +118,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartMinute;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect eventStartMinute;
         
         /// <summary>
         /// beginAmPM control.
@@ -145,7 +145,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndHour;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect eventEndHour;
         
         /// <summary>
         /// Label4 control.
@@ -163,7 +163,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndMinute;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect eventEndMinute;
         
         /// <summary>
         /// endingAmPm control.
@@ -191,15 +191,6 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect repeatPicker;
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
         
         /// <summary>
         /// repeatUntilDate control.
