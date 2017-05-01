@@ -199,6 +199,7 @@
     <Content Include="Images\stadium.jpg" />
     <Content Include="Pages\AddClass.aspx" />
     <Content Include="Pages\AddLift.aspx" />
+    <Content Include="Pages\Attendance.aspx" />
     <Content Include="Pages\AvailableTimes.aspx" />
     <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\Contact.aspx" />
@@ -389,6 +390,13 @@
     </Compile>
     <Compile Include="Pages\AddLift.aspx.designer.cs">
       <DependentUpon>AddLift.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Attendance.aspx.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Attendance.aspx.designer.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AvailableTimes.aspx.cs">
       <DependentUpon>AvailableTimes.aspx</DependentUpon>
