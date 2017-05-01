@@ -19,10 +19,14 @@ namespace ManageU.Pages
                 if (!IsPostBack)
                 {
                     Calendar2.ShowNextPrevMonth = false;
-                    Calendar2.SelectedDate = DateTime.Now;
+                    DateTime localDate = DateTime.Now;
+                    Calendar2.SelectedDate = localDate;
                     Calendar2.VisibleDate = Calendar2.SelectedDate;
                     DateTime curMonth = Calendar2.SelectedDate;
                     //monthLabel.InnerText = curMonth.Month.ToString();
+
+                    HttpContext.Current.Session["monthNum"] = localDate.Month.ToString();
+                    HttpContext.Current.Session["currYear"] = localDate.Year.ToString();
 
                     int monthInt = curMonth.Month;
 
@@ -121,8 +125,8 @@ namespace ManageU.Pages
 
             leftpanel.Controls.Add(divArrow);
 
-            //get all the event info first
-            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
+            //get all the event info for the month first
+            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
             objCon.Open();
             objCmd = new SqlCommand(strsql, objCon);
 
@@ -229,45 +233,57 @@ namespace ManageU.Pages
             DateTime curMonth = Calendar2.SelectedDate;
             //monthLabel.InnerText = curMonth.Month.ToString();
 
-            int monthInt = curMonth.Month;
-
-            switch (monthInt)
+            string monthString = HttpContext.Current.Session["monthNum"].ToString();
+            switch (monthString)
             {
-                case 1:
+                case "12":
                     monthLabel.InnerText = "January";
+                    HttpContext.Current.Session["monthNum"] = "1";
+                    HttpContext.Current.Session["currYear"] = (Int32.Parse(HttpContext.Current.Session["currYear"].ToString()) + 1).ToString();
                     break;
-                case 2:
+                case "1":
                     monthLabel.InnerText = "February";
+                    HttpContext.Current.Session["monthNum"] = "2";
                     break;
-                case 3:
+                case "2":
                     monthLabel.InnerText = "March";
+                    HttpContext.Current.Session["monthNum"] = "3";
                     break;
-                case 4:
+                case "3":
                     monthLabel.InnerText = "April";
+                    HttpContext.Current.Session["monthNum"] = "4";
                     break;
-                case 5:
+                case "4":
                     monthLabel.InnerText = "May";
+                    HttpContext.Current.Session["monthNum"] = "5";
                     break;
-                case 6:
+                case "5":
                     monthLabel.InnerText = "June";
+                    HttpContext.Current.Session["monthNum"] = "6";
                     break;
-                case 7:
+                case "6":
                     monthLabel.InnerText = "July";
+                    HttpContext.Current.Session["monthNum"] = "7";
                     break;
-                case 8:
+                case "7":
                     monthLabel.InnerText = "August";
+                    HttpContext.Current.Session["monthNum"] = "8";
                     break;
-                case 9:
+                case "8":
                     monthLabel.InnerText = "September";
+                    HttpContext.Current.Session["monthNum"] = "9";
                     break;
-                case 10:
+                case "9":
                     monthLabel.InnerText = "October";
+                    HttpContext.Current.Session["monthNum"] = "10";
                     break;
-                case 11:
+                case "10":
                     monthLabel.InnerText = "November";
+                    HttpContext.Current.Session["monthNum"] = "11";
                     break;
-                case 12:
+                case "11":
                     monthLabel.InnerText = "December";
+                    HttpContext.Current.Session["monthNum"] = "12";
                     break;
             }
         }
@@ -279,45 +295,57 @@ namespace ManageU.Pages
             DateTime curMonth = Calendar2.SelectedDate;
             //monthLabel.InnerText = curMonth.Month.ToString();
 
-            int monthInt = curMonth.Month;
-
-            switch (monthInt)
+            string monthString = HttpContext.Current.Session["monthNum"].ToString();
+            switch (monthString)
             {
-                case 1:
+                case "2":
                     monthLabel.InnerText = "January";
+                    HttpContext.Current.Session["monthNum"] = "1";
                     break;
-                case 2:
+                case "3":
                     monthLabel.InnerText = "February";
+                    HttpContext.Current.Session["monthNum"] = "2";
                     break;
-                case 3:
+                case "4":
                     monthLabel.InnerText = "March";
+                    HttpContext.Current.Session["monthNum"] = "3";
                     break;
-                case 4:
+                case "5":
                     monthLabel.InnerText = "April";
+                    HttpContext.Current.Session["monthNum"] = "4";
                     break;
-                case 5:
+                case "6":
                     monthLabel.InnerText = "May";
+                    HttpContext.Current.Session["monthNum"] = "5";
                     break;
-                case 6:
+                case "7":
                     monthLabel.InnerText = "June";
+                    HttpContext.Current.Session["monthNum"] = "6";
                     break;
-                case 7:
+                case "8":
                     monthLabel.InnerText = "July";
+                    HttpContext.Current.Session["monthNum"] = "7";
                     break;
-                case 8:
+                case "9":
                     monthLabel.InnerText = "August";
+                    HttpContext.Current.Session["monthNum"] = "8";
                     break;
-                case 9:
+                case "10":
                     monthLabel.InnerText = "September";
+                    HttpContext.Current.Session["monthNum"] = "9";
                     break;
-                case 10:
+                case "11":
                     monthLabel.InnerText = "October";
+                    HttpContext.Current.Session["monthNum"] = "10";
                     break;
-                case 11:
+                case "12":
                     monthLabel.InnerText = "November";
+                    HttpContext.Current.Session["monthNum"] = "11";
                     break;
-                case 12:
+                case "1":
                     monthLabel.InnerText = "December";
+                    HttpContext.Current.Session["monthNum"] = "12";
+                    HttpContext.Current.Session["currYear"] = (Int32.Parse(HttpContext.Current.Session["currYear"].ToString()) - 1).ToString();
                     break;
             }
         }
