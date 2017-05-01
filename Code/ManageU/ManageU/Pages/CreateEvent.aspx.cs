@@ -288,6 +288,8 @@ namespace ManageU.Pages
             objCmd = null;
             objRS.Close();
             objCon.Close();
+
+            Response.Redirect("TestCal.aspx");
         }
 
     }
