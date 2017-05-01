@@ -216,7 +216,6 @@
     <Content Include="Pages\Sandbox.aspx" />
     <Content Include="Pages\Tasks.aspx" />
     <Content Include="Pages\CreateTask.aspx" />
-    <Content Include="Pages\TeamProfile.aspx" />
     <Content Include="Pages\TestCal.aspx" />
     <Content Include="Pages\ViewEvent.aspx" />
     <Content Include="Pages\ViewTask.aspx" />
@@ -521,13 +520,6 @@
     </Compile>
     <Compile Include="Pages\CreateTask.aspx.designer.cs">
       <DependentUpon>CreateTask.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TeamProfile.aspx.cs">
-      <DependentUpon>TeamProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\TeamProfile.aspx.designer.cs">
-      <DependentUpon>TeamProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\TestCal.aspx.cs">
       <DependentUpon>TestCal.aspx</DependentUpon>
