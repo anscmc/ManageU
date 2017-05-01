@@ -53,7 +53,12 @@
                                 </select>
                             <label id="Label1" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">:</label>
                                     <select class="selectpicker" ID="eventStartMinute" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
-                                        <option value="00">00</option>
+                                        
+                                                                                    <option value="00">00</option>
+    <option value="15">15</option>
+    <option value="30">30</option>
+    <option value="45">45</option>
+                                        <%--<option value="00">00</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
                                         <option value="03">03</option>
@@ -112,7 +117,7 @@
                                         <option value="56">56</option>
                                         <option value="57">57</option>
                                         <option value="58">58</option>
-                                        <option value="59">59</option>
+                                        <option value="59">59</option>--%>
                                 </select>                            
                             <select class="selectpicker" ID="beginAmPM" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;height:39px; color:black;width:50px;border-radius:5px;">
                                     <option value="AM">AM</option>
@@ -135,7 +140,12 @@
                                         <option value="12">12</option>
                                 </select>                            <label id="Label4" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;">:</label>
 <select class="selectpicker" ID="eventEndMinute" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
-                                        <option value="00">00</option>
+                                        
+                                            <option value="00">00</option>
+    <option value="15">15</option>
+    <option value="30">30</option>
+    <option value="45">45</option>
+                                        <%--<option value="00">00</option>
                                         <option value="01">01</option>
                                         <option value="02">02</option>
                                         <option value="03">03</option>
@@ -194,7 +204,7 @@
                                         <option value="56">56</option>
                                         <option value="57">57</option>
                                         <option value="58">58</option>
-                                        <option value="59">59</option>
+                                        <option value="59">59</option>--%>
                                 </select>                            <select class="selectpicker" ID="endingAmPm" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center;height:39px; color:black;width:50px;border-radius:5px;">
                                     <option value="AM">AM</option>
                                     <option value="PM">PM</option>
