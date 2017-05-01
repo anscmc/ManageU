@@ -1292,6 +1292,8 @@ hr {
   margin-bottom: 21px;
   border: 0;
   border-top: 1px solid white;
+  margin-right:10%;
+  margin-left:10%
 }
 .sr-only {
   position: absolute;
@@ -1438,6 +1440,7 @@ h6,
 }
 p {
   margin: 0 0 10.5px;
+  text-align:center;
 }
 .lead {
   margin-bottom: 21px;

@@ -213,7 +213,6 @@
     <Content Include="Pages\Roster.aspx" />
     <Content Include="Pages\Sandbox.aspx" />
     <Content Include="Pages\Tasks.aspx" />
-    <Content Include="Pages\TeamCalendar.aspx" />
     <Content Include="Pages\TeamProfile.aspx" />
     <Content Include="Pages\CreateTask.aspx" />
     <Content Include="Pages\TestCal.aspx" />
@@ -499,13 +498,6 @@
     </Compile>
     <Compile Include="Pages\Tasks.aspx.designer.cs">
       <DependentUpon>Tasks.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TeamCalendar.aspx.cs">
-      <DependentUpon>TeamCalendar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\TeamCalendar.aspx.designer.cs">
-      <DependentUpon>TeamCalendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeamProfile.aspx.cs">
       <DependentUpon>TeamProfile.aspx</DependentUpon>

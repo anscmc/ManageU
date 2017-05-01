@@ -50,6 +50,10 @@
     box-shadow: 0 0 10px black;
 }*/
 
+.daysClass{
+    display:none;
+}
+
 .testCal td, .testCal th{
     padding:3px;
 }
@@ -1569,6 +1573,8 @@ textarea {
 a {
   color: #008cba !important;
   text-decoration: none;
+  padding-right:50%;
+  padding-bottom:50%;
 }
 a:hover,
 a:focus {
@@ -1619,6 +1625,8 @@ hr {
   margin-bottom:10px;
   border: 0;
   border-top: 1px solid #dddddd;
+  margin-right:10%;
+  margin-left:10%;
 }
 .sr-only {
   position: absolute;

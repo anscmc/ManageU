@@ -80,9 +80,12 @@ namespace ManageU.Pages
             string eventNameString = "";
             string eventStartString = "";
             string eventEndString = "";
+            
 
             int idCount = 0;
             string idString = "";
+
+            int cycle = 1;
 
 
             SqlConnection objCon = default(SqlConnection);
@@ -137,38 +140,48 @@ namespace ManageU.Pages
                     objRS2 = objCmd2.ExecuteReader();
                     if (objRS2.HasRows)
                     {
-                        while (objRS2.Read())
+                        if (cycle == 1)
                         {
-                            eventStartString = objRS2["eventStart"].ToString();
-                            eventIdString = objRS2["masterID"].ToString();
+                            cycle = cycle + 1;
+                            while (objRS2.Read())
+                            {
+                                eventStartString = objRS2["eventStart"].ToString();
+                                eventIdString = objRS2["masterID"].ToString();
 
-                            string eventDay = eventStartString.Split('/', '/')[1];
+                                string eventDay = eventStartString.Split('/', '/')[1];
 
-                            Label eventMasterID = new Label();
-                            eventMasterID.Text = eventIdString;
+                                Label eventMasterID = new Label();
+                                eventMasterID.Text = eventIdString;
 
-                            eventMasterID.Attributes["style"] = "display:none;";
+                                eventMasterID.Attributes["style"] = "display:none;";
 
-                            Label eventStart = new Label();
-                            eventStart.Text = eventStartString;
+                                Label eventStart = new Label();
+                                eventStart.Text = eventStartString;
 
-                            HtmlGenericControl eventDiv =
-                            new HtmlGenericControl("div");
-                            idCount = idCount + 1;
-                            idString = idCount.ToString();
-                            eventDiv.Attributes["id"] = "eventBasic" + idString + eventDay;
-                            eventDiv.Attributes["class"] = "eventBasic";
-                            eventDiv.Attributes["onclick"] = "showInfo()";
-                            eventDiv.Attributes["runat"] = "server";
-                            eventDiv.Attributes["style"] = "color:black;";
+                                HtmlGenericControl eventDiv =
+                                new HtmlGenericControl("div");
+                                idCount = idCount + 1;
+                                idString = idCount.ToString();
+                                eventDiv.Attributes["id"] = "eventBasic" + idString + "x" + eventDay + "x";
+                                eventDiv.Attributes["class"] = "eventBasic";
+                                eventDiv.Attributes["onclick"] = "showInfo()";
+                                eventDiv.Attributes["runat"] = "server";
+                                eventDiv.Attributes["style"] = "color:black;";
 
-                            eventDiv.Controls.Add(eventStart);
-                            eventDiv.Controls.Add(eventMasterID);
-                            
-                            //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            
-                            leftpanel.Controls.Add(eventDiv);
-                            container2.Controls.Add(leftpanel);
+                                Label eventDayLabel = new Label();
+                                eventDayLabel.Text = eventDay;
+                                eventDayLabel.Attributes["id"] = "eventDayLabel" + idString;
+                                eventDayLabel.Attributes["class"] = "daysClass";
+
+                                eventDiv.Controls.Add(eventStart);
+                                eventDiv.Controls.Add(eventMasterID);
+                                eventDiv.Controls.Add(eventDayLabel);
+
+                                //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+
+                                leftpanel.Controls.Add(eventDiv);
+                                container2.Controls.Add(leftpanel);
+                            }
                         }
                     }
 
