@@ -100,7 +100,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartHour;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect eventStartHour;
         
         /// <summary>
         /// Label1 control.
@@ -118,7 +118,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventStartMinute;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect eventStartMinute;
         
         /// <summary>
         /// beginAmPM control.
@@ -145,7 +145,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndHour;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect eventEndHour;
         
         /// <summary>
         /// Label4 control.
@@ -163,7 +163,7 @@ namespace ManageU.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndMinute;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect eventEndMinute;
         
         /// <summary>
         /// endingAmPm control.

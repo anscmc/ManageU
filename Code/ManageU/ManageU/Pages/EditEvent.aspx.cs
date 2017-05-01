@@ -51,46 +51,23 @@ namespace ManageU.Pages
                     string endD = eDate[2] + "-" + eDate[0] + "-" + eDate[1];
                     eventStartDate.Value = startD;
                     eventEndDate.Value = endD;
-                    string[] sTimeSplit = startSplit[1].Split(':');
-                    string hrS = sTimeSplit[0];
-                    string minS = sTimeSplit[1];
-                    string amPmS;
-                    string[] eTimeSplit = endSplit[1].Split(':');
-                    string hrE = eTimeSplit[0];
-                    string minE = eTimeSplit[1];
-                    string amPmE;
-
-                    if (Int32.Parse(hrS) == 12)
-                    {
-                        amPmS = "PM";
-                    }
-                    else if (Int32.Parse(hrS) < 12)
-                    {
-                        amPmS = "AM";
-                    }
-                    else
-                    {
-                        hrS = (Int32.Parse(hrS) - 12).ToString();
-                        amPmS = "PM";
-                    }
+                    string[] sTimeSplit = startSplit[1].Split(' ');
+                    string sTimeS = sTimeSplit[0];
+                    string[] sTimeSSplit = sTimeS.Split(':');
+                    string sTimeAmPm = startSplit[2];
+                    string hrS = sTimeSSplit[0];
+                    string minS = sTimeSSplit[1];
+                    string amPmS = startSplit[2];
+                    string[] eTimeSplit = endSplit[1].Split(' ');
+                    string eTimeE = eTimeSplit[0];
+                    string[] eTimeSSplit = eTimeE.Split(':');
+                    string hrE = eTimeSSplit[0];
+                    string minE = eTimeSSplit[1];
+                    string amPmE = endSplit[2];
 
                     eventStartHour.Value = hrS;
                     eventStartMinute.Value = minS;
                     beginAmPM.Value = amPmS;
-
-                    if (Int32.Parse(hrE) == 12)
-                    {
-                        amPmE = "PM";
-                    }
-                    else if (Int32.Parse(hrE) < 12)
-                    {
-                        amPmE = "AM";
-                    }
-                    else
-                    {
-                        hrS = (Int32.Parse(hrE) - 12).ToString();
-                        amPmE = "PM";
-                    }
 
                     eventEndHour.Value = hrE;
                     eventEndMinute.Value = minE;
@@ -336,7 +313,7 @@ namespace ManageU.Pages
                     client.Credentials = new System.Net.NetworkCredential("manageuapp@gmail.com", "Seniordes2017");
                     client.Host = "smtp.gmail.com";
                     client.EnableSsl = true;
-                    mail.Subject = "ManageU Team Event Added";
+                    mail.Subject = "ManageU Team Event Updated";
                     if (attendanceReq == "Y")
                     {
                         mail.Body = "A " + eventType.Value + " has been edited. Your coach is requiring attendance for this event.";
