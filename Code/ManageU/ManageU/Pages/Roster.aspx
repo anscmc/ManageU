@@ -66,7 +66,13 @@
         function checkAllCheckboxes() {
             var checkboxArray = document.getElementsByClassName("rosterCheck");
             for (var i = 0; i < checkboxArray.length; i++) {
-                checkboxArray[i].checked = true;
+                if (checkboxArray[i].checked == true) {
+                    checkboxArray[i].checked = false;
+                }
+                else {
+                    checkboxArray[i].checked = true;
+                }
+                
             }
         }
         

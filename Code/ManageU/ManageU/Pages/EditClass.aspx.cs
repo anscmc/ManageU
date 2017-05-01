@@ -18,6 +18,13 @@ namespace ManageU.Pages
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
+                List<string> classInfo = new List<string>();
+                classInfo = (List<string>)HttpContext.Current.Session["ClassesInfo"];
+                int classToEdit = Int32.Parse(HttpContext.Current.Session["ClassToEdit"].ToString());
+                string infoInString = classInfo.ElementAt(classToEdit - 1);
+                string[] splitInfo = infoInString.Split('-');
+
+                mID = splitInfo[0];
                 if (! IsPostBack)
                 {
                     populateClassInfo();
@@ -113,7 +120,7 @@ namespace ManageU.Pages
             }
             if (eDay.Length == 1)
             {
-                eDay = "0" + sDay;
+                eDay = "0" + eDay;
             }
 
             eDate = eYear + "-" + eMonth + "-" + eDay;

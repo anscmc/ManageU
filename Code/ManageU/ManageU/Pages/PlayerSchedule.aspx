@@ -8,7 +8,7 @@
         <hr/>
 
         <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
-            <asp:Button runat="server" Text="+ Add Class" OnClick="newClass" CssClass="btn btn-default" 
+            <asp:Button ID="add" runat="server" Text="+ Add Class" OnClick="newClass" CssClass="btn btn-default" 
                 style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;" />
         </div>
         <div>

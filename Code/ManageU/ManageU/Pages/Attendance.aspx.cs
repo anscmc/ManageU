@@ -64,6 +64,7 @@ namespace ManageU.Pages
                         start = objRS["eventStart"].ToString();
                         end = objRS["eventEnd"].ToString();
                         //you will have to split up the event start and event end to be a date and start and end times (the start date and end date should be the same so you only need one date)
+
                     }
 
                 }
