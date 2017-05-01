@@ -203,6 +203,7 @@
     <Content Include="Pages\ChangePassword.aspx" />
     <Content Include="Pages\Contact.aspx" />
     <Content Include="Pages\CreateEvent.aspx" />
+    <Content Include="Pages\EditClass.aspx" />
     <Content Include="Pages\EditEvent.aspx" />
     <Content Include="Pages\EditTask.aspx" />
     <Content Include="Pages\EventDetails.aspx" />
@@ -416,6 +417,13 @@
     </Compile>
     <Compile Include="Pages\CreateEvent.aspx.designer.cs">
       <DependentUpon>CreateEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditClass.aspx.cs">
+      <DependentUpon>EditClass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\EditClass.aspx.designer.cs">
+      <DependentUpon>EditClass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\EditEvent.aspx.cs">
       <DependentUpon>EditEvent.aspx</DependentUpon>
