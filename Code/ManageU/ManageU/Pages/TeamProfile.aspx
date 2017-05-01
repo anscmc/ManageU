@@ -46,7 +46,7 @@
             <hr style="margin-top:15px !important" />
             <div id="linkInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:auto;border:1px solid #008CBA;width:100%;background-color:transparent;margin-bottom:20px !important;">
                 
-                <a href="TeamCalendar.aspx"><i class="fa fa-calendar" aria-hidden="true" runat="server" style="color:white;font-size:20px;padding-right:20px;"></i></a>
+                <a href="TestCal.aspx"><i class="fa fa-calendar" aria-hidden="true" runat="server" style="color:white;font-size:20px;padding-right:20px;"></i></a>
                 <asp:HyperLink class="info" ID="schoolSite" runat="server" style="font-size:1em !important;color:white !important;padding-right:10px;text-decoration:underline;">School Website</asp:HyperLink>
                 <asp:HyperLink class="info" ID="siteTeam" runat="server" style="font-size:1em !important;color:white !important;text-decoration:underline">Team Website</asp:HyperLink>
                 <br />
