@@ -13,6 +13,15 @@ namespace ManageU.Pages {
     public partial class viewTask {
         
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
+        
+        /// <summary>
         /// name control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl name;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
         
         /// <summary>
         /// duedate control.
@@ -31,6 +49,15 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl duedate;
         
         /// <summary>
+        /// Label3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label3;
+        
+        /// <summary>
         /// duetime control.
         /// </summary>
         /// <remarks>
@@ -38,6 +65,15 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl duetime;
+        
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label4;
         
         /// <summary>
         /// desc control.

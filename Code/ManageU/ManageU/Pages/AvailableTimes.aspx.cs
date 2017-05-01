@@ -25,8 +25,20 @@ namespace ManageU.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
+            if (HttpContext.Current.Session["UserType"].ToString() == "player")
             {
+                System.Web.UI.HtmlControls.HtmlGenericControl hide1 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("meetings");
+
+                hide1.Style.Add("display", "none");
+                System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
+
+                hide2.Style.Add("display", "none");
+            }
+            else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+            {
+                //editButton.Style.Add("display", "block");
+                System.Web.UI.HtmlControls.HtmlGenericControl hide = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("mySched");
+                hide.Style.Add("display", "none");
 
             }
             else
@@ -95,7 +107,7 @@ namespace ManageU.Pages
 
                 startTimeLabel.Attributes["id"] = "startTimeLabel" + idCount.ToString();
                 startTimeLabel.Attributes["runat"] = "server";
-                startTimeLabel.Text = startTime;
+                startTimeLabel.Text = startTime + " to ";
 
                 startTimeList.Add(startTimeLabel);
 
@@ -110,7 +122,6 @@ namespace ManageU.Pages
                 availableTime.Controls.Add(startDateLabel);
                 availableTime.Controls.Add(new Literal() { Text = "<br/>" });
                 availableTime.Controls.Add(startTimeLabel);
-                availableTime.Controls.Add(new Literal() { Text = "<br/>" });
                 availableTime.Controls.Add(endTimeLabel);
 
                 displayTimesDiv.Controls.Add(availableTime);

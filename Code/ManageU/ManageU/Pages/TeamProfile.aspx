@@ -9,16 +9,18 @@
 
     <div id="a" class="panels">
         <div class="col-sm-6 col-sm-offset-3" style="text-align:center;padding-left:0px;padding-right:0px;">
-            <h2><asp:Label class="info" id="teamName" runat="server" style="font-size:.75em; font-family:'Microsoft YaHei';"></asp:Label></h2>
         <img runat="server" src="~/prof/img/swimteam.jpg" />
-    </div>
+            <h2 style="margin-bottom:0px !important;"><asp:Label class="info" id="teamName" runat="server" style="font-size:.75em; font-family:'Microsoft YaHei';"></asp:Label></h2>
+            <h3 style="margin-top:0px !important"><asp:Label class="info" id="location" runat="server" style="font-family:'Microsoft YaHei' !important;font-size:.6em;"></asp:Label></h3>
+             </div>
 
         <div id="teamInfo1">
+            <hr style="margin-bottom:15px !important;border-top:0px !important;" />
             <div class="container" style="margin-top:10px;">
                 <div id="teamDivision" runat="server" class="col-sm-4 square" style="float:left;text-align:center; color:white; padding:0px !important;background-color:transparent;">
                         <asp:Label CssClass="info" runat="server">Division</asp:Label>
                         <br />
-                        <asp:Label class="info" id="division" runat="server" style="font-size:40px;font-weight:bold;color:#ba0047;" ></asp:Label>
+                        <asp:Label class="info" id="division" runat="server" style="font-size:40px;font-weight:bold;color:#ba9800;" ></asp:Label>
                 </div>
                 <div id="teamConference" runat="server" class="col-sm-4 square" style="float:left;text-align:center;color:white; padding:0px !important;background-color:transparent;">
                         <asp:Label CssClass="info" runat="server">Conference</asp:Label>
@@ -33,18 +35,16 @@
                         <asp:Label class="info" ID="record" runat="server" style="font-size:40px;font-weight:bold;color:#ba9800;" ></asp:Label>
                 </div>
             </div>
-            <hr style="margin-bottom:15px !important;" />
+            <hr style="margin-bottom:15px !important;width:90% !important" />
             <div id="coachInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:auto;color:white;width:100%;background-color:transparent;">
                 <asp:Label class="info" id="headCoach" runat="server" style="padding-top:12px;" ></asp:Label>
-                <br />
-                <asp:Label class="info" id="location" runat="server"></asp:Label>
                 <br />
                 <asp:Label class="info" id="coachNumber" runat="server"></asp:Label>
                 <br />
                 <asp:Label class="info" id="coachEmail" runat="server"></asp:Label>
             </div>
             <hr style="margin-top:15px !important" />
-            <div id="linkInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:auto;border:1px solid #008CBA;width:100%;background-color:transparent;">
+            <div id="linkInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:auto;border:1px solid #008CBA;width:100%;background-color:transparent;margin-bottom:20px !important;">
                 
                 <a href="TestCal.aspx"><i class="fa fa-calendar" aria-hidden="true" runat="server" style="color:white;font-size:20px;padding-right:20px;"></i></a>
                 <asp:HyperLink class="info" ID="schoolSite" runat="server" style="font-size:1em !important;color:white !important;padding-right:10px;text-decoration:underline;">School Website</asp:HyperLink>

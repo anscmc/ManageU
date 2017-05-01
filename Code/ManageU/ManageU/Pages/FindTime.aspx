@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Find Available Times" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="FindTime.aspx.cs" Inherits="ManageU.Pages.FindTime" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
 
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
@@ -42,11 +42,11 @@
                             </div>
                             <br />
 
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom:0px">
                             <label id="meetingDateLabel" runat="server" CssClass="form-control" style="display:block;">Date Range</label>
-                                <input type="date" id="date1" name="date1" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:140px;height:39px;border-radius:5px;">
+                                <input type="date" id="date1" name="date1" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:200px;height:39px;border-radius:5px;color:black;">
                                 <label id="days" runat="server" style="display:block;"> to </label>
-                                <input type="date" id="date2" name="date2" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:140px;height:39px;border-radius:5px;">
+                                <input type="date" id="date2" name="date2" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:200px;height:39px;border-radius:5px;color:black;">
                                 <%--<input type="number" ID="nextDays" min="1" max="60" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:50px;height:39px;border-radius:5px;">--%>
                                 <%--<label id="days" runat="server" style="display:inline">days</label>--%>
                             </div>
@@ -118,7 +118,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <asp:Button runat="server" id="findMeetingTimes" Text="Find Available Times" OnClick="findTimes" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;text-align: center; color:#008CBA; background-color:white;" />
+                            <asp:Button runat="server" id="findMeetingTimes" Text="Find Available Times" OnClick="findTimes" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;text-align: center; color:#008CBA; background-color:white;width:200px;" />
                             <%--<label id="errLabel" style="color: Red; display: none;" runat="server">Unable to updated password. Please make sure you enter your correct email and password.</label>--%>
                         </div>
                     </div>
