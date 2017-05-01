@@ -18,27 +18,13 @@ namespace ManageU.Pages
         {
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-                if (HttpContext.Current.Session["UserType"].ToString() == "player")
-                {
-                    System.Web.UI.HtmlControls.HtmlGenericControl hide1 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("meetings");
+                List<string> classInfo = new List<string>();
+                classInfo = (List<string>)HttpContext.Current.Session["ClassesInfo"];
+                int classToEdit = Int32.Parse(HttpContext.Current.Session["ClassToEdit"].ToString());
+                string infoInString = classInfo.ElementAt(classToEdit - 1);
+                string[] splitInfo = infoInString.Split('-');
 
-                    hide1.Style.Add("display", "none");
-                    System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
-
-                    hide2.Style.Add("display", "none");
-                }
-                else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
-                {
-                    //editButton.Style.Add("display", "block");
-                    System.Web.UI.HtmlControls.HtmlGenericControl hide = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("mySched");
-                    hide.Style.Add("display", "none");
-
-                }
-                else
-                {
-                    Response.Redirect("Landing.aspx");
-                }
-
+                mID = splitInfo[0];
                 if (! IsPostBack)
                 {
                     populateClassInfo();
@@ -134,7 +120,7 @@ namespace ManageU.Pages
             }
             if (eDay.Length == 1)
             {
-                eDay = "0" + sDay;
+                eDay = "0" + eDay;
             }
 
             eDate = eYear + "-" + eMonth + "-" + eDay;
