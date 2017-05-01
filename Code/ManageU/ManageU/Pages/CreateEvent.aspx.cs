@@ -134,7 +134,11 @@ namespace ManageU.Pages
                 attendanceReq = "N";
             }
 
-            if (beginAmPM.Value == "PM" && Int32.Parse(eventStartHour.Value) > 12)
+            if(beginAmPM.Value == "AM" && Int32.Parse(eventStartHour.Value) == 12)
+            {
+                startHr = Int32.Parse(eventStartHour.Value) - 12;
+            }
+            else if (beginAmPM.Value == "PM" && Int32.Parse(eventStartHour.Value) < 12)
             {
                 startHr = Int32.Parse(eventStartHour.Value) + 12;
             }
@@ -142,7 +146,13 @@ namespace ManageU.Pages
             {
                 startHr = Int32.Parse(eventStartHour.Value);
             }
-            if (endingAmPm.Value == "PM" && Int32.Parse(eventStartHour.Value) > 12)
+
+
+            if (endingAmPm.Value == "AM" && Int32.Parse(eventEndHour.Value) == 12)
+            {
+                endHr = Int32.Parse(eventEndHour.Value) - 12;
+            }
+            if (endingAmPm.Value == "PM" && Int32.Parse(eventEndHour.Value) < 12)
             {
                 endHr = Int32.Parse(eventEndHour.Value) + 12;
             }
@@ -158,7 +168,11 @@ namespace ManageU.Pages
 
             start = DateTime.Parse(startDateTime);
             end = DateTime.Parse(endDateTime);
-            until = DateTime.Parse(repeatUntilDate.Value);
+            until = end;
+            if (repeatPicker.Value != "Never")
+            {
+                until = DateTime.Parse(repeatUntilDate.Value);
+            }
 
             SqlConnection objCon = default(SqlConnection);
             SqlCommand objCmd = default(SqlCommand);
@@ -196,7 +210,7 @@ namespace ManageU.Pages
                     objCmd = new SqlCommand();
                     objCmd.Connection = objCon;
 
-                    end = end.AddDays(7.0);
+                    
 
                     strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd);";
                     objCmd = new SqlCommand(strsql, objCon);
@@ -207,6 +221,7 @@ namespace ManageU.Pages
                     objCmd.Parameters.AddWithValue("eEnd", end);
 
                     objCmd.ExecuteNonQuery();
+                    end = end.AddDays(7.0);
                 }
             }
             else if(repeatPicker.Value == "Daily")
@@ -216,7 +231,7 @@ namespace ManageU.Pages
                     objCmd = new SqlCommand();
                     objCmd.Connection = objCon;
 
-                    end = end.AddDays(1.0);
+                    
 
                     strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd);";
                     objCmd = new SqlCommand(strsql, objCon);
@@ -227,6 +242,7 @@ namespace ManageU.Pages
                     objCmd.Parameters.AddWithValue("eEnd", end);
 
                     objCmd.ExecuteNonQuery();
+                    end = end.AddDays(1.0);
                 }
             }
             else
@@ -292,5 +308,9 @@ namespace ManageU.Pages
             Response.Redirect("TestCal.aspx");
         }
 
+        protected void cancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TestCal.aspx");
+        }
     }
 }

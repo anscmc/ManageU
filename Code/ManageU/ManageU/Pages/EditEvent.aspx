@@ -18,7 +18,7 @@
 
 
                             <label id="eventNameLabel" runat="server">Event Name</label>
-                            <asp:TextBox ID="EventName" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;color:black;"></asp:TextBox>
+                            <asp:TextBox ID="eventName" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;color:black;"></asp:TextBox>
                             <br />
                             <label id="Label5" runat="server">Event Type</label>
                             <br />
@@ -61,15 +61,15 @@
 
                             <label id="Label6" runat="server">Reoccurring</label>
                             <br />
-                            <select class="selectpicker" ID="repeatPicker" runat="server" CssClass="form-control" style="width:250px;display:inline; margin: 0 auto;text-align: center;height:39px; color:black;width:250px;border-radius:5px;">
+                            <select class="selectpicker" ID="repeatPicker" runat="server" onchange="showRepeat()" CssClass="form-control" style="width:250px;display:inline; margin: 0 auto;text-align: center;height:39px; color:black;width:250px;border-radius:5px;">
                                     <option value="Never">Never</option>
                                     <option value="Daily">Daily</option>
                                     <option value="Weekly">Weekly</option>
                             </select>
                             <br />
-                            <label id="Label2" runat="server">Until</label>
+                            <label id="Label2" style="display:none;">Until</label>
                             <br />
-                            <input type="date" name="repeatUntilDate" id="repeatUntilDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
+                            <input type="date" name="repeatUntilDate" id="repeatUntilDate" runat="server" CssClass="form-control" style="display: none; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
                             <br />
                             <label for="male" style="display:inline;text-align:center;">Attendance Required</label>
                             <input type="checkbox" name="chk_group[]" id="required" style="display: inline;" runat="server" />         
@@ -98,6 +98,16 @@
 
     <script>
         $('.datepicker').datepicker();
+        function showRepeat() {
+            if (document.getElementById('<%=repeatPicker.ClientID %>').value == "Never") {
+                document.getElementById("Label2").style.display = "none";
+                document.getElementById('<%=repeatUntilDate.ClientID %>').style.display = "none";
+            }
+            else {
+                document.getElementById("Label2").style.display = "block";
+                document.getElementById('<%=repeatUntilDate.ClientID %>').style.display = "block";
+            }
+        }
     </script>
 
 </asp:Content>
