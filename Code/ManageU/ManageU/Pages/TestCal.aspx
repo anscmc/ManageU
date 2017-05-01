@@ -104,16 +104,16 @@
             divClick.innerText = "x" + dayNum + "x";
         });
 
-        var elemAs = document.getElementsByTagName("a");
-        for (var i = 0; i < elemAs.length; i++) {
-            var elemA = elemAs[i];
-            var dayLabels = document.getElementsByClassName("daysClass");
-            for (var i = 0; i < dayLabels.length; i++) {
-                if (dayLabels[i].innerText == elemA.innerText) {
-                    console.log('match');
-                }
-            }
-        }
+        //var elemAs = document.getElementsByTagName("a");
+        //for (var i = 0; i < elemAs.length; i++) {
+        //    var elemA = elemAs[i];
+        //    var dayLabels = document.getElementsByClassName("daysClass");
+        //    for (var i = 0; i < dayLabels.length; i++) {
+        //        if (dayLabels[i].innerText == elemA.innerText) {
+        //            console.log('match');
+        //        }
+        //    }
+        //}
 
         window.onload = function () {
 
