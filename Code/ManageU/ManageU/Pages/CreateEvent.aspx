@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Create Event" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="CreateEvent.aspx.cs" Inherits="ManageU.Pages.CreateMeeting" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
 
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
@@ -30,11 +30,11 @@
                             <br />
                             <label id="eventStartDateLabel" runat="server">Start Date</label>
 
-                            <input type="date" name="eventStartDate" id="eventStartDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
+                            <input type="date" name="eventStartDate" id="eventStartDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;color:black !important;">
 
                             <label id="eventEndDateLabel" runat="server">End Date</label>
                             <br />
-                            <input type="date" name="eventEndDate" id="eventEndDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
+                            <input type="date" name="eventEndDate" id="eventEndDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;color:black !important;">
 
                             <label id="eventStartTimeLabel" runat="server"> Start Time</label>
                             <br />

@@ -15,10 +15,22 @@ namespace ManageU.Pages
             //emailAddresses.Text = this.Session["sessionEmails"].ToString();
             if (HttpContext.Current.Session["UserType"].ToString() == "player" || HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
-                if(HttpContext.Current.Session["FromRosterToContact"].ToString() == "y")
+                if (Session["FromRosterToContact"] != null)
                 {
-                    emailAddresses.Text = HttpContext.Current.Session["RosterEmailAddresses"].ToString();
+                    if (HttpContext.Current.Session["FromRosterToContact"].ToString() == "y")
+                    {
+                        emailAddresses.Text = HttpContext.Current.Session["RosterEmailAddresses"].ToString();
+                    }
+                    else if (HttpContext.Current.Session["FromRosterToContact"].ToString() == null)
+                    {
+                        emailAddresses.Text = "";
+                    }
+                    else
+                    {
+                        emailAddresses.Text = "";
+                    }
                 }
+                    
             }
             else
             {

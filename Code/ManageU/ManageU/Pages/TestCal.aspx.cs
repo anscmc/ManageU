@@ -147,6 +147,8 @@ namespace ManageU.Pages
                             {
                                 eventStartString = objRS2["eventStart"].ToString();
                                 eventIdString = objRS2["masterID"].ToString();
+                                //eventNameString = objRS2["eventName"].ToString();
+                                eventNameString = "Event Name";
 
                                 string eventDay = eventStartString.Split('/', '/')[1];
 
@@ -157,6 +159,8 @@ namespace ManageU.Pages
 
                                 Label eventStart = new Label();
                                 eventStart.Text = eventStartString;
+                                Label eventName = new Label();
+                                eventName.Text = eventNameString;
 
                                 HtmlGenericControl eventDiv =
                                 new HtmlGenericControl("div");
@@ -173,10 +177,13 @@ namespace ManageU.Pages
                                 eventDayLabel.Attributes["id"] = "eventDayLabel" + idString;
                                 eventDayLabel.Attributes["class"] = "daysClass";
 
+                                eventDiv.Controls.Add(eventName);
+                                eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                                eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
                                 eventDiv.Controls.Add(eventStart);
                                 eventDiv.Controls.Add(eventMasterID);
                                 eventDiv.Controls.Add(eventDayLabel);
-
+                                eventDiv.Controls.Add(new Literal() { Text = "<a><i class='fa fa-chevron-right' aria-hidden='true' style='float:right;top:50%;font-size:30px;color:black;z-index:1000;'></i></a>" });
                                 //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
 
                                 leftpanel.Controls.Add(eventDiv);

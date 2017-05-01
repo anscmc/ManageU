@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Add Lift" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="AddLift.aspx.cs" Inherits="ManageU.Pages.AddLift" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
 
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>

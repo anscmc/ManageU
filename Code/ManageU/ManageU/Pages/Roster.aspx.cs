@@ -143,7 +143,7 @@ namespace ManageU.Pages
                     //xButton.Attributes["OnClientClick"] = "xButtonClick";
                     //xButton.Attributes.Add("clientclick", "return false");
 
-                    HtmlGenericControl calButton =
+                            HtmlGenericControl calButton =
                             new HtmlGenericControl("button");
 
                             calButton.Attributes["type"] = "button";

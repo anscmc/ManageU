@@ -63,7 +63,56 @@ namespace ManageU.Pages
                         type = objRS["eventType"].ToString();
                         start = objRS["eventStart"].ToString();
                         end = objRS["eventEnd"].ToString();
-                        //you will have to split up the event start and event end to be a date and start and end times (the start date and end date should be the same so you only need one date)
+
+                        Label eventName = new Label();
+                        eventName.Text = name;
+                        Label eventType = new Label();
+                        eventType.Text = type;
+                        Label eventStart = new Label();
+                        eventStart.Text = start;
+                        Label eventEnd = new Label();
+                        eventEnd.Text = end;
+
+                        HtmlGenericControl yesButton =
+                        new HtmlGenericControl("button");
+
+                        yesButton.Attributes["type"] = "button";
+                        yesButton.Attributes["class"] = "btn btn-default";
+                        yesButton.Attributes["runat"] = "server";
+                        yesButton.InnerText = "Yes";
+                        yesButton.Attributes["OnClick"] = "yesClick";
+
+                        HtmlGenericControl noButton =
+                        new HtmlGenericControl("button");
+
+                        noButton.Attributes["type"] = "button";
+                        noButton.Attributes["class"] = "btn btn-default";
+                        noButton.Attributes["runat"] = "server";
+                        noButton.InnerText = "No";
+                        noButton.Attributes["OnClick"] = "noClick";
+
+
+                        HtmlGenericControl infoDiv =
+                        new HtmlGenericControl("div");
+
+                        infoDiv.Attributes["id"] = "rosterContent";
+                        infoDiv.Attributes["class"] = "col-sm-4 infoDiv";
+                        infoDiv.Attributes["runat"] = "server";
+                        infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:auto;max-width:500px;margin: 0 auto;";
+
+                        infoDiv.Controls.Add(eventName);
+                        infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        infoDiv.Controls.Add(eventType);
+                        infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        infoDiv.Controls.Add(eventStart);
+                        infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        infoDiv.Controls.Add(eventEnd);
+                        infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        infoDiv.Controls.Add(yesButton);
+                        infoDiv.Controls.Add(noButton);
+
+                        atRecord.Controls.Add(infoDiv);
+                    
                     }
 
                 }
@@ -72,6 +121,14 @@ namespace ManageU.Pages
             objCmd = null;
             objRS.Close();
             objCon.Close();
+        }
+        protected void yesClick(object sender, EventArgs e)
+        {
+
+        }
+        protected void noClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

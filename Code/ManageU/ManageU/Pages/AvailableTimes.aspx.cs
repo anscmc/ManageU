@@ -95,7 +95,7 @@ namespace ManageU.Pages
 
                 startTimeLabel.Attributes["id"] = "startTimeLabel" + idCount.ToString();
                 startTimeLabel.Attributes["runat"] = "server";
-                startTimeLabel.Text = startTime;
+                startTimeLabel.Text = startTime + " to ";
 
                 startTimeList.Add(startTimeLabel);
 
@@ -110,7 +110,6 @@ namespace ManageU.Pages
                 availableTime.Controls.Add(startDateLabel);
                 availableTime.Controls.Add(new Literal() { Text = "<br/>" });
                 availableTime.Controls.Add(startTimeLabel);
-                availableTime.Controls.Add(new Literal() { Text = "<br/>" });
                 availableTime.Controls.Add(endTimeLabel);
 
                 displayTimesDiv.Controls.Add(availableTime);

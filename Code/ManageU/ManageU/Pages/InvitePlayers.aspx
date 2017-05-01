@@ -2,7 +2,7 @@
 
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
     
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>

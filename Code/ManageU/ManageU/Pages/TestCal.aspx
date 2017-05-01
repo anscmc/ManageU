@@ -18,6 +18,7 @@
                     </div>
         <asp:Button ID="nextMonthButton" runat="server" style="display:none;" OnClick="nextMonth" />
         <asp:Button ID="lastMonthButton" runat="server" style="display:none;" OnClick="lastMonth" />
+
         <%--<div style="background-color:white;height:auto;width:auto;">
             <asp:Calendar ID="Calendar1" class="testCal" runat="server"></asp:Calendar>
         </div>--%>
@@ -87,8 +88,9 @@
             </div>
 
                <%--see margin top--%>
-            <div class="square3" style="background-color:white !important;z-index:500;margin-top:-40px;">
-                <div id="Div1" runat="server" class="content" style="text-align:left !important;">
+        
+            <div class="square3" style="background-color:white !important;z-index:500;margin-top:-40px;display:inline-block;">
+                <div id="Div1" runat="server" class="content">
                        <asp:Calendar ID="Calendar2" class="testCal" runat="server" style="height:100%;width:100%;"></asp:Calendar>     
                 </div>
             </div>
@@ -110,21 +112,12 @@
             divClick.innerText = "x" + dayNum + "x";
         });
 
-        //var elemAs = document.getElementsByTagName("a");
-        //for (var i = 0; i < elemAs.length; i++) {
-        //    var elemA = elemAs[i];
-        //    var dayLabels = document.getElementsByClassName("daysClass");
-        //    for (var i = 0; i < dayLabels.length; i++) {
-        //        if (dayLabels[i].innerText == elemA.innerText) {
-        //            console.log('match');
-        //        }
-        //    }
-        //}
+        
 
         window.onload = function () {
 
             $(function () {
-                $('a').on('click', function (event) { event.preventDefault(); });
+                $('td a').on('click', function (event) { event.preventDefault(); });
             });
 
             var elemTDs = document.getElementsByTagName('td');
@@ -142,6 +135,20 @@
             }
 
         }
+
+        function populateDots() {
+            var elemAs = document.getElementsByTagName("a");
+            for (var i = 0; i < elemAs.length; i++) {
+                var elemA = elemAs[i];
+                var dayLabels = document.getElementsByClassName("daysClass");
+                for (var i = 0; i < dayLabels.length; i++) {
+                    if (dayLabels[i].innerText == elemA.innerText) {
+                        console.log('match');
+                    }
+                }
+            }
+        }
+
         function lastMonth()
         { 
             var lastMonthButton = $('#<%= lastMonthButton.ClientID %>');

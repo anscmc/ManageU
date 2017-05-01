@@ -4744,7 +4744,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   /*margin-right: -15px;
   margin-left: -15px;*/
 }
-@media (min-width: 768px) {
+@media (min-width: 1220px) {
   .container > .navbar-header,
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
@@ -4828,7 +4828,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
-@media (min-width: 768px) {
+@media (min-width: 1220px) {
   .navbar-toggle {
     display: none;
   }
