@@ -14,6 +14,8 @@
         <label id="duetime" runat="server"></label>
         <br />
         <label id="desc" runat="server"></label>
+        <br />
+        <label id="complete" runat="server"></label>
     </div>
 
     <asp:Button ID="deleteTask" runat="server" Text="Delete" OnClick="deleteTask_Click" CssClass="btn btn-default" 

@@ -40,6 +40,7 @@ namespace ManageU.Pages
             string dueDate;
             string dueTime;
             string description;
+            string playersCompleted;
         string strsql = "";
         SqlConnection objCon = default(SqlConnection);
         SqlCommand objCmd = default(SqlCommand);
@@ -66,7 +67,7 @@ namespace ManageU.Pages
             {
                     idNum++;
                     //if the player has already completed the task, do not show it
-                    if (objRS["completed"].ToString().Contains(HttpContext.Current.Session["UserID"].ToString()))
+                    if (objRS["completed"].ToString().Contains(HttpContext.Current.Session["Username"].ToString()))
                     {
 
                     }
@@ -89,7 +90,7 @@ namespace ManageU.Pages
                         dueDate = objRS["dueDate"].ToString();
                         dueTime = objRS["timeDue"].ToString();
                         description = objRS["taskDesc"].ToString();
-
+                        playersCompleted = objRS["completed"].ToString();
                         string[] timeSplit = dueTime.Split(':');
                         string dueHour = timeSplit[0];
                         string dueampm = "AM";
@@ -110,7 +111,7 @@ namespace ManageU.Pages
 
                         dueTime = dueHour + " " + dueMinute + " " + dueampm;
 
-                        taskInfo.Add(taskID + "-" + taskName + "-" + dueDate + "-" + dueTime + "-" + description);
+                        taskInfo.Add(taskID + "-" + taskName + "-" + dueDate + "-" + dueTime + "-" + description + "-" + playersCompleted);
                         HttpContext.Current.Session["TasksInfo"] = taskInfo;
                         taskIDs.Add(taskID);
 
@@ -270,7 +271,7 @@ namespace ManageU.Pages
                     
                 }
                 objCmd = null;
-                strsql = "Update TaskTable set completed='" + completeIds +  HttpContext.Current.Session["UserID"].ToString() + "," + "' where taskID='" + id + "'";
+                strsql = "Update TaskTable set completed='" + completeIds +  HttpContext.Current.Session["Username"].ToString() + "," + "' where taskID='" + id + "'";
                 objRS.Close();
                 objCmd = new SqlCommand(strsql, objCon);
                 objCmd.ExecuteNonQuery();
@@ -314,7 +315,7 @@ namespace ManageU.Pages
                 while (objRS.Read())
                 {
                     //show player completed task in table (separated by semi colons)
-                    strsql2 = "update TaskTable set completed='" + objRS["completed"].ToString() + ";" + HttpContext.Current.Session["UserID"] + "'";
+                    strsql2 = "update TaskTable set completed='" + objRS["completed"].ToString() + ";" + HttpContext.Current.Session["Username"] + "'";
                     objCon2.Open();
 
                     objCmd2 = new SqlCommand(strsql2, objCon2);
