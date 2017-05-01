@@ -72,9 +72,9 @@ namespace ManageU.Pages
             int idNum = 0;
             int checkboxIdNum = 0;
             string emailString = "";
-
-                    //find all players associated with that team
-                    objCon2.Open();
+            playerInfo.InnerHtml = "";
+            //find all players associated with that team
+            objCon2.Open();
                     strsql2 = "select * from PlayerTable where teamID='" + HttpContext.Current.Session["TeamID"].ToString() + "'";
                     objCmd2 = new SqlCommand(strsql2, objCon2);
                     objRS2 = objCmd2.ExecuteReader();
@@ -96,9 +96,9 @@ namespace ManageU.Pages
                             idNum = idNum + 1;
                             checkboxIdNum = checkboxIdNum + 1;
 
-                            //hidden label = new label();
-                            //label.text = playerUserID dynamic id
-
+                    //hidden label = new label();
+                    //label.text = playerUserID dynamic id
+                    
                             Label lb1 = new Label();
                             lb1.Text = playerFName + " " + playerLName;
 

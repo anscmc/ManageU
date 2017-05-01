@@ -32,10 +32,13 @@
         <asp:HiddenField ID="deleteHiddenField" runat="server" />
         <asp:HiddenField ID="editHiddenField" runat="server" />
         <asp:HiddenField ID="detailsHiddenField" runat="server" />
+        <asp:HiddenField ID="completeHiddenField" runat="server" />
 
         <asp:Button runat="server" ID="hiddenDelete" Text="" OnClick="deleteT" CssClass="btn btn-default" style="display:none;" />
         <asp:Button runat="server" ID="hiddenEdit" Text="" OnClick="editT" CssClass="btn btn-default" style="display:none;" />
         <asp:Button runat="server" ID="hiddenDetails" Text="" OnClick="detailsT" CssClass="btn btn-default" 
+                style="display: none;" />
+        <asp:Button runat="server" ID="hiddenComplete" Text="" OnClick="completeT" CssClass="btn btn-default" 
                 style="display: none;" />
 
     </div>
@@ -69,6 +72,15 @@
                 document.getElementById('<%=detailsHiddenField.ClientID %>').value = row;
                     btnHidden.click();
                 }
+        }
+
+        function completeTask(row) {
+            var btnHidden = $('#<%= hiddenComplete.ClientID %>');
+
+            if (btnHidden != null) {
+                document.getElementById('<%=completeHiddenField.ClientID %>').value = row;
+                btnHidden.click();
+            }
         }
 
         

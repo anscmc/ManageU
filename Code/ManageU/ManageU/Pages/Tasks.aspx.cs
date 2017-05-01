@@ -139,6 +139,7 @@ namespace ManageU.Pages
                             completeCheck.InputAttributes.Add("class", "rosterCheck");
                             completeCheck.Attributes["Style"] = "margin-bottom:5px;bottom:5px;";
                             completeCheck.Text = "I completed this task";
+                            completeCheck.Attributes.Add("onclick", "completeTask(" + idNum.ToString() + ")");
                             taskDiv.Controls.Add(completeCheck);
                         }
 
@@ -242,7 +243,11 @@ namespace ManageU.Pages
             Response.Redirect("EditTask.aspx");
         }
 
-    
+    protected void completeT(object sender, EventArgs e)
+        {
+            //add user ID to completed
+            loadTasks();
+        }
   
 
     protected void completeTaskButton_Click(object sender, EventArgs e)
