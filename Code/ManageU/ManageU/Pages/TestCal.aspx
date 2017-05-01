@@ -10,6 +10,12 @@
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
     <hr/>
+        <div class="form-group">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <asp:Button runat="server" id="createMeetingButton" Text="+ Add Event" OnClick="createEvent" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;text-align: center; color:#008CBA; background-color:white;width:250px;" />
+                            <%--<label id="errLabel" style="color: Red; display: none;" runat="server">Unable to updated password. Please make sure you enter your correct email and password.</label>--%>
+                        </div>
+                    </div>
         <asp:Button ID="nextMonthButton" runat="server" style="display:none;" OnClick="nextMonth" />
         <asp:Button ID="lastMonthButton" runat="server" style="display:none;" OnClick="lastMonth" />
         <%--<div style="background-color:white;height:auto;width:auto;">
