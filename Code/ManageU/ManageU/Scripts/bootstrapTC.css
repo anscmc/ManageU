@@ -58,9 +58,6 @@
     padding:3px;
 }
 
-.leftpanel:hover {
-  /*left: -250px;*/
-}
 
 .leftpanel.show {
   bottom: -5px;
