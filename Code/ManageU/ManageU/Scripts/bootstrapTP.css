@@ -13,6 +13,46 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+@media (max-width: 1000px) {
+    .navbar-collapse.collapse.in { 
+        display: block!important;
+    }
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .navbar-text {
+        float: none;
+        margin: 15px 0;
+    }
+    /* since 3.1.0 */
+    .navbar-collapse.collapse.in { 
+        display: block!important;
+    }
+    .collapsing {
+        overflow: hidden!important;
+    }
+}
 
 @font-face {
     font-family: collegeFont;
@@ -30,6 +70,9 @@ html {
     color: #008CBA;
 }
 
+.daysClass{
+    display:none;
+}
 
 body {
   margin: 0;
@@ -39,6 +82,12 @@ body {
   color:white;
   font-size: 15px;
   line-height: 1.4;
+}
+
+.detailsDiv{
+    text-align:center;
+    vertical-align:middle;
+    display:table-cell;
 }
 
 .inputBoxes{
@@ -299,7 +348,7 @@ img {
         /*background:#eee;*/
         /*position:fixed;*/
         /*color:red;*/
-        top:22px;
+        top:35px;
         left:0;
         right:0px;
         /* prevents your fixed panel from being on top of your subsequent panels */
@@ -4987,7 +5036,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
   border-color: #007196;
-  border-bottom:1px solid black;
+  /*border-bottom:1px solid black;*/
   max-height:none;
   overflow:auto;
   height:auto;

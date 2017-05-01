@@ -196,6 +196,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\stadium.jpg" />
     <Content Include="Pages\AddClass.aspx" />
     <Content Include="Pages\AddLift.aspx" />
     <Content Include="Pages\Attendance.aspx" />
@@ -214,10 +215,9 @@
     <Content Include="Pages\Roster.aspx" />
     <Content Include="Pages\Sandbox.aspx" />
     <Content Include="Pages\Tasks.aspx" />
-    <Content Include="Pages\TeamCalendar.aspx" />
-    <Content Include="Pages\TeamProfile.aspx" />
     <Content Include="Pages\CreateTask.aspx" />
-    <Content Include="Pages\ViewMeeting.aspx" />
+    <Content Include="Pages\TestCal.aspx" />
+    <Content Include="Pages\ViewEvent.aspx" />
     <Content Include="Pages\ViewTask.aspx" />
     <Content Include="prof\font\roboto\Roboto-Bold.eot" />
     <Content Include="prof\font\roboto\Roboto-Bold.ttf" />
@@ -514,20 +514,6 @@
     <Compile Include="Pages\Tasks.aspx.designer.cs">
       <DependentUpon>Tasks.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TeamCalendar.aspx.cs">
-      <DependentUpon>TeamCalendar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\TeamCalendar.aspx.designer.cs">
-      <DependentUpon>TeamCalendar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\TeamProfile.aspx.cs">
-      <DependentUpon>TeamProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\TeamProfile.aspx.designer.cs">
-      <DependentUpon>TeamProfile.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\CreateTask.aspx.cs">
       <DependentUpon>CreateTask.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,12 +521,19 @@
     <Compile Include="Pages\CreateTask.aspx.designer.cs">
       <DependentUpon>CreateTask.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ViewMeeting.aspx.cs">
-      <DependentUpon>ViewMeeting.aspx</DependentUpon>
+    <Compile Include="Pages\TestCal.aspx.cs">
+      <DependentUpon>TestCal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\ViewMeeting.aspx.designer.cs">
-      <DependentUpon>ViewMeeting.aspx</DependentUpon>
+    <Compile Include="Pages\TestCal.aspx.designer.cs">
+      <DependentUpon>TestCal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewEvent.aspx.cs">
+      <DependentUpon>ViewEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ViewEvent.aspx.designer.cs">
+      <DependentUpon>ViewEvent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ViewTask.aspx.cs">
       <DependentUpon>ViewTask.aspx</DependentUpon>
@@ -575,7 +568,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

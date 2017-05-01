@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Sandbox" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="Sandbox.aspx.cs" Inherits="ManageU.Pages.Sandbox" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/Scripts/bootstrapTC.css" type="text/css" />
     
 
     <div style="margin: 0 auto; text-align: center;">
@@ -34,7 +34,7 @@
 
 
         </div>
-
+        <asp:Calendar ID="Calendar1" class="testCal" runat="server" style="background-color:white;"></asp:Calendar>
         <div id="viewMeetingDiv" class="col-sm-12" style="padding:0px" runat="server">
 
 

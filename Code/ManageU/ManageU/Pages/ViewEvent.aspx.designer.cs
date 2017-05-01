@@ -10,87 +10,69 @@
 namespace ManageU.Pages {
     
     
-    public partial class Sandbox {
+    public partial class ViewMeeting {
         
         /// <summary>
-        /// playerScheduleDiv control.
+        /// detailsDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl playerScheduleDiv;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detailsDiv;
         
         /// <summary>
-        /// classTimes control.
+        /// eventName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classTimes;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventName;
         
         /// <summary>
-        /// classDets control.
+        /// eventType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classDets;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventType;
         
         /// <summary>
-        /// classDates control.
+        /// eventStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl classDates;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventStart;
         
         /// <summary>
-        /// availableTimesDiv control.
+        /// eventEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl availableTimesDiv;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl eventEnd;
         
         /// <summary>
-        /// Calendar1 control.
+        /// editEvent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
+        protected global::System.Web.UI.WebControls.Button editEvent;
         
         /// <summary>
-        /// viewMeetingDiv control.
+        /// deleteEvent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl viewMeetingDiv;
-        
-        /// <summary>
-        /// viewTaskDiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl viewTaskDiv;
-        
-        /// <summary>
-        /// misc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl misc;
+        protected global::System.Web.UI.WebControls.Button deleteEvent;
     }
 }
