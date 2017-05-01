@@ -246,7 +246,38 @@ namespace ManageU.Pages
     protected void completeT(object sender, EventArgs e)
         {
             //add user ID to completed
-            loadTasks();
+            string row = completeHiddenField.Value;
+            string id = taskIDs.ElementAt(Int32.Parse(row));
+            string completeIds = "";
+            string strsql = "";
+            SqlConnection objCon = default(SqlConnection);
+            SqlCommand objCmd = default(SqlCommand);
+            SqlDataReader objRS;
+            objCon = new SqlConnection();
+            objCon.ConnectionString = ConfigurationManager.AppSettings["ManageUConnectionString"];
+
+            strsql = "Select * from TaskTable where taskID='" + id + "';";
+            objCmd = new SqlCommand(strsql, objCon);
+
+            objRS = objCmd.ExecuteReader();
+
+            if (objRS.HasRows)
+            {
+                while (objRS.Read())
+                {
+                    completeIds = objRS["complete"].ToString();
+                    
+                }
+                objCmd = null;
+                strsql = "Update TaskTable set completed='" + completeIds + "," + HttpContext.Current.Session["UserID"].ToString() + "' where taskID='" + id + "'";
+                objCmd = new SqlCommand(strsql, objCon);
+                objCmd.ExecuteNonQuery();
+            }
+
+            objRS.Close();
+            objCmd = null;
+            objCon.Close();
+                    loadTasks();
         }
   
 
