@@ -64,13 +64,14 @@
         }
 
         function checkAllCheckboxes() {
+            var selectAllCheckbox = $('#<%= selectAllBox.ClientID %>');
             var checkboxArray = document.getElementsByClassName("rosterCheck");
             for (var i = 0; i < checkboxArray.length; i++) {
-                if (checkboxArray[i].checked == true) {
-                    checkboxArray[i].checked = false;
+                if (selectAllCheckbox[0].checked == true) {
+                    checkboxArray[i].checked = true;
                 }
                 else {
-                    checkboxArray[i].checked = true;
+                    checkboxArray[i].checked = false;
                 }
                 
             }

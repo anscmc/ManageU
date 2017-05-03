@@ -23,3 +23,26 @@ CREATE TABLE CoachTable(
 	coachNumber int
 )
 
+
+CREATE TABLE EventMasterTable(
+	masterID int identity(1,1) primary key not null,
+	associatedID int not null,
+	eventName varchar(75),
+	eventType varchar(10) not null,
+	eventStart datetime not null,
+	eventEnd datetime not null,
+	eventNotes varchar(MAX),
+	attReq varchar(1),
+	reoccur varchar(50)
+)
+
+CREATE TABLE EventDetailsTable(
+	eventID int identity(1,1) primary key not null,
+	masterID int not null,
+	associatedID int not null,
+	eventStart datetime not null,
+	eventEnd datetime not null,
+	attReq varchar(1),
+	attendees varchar(MAX),
+	notattending varchar(MAX)
+)
