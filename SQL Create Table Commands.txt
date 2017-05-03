@@ -42,6 +42,7 @@ CREATE TABLE EventDetailsTable(
 	associatedID int not null,
 	eventStart datetime not null,
 	eventEnd datetime not null,
+	attReq varchar(1),
 	attendees varchar(MAX),
 	notattending varchar(MAX)
 )
