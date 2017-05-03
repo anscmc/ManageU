@@ -93,6 +93,7 @@ namespace ManageU.Pages
                     loadCalendar();
                 }
                 
+
             }
             else
             {
@@ -370,6 +371,7 @@ namespace ManageU.Pages
                     HttpContext.Current.Session["monthNum"] = "12";
                     break;
             }
+            loadCalendar();
         }
         protected void lastMonth(object sender, EventArgs e)
         {
@@ -432,6 +434,7 @@ namespace ManageU.Pages
                     HttpContext.Current.Session["currYear"] = (Int32.Parse(HttpContext.Current.Session["currYear"].ToString()) - 1).ToString();
                     break;
             }
+            loadCalendar();
         }
 
         protected void hiddenView_Click(object sender, EventArgs e)
