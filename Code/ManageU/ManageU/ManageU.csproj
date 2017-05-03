@@ -207,7 +207,6 @@
     <Content Include="Pages\EditClass.aspx" />
     <Content Include="Pages\EditEvent.aspx" />
     <Content Include="Pages\EditTask.aspx" />
-    <Content Include="Pages\EventDetails.aspx" />
     <Content Include="Pages\FindTime.aspx" />
     <Content Include="Pages\InvitePlayers.aspx" />
     <Content Include="Pages\Lifts.aspx" />
@@ -446,13 +445,6 @@
     </Compile>
     <Compile Include="Pages\EditTask.aspx.designer.cs">
       <DependentUpon>EditTask.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\EventDetails.aspx.cs">
-      <DependentUpon>EventDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\EventDetails.aspx.designer.cs">
-      <DependentUpon>EventDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\FindTime.aspx.cs">
       <DependentUpon>FindTime.aspx</DependentUpon>
