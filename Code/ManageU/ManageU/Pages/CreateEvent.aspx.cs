@@ -230,18 +230,18 @@ namespace ManageU.Pages
                     objCmd = new SqlCommand();
                     objCmd.Connection = objCon;
 
-                    
-
-                    strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd);";
+                    strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd, attReq) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd, @eAttReq);";
                     objCmd = new SqlCommand(strsql, objCon);
 
                     objCmd.Parameters.AddWithValue("master", masterIDFromTable);
                     objCmd.Parameters.AddWithValue("team", HttpContext.Current.Session["TeamID"].ToString());
                     objCmd.Parameters.AddWithValue("eStart", eventDate);
                     objCmd.Parameters.AddWithValue("eEnd", end);
+                    objCmd.Parameters.AddWithValue("eAttReq", attendanceReq);
 
                     objCmd.ExecuteNonQuery();
                     end = end.AddDays(7.0);
+                
                 }
             }
             else if(repeatPicker.Value == "Daily")
@@ -251,15 +251,14 @@ namespace ManageU.Pages
                     objCmd = new SqlCommand();
                     objCmd.Connection = objCon;
 
-                    
-
-                    strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd);";
+                    strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd, attReq) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd, @eAttReq);";
                     objCmd = new SqlCommand(strsql, objCon);
 
                     objCmd.Parameters.AddWithValue("master", masterIDFromTable);
                     objCmd.Parameters.AddWithValue("team", HttpContext.Current.Session["TeamID"].ToString());
                     objCmd.Parameters.AddWithValue("eStart", eventDate);
                     objCmd.Parameters.AddWithValue("eEnd", end);
+                    objCmd.Parameters.AddWithValue("eAttReq", attendanceReq);
 
                     objCmd.ExecuteNonQuery();
                     end = end.AddDays(1.0);
@@ -271,13 +270,14 @@ namespace ManageU.Pages
                 objCmd = new SqlCommand();
                 objCmd.Connection = objCon;
 
-                strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd);";
+                strsql = "insert into EventDetailsTable (masterID, associatedID, eventStart, eventEnd, attReq) OUTPUT inserted.eventID values (@master, @team, @eStart, @eEnd, @eAttReq);";
                 objCmd = new SqlCommand(strsql, objCon);
 
                 objCmd.Parameters.AddWithValue("master", masterIDFromTable);
                 objCmd.Parameters.AddWithValue("team", HttpContext.Current.Session["TeamID"].ToString());
                 objCmd.Parameters.AddWithValue("eStart", start);
                 objCmd.Parameters.AddWithValue("eEnd", end);
+                objCmd.Parameters.AddWithValue("eAttReq", attendanceReq);
 
                 objCmd.ExecuteNonQuery();
             }
