@@ -63,7 +63,9 @@ namespace ManageU.Pages
             objCon.Open();
             objCmd = new SqlCommand();
             objCmd.Connection = objCon;
-            
+
+            atRecord.InnerHtml = "";
+
             strsql = "select * from EventMasterTable where associatedID='" + HttpContext.Current.Session["TeamID"].ToString() + "' and attreq='Y'";
 
             objCmd = new SqlCommand(strsql, objCon);
@@ -84,19 +86,20 @@ namespace ManageU.Pages
                     {
                         while (objRS2.Read())
                         {
-                            count = count + 1;
+                            
                             //if the player has already responded to the attendance, do not show it
-                            if (objRS2["attendees"].ToString().Contains(HttpContext.Current.Session["UserID"].ToString()))
+                            if (objRS2["attendees"].ToString().Contains(HttpContext.Current.Session["Username"].ToString()))
                             {
 
                             }
-                            else if (objRS2["notattending"].ToString().Contains(HttpContext.Current.Session["UserID"].ToString()))
+                            else if (objRS2["notattending"].ToString().Contains(HttpContext.Current.Session["Username"].ToString()))
                             {
 
                             }
                             //if the player did not respond to the attendance yet, show it
                             else
                             {
+                                count = count + 1;
                                 //here is where to display divs so player can respond
                                 name = objRS["eventName"].ToString();
                                 type = objRS["eventType"].ToString();
@@ -176,6 +179,8 @@ namespace ManageU.Pages
         {
             Button senderButton = sender as Button;
             string row = senderButton.ID.Replace("yes", "");
+            string id = ids.ElementAt(Int32.Parse(row) - 1);
+            string att = attending.ElementAt(Int32.Parse(row) - 1);
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
             SqlCommand objCmd = default(SqlCommand);
@@ -187,10 +192,23 @@ namespace ManageU.Pages
             objCmd = new SqlCommand();
             objCmd.Connection = objCon;
 
+            if(att == "")
+            {
+                strsql = "Update EventDetailsTable set attendees ='" + HttpContext.Current.Session["Username"].ToString() + "' where eventID='" + id + "'";
+            }
+            else
+            {
+                strsql = "Update EventDetailsTable set attendees ='" + att + "," + HttpContext.Current.Session["Username"].ToString() + "' where eventID='" + id + "'";
+            }
+
+            objCmd = new SqlCommand(strsql, objCon);
+
+            objCmd.ExecuteNonQuery();
+
             objCmd = null;
             objCon.Close();
 
-            
+            loadAttendanceEvents();
         }
         protected void no(object sender, EventArgs e)
         {

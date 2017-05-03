@@ -85,7 +85,7 @@ namespace ManageU.Pages
         {
             while (objRS.Read())
             {
-                    idNum++;
+                   
                     //if the player has already completed the task, do not show it
                     if (objRS["completed"].ToString().Contains(HttpContext.Current.Session["Username"].ToString()))
                     {
@@ -93,6 +93,7 @@ namespace ManageU.Pages
                     }
                     //if the player did not complete the task yet, show it
                     else {
+                        idNum++;
                         HtmlGenericControl yButton =
                         new HtmlGenericControl("button");
 
