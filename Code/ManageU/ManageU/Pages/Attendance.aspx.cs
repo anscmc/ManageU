@@ -214,6 +214,8 @@ namespace ManageU.Pages
         {
             Button senderButton = sender as Button;
             string row = senderButton.ID.Replace("no", "");
+            string id = ids.ElementAt(Int32.Parse(row) - 1);
+            string not = notatt.ElementAt(Int32.Parse(row) - 1);
             string strsql = "";
             SqlConnection objCon = default(SqlConnection);
             SqlCommand objCmd = default(SqlCommand);
@@ -225,8 +227,24 @@ namespace ManageU.Pages
             objCmd = new SqlCommand();
             objCmd.Connection = objCon;
 
+            if (not == "")
+            {
+                strsql = "Update EventDetailsTable set notattending ='" + HttpContext.Current.Session["Username"].ToString() + "' where eventID='" + id + "'";
+            }
+            else
+            {
+                strsql = "Update EventDetailsTable set notattending ='" + not + "," + HttpContext.Current.Session["Username"].ToString() + "' where eventID='" + id + "'";
+            }
+
+            objCmd = new SqlCommand(strsql, objCon);
+
+            objCmd.ExecuteNonQuery();
+
             objCmd = null;
             objCon.Close();
+
+            loadAttendanceEvents();
+
         }
     }
 }
