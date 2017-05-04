@@ -50,6 +50,14 @@ namespace ManageU.Pages
                 notAttendingDiv.InnerHtml = infoSplit[6];
                 eventReoccur.InnerText = infoSplit[7];
                 attendanceRequired.InnerText = infoSplit[8];
+                if(attendanceRequired.InnerText.ToString() == "Y")
+                {
+                    attendanceRequired.InnerText = "Yes";
+                }
+                else
+                {
+                    attendanceRequired.InnerText = "No";
+                }
                 des.InnerText = infoSplit[9];
             }
             else

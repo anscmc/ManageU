@@ -3,9 +3,7 @@
 
     <link rel="stylesheet" href="/Scripts/bootstrapTC.css" type="text/css" />
     
-    <div id="topLeft" onclick="goHome()" style="z-index:3000;height:45px;width:115px;position:absolute;top:0px;left:0px;">
 
-    </div>
 
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
@@ -27,9 +25,9 @@
                     <div id="container2" class="container" runat="server" style="width:100%;margin-right:0px;margin-left:0px;text-align:center;">
 
                         <div class="monthInfo">
-                            <i class="fa fa-long-arrow-left" aria-hidden="true" runat="server" onclick="lastMonth();" style="display:inline;font-size:30px;padding-right:50px"></i>
+                            <i class="fa fa-long-arrow-left" aria-hidden="true" runat="server" onclick="lastMonth();" style="display:inline;font-size:40px;padding-right:50px"></i>
                             <label id="monthLabel" runat="server" style="display:none;font-size:16px;"></label>
-                            <i class="fa fa-long-arrow-right" runat="server" onclick="nextMonth();" aria-hidden="true" style="display:inline;font-size:30px;padding-left:50px"></i>
+                            <i class="fa fa-long-arrow-right" runat="server" onclick="nextMonth();" aria-hidden="true" style="display:inline;font-size:40px;padding-left:50px"></i>
                             <br />
                             <div class="square3" style="background-color:white !important;z-index:500;display:inline-block;margin: 0 auto !important;">
                                 <div id="Div1" runat="server" class="content">
@@ -246,9 +244,7 @@
             }
         }
 
-        function goHome() {
-            window.location.replace("TeamProfile.aspx");
-        }
+
 
         function showRightPanel() {
 

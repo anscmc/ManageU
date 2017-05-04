@@ -29,6 +29,22 @@ html {
     color: #008CBA;
 }
 
+.loginButton{
+    -webkit-transition: all 0.3s ease-in-out !important;
+
+}
+
+/*.loginButton:hover{
+    background-color:white !important;
+    color:#008CBA !important;
+
+}
+
+.loginButton:active{
+    background-color:white !important;
+    color:#008CBA !important;
+}*/
+
 body {
   margin: 0;
   /*background-image:url('b31.png');*/
@@ -37,9 +53,48 @@ body {
   color:white;
   font-size: 15px;
   line-height: 1.4;
+  display: block;
+          position: relative;
 
 
 }
+
+  @media(max-width:450px){
+      body{
+          display: block;
+          position: inherit;
+          height:100% !important;
+      }
+      body::after{
+        content: "";
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;   
+        background-image:url(../Images/stadium.jpg);
+        background-size:cover;
+        background-repeat:no-repeat;
+        height:inherit;
+        
+      }
+      .loginButton{
+    -webkit-transition: all 0.3s ease-in-out !important;
+    background-color:transparent !important;
+    color:white !important;
+}
+    .loginButton:hover{
+        background-color:rgba(0,140,186,.7) !important;
+    }
+
+    .loginButton:active{
+        background-color:rgba(0,140,186,.7) !important;
+    }
+  }
+
+
 
 /* SANDBOX CSS START */
 

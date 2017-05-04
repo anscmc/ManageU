@@ -3,26 +3,39 @@
 
     <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
 
-    <div style="margin: 0 auto; text-align: center;">
+    <div runat="server" id="outerDiv" style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
     <hr/>
 
-        <div id="detailsDiv" class="detailsDiv" runat="server" style="text-align:center !important;">
+            <label id="Label1" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Event Name</label>
+            <br />
             <label id="eventName" runat="server">Event Name</label>
+            <br />
+            <label id="Label2" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Event Type</label>
             <br />
             <label id="eventType" runat="server">Event Type</label>
             <br />
+            <label id="Label3" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Event Start</label>
+            <br />
             <label id="eventStart" runat="server">Event Start</label>
+            <br />
+            <label id="Label4" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Event End</label>
             <br />
             <label id="eventEnd" runat="server">Event end</label>
             <br />
+            <label id="Label5" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Reoccurence</label>
+            <br />
             <label id="eventReoccur" runat="server">Reocurring</label>
+            <br />
+            <label id="Label6" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Attendence Required</label>
             <br />
             <label id="attendanceRequired" runat="server">Attendance Required</label>
             <br />
+            <label id="Label7" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Description</label>
+            <br />
             <label id="des" runat="server">Event Description</label>
             <br />
-        </div>
+
 
         <div class="row">
             <div id="attendingDiv" class="col-xs-6" runat="server">

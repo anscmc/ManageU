@@ -6,6 +6,8 @@
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
     <hr/>
+
+
         <label id="Label1" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Name</label>
         <br />
         <label id="name" runat="server"></label>
@@ -24,7 +26,6 @@
         <br />
         <label id="complete" runat="server"></label>
     </div>
-    <hr/>
     <asp:Button ID="deleteTask" runat="server" Text="Delete" OnClick="deleteTask_Click" CssClass="btn btn-default" 
                 style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;width:200px;" />
     <asp:Button ID="editTask" runat="server" Text="Edit" OnClick="editTask_Click" CssClass="btn btn-default" 
