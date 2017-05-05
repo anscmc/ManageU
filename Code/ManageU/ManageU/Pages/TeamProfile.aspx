@@ -9,7 +9,7 @@
 
     <div id="a" class="panels">
         <div class="col-sm-6 col-sm-offset-3" style="text-align:center;padding-left:0px;padding-right:0px;">
-        <img runat="server" src="~/prof/img/swimteam.jpg" />
+        <img runat="server" src="~/prof/img/swimteam.jpg" style="max-width:95%;"/>
             <h2 style="margin-bottom:0px !important;"><asp:Label class="info" id="teamName" runat="server" style="font-size:.75em; font-family:'Microsoft YaHei';"></asp:Label></h2>
             <h3 style="margin-top:0px !important"><asp:Label class="info" id="location" runat="server" style="font-family:'Microsoft YaHei' !important;font-size:.6em;"></asp:Label></h3>
              </div>
@@ -35,7 +35,7 @@
                         <asp:Label class="info" ID="record" runat="server" style="font-size:40px;font-weight:bold;color:#ba9800;" ></asp:Label>
                 </div>
             </div>
-            <hr style="margin-bottom:15px !important;width:90% !important" />
+            <hr style="margin-bottom:15px !important;" />
             <div id="coachInfo" runat="server" class="col-sm-4 box" style="text-align:center; height:auto;color:white;width:100%;background-color:transparent;">
                 <asp:Label class="info" id="headCoach" runat="server" style="padding-top:12px;" ></asp:Label>
                 <br />

@@ -71,14 +71,18 @@
                         <li id="invite" runat="server"><a runat="server" href="~/Pages/InvitePlayers">Invite</a></li>
                         <li id="info" runat="server"><a runat="server" href="~/Pages/MyInfo">My Info</a></li>
                         <li id="changePass" runat="server"><a runat="server" href="~/Pages/ChangePassword">Change Password</a></li>
+                        <li><a runat="server" href="~/Pages/Landing" onclick="logOut_Click">Log Out</a></li>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                    <%--<ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Pages/Landing" onclick="logOut_Click">Log Out</a></li>
+                            </ul>--%>
+                    <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Pages/Landing" onclick="logOut_Click">Log Out</a></li>
                             </ul>
                         </AnonymousTemplate>
-                    </asp:LoginView>
+                    </asp:LoginView>--%>
                 </div>
             </div>
         </div>

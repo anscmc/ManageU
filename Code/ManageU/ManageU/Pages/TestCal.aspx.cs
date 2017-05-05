@@ -147,9 +147,9 @@ namespace ManageU.Pages
                                 new HtmlGenericControl("div");
             divArrow.Attributes["id"] = "downArrow";
             divArrow.Attributes["onclick"] = "showLeftPanel()";
-            divArrow.Attributes["style"] = "height:auto;width:100%;margin-top:0px;font-size:20px;";
+            divArrow.Attributes["style"] = "height:auto;width:100%;margin-top:0px;font-size:20px;padding-bottom:10px";
             divArrow.Attributes["runat"] = "server";
-            divArrow.Controls.Add(new Literal() { Text = "<i class='fa fa-chevron-down' aria-hidden='true'></i>" });
+            divArrow.Controls.Add(new Literal() { Text = "<i class='fa fa-chevron-down' aria-hidden='true' style='font-size:40px;'></i>" });
 
             leftpanel.Controls.Add(divArrow);
 
@@ -197,7 +197,6 @@ namespace ManageU.Pages
                             eventIdString = objRS2["masterID"].ToString();
 
                             //eventNameString = objRS2["eventName"].ToString();
-                            eventNameString = "Event Name";
 
                             eventEndString = objRS2["eventEnd"].ToString();
 
@@ -239,6 +238,8 @@ namespace ManageU.Pages
                             Label eventName = new Label();
                             eventName.Text = eventNameString;
 
+                        eventName.Attributes["style"] = "margin:0 auto;";
+
                             HtmlGenericControl eventDiv =
                             new HtmlGenericControl("div");
                                 
@@ -254,7 +255,6 @@ namespace ManageU.Pages
                             eventDayLabel.Attributes["class"] = "daysClass";
 
                             eventDiv.Controls.Add(eventName);
-                            eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             eventDiv.Controls.Add(eventStart);
                             eventDiv.Controls.Add(eventMasterID);

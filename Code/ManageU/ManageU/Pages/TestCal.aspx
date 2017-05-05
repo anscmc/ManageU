@@ -3,19 +3,17 @@
 
     <link rel="stylesheet" href="/Scripts/bootstrapTC.css" type="text/css" />
     
-    <div id="topLeft" onclick="goHome()" style="z-index:3000;height:45px;width:115px;position:absolute;top:0px;left:0px;">
 
-    </div>
 
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
     <hr/>
-        <div class="form-group">
-                        <div class="col-sm-6 col-sm-offset-3">
+        
+                        <div class="col-sm-6 col-sm-offset-3" style="text-align:center;">
                             <asp:Button runat="server" id="createMeetingButton" Text="+ Add Event" OnClick="createEvent" CssClass="btn btn-default" style="display: block; margin: 0 auto; margin-bottom:10px;text-align: center; color:#008CBA; background-color:white;width:250px;" />
                             <%--<label id="errLabel" style="color: Red; display: none;" runat="server">Unable to updated password. Please make sure you enter your correct email and password.</label>--%>
                         </div>
-                    </div>
+                    
         <asp:Button ID="nextMonthButton" runat="server" style="display:none;" OnClick="nextMonth" />
         <asp:Button ID="lastMonthButton" runat="server" style="display:none;" OnClick="lastMonth" />
 
@@ -23,9 +21,22 @@
             <asp:Calendar ID="Calendar1" class="testCal" runat="server"></asp:Calendar>
         </div>--%>
 
-                <div style="height:auto;width:100%;z-index:1500;">
-                    <div id="container2" class="container" runat="server" style="width:100%;margin-right:0px;margin-left:0px;">
-                    <div class="square2" style="background-color:#008CBA !important;color:white;z-index:1000;">
+                <div id="outer" runat="server" style="height:auto;width:100%;clear:both;">
+                    <div id="container2" class="container" runat="server" style="width:100%;margin-right:0px;margin-left:0px;text-align:center;">
+
+                        <div class="monthInfo">
+                            <i class="fa fa-long-arrow-left" aria-hidden="true" runat="server" onclick="lastMonth();" style="display:inline;font-size:40px;padding-right:50px"></i>
+                            <label id="monthLabel" runat="server" style="display:none;font-size:16px;"></label>
+                            <i class="fa fa-long-arrow-right" runat="server" onclick="nextMonth();" aria-hidden="true" style="display:inline;font-size:40px;padding-left:50px"></i>
+                            <br />
+                            <div class="square3" style="background-color:white !important;z-index:500;display:inline-block;margin: 0 auto !important;">
+                                <div id="Div1" runat="server" class="content">
+                                    <asp:Calendar ID="Calendar2" class="testCal" runat="server" style="height:100%;width:100%;"></asp:Calendar>     
+                                </div>
+                            </div>
+                        </div>
+
+                    <%--<div class="square2" style="background-color:#008CBA !important;color:white;z-index:1000;">
                         <div id="Div2" runat="server" class="content">
                             
                         </div>
@@ -65,7 +76,7 @@
                         <div id="Div8" runat="server" class="content">
                             
                         </div>
-                    </div>
+                    </div>--%>
 
                 <%--<div id="leftpanel" runat="server" class="leftpanel">
                     <div id="downArrow" onclick="showLeftPanel()" style="height:auto;width:100%;margin-top:0px;font-size:20px;">
@@ -88,12 +99,13 @@
             </div>
 
                <%--see margin top--%>
-        
-            <div class="square3" style="background-color:white !important;z-index:500;margin-top:-40px;display:inline-block;">
+
+            <%--<div class="square3" style="background-color:white !important;z-index:500;display:inline-block;">
                 <div id="Div1" runat="server" class="content">
                        <asp:Calendar ID="Calendar2" class="testCal" runat="server" style="height:100%;width:100%;"></asp:Calendar>     
                 </div>
-            </div>
+            </div>--%>
+
         <div id="divClick" class="content" onclick="showLeftPanel()" style="display:none;">
         </div>
         
@@ -232,9 +244,7 @@
             }
         }
 
-        function goHome() {
-            window.location.replace("TeamProfile.aspx");
-        }
+
 
         function showRightPanel() {
 

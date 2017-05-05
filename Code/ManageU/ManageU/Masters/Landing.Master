@@ -52,12 +52,17 @@
             </asp:ContentPlaceHolder>
             <%--This is where code from content page is--%>
 
-            <hr />
-            <footer>
+            <%--<hr />
+            <footer style="bottom:0px;">
+                <p>&copy; <%: DateTime.Now.Year %> - ManageU</p>
+            </footer>--%>
+        </div>
+
+    </form>
+    <hr />
+            <footer style="bottom:0px;">
                 <p>&copy; <%: DateTime.Now.Year %> - ManageU</p>
             </footer>
-        </div>
-    </form>
 </body>
 </html>
 
