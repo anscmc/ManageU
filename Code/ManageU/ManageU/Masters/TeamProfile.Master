@@ -66,6 +66,7 @@
                         <li id="teamRost" runat="server"><a runat="server" href="~/Pages/Roster">Roster</a></li>
                         <li id="teamCal" runat="server"><a runat="server" href="~/Pages/TestCal">Calendar</a></li>
                         <li id="tasks" runat="server"><a runat="server" href="~/Pages/Tasks">Tasks</a></li>
+                        <li id="att" runat="server"><a runat="server" href="~/Pages/Attendance">Attendance</a></li>
                         <li id="meetings" runat="server"><a runat="server" href="~/Pages/FindTime">Meetings</a></li>
                         <li id="contact" runat="server"><a runat="server" href="~/Pages/Contact">Contact</a></li>
                         <li id="invite" runat="server"><a runat="server" href="~/Pages/InvitePlayers">Invite</a></li>

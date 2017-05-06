@@ -19,7 +19,7 @@
         <asp:Button runat="server" ID="btnHidden" OnClick="divButton_Click" style="display:none;" />
         <asp:HiddenField ID="hidden" runat="server" />
 
-        <div id="displayTimesDiv" runat="server">
+        <div id="displayTimesDiv" runat="server" style="text-align:center;width:100%;">
             
 
         </div>

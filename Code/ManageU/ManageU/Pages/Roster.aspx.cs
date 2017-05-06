@@ -27,6 +27,9 @@ namespace ManageU.Pages
                 System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
 
                 hide2.Style.Add("display", "none");
+
+                emailButton.Attributes["style"] = "display:none";
+                selectAllBox.Attributes["style"] = "display:none";
             }
             else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
@@ -147,7 +150,8 @@ namespace ManageU.Pages
                             emailCheck.ID = "check" + idNum.ToString();
                             emailCheck.InputAttributes.Add("class", "rosterCheck");
                             emailCheck.Text = "Add " + playerEmail + " to email list";
-                    checkboxes.Add(emailCheck);
+
+                            checkboxes.Add(emailCheck);
 
                     //HtmlGenericControl xButton =
                     //new HtmlGenericControl("button");
@@ -189,8 +193,8 @@ namespace ManageU.Pages
                             infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             if (HttpContext.Current.Session["UserType"].ToString() == "coach")
                             {
-                                infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return playerClasses(" + idNum.ToString() + ")'><i class='fa fa-calendar' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
-                                infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer(" + idNum.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
+                                infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return playerClasses(" + idNum.ToString() + ")'><i class='fa fa-calendar fontA' aria-hidden='true' runat='server' style='display:inline;color:black;font-size:40px;padding-right:20px;position:absolute;left:10px;top:10px;'></i></a>" });
+                                infoDiv.Controls.Add(new Literal() { Text = "<a onclick='return deletePlayer(" + idNum.ToString() + ")'><i class='fa fa-minus-circle fontA' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;padding-left:20px;position:absolute;right:10px;top:10px;'></i></a>" });
                             }
                             infoDiv.Controls.Add(lb1);
                             infoDiv.Controls.Add(new Literal() { Text = "<i class='fa fa-circle' aria-hidden='true' style='color:#ba9800;font-size:10px;padding:5px;'></i>" });
@@ -253,8 +257,11 @@ namespace ManageU.Pages
 
                     /*boxDiv.Controls.Add(emailBox);*/
                             playerInfo.Controls.Add(infoDiv);
-                            //infoDiv.Controls.Add(boxDiv);
-                            infoDiv.Controls.Add(emailCheck);
+                    //infoDiv.Controls.Add(boxDiv);
+                    if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                    {
+                        infoDiv.Controls.Add(emailCheck);
+                    }
                             //boxDiv2.Controls.Add(calButton);
                             //boxDiv.Controls.Add(checkX);
                             //playerInfo.Controls.Add(boxDiv);

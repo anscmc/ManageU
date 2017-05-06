@@ -5,7 +5,7 @@
 
     <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
 
-    <div id="wrapper">
+    <div id="wrapperTP" style="z-index:-5;">
 
     <div id="a" class="panels">
         <div class="col-sm-6 col-sm-offset-3" style="text-align:center;padding-left:0px;padding-right:0px;">

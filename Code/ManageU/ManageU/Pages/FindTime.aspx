@@ -45,8 +45,17 @@
                             <div class="form-group" style="margin-bottom:0px">
                             <label id="meetingDateLabel" runat="server" CssClass="form-control" style="display:block;">Date Range</label>
                                 <input type="date" id="date1" name="date1" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:200px;height:39px;border-radius:5px;color:black;">
+                                <br />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="date1"
+                                CssClass="text-danger" ErrorMessage="Field is required." />
+                            <br />
                                 <label id="days" runat="server" style="display:block;"> to </label>
+                                
                                 <input type="date" id="date2" name="date2" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:200px;height:39px;border-radius:5px;color:black;">
+                                <br />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="date2"
+                                CssClass="text-danger" ErrorMessage="Field is required." />
+                            <br />
                                 <%--<input type="number" ID="nextDays" min="1" max="60" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:50px;height:39px;border-radius:5px;">--%>
                                 <%--<label id="days" runat="server" style="display:inline">days</label>--%>
                             </div>

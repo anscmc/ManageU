@@ -25,6 +25,8 @@ namespace ManageU.Pages
                     System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
 
                     hide2.Style.Add("display", "none");
+
+                    createMeetingButton.Attributes["style"] = "display:none";
                 }
                 else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
                 {
@@ -147,11 +149,12 @@ namespace ManageU.Pages
                                 new HtmlGenericControl("div");
             divArrow.Attributes["id"] = "downArrow";
             divArrow.Attributes["onclick"] = "showLeftPanel()";
-            divArrow.Attributes["style"] = "height:auto;width:100%;margin-top:0px;font-size:20px;padding-bottom:10px";
+            divArrow.Attributes["style"] = "height:auto;width:100%;margin-top:0px;font-size:20px;";
             divArrow.Attributes["runat"] = "server";
-            divArrow.Controls.Add(new Literal() { Text = "<i class='fa fa-chevron-down' aria-hidden='true' style='font-size:40px;'></i>" });
+            divArrow.Controls.Add(new Literal() { Text = "<i class='fa fa-chevron-down' aria-hidden='true' style='font-size:30px;'></i>" });
 
             leftpanel.Controls.Add(divArrow);
+            leftpanel.Controls.Add(new Literal() { Text = "<hr/>" });
 
             //get all the event info for the month first
             strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
@@ -238,7 +241,8 @@ namespace ManageU.Pages
                             Label eventName = new Label();
                             eventName.Text = eventNameString;
 
-                        eventName.Attributes["style"] = "margin:0 auto;";
+                            eventName.Attributes["style"] = "margin:0 auto;padding-top:10px;";
+                            eventStart.Attributes["style"] = "margin:0 auto;";
 
                             HtmlGenericControl eventDiv =
                             new HtmlGenericControl("div");
@@ -256,11 +260,12 @@ namespace ManageU.Pages
 
                             eventDiv.Controls.Add(eventName);
                             eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                            eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
                             eventDiv.Controls.Add(eventStart);
                             eventDiv.Controls.Add(eventMasterID);
                             eventDiv.Controls.Add(eventDayLabel);
 
-                            eventDiv.Controls.Add(new Literal() { Text = "<a><i class='fa fa-chevron-right' aria-hidden='true' style='float:right;top:50%;font-size:30px;color:black;z-index:1000;'></i></a>" });
+                            //eventDiv.Controls.Add(new Literal() { Text = "<a id='rightChev'><i class='fa fa-chevron-right' aria-hidden='true' style='font-size:30px;color:black;'></i></a>" });
 
                             eventDiv.Controls.Add(eventMasterID);
                             eventDiv.Controls.Add(end);

@@ -60,6 +60,7 @@
                 </div>
             <%--</section>--%>
         </div>
+        <hr />
     </div>
 
 

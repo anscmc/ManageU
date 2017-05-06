@@ -9,7 +9,11 @@
         <div class="col-sm-6 col-sm-offset-3">
             <section id="loginForm">
                 <div class="form-horizontal">
-
+                    <%--<asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
+                        <p class="text-danger">
+                            <asp:Literal runat="server" ID="FailureText" />
+                        </p>
+                    </asp:PlaceHolder>--%>
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
@@ -18,6 +22,8 @@
 
                             <label id="eventNameLabel" runat="server">Event Name</label>
                             <asp:TextBox ID="EventName" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;color:black;"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="EventName"
+                                CssClass="text-danger" ErrorMessage="Field is required." />
                             <br />
                             <label id="Label5" runat="server">Event Type</label>
                             <br />
@@ -31,11 +37,15 @@
                             <label id="eventStartDateLabel" runat="server">Start Date</label>
 
                             <input type="date" name="eventStartDate" id="eventStartDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;color:black !important;">
-
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="eventStartDate"
+                                CssClass="text-danger" ErrorMessage="Field is required." />
+                            <br />
                             <label id="eventEndDateLabel" runat="server">End Date</label>
                             <br />
                             <input type="date" name="eventEndDate" id="eventEndDate" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;color:black !important;">
-
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="eventStartDate"
+                                CssClass="text-danger" ErrorMessage="Field is required." />
+                            <br />
                             <label id="eventStartTimeLabel" runat="server"> Start Time</label>
                             <br />
                             <select ID="eventStartHour" class="selectpicker" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">                                        <option value="1">1</option>
@@ -220,12 +230,13 @@
                             </select>
                             <br />
                             <label id="Label2" style="display:none;">Until</label>
-                            <br />
+
                             <input type="date" name="repeatUntilDate" id="repeatUntilDate" runat="server" CssClass="form-control" style="display: none; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
                             <br />
                             <label for="male" style="display:inline;text-align:center;">Attendance Required</label>
                             <input type="checkbox" name="chk_group[]" id="required" style="display: inline;" runat="server" />         
                              <br />
+                            <br />
                             
                                 <asp:TextBox runat="server" ID="eventDes" TextMode="multiline" placeholder="Enter Description" CssClass="form-control" style="display: block; margin: 0 auto;"/>
                             
@@ -244,6 +255,7 @@
             </section>
         </div>
     </div>
+        </div>
 
 
     <%--</div>--%>

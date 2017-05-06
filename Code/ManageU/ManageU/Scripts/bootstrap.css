@@ -141,11 +141,11 @@ body {
         min-width:200px !important;
         margin:0 auto !important;
         overflow: hidden !important;
-        height:100px;
+        /*height:100px;*/
     }
     
 
-    .classTimes{
+    /*.classTimes{
         float:left;
         width:25%;
         border:1px solid white;
@@ -168,7 +168,7 @@ body {
         vertical-align:middle;
         text-align:center;
         height:100px;
-    }
+    }*/
 
 /* SANDBOX CSS END */
 

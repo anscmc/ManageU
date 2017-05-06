@@ -15,21 +15,31 @@
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3">
 
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom:0px;">
                                 <label id="classNameLabel" runat="server">Class Name</label>
                                 <asp:TextBox ID="className" runat="server" CssClass="form-control" style="display: block; margin: 0 auto;text-align: center;width:250px;height:39px;"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="className"
+                                CssClass="text-danger" ErrorMessage="Field is required." />
+                            
                                 <br />
 <%--                            </div>--%>
                             <%--<br />--%>
 
 <%--                            <div class="form-group">--%>
                                 <label id="date1" runat="server" CssClass="form-control" style="display:block;">Start Date</label>
-                                <input type="date" id="startDate" name="startDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;margin-bottom:5px !important;">
-                                <label id="date2" runat="server" style="display:block;">End Date</label>
-                                <input type="date" id="endDate" name="endDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
-                            </div>
+                                <input type="date" id="startDate" name="startDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;margin-bottom:5px !important;color:black;">
+                                <br />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="startDate"
+                                CssClass="text-danger" ErrorMessage="Field is required." />
                             <br />
-                            <div class="form-group">
+                                <label id="date2" runat="server" style="display:block;">End Date</label>
+                                <input type="date" id="endDate" name="endDate" runat="server" CssClass="form-control" style="display: inline; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;color:black;">
+                            <br />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="endDate"
+                                CssClass="text-danger" ErrorMessage="Field is required." />
+                            <br />
+                            </div>
+                            <div class="form-group" style="text-align:center;">
                                 <label id="between" runat="server" CssClass="form-control">Start Time</label>
                                 <br />
                                 <select class="selectpicker" ID="startHour" runat="server" CssClass="form-control" style="display:inline; margin: 0 auto;text-align: center; color:black;width:50px;height:39px;border-radius:5px;">
@@ -203,7 +213,7 @@
                                 <label id="days" runat="server">Days</label>
                                 <br />
 
-                                <div id="wrapper" style="text-align: center"> 
+                                <div id="wrapper" style="width:auto !important"> 
                                     <div style="display:table;float:left;margin-right:20px;">
                                         <label for="male" style="display:table-row">Sun</label>
                                         <input type="checkbox" name="chk_group[]" id="sun" style="display: table-row;width: 100%;" runat="server" />         
@@ -232,6 +242,7 @@
                                         <label for="male" style="display:table-row">Sat</label>
                                         <input type="checkbox" name="chk_group[]" id="sat" style="display: table-row;width: 100%;" runat="server"/>         
                                     </div>
+
                                 </div>
 
                             </div>

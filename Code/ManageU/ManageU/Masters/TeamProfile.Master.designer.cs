@@ -58,6 +58,15 @@ namespace ManageU {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tasks;
         
         /// <summary>
+        /// att control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl att;
+        
+        /// <summary>
         /// meetings control.
         /// </summary>
         /// <remarks>
