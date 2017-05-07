@@ -14,7 +14,7 @@
 
 
     <div style="margin: 0 auto; text-align:center; align-content:center; align-items:center">
-        <asp:Button runat="server" Text="Email Selected Players" AutoPostBack="false" OnClick="emailClick" CssClass="btn btn-default" 
+        <asp:Button id="emailButton" runat="server" Text="Email Selected Players" AutoPostBack="false" OnClick="emailClick" CssClass="btn btn-default" 
             style="display: block; margin: 0 auto; text-align: center;" />
         <%--<br />--%>
         <asp:CheckBox id="selectAllBox" Text="Select All Players" runat="server" onclick="checkAllCheckboxes()" />

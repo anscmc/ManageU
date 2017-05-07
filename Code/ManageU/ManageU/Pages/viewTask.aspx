@@ -24,13 +24,15 @@
         <br />
         <label id="desc" runat="server"></label>
         <br />
+        <label id="Label5" runat="server" style="color:#ba9800;font-size:16px;font-weight:bold;">Completed By</label>
+        <br />
         <label id="complete" runat="server"></label>
     </div>
     <asp:Button ID="deleteTask" runat="server" Text="Delete" OnClick="deleteTask_Click" CssClass="btn btn-default" 
-                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;width:200px;" />
+                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;width:250px;" />
     <asp:Button ID="editTask" runat="server" Text="Edit" OnClick="editTask_Click" CssClass="btn btn-default" 
-                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;width:200px;" />
+                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;width:250px;" />
     <asp:Button ID="back" runat="server" Text="View All Tasks" OnClick="back_Click" CssClass="btn btn-default" 
-                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;width:200px;" />
+                style="display: block; margin: 0 auto; text-align: center; color:#008CBA; background-color:white;width:250px;" />
 
 </asp:Content>

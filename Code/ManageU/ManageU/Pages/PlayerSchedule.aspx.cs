@@ -33,6 +33,8 @@ namespace ManageU.Pages
                     System.Web.UI.HtmlControls.HtmlGenericControl hide = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("mySched");
                     hide.Style.Add("display", "none");
 
+                    add.Style.Add("display", "none");
+
                 }
                 else
                 {
@@ -128,8 +130,9 @@ namespace ManageU.Pages
                     HtmlGenericControl classTimes =
                     new HtmlGenericControl("div");
                     classTimes.Attributes["id"] = "classTimes" + idCount.ToString();
-                    classTimes.Attributes["class"] = "classTimes";
+                    classTimes.Attributes["class"] = "col-sm-4";
                     classTimes.Attributes["runat"] = "server";
+                    classTimes.Attributes["style"] = "float:left; width: 25%; border: 1px solid #008CBA; vertical-align:middle; text-align:center;padding:0px;";
 
                     Label startTimeLabel = new Label();
                     startTimeLabel.Text = (startSplit[1] +  "  " + startSplit[2]).Replace(":00 ", "");
@@ -142,8 +145,31 @@ namespace ManageU.Pages
                     HtmlGenericControl classDetails =
                     new HtmlGenericControl("div");
                     classDetails.Attributes["id"] = "classDetails" + idCount.ToString();
-                    classDetails.Attributes["class"] = "classDets";
+                    classDetails.Attributes["class"] = "col-sm-4";
                     classDetails.Attributes["runat"] = "server";
+                    classDetails.Attributes["style"] = "float:left; width: 50%; border: 1px solid #008CBA; vertical-align:middle; text-align:center;padding:0px;";
+
+                    if (HttpContext.Current.Session["FromRoster"] != null)
+                    {
+                        //owner looking at own schedule
+                        if (HttpContext.Current.Session["PlayerIDForSched"].ToString() == HttpContext.Current.Session["UserID"].ToString())
+                        {
+                            classDetails.Controls.Add(new Literal() { Text = "<a  style='z-index:1000;' onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='font-size:30px;color:#ba0047;float:left;'></i></a>" });
+                            classDetails.Controls.Add(new Literal() { Text = "<a  style='z-index:1000;' onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='font-size:30px;color:black;float:right;'></i></a>" });
+
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    //haven't gone to roster page, so owner is viewing schedule
+                    else
+                    {
+                        classDetails.Controls.Add(new Literal() { Text = "<a  style='z-index:1000;' onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='font-size:30px;color:#ba0047;float:left;'></i></a>" });
+                        classDetails.Controls.Add(new Literal() { Text = "<a  style='z-index:1000;' onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='font-size:30px;color:black;float:right;'></i></a>" });
+
+                    }
 
                     Label classNameLabel = new Label();
                     classNameLabel.Text = eventName;
@@ -187,33 +213,34 @@ namespace ManageU.Pages
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
                     classDetails.Controls.Add(classDaysLabel);
                     classDetails.Controls.Add(new Literal() { Text = "<br/>" });
-                    if (HttpContext.Current.Session["FromRoster"] != null)
-                    {
-                        //owner looking at own schedule
-                        if (HttpContext.Current.Session["PlayerIDForSched"].ToString() == HttpContext.Current.Session["UserID"].ToString())
-                        {
-                            classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
-                            classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+                    //if (HttpContext.Current.Session["FromRoster"] != null)
+                    //{
+                    //    //owner looking at own schedule
+                    //    if (HttpContext.Current.Session["PlayerIDForSched"].ToString() == HttpContext.Current.Session["UserID"].ToString())
+                    //    {
+                    //        classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                    //        classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
 
-                        }
-                        else
-                        {
+                    //    }
+                    //    else
+                    //    {
 
-                        }
-                    }
-                    //haven't gone to roster page, so owner is viewing schedule
-                    else
-                    {
-                        classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
-                        classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
+                    //    }
+                    //}
+                    ////haven't gone to roster page, so owner is viewing schedule
+                    //else
+                    //{
+                    //    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return deleteClass(" + idCount.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='display:inline;font-size:30px;color:#ba0047;'></i></a>" });
+                    //    classDetails.Controls.Add(new Literal() { Text = "<a onclick='return editClass(" + idCount.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='display:inline;font-size:30px;color:white;'></i></a>" });
 
-                    }
+                    //}
 
                     HtmlGenericControl classDates =
                     new HtmlGenericControl("div");
                     classDates.Attributes["id"] = "classDates" + idCount.ToString();
-                    classDates.Attributes["class"] = "classDates";
+                    classDates.Attributes["class"] = "col-sm-4";
                     classDates.Attributes["runat"] = "server";
+                    classDates.Attributes["style"] = "float:left; width: 25%; border: 1px solid #008CBA; vertical-align:middle; text-align:center;padding:0px;";
 
                     Label startDateLabel = new Label();
                     startDateLabel.Text = startSplit[0];
@@ -240,6 +267,7 @@ namespace ManageU.Pages
                     singleClassDiv.Controls.Add(classDetails);
                     singleClassDiv.Controls.Add(classDates);
                     singleClassDiv.Controls.Add(idHidden);
+                    classDiv.Controls.Add(singleClassDiv);
 
 
                     //show the classes

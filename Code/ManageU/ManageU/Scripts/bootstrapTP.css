@@ -50,6 +50,42 @@
   }
 }
 
+    .classDiv{
+        max-width:500px !important;
+        min-width:200px !important;
+        margin:0 auto !important;
+        overflow: hidden !important;
+        /*height:100px;*/
+        background-color:white;
+        color:#008CBA;
+    }
+    
+
+    .classTimes{
+        float:left;
+        width:25%;
+        border:1px solid white;
+        vertical-align:middle;
+        text-align:center;
+        height:100px;
+    }
+    .classDets{
+        float:left;
+        width:50%;
+        height:100px;
+        border:1px solid white;
+        vertical-align:middle;
+        text-align:center;
+    }
+    .classDates{
+        float:left;
+        width:25%;
+        border:1px solid white;
+        vertical-align:middle;
+        text-align:center;
+        height:100px;
+    }
+
 /*@media (max-width: 1000px) {
     .navbar-collapse.collapse.in { 
         display: block!important;
@@ -83,7 +119,7 @@
         margin: 15px 0;
     }
     /* since 3.1.0 */
-    .navbar-collapse.collapse.in { 
+    /*.navbar-collapse.collapse.in { 
         display: block!important;
     }
     .collapsing {
@@ -202,7 +238,36 @@ img {
     max-width:500px;
     color:#008CBA;
     background-color:white;
-    margin-bottom:2px;
+    /*margin-bottom:2px;*/
+    margin: 0 auto;
+    border:1px solid #008CBA;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.availableTimeDiv:hover{
+    box-shadow: 0 0 20px black;
+    cursor:pointer;
+}
+
+.taskDiv{
+    /*box-shadow: 0 0 10px #000;*/
+    border: 1px solid #008CBA;
+    color:#008CBA;
+    vertical-align: middle;
+    text-align:center;
+    font-size:18px;
+    line-height:16px;
+    min-width:320px;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+
+.taskDiv:hover{
+    box-shadow: 0 0 20px black;
+    /*cursor:pointer;*/
+}
+
+.fontA:hover{
+    cursor:pointer;
 }
 
 .infoDiv{
@@ -213,7 +278,18 @@ img {
     text-align:center;
     font-size:18px;
     line-height:16px;
-    min-width:320px
+    min-width:320px;
+}
+
+.infoDiv2{
+    /*box-shadow: 0 0 10px #000;*/
+    border: 1px solid #008CBA;
+    color:#008CBA !important;
+    vertical-align: middle;
+    text-align:center;
+    font-size:18px;
+    /*line-height:16px;*/
+    min-width:320px;
 }
 /*.infoDiv:hover{
     box-shadow: 0 0 20px #000;
@@ -358,15 +434,20 @@ img {
 }
 
     #wrapper { 
-        position:absolute;
-        height:auto;
-        margin-right:0px;
-        margin-left:0px;
-        right:0px;
-        left:0px;
-        top:7px;
-        z-index:-1001;
+        /*position:absolute;*/
+        /*height:auto;*/
+        margin:0 auto;
+        overflow: hidden;
+        width: 100%;
+        margin-left:30%
+        /*top:7px;
+        z-index:-1001;*/
     }
+    /*#wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}*/
 
    
     .panels { 
@@ -374,7 +455,7 @@ img {
         height:auto;
         min-height:100%;
         width:100%;
-        z-index:-1000;
+        /*z-index:-1000;*/
         /*max-width:750px;*/
         display:block;
         margin-left:0px;
@@ -396,11 +477,11 @@ img {
         /*background:#eee;*/
         /*position:fixed;*/
         /*color:red;*/
-        top:35px;
+        /*top:35px;*/
         left:0;
         right:0px;
         /* prevents your fixed panel from being on top of your subsequent panels */
-        z-index: -99; 
+        /*z-index: -99;*/ 
     }
 
 

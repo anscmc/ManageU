@@ -26,6 +26,14 @@ namespace ManageU.Pages
                     System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
 
                     hide2.Style.Add("display", "none");
+
+                    deleteTask.Attributes["style"] = "display:none";
+                    editTask.Attributes["style"] = "display:none";
+                    Label5.Attributes["style"] = "display:none";
+                    complete.Attributes["style"] = "display:none";
+
+
+
                 }
                 else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
                 {

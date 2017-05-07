@@ -114,17 +114,26 @@ namespace ManageU.Pages
                                 eventName.Text = name;
                                 Label eventType = new Label();
                                 eventType.Text = type;
+                                eventType.Attributes["style"] = "color:#ba9800;";
                                 Label eventStart = new Label();
-                                eventStart.Text = start;
+                                eventStart.Text = start + " to";
                                 Label eventEnd = new Label();
                                 eventEnd.Text = end;
-                                
+
+                                Label toLabel = new Label();
+                                toLabel.Text = "to";
+
+                                Label attend = new Label();
+                                attend.Text = "Can you attend this event?";
+                                attend.Attributes["style"] = "color:#ba9800;";
+
 
                                 Button yesButton =
                                 new Button();
                                 
                                 yesButton.ID = "yes" + count;
                                 yesButton.Attributes["class"] = "btn btn-default";
+                                yesButton.Attributes["style"] = "display:inline;";
                                 yesButton.Attributes["runat"] = "server";
                                 yesButton.Text = "Yes";
                                 yesButton.Click += yes;
@@ -134,6 +143,7 @@ namespace ManageU.Pages
 
                                 noButton.ID = "no" + count;
                                 noButton.Attributes["class"] = "btn btn-default";
+                                noButton.Attributes["style"] = "display:inline;";
                                 noButton.Attributes["runat"] = "server";
                                 noButton.Text = "No";
                                 noButton.Click += no;
@@ -143,17 +153,22 @@ namespace ManageU.Pages
                                 new HtmlGenericControl("div");
 
                                 infoDiv.Attributes["id"] = "rosterContent";
-                                infoDiv.Attributes["class"] = "col-sm-4 infoDiv";
+                                infoDiv.Attributes["class"] = "infoDiv2";
                                 infoDiv.Attributes["runat"] = "server";
                                 infoDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:auto;max-width:500px;margin: 0 auto;";
 
+                                infoDiv.Controls.Add(eventType);
+                                infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                                 infoDiv.Controls.Add(eventName);
                                 infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                                infoDiv.Controls.Add(eventType);
                                 infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                                 infoDiv.Controls.Add(eventStart);
                                 infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                                //infoDiv.Controls.Add(toLabel);
+                                //infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                                 infoDiv.Controls.Add(eventEnd);
+                                infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                                infoDiv.Controls.Add(attend);
                                 infoDiv.Controls.Add(new Literal() { Text = "<br/>" });
                                 infoDiv.Controls.Add(yesButton);
                                 infoDiv.Controls.Add(noButton);

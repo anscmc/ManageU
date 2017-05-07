@@ -38,15 +38,20 @@
 
 
         <div class="row">
-            <div id="attendingDiv" class="col-xs-6" runat="server">
-                Attending:
+            <div id="Div1" class="col-xs-6" runat="server">
+                <label style="color:#ba9800;font-size:16px;font-weight:bold;">Attending:</label>
                 <br />
-                asdf
             </div>
-            <div id="notAttendingDiv" class="col-xs-6" runat="server">
-                Not Attending:
+            <div id="Div2" class="col-xs-6" runat="server">
+                <label style="color:#ba9800;font-size:16px;font-weight:bold;">Not Attending:</label>
                 <br />
-                asdf
+            </div>
+            <div id="attendingDiv" class="col-xs-6" runat="server">
+                
+            </div>
+
+            <div id="notAttendingDiv" class="col-xs-6" runat="server">
+                
             </div>
         </div>
 

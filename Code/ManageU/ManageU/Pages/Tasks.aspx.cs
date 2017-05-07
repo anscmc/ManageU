@@ -29,6 +29,8 @@ namespace ManageU.Pages
                     System.Web.UI.HtmlControls.HtmlGenericControl hide2 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("invite");
 
                     hide2.Style.Add("display", "none");
+
+                    createButtton.Style.Add("display", "none");
                 }
                 else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
                 {
@@ -140,25 +142,38 @@ namespace ManageU.Pages
                         taskLabel.Text = taskName;
 
                         Label dueDateLabel = new Label();
-                        dueDateLabel.Text = dueDate + " at " + dueTime;
+                        dueDateLabel.Text = "Due: " + dueDate + " at " + dueTime;
 
                         /*taskLabel.Attributes["style"] = "vertical-align:center;text-align:center;display:table-cell;"*/
-                        ;
+                        
 
 
                         HtmlGenericControl taskDiv =
                                 new HtmlGenericControl("div");
 
                         taskDiv.Attributes["id"] = "taskContent";
-                        taskDiv.Attributes["class"] = "col-sm-4 infoDiv";
+                        taskDiv.Attributes["class"] = "col-sm-4 taskDiv";
                         taskDiv.Attributes["runat"] = "server";
-                        taskDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:100px;max-width:500px;margin: 0 auto;";
+                        taskDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:100px;max-width:500px;margin: 0 auto;margin-bottom:3px";
 
+                        if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+                        {
+
+                            taskDiv.Controls.Add(new Literal() { Text = "<a style='z-index:1000;' onclick='return deleteTask(" + idNum.ToString() + ")'><i class='fa fa-minus-circle fontA' aria-hidden='true' style='font-size:30px;color:#ba0047;float:left;top:10%;'></i></a>" });
+                            taskDiv.Controls.Add(new Literal() { Text = "<a style='z-index:1000;' onclick='return editTask(" + idNum.ToString() + ")'><i class='fa fa-pencil-square-o fontA' aria-hidden='true' style='font-size:30px;color:black;float:right;bottom:10%;'></i></a>" });
+                            taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        }
+
+                        //taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
                         taskDiv.Controls.Add(taskLabel);
                         taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
                         taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
                         taskDiv.Controls.Add(dueDateLabel);
+                        taskDiv.Controls.Add(new Literal() { Text = "<a id='taskDivA' style='z-index:1000;float:right;margin-right:7px;' onclick='return taskDetails(" + idNum.ToString() + ")'><i id='chev' class='fa fa-chevron-right fontA' aria-hidden='true' style='display:inline;position:absolute;float:right;font-size:30px;color:black;'></i></a>" });
                         taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                        taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
+
+
 
                         if (HttpContext.Current.Session["UserType"].ToString() == "player")
                         {
@@ -171,14 +186,9 @@ namespace ManageU.Pages
                             taskDiv.Controls.Add(completeCheck);
                         }
 
-                        if (HttpContext.Current.Session["UserType"].ToString() == "coach")
-                        {
-                            taskDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return deleteTask(" + idNum.ToString() + ")'><i class='fa fa-minus-circle' aria-hidden='true' style='font-size:30px;color:#ba0047;float:left;top:10%;'></i></a>" });
-                            taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return editTask(" + idNum.ToString() + ")'><i class='fa fa-pencil-square-o' aria-hidden='true' style='font-size:30px;color:black;float:left;bottom:10%;'></i></a>" });
-                        }
-                        taskDiv.Controls.Add(new Literal() { Text = "<a onclick='return taskDetails(" + idNum.ToString() + ")'><i class='fa fa-chevron-right' aria-hidden='true' style='float:right;top:50%;font-size:30px;color:black;'></i></a>" });
-
+                        
+                        
+                        //taskDiv.Attributes["onclick"] = "return taskDetails(" + idNum.ToString() + ")";
                         tasksDiv.Controls.Add(taskDiv);
 
                         

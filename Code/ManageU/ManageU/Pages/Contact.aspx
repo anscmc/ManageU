@@ -13,7 +13,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-6 col-sm-offset-3" style="text-align:center">
-                            <asp:TextBox runat="server" ID="emailAddresses" TextMode="multiline" placeholder="Enter email address(es)" CssClass="form-control" style="display: block; margin: 0 auto;"/>
+                            <asp:TextBox runat="server" ID="emailAddresses" TextMode="multiline" placeholder="Enter email address(es) separated by commas" CssClass="form-control" style="display: block; margin: 0 auto;"/>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="emailAddresses" CssClass="text-danger" ErrorMessage="Field is required." />
                             <asp:TextBox runat="server" ID="messageSubject" TextMode="SingleLine" placeholder="Enter Subject" CssClass="form-control" style="display: block; margin: 0 auto;"/>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="messageSubject" CssClass="text-danger" ErrorMessage="Field is required." />
