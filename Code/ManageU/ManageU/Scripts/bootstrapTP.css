@@ -280,6 +280,17 @@ img {
     line-height:16px;
     min-width:320px;
 }
+
+.infoDiv2{
+    /*box-shadow: 0 0 10px #000;*/
+    border: 1px solid #008CBA;
+    color:#008CBA !important;
+    vertical-align: middle;
+    text-align:center;
+    font-size:18px;
+    /*line-height:16px;*/
+    min-width:320px;
+}
 /*.infoDiv:hover{
     box-shadow: 0 0 20px #000;
 }*/

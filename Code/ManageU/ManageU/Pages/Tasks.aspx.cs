@@ -154,7 +154,7 @@ namespace ManageU.Pages
                         taskDiv.Attributes["id"] = "taskContent";
                         taskDiv.Attributes["class"] = "col-sm-4 taskDiv";
                         taskDiv.Attributes["runat"] = "server";
-                        taskDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:100px;max-width:500px;margin: 0 auto;";
+                        taskDiv.Attributes["style"] = "background-color:rgba(255,255,255,1);height:100px;max-width:500px;margin: 0 auto;margin-bottom:3px";
 
                         if (HttpContext.Current.Session["UserType"].ToString() == "coach")
                         {

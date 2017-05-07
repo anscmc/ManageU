@@ -29,6 +29,11 @@ namespace ManageU.Pages
 
                     deleteTask.Attributes["style"] = "display:none";
                     editTask.Attributes["style"] = "display:none";
+                    Label5.Attributes["style"] = "display:none";
+                    complete.Attributes["style"] = "display:none";
+
+
+
                 }
                 else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
                 {
