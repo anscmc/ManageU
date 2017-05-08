@@ -136,6 +136,7 @@
             var elemTDs = document.getElementsByTagName('td');
             for (var i = 0; i < elemTDs.length; i++) {
                 var elemTD = elemTDs[i];
+                elemTD.attributes
                 elemTD.onclick = function () {
                     var hideDivs = document.getElementsByClassName("eventBasic");
                     for (var i = 0; i < hideDivs.length; i++) {
@@ -149,18 +150,18 @@
 
         }
 
-        function populateDots() {
-            var elemAs = document.getElementsByTagName("a");
-            for (var i = 0; i < elemAs.length; i++) {
-                var elemA = elemAs[i];
-                var dayLabels = document.getElementsByClassName("daysClass");
-                for (var i = 0; i < dayLabels.length; i++) {
-                    if (dayLabels[i].innerText == elemA.innerText) {
-                        console.log('match');
-                    }
-                }
-            }
-        }
+        // window.onload = function populateDots() {
+        //    var elemAs = document.getElementsByTagName("a");
+        //    for (var i = 0; i < elemAs.length; i++) {
+        //        var elemA = elemAs[i];
+        //        var dayLabels = document.getElementsByClassName("daysClass");
+        //        for (var i = 0; i < dayLabels.length; i++) {
+        //            if (dayLabels[i].innerText == elemA.innerText) {
+        //                elemA.innerText = elemA.innerText + " event";
+        //            }
+        //        }
+        //    }
+        //}
 
         function lastMonth()
         { 
@@ -178,27 +179,6 @@
         }
 
         function showLeftPanel() {
-            
-            //var divClickText = divClick.innerText;
-
-            //var hideDivs = document.getElementsByClassName("eventBasic");
-            //for (var i = 0; i < hideDivs.length; i++) {
-            //    var divID = hideDivs[i].id;
-            //    var checkID = divID.endsWith(divClickText);
-            //    alert(checkID + " this should be true or false");
-            //    hideDivs[i].style.display = "none";
-                
-            //}
-
-            //var showDivs = document.getElementsByClassName("eventBasic");
-            
-            //for (var i = 0; i < showDivs.length; i++) {
-            //    var divID = showDivs[i].id;
-            //    alert(divID + "this is supposed to be id");
-            //    //showDivs[i].style.display = "block";
-            //}
-            //var alertNum = divClick.innerText.toString();
-            //alert(alertNum);
             var hideDivs = document.getElementsByClassName("eventBasic");
             for (var i = 0; i < hideDivs.length; i++) {
 
