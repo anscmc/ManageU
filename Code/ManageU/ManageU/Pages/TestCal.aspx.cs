@@ -105,6 +105,11 @@ namespace ManageU.Pages
 
         private void loadCalendar()
         {
+            List<string> names = new List<string>();
+            List<string> types = new List<string>();
+            List<string> reoccurs = new List<string>();
+            List<string> attendances = new List<string>();
+            List<string> descriptions = new List<string>();
             string eventIdString = "";
             string eventNameString = "";
             string eventStartString = "";
@@ -167,11 +172,15 @@ namespace ManageU.Pages
                 while (objRS.Read())
                 {
                             eventNameString = objRS["eventName"].ToString();
-                            
+                    names.Add(eventNameString);
                             type = objRS["eventType"].ToString();
+                    types.Add(type);
                             reoccuring = objRS["reoccur"].ToString();
+                    reoccurs.Add(reoccuring);
                             att = objRS["attReq"].ToString();
+                    attendances.Add(att);
                             descr = objRS["eventNotes"].ToString();
+                    descriptions.Add(descr);
                 }
             }
             objCmd = null;
