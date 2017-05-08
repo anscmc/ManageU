@@ -94,7 +94,7 @@ namespace ManageU.Pages
                     }
                     loadCalendar();
                 }
-                
+
 
             }
             else
@@ -120,7 +120,7 @@ namespace ManageU.Pages
             string reoccuring = "";
             string att = "";
             string descr = "";
-            
+
 
             int idCount = 0;
             string idString = "";
@@ -162,7 +162,7 @@ namespace ManageU.Pages
             leftpanel.Controls.Add(new Literal() { Text = "<hr/>" });
 
             //get all the event info for the month first
-            strsql = "select * from EventMasterTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
+            strsql = "select mst.eventName, mst.eventType, mst.eventNotes, mst.attReq, mst.reoccur, det.masterID, det.eventStart, det.eventEnd, det.attendees, det.notattending from EventMasterTable mst left outer join EventDetailsTable det on det.masterID = mst.masterID where mst.associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(det.eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(det.eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
             objCon.Open();
             objCmd = new SqlCommand(strsql, objCon);
 
@@ -171,152 +171,107 @@ namespace ManageU.Pages
             {
                 while (objRS.Read())
                 {
-                            eventNameString = objRS["eventName"].ToString();
-                    names.Add(eventNameString);
-                            type = objRS["eventType"].ToString();
-                    types.Add(type);
-                            reoccuring = objRS["reoccur"].ToString();
-                    reoccurs.Add(reoccuring);
-                            att = objRS["attReq"].ToString();
-                    attendances.Add(att);
-                            descr = objRS["eventNotes"].ToString();
-                    descriptions.Add(descr);
+                    eventNameString = objRS["eventName"].ToString();
+                    type = objRS["eventType"].ToString();
+                    reoccuring = objRS["reoccur"].ToString();
+                    att = objRS["attReq"].ToString();
+                    descr = objRS["eventNotes"].ToString();
+
+                    idCount = idCount + 1;
+                    idString = idCount.ToString();
+
+                    attending = objRS["attendees"].ToString();
+                    notAttending = objRS["notattending"].ToString();
+                    eventStartString = objRS["eventStart"].ToString();
+                    eventIdString = objRS["masterID"].ToString();
+
+                    //eventNameString = objRS2["eventName"].ToString();
+
+                    eventEndString = objRS["eventEnd"].ToString();
+
+
+                    eventsInfo.Add(eventIdString + ";" + eventNameString + ";" + type + ";" + eventStartString + ";" + eventEndString + ";" + attending + ";" + notAttending + ";" + reoccuring + ";" + att + ";" + descr);
+
+                    HttpContext.Current.Session["TeamEventInfo"] = eventsInfo;
+
+
+                    string eventDay = eventStartString.Split('/', '/')[1];
+
+                    Label eventMasterID = new Label();
+                    eventMasterID.Text = eventIdString;
+                    eventMasterID.ID = "master" + idString;
+                    eventMasterID.Attributes["style"] = "display:none;";
+
+                    Label end = new Label();
+                    end.Text = eventEndString;
+                    end.ID = "end" + idString;
+                    end.Attributes["style"] = "display:none;";
+
+                    Label attend = new Label();
+                    attend.Text = attending;
+                    attend.ID = "attend" + idString;
+                    attend.Attributes["style"] = "display:none;";
+
+                    Label notattend = new Label();
+                    notattend.Text = notAttending;
+                    notattend.ID = "noattend" + idString;
+                    notattend.Attributes["style"] = "display:none;";
+
+                    Label eType = new Label();
+                    eType.Text = type;
+                    eType.ID = "type" + idString;
+                    eType.Attributes["style"] = "display:none;";
+
+                    Label eventStart = new Label();
+                    eventStart.Text = eventStartString;
+                    Label eventName = new Label();
+                    eventName.Text = eventNameString;
+
+                    eventName.Attributes["style"] = "margin:0 auto;padding-top:10px;";
+                    eventStart.Attributes["style"] = "margin:0 auto;";
+
+                    HtmlGenericControl eventDiv =
+                    new HtmlGenericControl("div");
+
+                    eventDiv.Attributes["id"] = "eventBasic" + idString + "x" + eventDay + "x";
+                    eventDiv.Attributes["class"] = "eventBasic";
+                    eventDiv.Attributes["onclick"] = "showInfo(" + idString + ")";
+                    eventDiv.Attributes["runat"] = "server";
+                    eventDiv.Attributes["style"] = "color:black;";
+
+                    Label eventDayLabel = new Label();
+                    eventDayLabel.Text = eventDay;
+                    eventDayLabel.Attributes["id"] = "eventDayLabel" + idString;
+                    eventDayLabel.Attributes["class"] = "daysClass";
+
+                    eventDiv.Controls.Add(eventName);
+                    eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                    eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+                    eventDiv.Controls.Add(eventStart);
+                    eventDiv.Controls.Add(eventMasterID);
+                    eventDiv.Controls.Add(eventDayLabel);
+
+                    //eventDiv.Controls.Add(new Literal() { Text = "<a id='rightChev'><i class='fa fa-chevron-right' aria-hidden='true' style='font-size:30px;color:black;'></i></a>" });
+
+                    eventDiv.Controls.Add(eventMasterID);
+                    eventDiv.Controls.Add(end);
+                    eventDiv.Controls.Add(eType);
+                    eventDiv.Controls.Add(attend);
+                    eventDiv.Controls.Add(notattend);
+
+
+                    //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
+
+                    leftpanel.Controls.Add(eventDiv);
+                    container2.Controls.Add(leftpanel);
                 }
+                
             }
             objCmd = null;
             objRS.Close();
             objCon.Close();
-            //get all dates of the event
-            strsql = "select * from EventDetailsTable where associatedID ='" + HttpContext.Current.Session["TeamID"].ToString() + "' and MONTH(eventStart) = '" + HttpContext.Current.Session["monthNum"].ToString() + "' and YEAR(eventStart) = '" + HttpContext.Current.Session["currYear"].ToString() + "'";
-                objCon2.Open();
-
-                objCmd2 = new SqlCommand(strsql, objCon2);
-
-                objRS2 = objCmd2.ExecuteReader();
-                if (objRS2.HasRows)
-                {
-                    if (cycle == 1)
-                    {
-                        cycle = cycle + 1;
-                        while (objRS2.Read())
-                        {
-                            idCount = idCount + 1;
-                            idString = idCount.ToString();
-
-                            attending = objRS2["attendees"].ToString();
-                            notAttending = objRS2["notattending"].ToString();
-                            eventStartString = objRS2["eventStart"].ToString();
-                            eventIdString = objRS2["masterID"].ToString();
-
-                            //eventNameString = objRS2["eventName"].ToString();
-
-                            eventEndString = objRS2["eventEnd"].ToString();
-
-
-                            eventsInfo.Add(eventIdString + ";" + eventNameString + ";" + type + ";" + eventStartString + ";" + eventEndString + ";" + attending + ";" + notAttending + ";" + reoccuring + ";" + att + ";" + descr);
-
-                            HttpContext.Current.Session["TeamEventInfo"] = eventsInfo;
-
-
-                            string eventDay = eventStartString.Split('/', '/')[1];
-
-                            Label eventMasterID = new Label();
-                            eventMasterID.Text = eventIdString;
-                            eventMasterID.ID = "master" + idString;
-                            eventMasterID.Attributes["style"] = "display:none;";
-
-                            Label end = new Label();
-                            end.Text = eventEndString;
-                            end.ID = "end" + idString;
-                            end.Attributes["style"] = "display:none;";
-
-                            Label attend = new Label();
-                            attend.Text = attending;
-                            attend.ID = "attend" + idString;
-                            attend.Attributes["style"] = "display:none;";
-
-                            Label notattend = new Label();
-                            notattend.Text = notAttending;
-                            notattend.ID = "noattend" + idString;
-                            notattend.Attributes["style"] = "display:none;";
-
-                            Label eType = new Label();
-                            eType.Text = type;
-                            eType.ID = "type" + idString;
-                            eType.Attributes["style"] = "display:none;";
-
-                            Label eventStart = new Label();
-                            eventStart.Text = eventStartString;
-                            Label eventName = new Label();
-                            eventName.Text = eventNameString;
-
-                            eventName.Attributes["style"] = "margin:0 auto;padding-top:10px;";
-                            eventStart.Attributes["style"] = "margin:0 auto;";
-
-                            HtmlGenericControl eventDiv =
-                            new HtmlGenericControl("div");
-                                
-                            eventDiv.Attributes["id"] = "eventBasic" + idString + "x" + eventDay + "x";
-                            eventDiv.Attributes["class"] = "eventBasic";
-                            eventDiv.Attributes["onclick"] = "showInfo(" + idString +")";
-                            eventDiv.Attributes["runat"] = "server";
-                            eventDiv.Attributes["style"] = "color:black;";
-
-                            Label eventDayLabel = new Label();
-                            eventDayLabel.Text = eventDay;
-                            eventDayLabel.Attributes["id"] = "eventDayLabel" + idString;
-                            eventDayLabel.Attributes["class"] = "daysClass";
-
-                            eventDiv.Controls.Add(eventName);
-                            eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
-                            eventDiv.Controls.Add(eventStart);
-                            eventDiv.Controls.Add(eventMasterID);
-                            eventDiv.Controls.Add(eventDayLabel);
-
-                            //eventDiv.Controls.Add(new Literal() { Text = "<a id='rightChev'><i class='fa fa-chevron-right' aria-hidden='true' style='font-size:30px;color:black;'></i></a>" });
-
-                            eventDiv.Controls.Add(eventMasterID);
-                            eventDiv.Controls.Add(end);
-                            eventDiv.Controls.Add(eType);
-                            eventDiv.Controls.Add(attend);
-                            eventDiv.Controls.Add(notattend);
-
-
-                            //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
-
-                            leftpanel.Controls.Add(eventDiv);
-                            container2.Controls.Add(leftpanel);
-                        }
-                    }
-                    
-
-                objCmd2 = null;
-                objRS2.Close();
-                objCon2.Close();
-                
-            }
-
-            
-
-
-
-            //Label eventStart = new Label();
-            //eventStart.Text = "01/01/2018 12:00:00 AM";
-
-            //HtmlGenericControl eventDiv =
-            //new HtmlGenericControl("div");
-
-            //eventDiv.Attributes["id"] = "eventDiv";
-            //eventDiv.Attributes["class"] = "col-sm-4 infoDiv";
-            //eventDiv.Attributes["runat"] = "server";
-            //eventDiv.Attributes["style"] = "width:100%;height:100px;background-color:white;color:white;border: 2px solid #ba9800;margin-top:10px;";
-            //eventDiv.Attributes["onclick"] = "showRightPanel()";
-
-            //eventDiv.Controls.Add(eventStart);
-            //eventDiv.Controls.Add(new Literal() { Text = "<br/>" });
-            //leftpanel.Controls.Add(eventDiv);
         }
+           
 
         protected void createEvent(object sender, EventArgs e)
         {
