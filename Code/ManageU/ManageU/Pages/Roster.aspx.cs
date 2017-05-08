@@ -28,8 +28,7 @@ namespace ManageU.Pages
 
                 hide2.Style.Add("display", "none");
 
-                emailButton.Attributes["style"] = "display:none";
-                selectAllBox.Attributes["style"] = "display:none";
+                
             }
             else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
             {
@@ -260,10 +259,9 @@ namespace ManageU.Pages
                     /*boxDiv.Controls.Add(emailBox);*/
                             playerInfo.Controls.Add(infoDiv);
                     //infoDiv.Controls.Add(boxDiv);
-                    if (HttpContext.Current.Session["UserType"].ToString() == "coach")
-                    {
+                    
                         infoDiv.Controls.Add(emailCheck);
-                    }
+                    
                             //boxDiv2.Controls.Add(calButton);
                             //boxDiv.Controls.Add(checkX);
                             //playerInfo.Controls.Add(boxDiv);

@@ -14,7 +14,22 @@ namespace ManageU.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
 
+            //if (HttpContext.Current.Session["UserType"].ToString() == "player")
+            //{
+ 
+            //}
+            //else if (HttpContext.Current.Session["UserType"].ToString() == "coach")
+            //{
+                
+            //}
+            //else
+            //{
+            //    System.Web.UI.HtmlControls.HtmlGenericControl hide3 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("landfoot");
+
+            //    hide3.Style.Add("display", "none");
+            //}
         }
 
         //STILL HAVE TO:
