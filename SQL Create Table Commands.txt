@@ -20,7 +20,7 @@ CREATE TABLE CoachTable(
 	coachEmail varchar(50),
 	coachFName varchar(50),
 	coachLName varchar(50),
-	coachNumber int
+	coachNumber varchar(50)
 )
 
 
