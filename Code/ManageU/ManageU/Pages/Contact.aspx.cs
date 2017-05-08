@@ -29,7 +29,9 @@ namespace ManageU.Pages
                     //editButton.Style.Add("display", "block");
                     System.Web.UI.HtmlControls.HtmlGenericControl hide = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("mySched");
                     hide.Style.Add("display", "none");
+                    System.Web.UI.HtmlControls.HtmlGenericControl hide3 = (System.Web.UI.HtmlControls.HtmlGenericControl)Master.FindControl("att");
 
+                    hide3.Style.Add("display", "none");
                 }
                 else
                 {

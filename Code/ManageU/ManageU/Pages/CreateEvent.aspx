@@ -231,15 +231,16 @@
                             <br />
                             <label id="Label2" style="display:none;">Until</label>
 
-                            <input type="date" name="repeatUntilDate" id="repeatUntilDate" runat="server" CssClass="form-control" style="display: none; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
+                            <input type="date" name="repeatUntilDate" id="repeatUntilDate" runat="server" CssClass="form-control" style="display: none; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;color:black !important;">
+                               
+
+                            <br />
+                            <label id="Label7" runat="server">Description</label>
+                            <br />
+                                <asp:TextBox runat="server" ID="eventDes" TextMode="multiline" placeholder="Enter Description" CssClass="form-control" style="display: block; margin: 0 auto;"/>
                             <br />
                             <label for="male" style="display:inline;text-align:center;">Attendance Required</label>
-                            <input type="checkbox" name="chk_group[]" id="required" style="display: inline;" runat="server" />         
-                             <br />
-                            <br />
-                            
-                                <asp:TextBox runat="server" ID="eventDes" TextMode="multiline" placeholder="Enter Description" CssClass="form-control" style="display: block; margin: 0 auto;"/>
-                            
+                            <input type="checkbox" name="chk_group[]" id="required" style="display: inline;" runat="server" />      
                         </div>
                     </div>
 

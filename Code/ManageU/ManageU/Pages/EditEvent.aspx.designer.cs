@@ -202,13 +202,13 @@ namespace ManageU.Pages {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl repeatUntilDate;
         
         /// <summary>
-        /// required control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox required;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label7;
         
         /// <summary>
         /// eventDes control.
@@ -218,6 +218,15 @@ namespace ManageU.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox eventDes;
+        
+        /// <summary>
+        /// required control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox required;
         
         /// <summary>
         /// editEventButton control.

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Edit Event" Language="C#" MasterPageFile="~/Masters/TeamProfile.Master" AutoEventWireup="true" CodeBehind="EditEvent.aspx.cs" Inherits="ManageU.Pages.EditEvent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <link rel="stylesheet" href="/Scripts/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/Scripts/bootstrapTP.css" type="text/css" />
 
     <div style="margin: 0 auto; text-align: center;">
     <h2><%: Title %></h2>
@@ -212,15 +212,15 @@
                             </select>
                             <br />
                             <label id="Label2" style="display:none;">Until</label>
-                            <br />
                             <input type="date" name="repeatUntilDate" id="repeatUntilDate" runat="server" CssClass="form-control" style="display: none; margin: 0 auto;text-align: center; width:250px;height:39px;border-radius:5px;">
+                                   
+                             <br />
+                            <label id="Label7" runat="server">Description</label>
+                            <br />
+                                <asp:TextBox runat="server" ID="eventDes" TextMode="multiline" placeholder="Enter Description" CssClass="form-control" style="display: block; margin: 0 auto;"/>
                             <br />
                             <label for="male" style="display:inline;text-align:center;">Attendance Required</label>
-                            <input type="checkbox" name="chk_group[]" id="required" style="display: inline;" runat="server" />         
-                             <br />
-                            
-                                <asp:TextBox runat="server" ID="eventDes" TextMode="multiline" placeholder="Enter Description" CssClass="form-control" style="display: block; margin: 0 auto;"/>
-                            
+                            <input type="checkbox" name="chk_group[]" id="required" style="display: inline;" runat="server" />  
                         </div>
                     </div>
 
@@ -236,7 +236,7 @@
             </section>
         </div>
     </div>
-
+        </div>
 
     <%--</div>--%>
 
